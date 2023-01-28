@@ -1,14 +1,10 @@
-summary: Command-line interface for SQLite
-web-url: https://sqlite.org
+summary: command-line interface for SQLite
 git-url: https://github.com/sqlite/sqlite
-src-url: https://sqlite.org/2022/sqlite-autoconf-3380000.tar.gz
-src-sha: 1c76e25dc63d9f3935e0f406aec520a33ee77cf54ea5147dffe1fae8369eff68
-version: 3.38.0
-license: blessing
-bsystem: configure
-
-prepare: |
-    inject_stub_system shell.c
+web-url: https://sqlite.org/
+src-url: https://sqlite.org/2022/sqlite-autoconf-3390400.tar.gz
+src-sha: f31d445b48e67e284cf206717cc170ab63cbe4fd7f79a82793b772285e78fdbb
+version: 3.39.4
+dep-pkg: readline zlib
 
 install: |
     configure \
@@ -17,3 +13,5 @@ install: |
         --disable-editline \
         --disable-readline \
         --disable-load-extension
+
+prepare: inject_stub_system shell.c

@@ -6,16 +6,17 @@ license: MIT
 dep-upp: sed grep
 bsystem: configure
 
-need_native_build() {
-    # https://github.com/termux/termux-packages/issues/4487
-    if command -v tic > /dev/null ; then
-        run tic -V
-        [ '6.2.20200212' != "$(list 6.2.20200212 $(tic -V | cut -d' ' -f2) | sort -V | head -n 1)" ]
-    else
-        warn 'tic command not found. we need build it now.'
-    fi
-
 build0: |
+    need_native_build() {
+        # https://github.com/termux/termux-packages/issues/4487
+        if command -v tic > /dev/null ; then
+            run tic -V
+            [ '6.2.20200212' != "$(list 6.2.20200212 $(tic -V | cut -d' ' -f2) | sort -V | head -n 1)" ]
+        else
+            warn 'tic command not found. we need build it now.'
+        fi
+    }
+
     need_native_build || return 0
 
     # /usr/bin/cc -DHAVE_CONFIG_H -I../ncurses -I. -I/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/tmp.8sFnLL5q/ncurses -I../include -I/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/tmp.8sFnLL5q/ncurses/../include -D_DARWIN_C_SOURCE -DNDEBUG -Qunused-arguments -no-cpp-precomp -c /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/tmp.8sFnLL5q/ncurses/base/lib_getch.c -o ../objects/lib_getch.o
