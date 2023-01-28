@@ -24,11 +24,11 @@ prepare: |
 
 
 install: |
-    makew -f unix/Makefile clean &&
-    makew -f unix/Makefile generic \
+    gmakew -f unix/Makefile clean &&
+    gmakew -f unix/Makefile generic \
         CC="'$CC $CFLAGS $CPPFLAGS $LDFLAGS -include string.h'" \
         AS="$AS" \
         STRIP="$STRIP" &&
-    makew -f unix/Makefile install \
-        prefix="$TARGET_INSTALL_DIR" \
-        MANDIR="$TARGET_INSTALL_DIR/share/man/man1"
+    gmakew -f unix/Makefile install \
+        prefix="$PACKAGE_INSTALL_DIR" \
+        MANDIR="$PACKAGE_INSTALL_DIR/share/man/man1"

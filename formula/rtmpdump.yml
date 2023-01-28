@@ -20,6 +20,6 @@ prepare: |
     patch -p0 < $PACKAGE_FIX_PATH
 
 install: |
-    makew clean   SYS=posix &&
-    makew         SYS=posix CC=$CC LD=$LD CRYPTO=OPENSSL OPT= THREADLIB_posix= XCFLAGS="'$CFLAGS $CPPFLAGS'" XLDFLAGS="'$LDFLAGS'" &&
-    makew install SYS=posix prefix="$TARGET_INSTALL_DIR" mandir="$TARGET_INSTALL_DIR/share/man"
+    gmakew clean   SYS=posix &&
+    gmakew         SYS=posix CC=$CC LD=$LD CRYPTO=OPENSSL OPT= THREADLIB_posix= XCFLAGS="'$CFLAGS $CPPFLAGS'" XLDFLAGS="'$LDFLAGS'" &&
+    gmakew install SYS=posix prefix="$PACKAGE_INSTALL_DIR" mandir="$PACKAGE_INSTALL_DIR/share/man"

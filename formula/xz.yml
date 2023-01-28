@@ -1,12 +1,20 @@
 summary: General-purpose data compression with high compression ratio
 web-url: https://tukaani.org/xz
 git-url: https://github.com/xz-mirror/xz
-src-url: https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.gz
-src-sha: f6f4910fd033078738bd82bfba4f49219d03b17eb0794eb91efbae419f4aba10
+src-url: https://github.com/xz-mirror/xz/releases/download/v5.4.0/xz-5.4.0.tar.xz
+src-sha: 5f260e3b43f75cf43ca43d107dd18209f7d516782956a74ddd53288e02a83a31
+license: LGPL-2.1-or-later
 
 install: |
     configure \
         --disable-external-sha256 \
         --disable-werror \
         --enable-assembler \
-        --enable-threads=posix
+        --enable-threads=posix && {
+        for item in xzmore xzdiff xzdiff xzless xzgrep
+        do
+            sed_in_place '1c #!/usr/bin/env bash' "$PACKAGE_INSTALL_DIR/bin/$item" || return 1
+        done
+    } &&
+    rm -rf "$PACKAGE_INSTALL_DIR/include" &&
+    rm -rf "$PACKAGE_INSTALL_DIR/lib"

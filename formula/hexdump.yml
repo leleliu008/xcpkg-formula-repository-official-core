@@ -9,8 +9,8 @@ binbstd: yes
 prepare: sed_in_place '/VENDOR_OS =/d' GNUmakefile
 
 install: |
-    makew distclean &&
-    makew VENDOR_OS=Darwin VENDOR_CC="$CC" CC="$CC" CPPFLAGS="'$CPPFLAGS'" CFLAGS="'$CFLAGS'" SOFLAGS="'$LDFLAGS'" &&
+    gmakew distclean &&
+    gmakew VENDOR_OS=Darwin VENDOR_CC="$CC" CC="$CC" CPPFLAGS="'$CPPFLAGS'" CFLAGS="'$CFLAGS'" SOFLAGS="'$LDFLAGS'" &&
     install_bins hexdump &&
     install_incs hexdump.h &&
     install_libs libhexdump.dylib

@@ -6,5 +6,5 @@ license: BSD-2-Clause
 bsystem: gmake
 
 install: |
-    makew -C "$SOURCE_DIR" clean   UNAME=Darwin &&
-    makew -C "$SOURCE_DIR" install UNAME=Darwin PREFIX="$TARGET_INSTALL_DIR" CC="$CC" CFLAGS="'$CFLAGS'" CPPFLAGS="'$CPPFLAGS'" LDFLAGS="'$LDFLAGS -shared'" AR="$AR"
+    gmakew -C "$SOURCE_DIR" clean   UNAME=Darwin &&
+    gmakew -C "$SOURCE_DIR" install UNAME=Darwin PREFIX="$PACKAGE_INSTALL_DIR" CC="$CC" CFLAGS="'$CFLAGS'" CPPFLAGS="'$CPPFLAGS'" LDFLAGS="'$LDFLAGS -shared'" AR="$AR"

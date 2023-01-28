@@ -1,22 +1,19 @@
 summary: Cryptography and SSL/TLS Toolkit
+web-url: https://www.openssl.org/
+src-url: https://www.openssl.org/source/openssl-3.0.5.tar.gz
+src-sha: aa7d8d9bef71ad6525c55ba11e5f4397889ce49c2c9349dcea6d3e4f0b024a7a
 git-url: https://github.com/openssl/openssl
-web-url: https://www.openssl.org
-src-url: https://www.openssl.org/source/openssl-1.1.1g.tar.gz
-src-sha: ddb04774f1e32f0c49751e21b67216ac87852ceb056b75209af2443400636d46
-license: OpenSSL
-dep-upp: perl
+license: Apache-2.0
+dep-pkg: perl
+
 bsystem: gmake
 binbstd: yes
-
-#注意：1.0.2以上的openssl不支持openssl-fips，从openssl3.0开始支持新设计的openssl-fips
-#https://github.com/openssl/openssl/issues/7582
-
 install: |
-    case $TARGET_OS_NAME in
+    case $TARGET_PLATFORM_NAME in
         *Simulator)
             os_compiler='iossimulator-xcrun'
             ;;
-        *)  case $TARGET_OS_ARCH in
+        *)  case $TARGET_PLATFORM_ARCH in
                 armv*)
                     os_compiler='ios-cross'
                     ;;
@@ -25,16 +22,29 @@ install: |
                     ;;
             esac
     esac
-    
+ 
+    if [ "$LINK_TYPE" = static-only ] || [ "$LINK_TYPE" = static-prefered ] ; then
+        export LDCMD=./build-openssl-cmd.sh
+
+        cat > "$LDCMD" <<EOF
+        #!/bin/sh
+        $CC \$(printf '%s\n' "\$*" | sed -e 's|-lssl|./libssl.a|g' -e 's|-lcrypto|./libcrypto.a|g')
+    EOF
+
+        chmod +x "$LDCMD"
+    fi
+
     run ./Configure \
+        no-engine \
+        no-tests \
         no-ssl2 \
         no-ssl3 \
         no-comp \
-        no-hw \
-        no-engine \
         no-asm \
-        --prefix="$TARGET_INSTALL_DIR" \
+        no-hw \
+        --prefix="$PACKAGE_INSTALL_DIR" \
+        --libdir=$PACKAGE_INSTALL_DIR/lib &&
         "$os_compiler" &&
-    makew clean &&
-    makew CROSS_COMPILE= &&
-    makew CROSS_COMPILE= install
+    gmakew clean &&
+    gmakew CROSS_COMPILE= &&
+    gmakew CROSS_COMPILE= install

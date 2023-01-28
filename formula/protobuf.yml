@@ -8,7 +8,7 @@ bsystem: cmake
 bscript: cmake
 
 build0: |
-    # used by other package. makew sure protoc and libprotoc same version
+    # used by other package. gmakew sure protoc and libprotoc same version
     cmakew \
         -Dprotobuf_BUILD_TESTS=OFF \
         -Dprotobuf_BUILD_EXAMPLES=OFF

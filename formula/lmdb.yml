@@ -9,6 +9,6 @@ bsystem: gmake
 binbstd: yes
 
 install: |
-    makew clean &&
-    makew CC="$CC" XCFLAGS="'$CFLAGS $CPPFLAGS'" LDFLAGS="'$LDFLAGS'" AR="$AR" &&
-    makew install prefix="$TARGET_INSTALL_DIR"
+    gmakew clean &&
+    gmakew CC="$CC" XCFLAGS="'$CFLAGS $CPPFLAGS'" LDFLAGS="'$LDFLAGS'" AR="$AR" &&
+    gmakew install prefix="$PACKAGE_INSTALL_DIR"

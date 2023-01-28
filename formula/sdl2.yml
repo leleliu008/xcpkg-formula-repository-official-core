@@ -1,13 +1,13 @@
 summary: Low-level access to audio, keyboard, mouse, joystick and graphics
-web-url: https://www.libsdl.org
 git-url: https://github.com/libsdl-org/SDL
-src-url: https://libsdl.org/release/SDL2-2.0.12.tar.gz
-src-sha: 349268f695c02efbc9b9148a70b85e58cefbbf704abd3e91be654db7f1e2c863
+web-url: https://www.libsdl.org/
+src-url: https://www.libsdl.org/release/SDL2-2.24.2.tar.gz
+src-sha: b35ef0a802b09d90ed3add0dcac0e95820804202914f5bb7b0feb710f1a1329f
 license: Zlib
 bsystem: cmake
 
 install: |
-    case $TARGET_OS_ARCH in
+    case $TARGET_PLATFORM_ARCH in
         arm*)
             _3DNOW=OFF
             ARMNEON=ON

@@ -9,7 +9,7 @@ copy_lock_obj_pub() {
     cp $SOURCE_DIR/src/syscfg/lock-obj-pub.$1-apple-darwin.h $SOURCE_DIR/src/syscfg/lock-obj-pub.darwin.h
 
 copy_lock_obj_pub_() {
-    case $TARGET_OS_ARCH in
+    case $TARGET_PLATFORM_ARCH in
         armv7*) copy_lock_obj_pub arm     ;;
         arm64*) copy_lock_obj_pub aarch64 ;;
         i386)   copy_lock_obj_pub i386    ;;

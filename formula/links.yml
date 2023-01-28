@@ -13,7 +13,7 @@ install: |
     # configure [options] [host]
     run ./configure \
         --host="$TARGET_TRIPLE" \
-        --prefix="$TARGET_INSTALL_DIR" \
+        --prefix="$PACKAGE_INSTALL_DIR" \
         --enable-ipv6 \
         --enable-utf8 \
         --disable-graphics \
@@ -24,7 +24,7 @@ install: |
         --with-libtiff \
         --with-libjpeg \
         --with-ssl="$openssl_INSTALL_DIR" &&
-    makew clean &&
-    makew &&
-    makew install &&
-    makew distclean
+    gmakew clean &&
+    gmakew &&
+    gmakew install &&
+    gmakew distclean

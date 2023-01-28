@@ -7,4 +7,4 @@ bsystem: gmake
 parallel: no
 
 install: |
-    makew -C "$SOURCE_DIR" clean install PREFIX="$TARGET_INSTALL_DIR" CC="$CC" CPPFLAGS="'$CPPFLAGS'" CFLAGS="'$CFLAGS'" AR="$AR" V=1
+    gmakew -C "$SOURCE_DIR" clean install PREFIX="$PACKAGE_INSTALL_DIR" CC="$CC" CPPFLAGS="'$CPPFLAGS'" CFLAGS="'$CFLAGS'" AR="$AR" V=1

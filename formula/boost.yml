@@ -18,7 +18,7 @@ build0: |
     run ./bootstrap.sh
 
 install: |
-    case $TARGET_OS_ARCH in
+    case $TARGET_PLATFORM_ARCH in
         armv7*)
             address_model=32
             architecture=arm
@@ -47,10 +47,10 @@ install: |
         -j$NATIVE_OS_NCPU \
         --reconfigure \
         --without-python \
-        --prefix="$TARGET_INSTALL_DIR" \
+        --prefix="$PACKAGE_INSTALL_DIR" \
         -sICU_PATH="$icu4c_INSTALL_DIR" \
         -sICONV_PATH="$libiconv_INSTALL_DIR" \
-        toolset=clang-$TARGET_OS_ARCH \
+        toolset=clang-$TARGET_PLATFORM_ARCH \
         link=static,shared \
         variant=release \
         threading=multi \
@@ -62,5 +62,5 @@ install: |
 
 gen_project_config() {
     cat > project-config.jam <<EOF
-using clang : $TARGET_OS_ARCH : $CXX : <compileflags>"$CXXFLAGS $CPPFLAGS" <linkflags>"$LDFLAGS -shared" <archiver>$AR <ranlib>$RANLIB ;
+using clang : $TARGET_PLATFORM_ARCH : $CXX : <compileflags>"$CXXFLAGS $CPPFLAGS" <linkflags>"$LDFLAGS -shared" <archiver>$AR <ranlib>$RANLIB ;
 EOF

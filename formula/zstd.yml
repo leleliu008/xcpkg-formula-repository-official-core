@@ -3,10 +3,9 @@ web-url: https://facebook.github.io/zstd
 git-url: https://github.com/facebook/zstd
 src-url: https://github.com/facebook/zstd/archive/v1.5.2.tar.gz
 src-sha: f7de13462f7a82c29ab865820149e778cbfe01087b3a55b5332707abf9db4a6e
-bsystem: cmake
+license: BSD-3-Clause
 dep-pkg: xz zlib
 bscript: build/cmake
-
 install: |
     cmakew \
         -DZSTD_MULTITHREAD_SUPPORT=ON \
@@ -17,8 +16,4 @@ install: |
         -DZSTD_BUILD_SHARED=ON \
         -DZSTD_ZLIB_SUPPORT=ON \
         -DZSTD_LZMA_SUPPORT=ON \
-        -DZSTD_LZ4_SUPPORT=OFF \
-        -DZLIB_INCLUDE_DIR="$zlib_INCLUDE_DIR" \
-        -DZLIB_LIBRARY="$zlib_LIBRARY_DIR/libz.a" \
-        -DLIBLZMA_INCLUDE_DIR="$xz_INCLUDE_DIR" \
-        -DLIBLZMA_LIBRARY="$xz_LIBRARY_DIR/liblzma.a"
+        -DZSTD_LZ4_SUPPORT=OFF

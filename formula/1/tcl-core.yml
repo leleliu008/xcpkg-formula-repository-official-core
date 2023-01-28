@@ -13,7 +13,7 @@ prepare: |
 install: |
     unset EXTRA_CONFIGURE_FLAGS
     
-    case $TARGET_OS_ARCH in
+    case $TARGET_PLATFORM_ARCH in
         *64*)
             EXTRA_CONFIGURE_FLAGS="$EXTRA_CONFIGURE_FLAGS --enable-64bit";;
         *)  EXTRA_CONFIGURE_FLAGS="$EXTRA_CONFIGURE_FLAGS --disable-64bit"

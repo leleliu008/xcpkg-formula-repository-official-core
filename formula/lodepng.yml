@@ -7,13 +7,13 @@ prepare: |
     override_makefile
 
 install: |
-    makew -C "$SOURCE_DIR" clean &&
-    makew -C "$SOURCE_DIR" install \
+    gmakew -C "$SOURCE_DIR" clean &&
+    gmakew -C "$SOURCE_DIR" install \
         CXX="$CXX" \
         CXXFLAGS="'$CXXFLAGS'" \
         CPPFLAGS="'$CPPFLAGS'" \
         AR="$AR" \
-        PREFIX="$TARGET_INSTALL_DIR"
+        PREFIX="$PACKAGE_INSTALL_DIR"
 
 override_makefile() {
     cat > Makefile <<EOF

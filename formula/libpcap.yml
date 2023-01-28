@@ -8,7 +8,7 @@ bsystem: cmake
 
 install: |
     cmakew \
-        -DCMAKE_OSX_ARCHITECTURES="$TARGET_OS_ARCH" \
+        -DCMAKE_OSX_ARCHITECTURES="$TARGET_PLATFORM_ARCH" \
         -DINET6=ON \
         -DENABLE_REMOTE=ON \
         -DBDEBUG=OFF \

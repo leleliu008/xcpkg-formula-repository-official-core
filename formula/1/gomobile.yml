@@ -3,7 +3,7 @@ git-url: https://github.com/golang/mobile
 bsystem: go
 
 install: |
-    export SDK=$(printf '%s\n' "$TARGET_OS_NAME" | tr A-Z a-z)
+    export SDK=$(printf '%s\n' "$TARGET_PLATFORM_NAME" | tr A-Z a-z)
     echo SDK=$SDK
     for item in gobind gomobile
     do

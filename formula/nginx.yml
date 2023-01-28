@@ -36,26 +36,26 @@ binbstd: yes
 install: |
     export NGX_SYSTEM=Darwin
     export NGX_RELEASE=unkown
-    export NGX_MACHINE=$TARGET_OS_ARCH
+    export NGX_MACHINE=$TARGET_PLATFORM_ARCH
 
-    case $TARGET_OS_ARCH in
+    case $TARGET_PLATFORM_ARCH in
         armv*|x86)
             sed_in_place 's/ngx_size=`$NGX_AUTOTEST`/ngx_size=4/' auto/types/sizeof ;;
         arm64*|x86_64)
             sed_in_place 's/ngx_size=`$NGX_AUTOTEST`/ngx_size=8/' auto/types/sizeof ;;
     esac
     
-    [ -f Makefile ] && makew clean
+    [ -f Makefile ] && gmakew clean
     
     run ./configure \
-        --prefix="$TARGET_INSTALL_DIR" \
-        --crossbuild=Darwin:unkown:$TARGET_OS_ARCH \
+        --prefix="$PACKAGE_INSTALL_DIR" \
+        --crossbuild=Darwin:unkown:$TARGET_PLATFORM_ARCH \
         --with-cc="$CC" \
         --with-cc-opt="'$CFLAGS $CPPFLAGS'" \
         --with-ld-opt="'$LDFLAGS -lcrypto'" \
         --with-pcre &&
     write_NGX_SYS_NERR &&
-    makew install
+    gmakew install
 
 write_NGX_SYS_NERR() {
     cat >> objs/ngx_auto_config.h <<EOF

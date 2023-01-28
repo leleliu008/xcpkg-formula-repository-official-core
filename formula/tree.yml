@@ -5,9 +5,9 @@ src-sha: 782cd73179f65cfca7f29326f1511306e49e9b11d5b861daa57e13fd7262889f
 license: GPL-2.0-or-later
 
 install: |
-    makew -C "$SOURCE_DIR" clean &&
-    makew -C "$SOURCE_DIR" install \
-        prefix="$TARGET_INSTALL_DIR" \
+    gmakew -C "$SOURCE_DIR" clean &&
+    gmakew -C "$SOURCE_DIR" install \
+        prefix="$PACKAGE_INSTALL_DIR" \
         CC="$CC" \
         CFLAGS="'$CFLAGS $CPPFLAGS -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64'" \
         LDFLAGS="'$LDFLAGS'"

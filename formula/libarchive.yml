@@ -1,11 +1,10 @@
 summary: Multi-format archive and compression library
-web-url: https://www.libarchive.org
 git-url: https://github.com/libarchive/libarchive
-src-url: https://www.libarchive.org/downloads/libarchive-3.6.0.tar.xz
-src-sha: df283917799cb88659a5b33c0a598f04352d61936abcd8a48fe7b64e74950de7
+web-url: https://www.libarchive.org/
+src-url: https://www.libarchive.org/downloads/libarchive-3.6.2.tar.xz
+src-sha: 9e2c1b80d5fbe59b61308fdfab6c79b5021d7ff4ff2489fb12daf0a96a83551d
+dep-pkg: libiconv expat openssl bzip2 lz4 lzo zstd
 license: BSD-2-Clause
-dep-pkg: libiconv expat openssl xz bzip2 lz4 lzo zstd
-bsystem: configure
 
 install: |
     configure \
@@ -15,10 +14,9 @@ install: |
         --enable-bsdcat=static \
         --enable-bsdcpio=static \
         --without-xml2 \
-        --with-expat \
-        --with-openssl \
         --without-mbedtls \
         --without-nettle \
+        --without-libb2 \
         --without-cng \
         --with-zlib \
         --with-lzma \
@@ -26,5 +24,8 @@ install: |
         --with-lz4 \
         --with-lzo2 \
         --with-zstd \
-        --without-libb2 \
-        --with-iconv
+        --with-iconv \
+        --with-expat \
+        --with-openssl &&
+    sed_in_place '/Libs: /s|$| -liconv|' "$PACKAGE_INSTALL_DIR/lib/pkgconfig/libarchive.pc" &&
+    sed_in_place '/Requires.private:/d'  "$PACKAGE_INSTALL_DIR/lib/pkgconfig/libarchive.pc"

@@ -13,7 +13,7 @@ prepare: |
 
 install: |
     run ./configure \
-        --prefix="$TARGET_INSTALL_DIR" \
+        --prefix="$PACKAGE_INSTALL_DIR" \
         --sysroot="$SYSROOT" \
         --ar="$AR" \
         --as="$AS" \
@@ -22,7 +22,7 @@ install: |
         --nm="$NM" \
         --ranlib="$RANLIB" \
         --strip="$STRIP" \
-        --arch="$TARGET_OS_ARCH" \
+        --arch="$TARGET_PLATFORM_ARCH" \
         --target-os=darwin \
         --enable-cross-compile \
         --enable-pic \
@@ -32,6 +32,6 @@ install: |
         --disable-asm \
         --disable-doc \
         --disable-programs &&
-    makew clean &&
-    makew install &&
+    gmakew clean &&
+    gmakew install &&
     run cp ffbuild/config.log .
