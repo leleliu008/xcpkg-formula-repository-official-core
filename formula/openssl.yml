@@ -43,7 +43,7 @@ install: |
         no-asm \
         no-hw \
         --prefix="$PACKAGE_INSTALL_DIR" \
-        --libdir=$PACKAGE_INSTALL_DIR/lib &&
+        --libdir=$PACKAGE_INSTALL_DIR/lib \
         "$os_compiler" &&
     gmakew clean &&
     gmakew CROSS_COMPILE= &&
