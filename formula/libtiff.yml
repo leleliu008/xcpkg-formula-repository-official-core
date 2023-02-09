@@ -1,22 +1,24 @@
 summary: TIFF library and utilities
 web-url: https://libtiff.gitlab.io/libtiff
 git-url: https://gitlab.com/libtiff/libtiff
-src-url: https://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz
-src-sha: 5d29f32517dadb6dbcd1255ea5bbc93a2b54b94fbf83653b4d65c7d6775b8634
+src-url: https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz
+src-sha: 917223b37538959aca3b790d2d73aa6e626b688e02dcda272aec24c2f498abed
 dep-pkg: zstd
-bsystem: cmake
 
 install: |
-    cmakew \
+    for BUILD_SHARED_LIBS in ON OFF
+    do
+        cmakew \
         -Dzlib=ON \
         -Dzstd=ON \
         -Dlzma=ON \
         -Dlzw=ON \
         -Dwebp=OFF \
         -Djpeg=OFF \
-        -DZLIB_INCLUDE_DIR="$zlib_INCLUDE_DIR" \
-        -DZLIB_LIBRARY_RELEASE="$zlib_LIBRARY_DIR/libz.a" \
-        -DZSTD_INCLUDE_DIR="$zstd_INCLUDE_DIR" \
-        -DZSTD_LIBRARY="$zstd_LIBRARY_DIR/libzstd.a" \
-        -DLIBLZMA_INCLUDE_DIR="$xz_INCLUDE_DIR" \
-        -DLIBLZMA_LIBRARY_RELEASE="$xz_LIBRARY_DIR/liblzma.a"
+        -Djbig=OFF \
+        -Dlerc=OFF \
+        -Dtiff-docs=OFF \
+        -Dtiff-tools=ON \
+        -Dtiff-tests=OFF \
+        -DBUILD_SHARED_LIBS="$BUILD_SHARED_LIBS"
+    done
