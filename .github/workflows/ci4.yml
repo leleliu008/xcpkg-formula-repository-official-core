@@ -1,0 +1,39 @@
+name: ci4 
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-12, macos-11]
+        pkg: [libdeflate,libexif,libgit2,libidn,libisoburn,liblqr,libmaxminddb,libmetalink,libmill,libmpc,libpcap,libpipeline,libpsl,libraqm,libsamplerate,libsass,libsmi,libspng,libtool,libunibreak,libupnp,libvmaf,libxslt,libyuv,libzmq]
+
+    runs-on: ${{ matrix.os }}
+
+    env:
+      HOMEBREW_NO_INSTALL_CLEANUP: set
+
+    steps:
+    - name: install xcpkg
+      run: |
+        curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/bin/xcpkg
+        cat xcpkg
+        chmod u+x xcpkg
+        mv xcpkg $(brew --prefix)/bin
+
+    - run:  xcpkg env
+
+    - run:  xcpkg --version
+
+    - uses: actions/checkout@v3
+
+    - run: xcpkg formula-repo-new offical-core https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+    - run: cp formula/*.yml ~/.xcpkg/repos.d/offical-core/formula
+
+    - run: xcpkg install ${{ matrix.pkg }}

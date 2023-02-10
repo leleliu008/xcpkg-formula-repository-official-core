@@ -13,6 +13,4 @@ install: |
         -DPNG_SHARED=ON \
         -DPNG_TESTS=OFF \
         -DPNG_DEBUG=OFF \
-        -DPNG_ARM_NEON=off \
-        -DZLIB_INCLUDE_DIR="$zlib_INCLUDE_DIR" \
-        -DZLIB_LIBRARY="$zlib_LIBRARY_DIR/libz.a"
+        -DPNG_ARM_NEON=OFF

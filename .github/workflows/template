@@ -1,0 +1,39 @@
+name: ciINDEX 
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-10.15, macos-11]
+        pkg: [PKGLIST]
+
+    runs-on: ${{ matrix.os }}
+
+    env:
+      HOMEBREW_NO_INSTALL_CLEANUP: set
+
+    steps:
+    - name: install xcpkg
+      run: |
+        curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/bin/xcpkg
+        cat xcpkg
+        chmod u+x xcpkg
+        mv xcpkg $(brew --prefix)/bin
+
+    - run:  xcpkg env
+
+    - run:  xcpkg --version
+
+    - uses: actions/checkout@v2
+
+    - run: install -d ~/.xcpkg/repos.d/offical
+    - run: mv *       ~/.xcpkg/repos.d/offical
+
+    - run: xcpkg install ${{ matrix.pkg }} --tree --install-lib=static
