@@ -3,7 +3,6 @@ web-url: https://developer.gnome.org/glib
 src-url: https://download.gnome.org/sources/glib/2.66/glib-2.66.0.tar.xz
 src-sha: c5a66bf143065648c135da4c943d2ac23cce15690fc91c358013b2889111156c
 license: LGPL-2.1-or-later
-bsystem: meson
 dep-pkg: gettext libiconv libffi pcre
 
 prepare: |
@@ -21,6 +20,6 @@ install: |
         -Dinstalled_tests=false \
         -Dbsymbolic_functions=false
 
-build_configed() {
+build_configed:
     sed_in_place "s|MacOSX$(xcrun --sdk macosx --show-sdk-version)|$TARGET_PLATFORM_NAME|g" build.ninja &&
     sed_in_place "s|MacOSX|$TARGET_PLATFORM_NAME|g"      build.ninja 

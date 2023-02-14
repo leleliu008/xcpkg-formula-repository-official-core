@@ -6,24 +6,27 @@ src-sha: 66dc7081488811e9f925719e34d1b4504c2801c81dee2920e5452a86b11405ae
 bsystem: gmake
 dep-pkg: openssl pcre
 
-trace_configure() {
-    for item in $(ls $1)
-    do
-        if [ -f "$1/$item" ] ; then
-            if [ "$XTRACE" = yes ] ; then
-                sed_in_place '1i set -x' "$1/$item"
-            fi
-            sed_in_place 's/ngx_feature_run=yes/ngx_feature_run=no/g' "$1/$item"
-        elif [ -d "$1/$item" ] ; then
-            trace_configure "$1/$item"
-        fi
-    done
-
 prepare: |
+    trace_configure() {
+        for item in $(ls $1)
+        do
+            if [ -f "$1/$item" ] ; then
+                if [ "$XTRACE" = yes ] ; then
+                    sed_in_place '1i set -x' "$1/$item"
+                fi
+                sed_in_place 's/ngx_feature_run=yes/ngx_feature_run=no/g' "$1/$item"
+            elif [ -d "$1/$item" ] ; then
+                trace_configure "$1/$item"
+            fi
+        done
+    }
+
     trace_configure auto
+
     if [ "$XTRACE" = yes ] ; then
         sed_in_place '1i set -x' configure
     fi
+
     sed_in_place 's/ngx_test="$CC/ngx_test="$CC $NGX_CC_OPT/' auto/include &&
     sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/feature &&
     sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/endianness &&
@@ -46,7 +49,15 @@ install: |
     esac
     
     [ -f Makefile ] && gmakew clean
-    
+
+    write_NGX_SYS_NERR() {
+        cat >> objs/ngx_auto_config.h <<EOF
+    #ifndef NGX_SYS_NERR
+    #define NGX_SYS_NERR  107
+    #endif
+    EOF   
+    }
+
     run ./configure \
         --prefix="$PACKAGE_INSTALL_DIR" \
         --crossbuild=Darwin:unkown:$TARGET_PLATFORM_ARCH \
@@ -57,9 +68,4 @@ install: |
     write_NGX_SYS_NERR &&
     gmakew install
 
-write_NGX_SYS_NERR() {
-    cat >> objs/ngx_auto_config.h <<EOF
-#ifndef NGX_SYS_NERR
-#define NGX_SYS_NERR  107
-#endif
-EOF
+

@@ -1,0 +1,37 @@
+name: ci5 
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        #os: [macos-12, macos-11]
+        os: [macos-12]
+        pkg: [libyuv,libzmq,links,llhttp,lmdb,lodepng,log4cplus,luau,lynx,lzip,lzop,m4,magic_enum,make,md4c,mediainfo,miniz,minizip,minizip-ng,mozjpeg,mpg123,mpir,msgpack-c,nanomsg,nasm,nginx,ngtcp2,nng]
+
+    runs-on: ${{ matrix.os }}
+
+    env:
+      HOMEBREW_NO_INSTALL_CLEANUP: set
+
+    steps:
+        - uses: actions/checkout@v2
+
+        - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/bin/xcpkg
+        - run: chmod u+x xcpkg
+
+        - run: ./xcpkg --version
+
+        - run: ./xcpkg setup --use-brew
+        - run: ./xcpkg env
+        - run: ./xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+        - run: mv formula ~/.xcpkg/repos.d/test/
+
+        - run: ./xcpkg install ${{ matrix.pkg }}

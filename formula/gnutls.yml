@@ -4,11 +4,10 @@ git-url: https://github.com/gnutls/gnutls
 src-url: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.3.tar.xz
 src-sha: fc59c43bc31ab20a6977ff083029277a31935b8355ce387b634fa433f8f6c49a
 dep-pkg: gmp libunistring nettle libtasn1 libidn2
-bsystem: configure
 
 # thread-local storage is not supported for the current target
 
-prepare2() {
+prepare2:
     inject_stub_system src/libopts/pgusage.c tests/pkcs11/pkcs11-mock2.c
 
 install: |

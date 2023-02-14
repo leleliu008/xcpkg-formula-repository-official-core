@@ -40,7 +40,10 @@ install: |
             abi=sysv
     esac
 
-    gen_project_config &&
+    cat > project-config.jam <<EOF
+    using clang : $TARGET_PLATFORM_ARCH : $CXX : <compileflags>"$CXXFLAGS $CPPFLAGS" <linkflags>"$LDFLAGS -shared" <archiver>$AR <ranlib>$RANLIB ;
+    EOF
+
     run ./b2 install \
         -q \
         -d+2 \
@@ -59,8 +62,3 @@ install: |
         address-model="$address_model" \
         architecture="$architecture" \
         abi="$abi"
-
-gen_project_config() {
-    cat > project-config.jam <<EOF
-using clang : $TARGET_PLATFORM_ARCH : $CXX : <compileflags>"$CXXFLAGS $CPPFLAGS" <linkflags>"$LDFLAGS -shared" <archiver>$AR <ranlib>$RANLIB ;
-EOF

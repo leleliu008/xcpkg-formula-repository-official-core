@@ -42,6 +42,3 @@ install: |
         -DVIDEO_OPENGL=OFF \
         -DVIDEO_OPENGLES=OFF \
         -DVIDEO_COCOA=OFF
-
-build2() {
-    configure
