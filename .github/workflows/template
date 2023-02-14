@@ -11,7 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-10.15, macos-11]
+        #os: [macos-12, macos-11]
+        os: [macos-12]
         pkg: [PKGLIST]
 
     runs-on: ${{ matrix.os }}
@@ -20,20 +21,17 @@ jobs:
       HOMEBREW_NO_INSTALL_CLEANUP: set
 
     steps:
-    - name: install xcpkg
-      run: |
-        curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/bin/xcpkg
-        cat xcpkg
-        chmod u+x xcpkg
-        mv xcpkg $(brew --prefix)/bin
+        - uses: actions/checkout@v2
 
-    - run:  xcpkg env
+        - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/bin/xcpkg
+        - run: chmod u+x xcpkg
 
-    - run:  xcpkg --version
+        - run: ./xcpkg --version
 
-    - uses: actions/checkout@v2
+        - run: ./xcpkg setup --use-brew
+        - run: ./xcpkg env
+        - run: ./xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
 
-    - run: install -d ~/.xcpkg/repos.d/offical
-    - run: mv *       ~/.xcpkg/repos.d/offical
+        - run: mv formula ~/.xcpkg/repos.d/test/
 
-    - run: xcpkg install ${{ matrix.pkg }} --tree --install-lib=static
+        - run: ./xcpkg install ${{ matrix.pkg }}
