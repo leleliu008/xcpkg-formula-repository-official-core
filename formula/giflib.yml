@@ -1,14 +1,13 @@
 summary: Library and utilities for processing GIFs
 web-url: https://giflib.sourceforge.io
+git-url: https://git.code.sf.net/p/giflib/code
 src-url: https://downloads.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz
 src-sha: 31da5562f44c5f15d63340a09a4fd62b48c45620cd302f77a6d9acf0077879bd
-bsystem: gmake
+
 parallel: no
-
-prepare: |
-    sed_in_place 's#$(MAKE) -C doc#@mkdir -p doc \&\& ([ -f doc/giflib.1 ] || touch doc/giflib.1)#' Makefile &&
-    sed_in_place 's#soname#install_name#g' Makefile
-
+binbstd: yes
 install: |
-    gmakew -C "$SOURCE_DIR" clean &&
-    gmakew -C "$SOURCE_DIR" install PREFIX="$PACKAGE_INSTALL_DIR" CC="$CC" AR="$AR" CFLAGS="'$CFLAGS'" USOURCES="'qprintf.c quantize.c getarg.c gif_err.c'"
+    sed_in_place 's#$(MAKE) -C doc#@mkdir -p doc \&\& ([ -f doc/giflib.1 ] || touch doc/giflib.1)#' Makefile
+    sed_in_place 's#soname#install_name#g' Makefile
+    gmakew clean &&
+    gmakew install PREFIX=$PACKAGE_INSTALL_DIR CC=$CC AR=$AR CFLAGS="'$CFLAGS'"

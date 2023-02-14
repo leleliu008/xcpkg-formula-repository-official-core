@@ -1,10 +1,10 @@
 summary: JSON parser for C
 git-url: https://github.com/json-c/json-c
-src-url: https://github.com/json-c/json-c/archive/json-c-0.15.tar.gz
-src-sha: 74985882e39467b34722e584ab836ed2abd47061888f318125fd4b167002afd5
+src-url: https://github.com/json-c/json-c/archive/json-c-0.16.tar.gz
+src-sha: c169436bd63a30fce4f9560befccb6bad3d375c8c7e9905ceb4e1f28f2cb24f7
 license: MIT
-bsystem: cmake
 
+prepare: sed_in_place 's|set(APPS_LINK_LIBS "${PROJECT_NAME}")|set(APPS_LINK_LIBS "${PROJECT_NAME}-static")|' apps/CMakeLists.txt
 install: |
     cmakew \
         -DBUILD_SHARED_LIBS=ON \
