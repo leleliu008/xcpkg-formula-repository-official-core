@@ -1,13 +1,15 @@
 summary: Display directories as trees (with optional color/HTML output)
 web-url: http://mama.indstate.edu/users/ice/tree
-src-url: http://mama.indstate.edu/users/ice/tree/src/tree-2.0.0.tgz
-src-sha: 782cd73179f65cfca7f29326f1511306e49e9b11d5b861daa57e13fd7262889f
+src-url: http://mama.indstate.edu/users/ice/tree/src/tree-2.0.4.tgz
+src-sha: b0ea92197849579a3f09a50dbefc3d4708caf555d304a830e16e20b73b4ffa74
 license: GPL-2.0-or-later
 
+binbstd: yes
 install: |
-    gmakew -C "$SOURCE_DIR" clean &&
-    gmakew -C "$SOURCE_DIR" install \
-        prefix="$PACKAGE_INSTALL_DIR" \
-        CC="$CC" \
-        CFLAGS="'$CFLAGS $CPPFLAGS -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64'" \
+    gmakew clean &&
+    gmakew install \
+        PREFIX="$PACKAGE_INSTALL_DIR" \
+        MANDIR="$PACKAGE_INSTALL_DIR/share/man" \
+        CC="'$CC'" \
+        CFLAGS="'$CFLAGS $CPPFLAGS'" \
         LDFLAGS="'$LDFLAGS'"

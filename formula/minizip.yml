@@ -1,8 +1,8 @@
 summary: C library for zip/unzip via zLib
 web-url: https://www.winimage.com/zLibDll/minizip.html
-src-url: https://zlib.net/zlib-1.2.11.tar.gz
-src-sha: c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1
+src-url: https://zlib.net/zlib-1.2.13.tar.gz
+src-sha: b3a24de97a8fdbc835b9833169501030b8977031bcb54b3b3ac13740f846ab30
 license: Zlib
-dep-upp: libtool
-bscript: contrib/minizip
+dep-pkg: libtool zlib
 bsystem: autotools
+bscript: contrib/minizip

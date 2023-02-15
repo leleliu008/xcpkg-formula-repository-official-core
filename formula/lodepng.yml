@@ -2,47 +2,10 @@ summary: PNG encoder and decoder in C and C++
 git-url: https://github.com/lvandeve/lodepng
 license: Zlib
 
+binbstd: yes
 install: |
-    gmakew -C "$SOURCE_DIR" clean &&
-    gmakew -C "$SOURCE_DIR" install \
-        CXX="$CXX" \
-        CXXFLAGS="'$CXXFLAGS'" \
-        CPPFLAGS="'$CPPFLAGS'" \
-        AR="$AR" \
-        PREFIX="$PACKAGE_INSTALL_DIR"
-
-prepare: |
-    cat > Makefile <<EOF
-    CC ?= cc
-    AR ?= ar
-
-    ARFLAGS = rs
-
-    PREFIX  = /usr/local
-
-    INC_DIR = \$(PREFIX)/include
-    LIB_DIR = \$(PREFIX)/lib
-
-    build: lodepng.a lodepng_util.a
-
-    lodepng.a: lodepng.o
-        \$(AR) \$(ARFLAGS) \$@ \$^
-
-    lodepng_util.a: lodepng.o lodepng_util.o
-        \$(AR) \$(ARFLAGS) \$@ \$^
-
-    install: build
-        install -d                    \$(DEST_DIR)\$(INC_DIR)
-        install -m 644 lodepng.h      \$(DEST_DIR)\$(INC_DIR)
-        install -m 644 lodepng_util.h \$(DEST_DIR)\$(INC_DIR)
-        install -d                    \$(DEST_DIR)\$(LIB_DIR)
-        install -m 644 lodepng.a      \$(DEST_DIR)\$(LIB_DIR)
-        install -m 644 lodepng_util.a \$(DEST_DIR)\$(LIB_DIR)
-
-    clean:
-        rm -rf *.o *.a
-
-    distclean: clean
-
-    .PHONY: clean
-    EOF
+    run $CXX $CXXFLAGS $CPPFLAGS -c -o lodepng.o      lodepng.cpp
+    run $CXX $CXXFLAGS $CPPFLAGS -c -o lodepng_util.o lodepng_util.cpp
+    run $AR crs liblodepng.a lodepng.o
+    run $AR crs liblodepng_util.a lodepng_util.o
+    run install_libs liblodepng.a liblodepng_util.a

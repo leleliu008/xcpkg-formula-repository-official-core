@@ -1,10 +1,10 @@
 summary: Unified display of technical and tag data for audio/video
 web-url: https://mediaarea.net
-src-url: https://mediaarea.net/download/source/mediainfo/21.09/mediainfo_21.09.tar.bz2
-src-sha: 5362250cf842b958c72f225e70bbe16d4cbe7063e20aee8f685947a208755207
-license: BSD-2-Clause
-dep-upp: pkg-config libtool
+src-url: https://mediaarea.net/download/source/mediainfo/22.06/mediainfo_22.06.tar.bz2
+src-sha: 9ccb156787bae78cd303f0979e074ab64811bc7cbd3c49db9a3961cfb841d81e
 dep-pkg: libmediainfo
+license: BSD-2-Clause
+
 bscript: Project/GNU/CLI
-binbstd: yes
 bsystem: autogen
+binbstd: yes
