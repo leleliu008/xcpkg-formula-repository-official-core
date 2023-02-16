@@ -4,11 +4,10 @@ src-url: https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/p
 src-sha: ba0650be1b169d24908eeddbe6107f011d8df0da5b1a5a4449a913b10e578faf
 license: BSD-3-Clause
 dep-pkg: zlib
-bsystem: cmake
 bscript: cmake
 
+# used by other package. make sure protoc and libprotoc same version
 build0: |
-    # used by other package. gmakew sure protoc and libprotoc same version
     cmakew \
         -Dprotobuf_BUILD_TESTS=OFF \
         -Dprotobuf_BUILD_EXAMPLES=OFF
@@ -16,6 +15,4 @@ build0: |
 install: |
     cmakew \
         -Dprotobuf_BUILD_TESTS=OFF \
-        -Dprotobuf_BUILD_EXAMPLES=OFF \
-        -DZLIB_INCLUDE_DIR="$zlib_INCLUDE_DIR" \
-        -DZLIB_LIBRARY_RELEASE="$zlib_LIBRARY_DIR/libz.a"
+        -Dprotobuf_BUILD_EXAMPLES=OFF

@@ -8,5 +8,5 @@ install: |
     #WHICH=standard/iso/variable/__thread
     WHICH=standard/iso/header/stdio.h/fprintf
     
-    makew -C $SOURCE_DIR/$WHICH clean
-    makew -C $SOURCE_DIR/$WHICH
+    makew -C $PACKAGE_WORKING_DIR/$WHICH clean
+    makew -C $PACKAGE_WORKING_DIR/$WHICH

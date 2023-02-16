@@ -10,5 +10,4 @@ prepare: |
     sed_in_place '/general.h/d' main/sort.c &&
     sed_in_place '1i #include "general.h"' main/sort.c
 
-install: |
-    configure --disable-seccomp --disable-static ac_cv_func_iconv_open=yes
+install: configure --disable-seccomp --disable-static

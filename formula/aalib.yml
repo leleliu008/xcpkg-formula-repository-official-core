@@ -20,5 +20,5 @@ prepare: |
     printf '%s\n' '#include <string.h>' >> malloc.h
 
 install: |
-    export CPPFLAGS="$CPPFLAGS -I$SOURCE_DIR"
+    export CPPFLAGS="$CPPFLAGS -I$PACKAGE_WORKING_DIR/src"
     configure --without-x --with-ncurses="$ncurses_INSTALL_DIR"

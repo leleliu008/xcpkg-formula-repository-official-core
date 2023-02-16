@@ -7,7 +7,7 @@ license: TCL
 
 prepare: |
     cd unix &&
-    SOURCE_DIR="$PWD" &&
+    PACKAGE_WORKING_DIR="$PWD" &&
     sed_in_place 's/test "`uname -s`" = "Darwin"/false/g' configure
 
 install: |

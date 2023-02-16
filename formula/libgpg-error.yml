@@ -6,7 +6,7 @@ license: LGPL-2.1-or-later
 bsystem: configure
 install: |
     copy_lock_obj_pub() {
-        cp $SOURCE_DIR/src/syscfg/lock-obj-pub.$1-apple-darwin.h $SOURCE_DIR/src/syscfg/lock-obj-pub.darwin.h
+        cp $PACKAGE_WORKING_DIR/src/syscfg/lock-obj-pub.$1-apple-darwin.h $PACKAGE_WORKING_DIR/src/syscfg/lock-obj-pub.darwin.h
     }
 
     copy_lock_obj_pub_() {
