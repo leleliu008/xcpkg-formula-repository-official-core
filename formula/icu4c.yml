@@ -1,15 +1,15 @@
 summary: C/C++ and Java libraries for Unicode and globalization
 web-url: http://site.icu-project.org/home
-version: 70.1
 git-url: https://github.com/unicode-org/icu
 src-url: https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 src-sha: 8d205428c17bf13bb535300669ed28b338a157b1c01ae66d31d0d3e2d47c3fd5
 license: ICU
+version: 70.1
 bscript: source
 
 build0: |
     # https://www.talkwithdevices.com/archives/260
-    run "$PACKAGE_WORKING_DIR/src/runConfigureICU" MacOSX && make
+    run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
 
 prepare: |
     cp config/mh-darwin config/mh-unknown &&

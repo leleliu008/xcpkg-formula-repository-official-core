@@ -5,7 +5,6 @@ git-url: https://github.com/bellard/quickjs
 src-url: https://bellard.org/quickjs/quickjs-2021-03-27.tar.xz
 src-sha: a45bface4c3379538dea8533878d694e289330488ea7028b105f72572fe7fe1a
 license: MIT
-bsystem: gmake
 binbstd: yes
 
 prepare: |
@@ -18,4 +17,4 @@ prepare: |
 
 install: |
     gmakew clean &&
-    gmakew install HOST_CC=$CC_FOR_BUILD CC="'$CC $CFLAGS $CPPFLAGS'" AR=$AR STRIP=$STRIP CROSS_PREFIX=xxx prefix="$PACKAGE_INSTALL_DIR"
+    gmakew install HOST_CC="'$CC_FOR_BUILD'" CC="'$CC $CFLAGS $CPPFLAGS'" AR=$AR STRIP=$STRIP CROSS_PREFIX=xxx prefix="$PACKAGE_INSTALL_DIR"

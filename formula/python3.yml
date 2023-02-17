@@ -1,0 +1,22 @@
+summary: Interpreted, interactive, object-oriented programming language
+git-url: https://github.com/python/cpython
+web-url: https://www.python.org/
+src-url: https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz
+src-sha: 64424e96e2457abbac899b90f9530985b51eef2905951febd935f0e73414caeb
+dep-pkg: expat libffi openssl sqlite libbz2
+license: Python-2.0
+
+install: |
+    unset PYTHONHOME
+    unset PYTHONPATH
+
+    configure \
+        --with-system-expat \
+        --with-system-ffi \
+        --with-openssl=$openssl_INSTALL_DIR \
+        --with-ensurepip=yes \
+        --with-lto \
+        --enable-ipv6 \
+        --enable-shared \
+        --enable-loadable-sqlite-extensions \
+        --disable-profiling
