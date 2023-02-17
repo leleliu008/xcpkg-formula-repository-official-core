@@ -2,7 +2,7 @@ summary: GNU Pretty Good Privacy (PGP) package
 web-url: https://gnupg.org
 src-url: https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.23.tar.bz2
 src-sha: 10b55e49d78b3e49f1edb58d7541ecbdad92ddaeeb885b6f486ed23d1cd1da5c
-dep-pkg: libgcrypt libassuan libksba npth libiconv bzip2 readline
+dep-pkg: libgcrypt libassuan libksba npth libiconv libbz2 readline
 bsystem: configure
 
 prepare: |
@@ -19,6 +19,6 @@ install: |
         --with-libassuan-prefix="$libassuan_INSTALL_DIR" \
         --with-ksba-prefix="$libksba_INSTALL_DIR" \
         --with-npth-prefix="$npth_INSTALL_DIR" \
-        --with-bzip2="$bzip2_INSTALL_DIR" \
+        --with-bzip2="$libbz2_INSTALL_DIR" \
         --with-readline="$readline_INSTALL_DIR" \
         --with-libiconv-prefix="$libincov_INSTALL_DIR"

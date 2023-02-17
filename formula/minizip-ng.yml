@@ -3,9 +3,8 @@ git-url: https://github.com/zlib-ng/minizip-ng
 src-url: https://github.com/zlib-ng/minizip-ng/archive/3.0.5.tar.gz
 src-sha: 1a248c378fdf4ef6c517024bb65577603d5146cffaebe81900bec9c0a5035d4d
 license: Zlib
-dep-pkg: zlib zstd bzip2
+dep-pkg: zlib zstd libbz2
 dep-upp: pkg-config
 bsystem: cmake
 
-prepare: |
-    sed_in_place 's|if(COMMONCRYPTO_FOUND)|if(OFF)|' CMakeLists.txt
+prepare: sed_in_place 's|if(COMMONCRYPTO_FOUND)|if(OFF)|' CMakeLists.txt

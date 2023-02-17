@@ -11,6 +11,7 @@ install: |
     configure \
         --disable-linux-caps \
         --disable-static \
+        --enable-shared \
         --without-python \
         --without-gssapi \
         --with-zlib \
