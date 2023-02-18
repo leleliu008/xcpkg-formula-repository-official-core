@@ -1,17 +1,20 @@
 summary: HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-web-url: https://nginx.org
 git-url: https://github.com/nginx/nginx
-src-url: https://nginx.org/download/nginx-1.21.6.tar.gz
-src-sha: 66dc7081488811e9f925719e34d1b4504c2801c81dee2920e5452a86b11405ae
+web-url: https://nginx.org
+src-url: https://nginx.org/download/nginx-1.23.1.tar.gz
+src-sha: 5eee1bd1c23e3b9477a45532f1f36ae6178b43d571a9607e6953cef26d5df1e2
+license: BSD-2-Clause
+dep-pkg: openssl pcre2 zlib
+
 bsystem: gmake
-dep-pkg: openssl pcre
+binbstd: yes
 
 prepare: |
     trace_configure() {
         for item in $(ls $1)
         do
             if [ -f "$1/$item" ] ; then
-                if [ "$XTRACE" = yes ] ; then
+                if [ "$XCPKG_XTRACE" = yes ] ; then
                     sed_in_place '1i set -x' "$1/$item"
                 fi
                 sed_in_place 's/ngx_feature_run=yes/ngx_feature_run=no/g' "$1/$item"
@@ -23,7 +26,7 @@ prepare: |
 
     trace_configure auto
 
-    if [ "$XTRACE" = yes ] ; then
+    if [ "$XCPKG_XTRACE" = yes ] ; then
         sed_in_place '1i set -x' configure
     fi
 
@@ -33,8 +36,6 @@ prepare: |
     sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/typedef &&
     sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/sizeof &&
     sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/uintptr_t
-
-binbstd: yes
 
 install: |
     export NGX_SYSTEM=Darwin
@@ -67,5 +68,3 @@ install: |
         --with-pcre &&
     write_NGX_SYS_NERR &&
     gmakew install
-
-

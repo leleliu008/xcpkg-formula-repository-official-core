@@ -21,7 +21,7 @@ prepare: |
 
 install: |
     gmakew -f unix/Makefile clean &&
-    gmakew -f unix/Makefile macosx \
+    gmakew -f unix/Makefile unzips \
         CC="$CC" \
         CFLAGS="'$CFLAGS $CPPFLAGS $LDFLAGS'" \
         AS="$AS" \
