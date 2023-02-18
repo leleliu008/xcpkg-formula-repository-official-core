@@ -12,4 +12,7 @@ parallel: no
 install: |
     TARGET_TRIPLE=$TARGET_PLATFORM_ARCH-apple-darwin_ios
     export LD="$CC"
+
+    [ -n "$SYSROOT" ] && export CC="$CC -isysroot $SYSROOT"
+
     configure --disable-libwebrtc

@@ -3,8 +3,8 @@ web-url: https://www.gnu.org/software/bc
 src-url: https://ftp.gnu.org/gnu/bc/bc-1.07.1.tar.gz
 src-sha: 62adfca89b0a1c0164c2cdca59ca210c1d44c3ffc46daf9931cf4942664cb02a
 license: GPL-3.0
-bsystem: configure
 dep-upp: bison flex
+bsystem: configure
 
 build0: |
     configure --without-readline --without-libedit &&
@@ -16,7 +16,10 @@ prepare: |
     sed_in_place 's/#include "libmath.h"/{"#include \\"libmath.h\\""}/' bc/global.c
 
 install: |
-    run install -d "$PACKAGE_BCACHED_DIR/bc" &&
-    run cp "$NATIVE_INSTALL_DIR/include/libmath.h" "$PACKAGE_BCACHED_DIR/bc"
-    run touch -t 190001010000 $PACKAGE_BCACHED_DIR/bc/libmath.h &&
+    [ "$CROSS_COMPLING" = yes ] && {
+        run install -d "$PACKAGE_BCACHED_DIR/bc"
+        run cp "$NATIVE_INSTALL_DIR/include/libmath.h" "$PACKAGE_BCACHED_DIR/bc"
+        run touch -t 190001010000 $PACKAGE_BCACHED_DIR/bc/libmath.h
+    }
+
     configure --without-readline --without-libedit
