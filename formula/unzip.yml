@@ -27,9 +27,9 @@ install: |
         AS="$AS" \
         LD="'$CC'" \
         STRIP="$STRIP" \
-        LOCAL_UNZIP="'$CFLAGS $CPPFLAGS $LDFLAGS'" \
-        LOC=-DLARGE_FILE_SUPPORT \
-        D_USE_BZ2=-DUSE_BZIP2 \
+        LOC="'$CFLAGS $CPPFLAGS -DLARGE_FILE_SUPPORT -DUNICODE_SUPPORT -DUNICODE_WCHAR -DUTF8_MAYBE_NATIVE -DNO_WORKING_ISPRINT -DUSE_BZIP2'" \
+        LFLAGS1="'$LDFLAGS'" \
+        LF2= \
         L_BZ2=-lbz2 &&
     gmakew -f unix/Makefile install \
         prefix="$PACKAGE_INSTALL_DIR" \

@@ -34,4 +34,4 @@ install: |
         --disable-tests \
         --disable-samples \
         --with-library-bits="$BIT" \
-        "$CONFIGURE_OPTS_EXTRA" \
+        "$CONFIGURE_OPTS_EXTRA"
