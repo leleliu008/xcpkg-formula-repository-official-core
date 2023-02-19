@@ -1,22 +1,36 @@
 summary: Packet(TCP/IP) Capture libray
-web-url: https://www.tcpdump.org
 git-url: https://github.com/the-tcpdump-group/libpcap
+web-url: https://www.tcpdump.org/
 src-url: https://www.tcpdump.org/release/libpcap-1.10.1.tar.gz
 src-sha: ed285f4accaf05344f90975757b3dbfe772ba41d1c401c2648b7fa45b711bdd4
-dep-upp: flex bison
-bsystem: cmake
+license: BSD-3-Clause
+dep-upp: gm4 flex bison
+dep-pkg: openssl
 
 install: |
+    # Due to freedesktop.org bug 74029, D-Bus capture support is not available on macOS
+    if [ "$NATIVE_OS_KIND" = darwin ] ; then
+        DISABLE_DBUS=ON
+    else
+        DISABLE_DBUS=OFF
+    fi
+
     cmakew \
-        -DCMAKE_OSX_ARCHITECTURES="$TARGET_PLATFORM_ARCH" \
         -DINET6=ON \
-        -DENABLE_REMOTE=ON \
         -DBDEBUG=OFF \
+        -DENABLE_REMOTE=ON \
         -DDISABLE_USB=OFF \
         -DDISABLE_SEPTEL=OFF \
         -DDISABLE_NETMAP=OFF \
-        -DDISABLE_DBUS=ON \
+        -DDISABLE_DBUS=$DISABLE_DBUS \
         -DDISABLE_BLUETOOTH=OFF \
         -DDISABLE_DAG=ON \
         -DDISABLE_TC=ON \
-        -DDISABLE_SNF=ON
+        -DDISABLE_SNF=ON &&
+    (
+        cd "$PACKAGE_INSTALL_DIR/lib/pkgconfig" &&
+        sed_in_place 's@-l[^ ]*/libssl\.a@-lssl@g'                    libpcap.pc &&
+        sed_in_place 's@-l[^ ]*/libcrypto\.a@-lcrypto@g'              libpcap.pc &&
+        sed_in_place 's@-l[^ ]*/libssl\.\(so\|dylib\)@-lssl@g'        libpcap.pc &&
+        sed_in_place 's@-l[^ ]*/libcrypto\.\(so\|dylib\)@-lcrypto@g'  libpcap.pc
+    )

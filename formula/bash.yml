@@ -1,0 +1,16 @@
+summary: Bourne-Again SHell, a UNIX command interpreter
+git-url: https://git.savannah.gnu.org/git/bash
+web-url: https://www.gnu.org/software/bash
+src-url: https://ftp.gnu.org/gnu/bash/bash-5.1.16.tar.gz
+src-sha: 5bac17218d3911834520dad13cd1f85ab944e1c09ae1aba55906be1f8192f558
+license: GPL-3.0-or-later
+dep-pkg: readline
+
+install: |
+    configure \
+        --enable-readline \
+        --enable-select \
+        --enable-history \
+        --disable-profiling \
+        --disable-static-link \
+        --without-bash-malloc

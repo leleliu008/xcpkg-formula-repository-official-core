@@ -1,0 +1,25 @@
+summary: Utility to list open files
+web-url: https://people.freebsd.org/~abe
+git-url: https://github.com/lsof-org/lsof
+src-url: https://github.com/lsof-org/lsof/archive/4.96.4.tar.gz
+src-sha: b5a052cac8d6b2726bbb1de2b98c6d9204c7619263fb63e9b6b1bd6bbb37bf14
+license: Zlib
+bsystem: gmake
+
+binbstd: yes
+
+install: |
+    export LSOF_MAKE="make"
+    export LSOF_CC="$CC"
+    export LSOF_AR="$AR rcs"
+    export LSOF_RANLIB="$RANLIB"
+    export LSOF_ARCH="$TARGET_PLATFORM_ARCH"
+    export LSOF_INCLUDE="$SYSTEM_INCLUDE_DIR"
+    export LSOF_CFGF="$CFLAGS $CPPFLAGS"
+    export LSOF_CFGL="$LDFLAGS -L$PACKAGE_WORKING_DIR/lib"
+    
+    run ./Configure -clean &&
+    run ./Configure -n darwin &&
+    makew &&
+    run install_bins lsof &&
+    run install_mans Lsof.8
