@@ -10,5 +10,5 @@ binbstd: yes
 install: |
     cargow build &&
     install_incs libimagequant.h &&
-    mv ../target/$RUST_TARGET/release/libimagequant_sys.a libimagequant.a &&
+    mv target/$RUST_TARGET/release/libimagequant_sys.a libimagequant.a &&
     install_libs libimagequant.a

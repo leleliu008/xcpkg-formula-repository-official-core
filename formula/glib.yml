@@ -19,7 +19,3 @@ install: |
         -Dinternal_pcre=false \
         -Dinstalled_tests=false \
         -Dbsymbolic_functions=false
-
-build_configed:
-    sed_in_place "s|MacOSX$(xcrun --sdk macosx --show-sdk-version)|$TARGET_PLATFORM_NAME|g" build.ninja &&
-    sed_in_place "s|MacOSX|$TARGET_PLATFORM_NAME|g"      build.ninja 
