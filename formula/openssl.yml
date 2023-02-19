@@ -10,6 +10,9 @@ bsystem: gmake
 binbstd: yes
 install: |
     case $TARGET_PLATFORM_NAME in
+        MacOSX)
+            os_compiler="darwin64-$TARGET_PLATFORM_ARCH"
+            ;;
         *Simulator)
             os_compiler='iossimulator-xcrun'
             ;;
