@@ -1,0 +1,12 @@
+summary: Open source continuous file synchronization application
+web-url: https://syncthing.net/
+git-url: https://github.com/syncthing/syncthing
+src-url: https://github.com/syncthing/syncthing/archive/v1.21.0.tar.gz
+src-sha: ea7506249b407da930fdf8c7ce5f2f74940a2ad20f57d58b1b36d2b63aeebe69
+license: MPL-2.0
+binbstd: yes
+bsystem: go
+install: |
+        run go run build.go --version v$PACKAGE_VERSION build &&
+        run install_bins syncthing &&
+        run install_mans man/*.1 man/*.5 man/*.7

@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [pybind11,pystring,quiche,quickjs,rapidjson,re2,re2c,rhash,ripgrep,rsync,rtmpdump,rtorrent,soundtouch,spdlog,swig,taglib,tbb,tcl-core,tcpdump,tig,tinysearch,tinyxml2,tmux,toml++,toml11,tree,ttyd,tweego,twolame]
+        pkg: [p11-kit,packcc,patch,patchelf,pigz,pjsip,pkgconf,pkg-config,plzip,pngquant,ppkg,progress,putty,pybind11,pystring,qpdf,quiche,quickjs,ragel,rang,ranger,rapidjson,rav1e,rclone,re2,re2c,rhash,ripgrep,rlwrap]
 
     runs-on: ${{ matrix.os }}
 

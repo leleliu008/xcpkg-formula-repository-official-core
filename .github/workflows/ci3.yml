@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [gh,git,gm4,gmake,gnu-barcode,gnu-coreutils,gnupg,gnutls,gnu-which,gomobile,google-benchmark,gosh,gperf,grep,gsed,gtar,gzip,hexdump,htop,htslib,hwloc,ideviceinstaller,ixwebsocket]
+        pkg: [gh,git,gm4,gmake,gnu-barcode,gnu-coreutils,gnupg,gnutls,gnu-which,gomobile,google-benchmark,gosh,gperf,grep,gsed,gtar,gzip,hexdump,htop,htslib,hugo,hwloc,hyperfine,ideviceinstaller]
 
     runs-on: ${{ matrix.os }}
 

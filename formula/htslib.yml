@@ -5,4 +5,9 @@ src-url: https://github.com/samtools/htslib/releases/download/1.16/htslib-1.16.t
 src-sha: 606b7c7aff73734cf033ecd156f40529fa5792f54524952a28938ca0890d7924
 license: MIT
 dep-pkg: zlib xz libbz2 curl
+prepare: |
+    LIBCURL_LIBS="$(pkg-config --libs libcurl)"
+    printf 'LIBCURL_LIBS=%s\n' "$LIBCURL_LIBS"
+    export LDFLAGS="$LDFLAGS $LIBCURL_LIBS"
+
 install: configure --enable-libcurl ac_cv_lib_curl_curl_easy_pause=yes ac_cv_lib_curl_curl_easy_init=yes

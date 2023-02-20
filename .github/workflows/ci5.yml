@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [libimagequant,libirecovery,libisoburn,liblqr,libmaxminddb,libmetalink,libmill,libphonenumber,libpipeline,libpsl,libqalculate,libraqm,libraw,libsamplerate,libsass,libsmi,libspng,libtorrent-rasterbar,libunibreak]
+        pkg: [libidn,libimagequant,libirecovery,libisoburn,liblqr,libmaxminddb,libmetalink,libmill,libphonenumber,libpipeline,libpsl,libqalculate,libraqm,libraw,libsamplerate,libsmi,libspng]
 
     runs-on: ${{ matrix.os }}
 

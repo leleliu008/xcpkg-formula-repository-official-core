@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [libupnp,libyuv,libzmq,links,llhttp,lmdb,lodepng,log4cplus,lsof,luau,lunatic,lynx,lzip,lzop,m4,magic_enum,md4c,mediainfo,miniz,minizip,minizip-ng,mozjpeg,mpg123,mpir]
+        pkg: [libtorrent-rasterbar,libunibreak,libupnp,libyuv,libzmq,lighttpd,links,livego,llhttp,lmdb,lodepng,log4cplus,lsd,lsof,luau,lunatic,lunzip,lychee,lynx,lzip,lzop,m4,magic_enum]
 
     runs-on: ${{ matrix.os }}
 
