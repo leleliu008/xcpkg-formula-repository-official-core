@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [openjpeg,openlibm,openmpi,p11-kit,packcc,patch,pjsip,pkgconf,pkg-config,pngquant,ppkg,putty,pybind11,pystring,qrencode,quiche,quickjs,rapidjson,re2,re2c,rhash,rsync,rtmpdump,rtorrent,soundtouch,spdlog]
+        pkg: [msgpack-c,nano,nanomsg,nasm,nghttp2,nginx,ngtcp2,nng,nspr,ntbtls,oat++,onefetch,openal-soft,openblas,openjpeg,openlibm,openmpi,p11-kit,packcc,patch,pjsip,pkgconf,pkg-config,pngquant,ppkg,putty]
 
     runs-on: ${{ matrix.os }}
 

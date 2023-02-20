@@ -6,7 +6,8 @@ src-sha: 419a76f45238fd45f2c76b42438993056e74fa78374f136052aaa843085beae5
 license: MIT
 dep-upp: perl
 
-prepare: inject_stub_system psftp.c cmdgen.c
-install: |
-    export CPPFLAGS="$(printf '%s\n' "$CPPFLAGS" | sed 's|-DNDEBUG||g')"
-    cmakew -DPUTTY_GTK_VERSION=NONE
+prepare: |
+    inject_stub_system psftp.c cmdgen.c
+    sed_in_place 's|-DNDEBUG||g' "$CMAKE_TOOLCHAIN_FILE"
+
+install: cmakew -DPUTTY_GTK_VERSION=NONE

@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [libass,libatomic_ops,libb2,libbcrypt,libcaca,libcddb,libcdio,libcroco,libde265,libdeflate,libexif,libidn,libimagequant,libirecovery,libisoburn,liblqr,libmaxminddb,libmetalink,libmill]
+        pkg: [jbig2dec,jemalloc,jpeg,jq,json,jsoncpp,json-glib,krb5,less,libaec,libao,libass,libatomic_ops,libb2,libbcrypt,libcaca,libcddb,libcdio,libcroco,libde265,libdeflate,libexif,libidn]
 
     runs-on: ${{ matrix.os }}
 

@@ -26,7 +26,7 @@ install: |
         CPP="'$CPP'" \
         AS="$AS" \
         AR="$AR" \
-        CFLAGS="'$CFLAGS $CPPFLAGS -Iunix -DUNIX -DBZIP2_SUPPORT'" \
+        CFLAGS="'$CFLAGS $CPPFLAGS -I. -Iunix -DUNIX -DBZIP2_SUPPORT'" \
         LFLAGS2="'$LDFLAGS -lbz2'" &&
     gmakew -f unix/Makefile install \
         prefix="$PACKAGE_INSTALL_DIR" \

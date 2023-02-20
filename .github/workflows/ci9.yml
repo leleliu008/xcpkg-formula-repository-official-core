@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [zlib-ng,zsh,zsync,bottom,dog,fcp,lunatic,onefetch,openssl@1.1,ripgrep,zoxide]
+        pkg: [uctags,unbound,universal-ctags,unrar,unzip,uppm,utf8.h,utfcpp,vala,wasm3,websocketpp,wget,wolfssl,wuzz,xh,xmake,xorriso,xvid,xxd,yaml-cpp,yasm,youtubedr,yq,yyjson,zip,zlib-ng,zoxide,zsh,zsync]
 
     runs-on: ${{ matrix.os }}
 

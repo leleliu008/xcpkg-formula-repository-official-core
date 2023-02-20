@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [swig,taglib,tbb,tcl-core,tcpdump,tinyxml2,tmux,toml++,toml11,tree,uctags,unbound,universal-ctags,unrar,unzip,uppm,utf8.h,utfcpp,vala,wasm3,websocketpp,wolfssl,xh,xorriso,xvid,yaml-cpp,yasm,yq,yyjson,zip]
+        pkg: [pybind11,pystring,quiche,quickjs,rapidjson,re2,re2c,rhash,ripgrep,rsync,rtmpdump,rtorrent,soundtouch,spdlog,swig,taglib,tbb,tcl-core,tcpdump,tig,tinysearch,tinyxml2,tmux,toml++,toml11,tree,ttyd,tweego,twolame]
 
     runs-on: ${{ matrix.os }}
 

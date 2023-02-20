@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [faac,faad2,fd,fdk-aac,ffmpeg,findutils,fish,flex,folly,fzf,gawk,gdbm,gdk-pixbuf,geographiclib,gh,git,gm4,gmake,gnu-barcode,gnu-coreutils,gnupg,gnutls,gnu-which]
+        pkg: [curlie,cxxopts,d2,darkhttpd,dash,dav1d,diffutils,dmalloc,dog,duf,dufs,faac,faad2,fcp,fd,fdk-aac,ffmpeg,findutils,fish,flex,folly,fzf,gawk,gdbm,gdk-pixbuf,geographiclib]
 
     runs-on: ${{ matrix.os }}
 

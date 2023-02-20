@@ -1,21 +1,22 @@
 summary: Core application library for C
 web-url: https://developer.gnome.org/glib
-src-url: https://download.gnome.org/sources/glib/2.66/glib-2.66.0.tar.xz
-src-sha: c5a66bf143065648c135da4c943d2ac23cce15690fc91c358013b2889111156c
+git-url: https://github.com/GNOME/glib
+src-url: https://download.gnome.org/sources/glib/2.74/glib-2.74.0.tar.xz
+src-sha: 3652c7f072d7b031a6b5edd623f77ebc5dcd2ae698598abcc89ff39ca75add30
 license: LGPL-2.1-or-later
-dep-pkg: gettext libiconv libffi pcre
+dep-pkg: gettext libffi pcre2
 
 prepare: |
-    sed_in_place '/build_tests =/a build_tests = false' meson.build &&
-    sed_in_place 's|error (|message (|g' glib/gnulib/meson.build
+    sed_in_place "s|dependency('zlib')|cc.find_library('z', static : true, dirs : ['$zlib_LIBRARY_DIR'])|" meson.build
 
 install: |
     mesonw \
         -Dnls=disabled \
         -Dman=false \
         -Dgtk_doc=false \
-        -Diconv=external \
         -Ddtrace=false \
-        -Dinternal_pcre=false \
+        -Dglib_debug=disabled \
+        -Dglib_assert=false \
+        -Dtests=false \
         -Dinstalled_tests=false \
         -Dbsymbolic_functions=false

@@ -11,7 +11,7 @@ binbstd: yes
 install: |
     case $TARGET_PLATFORM_NAME in
         MacOSX)
-            os_compiler="darwin64-$TARGET_PLATFORM_ARCH"
+            os_compiler="darwin64-$TARGET_PLATFORM_ARCH-cc"
             ;;
         *Simulator)
             os_compiler='iossimulator-xcrun'
