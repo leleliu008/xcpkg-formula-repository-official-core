@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [md4c,mediainfo,miniz,minizip,minizip-ng,mozjpeg,mpg123,mpir,msgpack-c,nano,nanomsg,nasm,navi,ncdu,neofetch,nghttp2,nginx,ngtcp2,ninja,nlohmann-json,nng,nnn,nspr,ntbtls,nushell,oat++,obfs4proxy,onefetch,openal-soft,openblas,openjpeg,openlibm,openmpi]
+        pkg: [onefetch,openal-soft,openblas,openjpeg,openlibm,openmpi,p11-kit,packcc,patch,patchelf,pigz,pjsip,pkgconf,pkg-config,plzip,pngquant,ppkg,progress,putty,pybind11,pystring,qpdf,quiche,quickjs,ragel,rang,ranger,rapidjson,rav1e,rclone,re2c,rhash,ripgrep,rlwrap,rsync,rtmpdump,rtorrent,sassc,scc,sccache]
 
     runs-on: ${{ matrix.os }}
 

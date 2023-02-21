@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [curlie,cxxopts,d2,darkhttpd,dash,dav1d,diffutils,dmalloc,dog,duf,dufs,faac,faad2,fcp,fd,fdk-aac,ffmpeg,findutils,fish,flex,folly,fzf,gawk,gdbm,gdk-pixbuf,geographiclib]
+        pkg: [bottom,boxes,brook,broot,bullet,byacc,bzip2,caddy,cairo,cargo-c,cargo-deb,catch2,ccache,cereal,c-examples,cgif,cheat,check,chezmoi,chicken,choose,cjson,clash,cli11,cmake,coreutils,cpio,cppcheck,cpptoml,cppunit,cpu_features,cpuinfo,crc32c,croc,crosstool-ng,crowbook,ctop,cue,curlie,cxxopts]
 
     runs-on: ${{ matrix.os }}
 

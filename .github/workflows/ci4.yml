@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [ixwebsocket,jbig2dec,jemalloc,jpeg,jq,json,jsoncpp,json-glib,jump,krb5,less,libaec,libao,libass,libatomic_ops,libb2,libbcrypt,libcaca,libcddb,libcdio,libcroco,libde265,libdeflate,libexif]
+        pkg: [gdbm,gdk-pixbuf,gdu,geographiclib,gh,git,glow,gm4,gmake,gn,gnu-barcode,gnu-coreutils,gnupg,gnutls,gnu-which,gogs,gomobile,google-benchmark,gosh,gperf,gping,grep,gsed,gtar,gzip,hexdump,htop,htslib,hugo,hwloc,hyperfine,ideviceinstaller,ixwebsocket,jbig2dec,jemalloc,jpeg,jq,json,jsoncpp,json-glib]
 
     runs-on: ${{ matrix.os }}
 

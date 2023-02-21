@@ -1,0 +1,31 @@
+summary: Highly capable, feature-rich programming language
+web-url: https://www.perl.org/
+git-url: https://github.com/perl/perl5
+src-url: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/perl-5.36.0.tar.xz
+src-sha: 0f386dccbee8e26286404b2cca144e1005be65477979beb9b1ba272d4819bcf0
+license: GPL-1.0-or-later
+
+binbstd: yes
+install: |
+    # https://perldoc.perl.org/Config
+    #-Duserelocatableinc \
+    run ./Configure \
+        -des \
+        -Dprefix=$PACKAGE_INSTALL_DIR \
+        -Dman1dir=$PACKAGE_INSTALL_DIR/share/man/man1 \
+        -Dman3dir=$PACKAGE_INSTALL_DIR/share/man/man3 \
+        -Dcc="'$CC'" \
+        -Dar="'$AR'" \
+        -Dnm="'$NM'" \
+        -Dccflags="'$CFLAGS'" \
+        -Dldflags="'$LDFLAGS'" \
+        -Dcppflags="'$CPPFLAGS'" \
+        -Dlibs="'-lpthread -ldl -lm -lc -lutil'" \
+        -Dusenm=false \
+        -Dusedl=true \
+        -Dmake=gmake \
+        -Duselargefiles \
+        -Duseshrplib \
+        -Dusethreads &&
+    gmakew &&
+    gmakew install

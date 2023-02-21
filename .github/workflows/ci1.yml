@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [aalib,aom,async++,axel,b3sum,bash,bat,bc,bcrypt,berkeley-db,bind,binutils,bison,bottom,bzip2,cairo,cargo-c,catch2,ccache,c-examples,cheat,check,choose,cjson,clash,cmake,coreutils,cpio,cppunit,cpu_features,cpuinfo,crc32c,crosstool-ng,ctop,cue]
+        pkg: [aalib,ag,age,alacritty,alass,algernon,anchor-cli,antibody,aom,apkeep,aptly,archiver,args,aria2,async++,autoconf,automake,autossh,axel,b3sum,bandwhich,base16,base64,bash,basis_universal,bat,bc,bcrypt,bdw-gc,bear,berkeley-db,binaryen,bind,binocle,binutils,bison,bitcoin,bk,bmake,botan]
 
     runs-on: ${{ matrix.os }}
 

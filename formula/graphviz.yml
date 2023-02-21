@@ -7,13 +7,12 @@ license: EPL-1.0
 dep-pkg: fontconfig libpng expat libtool python3
 dep-upp: gm4 flex bison gawk git
 bsystem: autogen
-install: configure --disable-swig
 
 prepare: |
     sed_in_place 's|install-exec-hook|xxxxxxxxxxxx|' cmd/dot/Makefile.am &&
-    autoreconf -ivf &&
+    run autoreconf -ivf &&
     inject_stub_system lib/sparse/general.c lib/common/utils.c lib/gvpr/compile.c contrib/diffimg/diffimg.c
 
 install: |
     export HOSTCC="$CC_FOR_BUILD"
-    configure --enable-swig=no
+    configure --disable-swig

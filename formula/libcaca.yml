@@ -6,7 +6,7 @@ src-sha: ff9aa641af180a59acedc7fc9e663543fb397ff758b5122093158fd628125ac1
 license: WTFPL
 dep-upp: pkg-config
 dep-pkg: imlib2
-    #ppflags: -DX_DISPLAY_MISSING
+ppflags: -DX_DISPLAY_MISSING
     #ldflags: -lbz2 -lz -lm -lbrotlidec -lbrotlicommon -lpng -lfreetype
 
     #prepare: |
