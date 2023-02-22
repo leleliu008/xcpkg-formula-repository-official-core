@@ -9,8 +9,8 @@ dep-upp: gm4 flex bison gawk git
 bsystem: autogen
 
 prepare: |
-    sed_in_place 's|install-exec-hook|xxxxxxxxxxxx|' cmd/dot/Makefile.am &&
-    run autoreconf -ivf &&
+    #sed_in_place 's|install-exec-hook|xxxxxxxxxxxx|' cmd/dot/Makefile.am &&
+    run autogen.sh &&
     inject_stub_system lib/sparse/general.c lib/common/utils.c lib/gvpr/compile.c contrib/diffimg/diffimg.c
 
 install: |

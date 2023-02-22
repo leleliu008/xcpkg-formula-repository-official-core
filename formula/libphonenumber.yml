@@ -4,16 +4,17 @@ src-url: https://github.com/google/libphonenumber/archive/v8.13.6.tar.gz
 src-sha: 5c27ee33739981f87d77d1525a59a1358aebea045fea8cc00540662fcae8f62c
 dep-pkg: boost icu4c protobuf googletest abseil
 license: Apache-2.0
-bsystem: cmake
 bscript: cpp
-
-# keep in sync with C++ standard in abseil
+xxflags: -Wno-deprecated-declarations
 install: |
     cmakew \
         -DCMAKE_CXX_STANDARD=17 \
+        -DREGENERATE_METADATA=OFF \
         -DBUILD_GEOCODER=OFF \
         -DBUILD_STATIC_LIB=ON \
         -DUSE_POSIX_THREAD=ON \
         -DUSE_ICU_REGEXP=ON \
         -DUSE_BOOST=ON \
         -DUSE_RE2=OFF
+
+# keep in sync with C++ standard in abseil

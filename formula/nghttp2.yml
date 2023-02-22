@@ -5,7 +5,7 @@ src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.49.0/nghttp2-1.
 src-sha: 14dd5654e369227afebfba5198793a1788a0af9d30cddb19af3ec275d110a7a6
 dep-pkg: libevent libev jansson libxml2 c-ares cunit
 license: MIT
-
+ldflags: -liconv
 install: |
     cmakew \
         -DENABLE_DEBUG=OFF \

@@ -18,4 +18,4 @@ install: |
         --with-json-c \
         --with-libxml2 \
         --with-libidn2=$libidn2_INSTALL_DIR \
-        --with-openssl=$openssl_INSTALL_DIR LIBS=-lunistring
+        --with-openssl=$openssl_INSTALL_DIR
