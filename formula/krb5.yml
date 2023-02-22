@@ -10,4 +10,6 @@ ccflags: -fcommon
 install: |
     configure \
         --enable-static \
-        --disable-shared
+        --disable-shared \
+        --without-keyutils \
+        --without-system-verto
