@@ -18,6 +18,7 @@ install: |
 
     configure \
         --with-libedit="$libedit_INSTALL_DIR" \
+        --disable-static \
         --enable-glob \
         --enable-test-workaround \
         --enable-fnmatch \
