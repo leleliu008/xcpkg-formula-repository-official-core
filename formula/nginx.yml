@@ -58,11 +58,4 @@ install: |
         --with-cc-opt="'$CFLAGS $CPPFLAGS'" \
         --with-ld-opt="'$LDFLAGS -lcrypto'" \
         --with-pcre &&
-    {
-        cat >> objs/ngx_auto_config.h <<EOF
-    #ifndef NGX_SYS_NERR
-    #define NGX_SYS_NERR  107
-    #endif
-    EOF   
-    } &&
     gmakew install
