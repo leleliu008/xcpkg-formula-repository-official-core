@@ -6,6 +6,8 @@ src-sha: 6a9665998d568604460df0918fc8ccfad7d29388d4d842560c056cc211cbb243
 license: MPL-2.0
 dep-pkg: json-c openssl libxml2 libidn2 libnghttp2 libuv
 
+prepare: sed_in_place '/^LIBIDN2_LIBS=/d' configure
+
 install: |
     export BUILD_CC="$CC_FOR_BUILD"
     export LIBIDN2_LIBS="$(pkg-config --libs libidn2)"
