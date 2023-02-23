@@ -7,13 +7,13 @@ dep-pkg: fmt
 
 install: |
     cmakew \
-        -DSPDLOG_FMT_EXTERNAL=ON
+        -DSPDLOG_FMT_EXTERNAL=ON \
         -DSPDLOG_BUILD_SHARED=ON \
         -DSPDLOG_BUILD_BENCH=OFF \
         -DSPDLOG_BUILD_TESTS=OFF \
         -DSPDLOG_BUILD_EXAMPLE=OFF
     cmakew \
-        -DSPDLOG_FMT_EXTERNAL=ON
+        -DSPDLOG_FMT_EXTERNAL=ON \
         -DSPDLOG_BUILD_SHARED=OFF \
         -DSPDLOG_BUILD_BENCH=OFF \
         -DSPDLOG_BUILD_TESTS=OFF \
