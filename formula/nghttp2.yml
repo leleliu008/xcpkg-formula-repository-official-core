@@ -1,11 +1,16 @@
 summary: HTTP/2 C Library
 web-url: https://nghttp2.org/
 git-url: https://github.com/nghttp2/nghttp2
-src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.49.0/nghttp2-1.49.0.tar.gz
-src-sha: 14dd5654e369227afebfba5198793a1788a0af9d30cddb19af3ec275d110a7a6
+src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.52.0/nghttp2-1.52.0.tar.gz
+src-sha: 9877caa62bd72dde1331da38ce039dadb049817a01c3bdee809da15b754771b8
 dep-pkg: libevent libev jansson libxml2 c-ares cunit
 license: MIT
-ldflags: -liconv
+
+# fix for clang not following C++14 behaviour
+# https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
+prepare: |
+    sed_in_place 's|return dconn;|return std::move(dconn);|' src/shrpx_client_handler.cc
+
 install: |
     cmakew \
         -DENABLE_DEBUG=OFF \
