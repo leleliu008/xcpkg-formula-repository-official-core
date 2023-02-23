@@ -6,5 +6,5 @@ src-sha: a5d4feeb056679dd1204153250d7c1d38e5a639e995d3c4e3a8e2e8fe1425b75
 license: LGPL-2.1-or-later
 dep-pym: cython
 dep-upp: nasm
-dep-pkg: zimg libtool
+dep-pkg: zimg libtool python3
 bsystem: autogen
