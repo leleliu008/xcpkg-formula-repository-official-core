@@ -14,3 +14,4 @@ install: |
         -DBUILD_SHARED_LIBS=OFF \
         -DCMAKE_CXX_STANDARD=17 \
         -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
+    sed_in_place '/^Libs: /s|$| -framework CoreFoundation|' "$PACKAGE_INSTALL_DIR/lib/pkgconfig/absl_time.pc"

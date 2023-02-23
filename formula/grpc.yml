@@ -19,3 +19,4 @@ install: |
         -DgRPC_SSL_PROVIDER=package \
         -DgRPC_ZLIB_PROVIDER=package \
         -DgRPC_RE2_PROVIDER=package
+    sed_in_place '/^Requires: /s|$| libcares|' "$PACKAGE_INSTALL_DIR/lib/pkgconfig/grp.pc"
