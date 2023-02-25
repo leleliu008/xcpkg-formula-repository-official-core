@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci9 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [rust-analyzer,sassc,scc,sccache,sd,shaderc,shc,shell2http,shiori,sjpeg,skcms,sl,slang,socat,soundtouch,starship,stylua,supervisord,suricata,svn-lite,syncthing,szip,t1utils,taglib,tarlz,tbb,tbox,tcc,tcl-core,tcpdump,tdu,tealdeer,tectonic,tengo,tesseract,tig,tinysearch,tinyxml2,tmux,tokei]
 
     runs-on: ${{ matrix.os }}
 

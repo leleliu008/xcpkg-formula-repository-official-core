@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci2 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [bottom,boxes,brook,broot,bullet,byacc,bzip2,caddy,cargo-c,cargo-deb,catch2,catimg,ccache,cereal,c-examples,cflow,cgif,chafa,cheat,check,chezmoi,chicken,choose,cjson,clash,cli11,cmake,cmocka,coreutils,cpio,cppcheck,cpptoml,cppunit,cpu_features,cpuinfo,crc32c,croc,crosstool-ng,crowbook,ctop]
 
     runs-on: ${{ matrix.os }}
 

@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci7 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [lrzip,lsd,lsof,luau,lunatic,lunzip,lychee,lynx,lzip,lzop,magic_enum,mcfly,md4c,mdbook,mdcat,mediainfo,miniz,minizip,minizip-ng,mozjpeg,mpg123,mpir,msgpack-c,mujs,nano,nanomsg,nasm,navi,ncdu,neofetch,nghttp2,nginx,ngtcp2,ninja,nng,nnn,nsh,nspr,ntbtls,nushell]
 
     runs-on: ${{ matrix.os }}
 

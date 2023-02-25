@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci3 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [cue,curlie,cxxopts,d2,darkhttpd,dasel,dash,dav1d,delta,diffutils,distcc,dmalloc,dns2tcp,dnsmap,dog,dos2unix,doxygen,dua,duf,dufs,dust,ed,edencommon,eigen,elvish,epsilon,esbuild,ethereum,exa,exhale,faac,faad2,fcp,fd,fdk-aac,fff,findutils,fish,flatbuffers,flex]
 
     runs-on: ${{ matrix.os }}
 

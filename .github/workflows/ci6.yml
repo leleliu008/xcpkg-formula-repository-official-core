@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci6 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [libcaca,libcddb,libcdio,libcroco,libdeflate,libexif,libheif,libidn,libimagequant,libirecovery,libisoburn,liblinear,liblqr,libmaxminddb,libmetalink,libmill,libphonenumber,libpipeline,libpsl,libqalculate,libraqm,libraw,libsamplerate,libsmi,libspng,libtorrent-rasterbar,libunibreak,libupnp,libvpx,libwebm,libwordexp,libyuv,lighttpd,links,livego,llhttp,lmdb,lodepng,log4cplus,lolcat]
 
     runs-on: ${{ matrix.os }}
 

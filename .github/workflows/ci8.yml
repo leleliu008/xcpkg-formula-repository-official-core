@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci8 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [oat++,obfs4proxy,onefetch,open264,openal-soft,openblas,openlibm,openmpi,p11-kit,packcc,patch,patchelf,pget,pigz,pjsip,pkgconf,pkg-config,plzip,pngquant,ppkg,progress,putty,pybind11,pystring,qpdf,quiche,quickjs,ragel,rang,ranger,rapidjson,rclone,re2c,rhash,ripgrep,rlwrap,rsass,rsync,rtmpdump,rtorrent]
 
     runs-on: ${{ matrix.os }}
 

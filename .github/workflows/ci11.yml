@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci11 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [xmake,xmlto,xorriso,xpup,xvid,xxd,yajl,yaml-cpp,yasm,youtubedr,yq,yyjson,z3,zeromq,zip,zlib-ng,zlog,zola,zopfli,zoxide,zsh,zsync]
 
     runs-on: ${{ matrix.os }}
 

@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci1 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [aalib,ag,age,alacritty,alass,algernon,anchor-cli,antibody,apkeep,aptly,archiver,args,aria2,async++,autoconf,automake,autossh,axel,b3sum,bandwhich,base16,base64,bash,basis_universal,bat,bazelisk,bc,bcrypt,bdw-gc,bear,berkeley-db,binaryen,bind,binocle,binutils,bison,bitcoin,bk,bmake,botan]
 
     runs-on: ${{ matrix.os }}
 

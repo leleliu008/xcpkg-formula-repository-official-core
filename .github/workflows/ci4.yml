@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci4 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [fselect,fsmon,fzf,fzy,garble,gawk,gbt,gdbm,gdu,geographiclib,geos,gh,git,git-lfs,gitui,glow,gm4,gmake,gn,gnu-barcode,gnupg,gnutls,gnu-which,godu,gogs,go-md2man,gomobile,google-benchmark,google-highway,goreleaser,gosh,gotop,gotty,gox,gperf,gping,gpsim,gputils,graphene,grep]
 
     runs-on: ${{ matrix.os }}
 

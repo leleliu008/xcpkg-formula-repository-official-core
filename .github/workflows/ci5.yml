@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci5 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #os: [macos-12, macos-11]
         os: [macos-12]
-        pkg: [PKGLIST]
+        pkg: [grex,gron,gsed,gtar,gzip,helix,helm,hexdump,hexyl,htop,htslib,hugo,hunspell,hurl,hwloc,hydroxide,hyperfine,ideviceinstaller,ixwebsocket,jbig2dec,jemalloc,jfrog-cli,joshuto,jpeg,jq,jsoncpp,json-glib,jump,k9s,krb5,lazygit,lcov,less,lf,libaec,libao,libass,libavif,libb2,libbcrypt]
 
     runs-on: ${{ matrix.os }}
 
