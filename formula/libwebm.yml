@@ -7,5 +7,5 @@ license: BSD-3-Clause
 xxflags: -std=c++11
 install: |
     cmakew &&
-    run install_libs libwebm$SHARED_LIBRARY_SUFFIX &&
+    run install_libs libwebm$STATIC_LIBRARY_SUFFIX &&
     run install_bins mkvmuxer_sample mkvparser_sample vttdemux dumpvtt webm2ts webm2pes webm_info
