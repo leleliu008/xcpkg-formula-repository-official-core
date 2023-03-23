@@ -5,7 +5,7 @@ src-sha: e8698724ac68c63f8e6682a93c3154c1d93dc6a9072f13c8cef07ece4ccd0ed6
 license: BSD-3-Clause
 bsystem: gmake
 binbstd: yes
-build0:  |
+build01:  |
     run cp -r "$PACKAGE_WORKING_DIR/src" "$PACKAGE_WORKING_DIR/src-native"
     run cd "$PACKAGE_WORKING_DIR/src-native"
 
@@ -21,9 +21,9 @@ build0:  |
     run cp bmake   "$NATIVE_INSTALL_DIR/bin"
 
 install: |
-    if [ "$CROSS_COMPILING" = yes ] && [ -f "$NATIVE_INSTALL_DIR/bin/bmake" ] ; then
-        sed_in_place "/^BMAKE=/c BMAKE=$NATIVE_INSTALL_DIR/bin/bmake" boot-strap
-    fi
+    #if [ "$CROSS_COMPILING" = yes ] && [ -f "$NATIVE_INSTALL_DIR/bin/bmake" ] ; then
+    #    sed_in_place "/^BMAKE=/c BMAKE=$NATIVE_INSTALL_DIR/bin/bmake" boot-strap
+    #fi
 
     # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
     export ac_cv_func_vfork=no
@@ -46,10 +46,11 @@ install: |
                 fi
             fi
 
-            sh boot-strap --host=$TARGET_TRIPLE op=build
+            ./configure --host=$TARGET_TRIPLE
         else
-            sh boot-strap op=build
+            ./configure
         fi
     } &&
-    install_bins ../*/bmake &&
+    run sh ./make-bootstrap.sh &&
+    install_bins bmake &&
     install_mans bmake.1
