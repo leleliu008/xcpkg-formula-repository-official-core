@@ -22,8 +22,7 @@ build0:  |
 
 install: |
     if [ "$CROSS_COMPILING" = yes ] && [ -f "$NATIVE_INSTALL_DIR/bin/bmake" ] ; then
-        export BMAKE="$NATIVE_INSTALL_DIR/bin/bmake"
-        sed_in_place '/^BMAKE=/d' boot-strap
+        sed_in_place "/^BMAKE=/c BMAKE=$NATIVE_INSTALL_DIR/bin/bmake" boot-strap
     fi
 
     # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
