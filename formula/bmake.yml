@@ -15,12 +15,16 @@ build0:  |
     sed_in_place 's|MANTARGET?|MANTARGET|'   mk/man.mk &&
     sed_in_place '/deptgt-delete_on_error/d' unit-tests/Makefile &&
     sed_in_place '/shell-ksh/d'              unit-tests/Makefile &&
-    run ./configure --prefix="$NATIVE_INSTALL_DIR" &&
+    run ./configure &&
     run sh ./make-bootstrap.sh &&
-    run make install
+    run install -d "$NATIVE_INSTALL_DIR/bin"
+    run cp bmake   "$NATIVE_INSTALL_DIR/bin"
 
 install: |
-    export BMAKE="$NATIVE_INSTALL_DIR/bin/bmake"
+    if [ "$CROSS_COMPILING" = yes ] && [ -f "$NATIVE_INSTALL_DIR/bin/bmake" ] ; then
+        export BMAKE="$NATIVE_INSTALL_DIR/bin/bmake"
+        sed_in_place '/^BMAKE=/d' boot-strap
+    fi
 
     # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
     export ac_cv_func_vfork=no
