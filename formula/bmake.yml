@@ -3,8 +3,25 @@ web-url: https://www.crufty.net/help/sjg/bmake.html
 src-url: https://www.crufty.net/ftp/pub/sjg/bmake-20230303.tar.gz
 src-sha: e8698724ac68c63f8e6682a93c3154c1d93dc6a9072f13c8cef07ece4ccd0ed6
 license: BSD-3-Clause
+bsystem: gmake
 binbstd: yes
+build0:  |
+    # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
+    export ac_cv_func_vfork=no
+
+    sed_in_place 's|MANTARGET?|MANTARGET|'   mk/man.mk &&
+    sed_in_place '/deptgt-delete_on_error/d' unit-tests/Makefile &&
+    sed_in_place '/shell-ksh/d'              unit-tests/Makefile &&
+    run ./configure --prefix="$NATIVE_INSTALL_DIR" &&
+    run sh ./make-bootstrap.sh &&
+    run make install &&
+    run make clean &&
+    export BMAKE="$NATIVE_INSTALL_DIR/bin/bmake"
+
 install: |
+    # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
+    export ac_cv_func_vfork=no
+
     sed_in_place 's|MANTARGET?|MANTARGET|'   mk/man.mk &&
     sed_in_place '/deptgt-delete_on_error/d' unit-tests/Makefile &&
     sed_in_place '/shell-ksh/d'              unit-tests/Makefile && {
