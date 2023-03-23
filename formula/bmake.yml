@@ -1,13 +1,32 @@
 summary: Portable version of NetBSD make(1)
 web-url: https://www.crufty.net/help/sjg/bmake.html
-src-url: https://www.crufty.net/ftp/pub/sjg/bmake-20220909.tar.gz
-src-sha: 34e9704a93fc183e3f1d87a81f9eabeba3200052f57fed4a751a5968d6b70225
+src-url: https://www.crufty.net/ftp/pub/sjg/bmake-20230303.tar.gz
+src-sha: e8698724ac68c63f8e6682a93c3154c1d93dc6a9072f13c8cef07ece4ccd0ed6
 license: BSD-3-Clause
 binbstd: yes
 install: |
     sed_in_place 's|MANTARGET?|MANTARGET|'   mk/man.mk &&
     sed_in_place '/deptgt-delete_on_error/d' unit-tests/Makefile &&
-    sed_in_place '/shell-ksh/d'              unit-tests/Makefile &&
-    sh boot-strap op=build &&
+    sed_in_place '/shell-ksh/d'              unit-tests/Makefile && {
+        if [ "$CROSS_COMPILING" = yes ] ; then
+            if [ 'arm64' = "$TARGET_PLATFORM_ARCH" ] ; then
+                if [ "$PACKAGE_IOS_IOS" = yes ] ; then
+                    TARGET_TRIPLE='aarch64-apple-ios'
+                else
+                    TARGET_TRIPLE='aarch64-apple-darwin'
+                fi
+            else
+                if [ "$PACKAGE_IOS_IOS" = yes ] ; then
+                    TARGET_TRIPLE="$TARGET_PLATFORM_ARCH-apple-ios"
+                else
+                    TARGET_TRIPLE="$TARGET_PLATFORM_ARCH-apple-darwin"
+                fi
+            fi
+
+            sh boot-strap --host=$TARGET_TRIPLE op=build
+        else
+            sh boot-strap op=build
+        fi
+    } &&
     install_bins ../*/bmake &&
     install_mans bmake.1
