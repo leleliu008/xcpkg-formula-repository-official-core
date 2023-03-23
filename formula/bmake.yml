@@ -6,6 +6,9 @@ license: BSD-3-Clause
 bsystem: gmake
 binbstd: yes
 build0:  |
+    run cp -r "$PACKAGE_WORKING_DIR/src" "$PACKAGE_WORKING_DIR/src-native"
+    run cd "$PACKAGE_WORKING_DIR/src-native"
+
     # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
     export ac_cv_func_vfork=no
 
@@ -14,11 +17,11 @@ build0:  |
     sed_in_place '/shell-ksh/d'              unit-tests/Makefile &&
     run ./configure --prefix="$NATIVE_INSTALL_DIR" &&
     run sh ./make-bootstrap.sh &&
-    run make install &&
-    run make clean &&
-    export BMAKE="$NATIVE_INSTALL_DIR/bin/bmake"
+    run make install
 
 install: |
+    export BMAKE="$NATIVE_INSTALL_DIR/bin/bmake"
+
     # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
     export ac_cv_func_vfork=no
 
