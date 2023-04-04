@@ -5,7 +5,7 @@ src-url: https://github.com/libuv/libuv/archive/v1.44.2.tar.gz
 src-sha: e6e2ba8b4c349a4182a33370bb9be5e23c51b32efb9b9e209d0e8556b73a48da
 license: MIT
 
-prepare: |
+dopatch: |
     # https://github.com/libuv/libuv/issues/2975
     sed_in_place 's/!TARGET_OS_IPHONE/1/' src/unix/darwin.c
 

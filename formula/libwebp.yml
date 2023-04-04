@@ -7,4 +7,4 @@ dep-pkg: libpng libtiff libjpeg-turbo giflib
 license: BSD-3-Clause
 bsystem: cmake
 ldflags: -Wl,-undefined -Wl,dynamic_lookup
-prepare: sed_in_place 's|CMAKE_INSTALL_DATADIR|CMAKE_INSTALL_LIBDIR|' CMakeLists.txt
+dopatch: sed_in_place 's|CMAKE_INSTALL_DATADIR|CMAKE_INSTALL_LIBDIR|' CMakeLists.txt

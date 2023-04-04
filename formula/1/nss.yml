@@ -7,7 +7,7 @@ bsystem: gmake
 dep-pkg: nspr
 bscript: nss
 
-prepare: |
+dopatch: |
     sed_in_place 's/$(AR) $(OBJS)/$(AR) $@ $(OBJS)/' coreconf/rules.mk &&
     unset XCFLAGS &&
     prepare_includes "$PWD/lib" 

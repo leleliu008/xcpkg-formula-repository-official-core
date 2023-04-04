@@ -7,7 +7,7 @@ license: BSD-3-Clause
 dep-pkg: libevent
 bsystem: configure
 
-prepare: |
+dopatch: |
     inject_stub_system \
         opal/tools/opal-restart/opal-restart.c \
         opal/mca/hwloc/hwloc201/hwloc/hwloc/dolib.c \

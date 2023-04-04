@@ -6,4 +6,4 @@ src-sha: f99d1c13aa5fa296898a181dff9b82fb25f6cc0933dbaa7a475d8109bd54209d
 license: LGPL-2.1
 dep-pkg: freetype2
 bsystem: cmake
-prepare: sed_in_place '/nolib_test/d' src/CMakeLists.txt
+dopatch: sed_in_place '/nolib_test/d' src/CMakeLists.txt

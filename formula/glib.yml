@@ -7,7 +7,7 @@ license: LGPL-2.1-or-later
 dep-pkg: gettext libffi libiconv pcre2
 bsystem: meson
 
-prepare: |
+dopatch: |
     sed_in_place "s|dependency('zlib')|cc.find_library('z', static : true, dirs : ['$zlib_LIBRARY_DIR'])|" meson.build
 
 install: |

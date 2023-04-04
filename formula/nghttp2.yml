@@ -8,7 +8,7 @@ license: MIT
 
 # fix for clang not following C++14 behaviour
 # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
-prepare: |
+dopatch: |
     sed_in_place 's|return dconn;|return std::move(dconn);|' src/shrpx_client_handler.cc
 
 install: |

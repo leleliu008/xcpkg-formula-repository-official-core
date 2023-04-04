@@ -9,7 +9,7 @@ dep-upp: pkg-config gperf
 dep-pkg: gettext libiconv json-c expat freetype2-with-harfbuzz
 ldflags: -lgraphite2 -lbz2 -lz -lm -lbrotlidec -lbrotlicommon -lpng -lharfbuzz -lglib-2.0 -liconv -lintl
 
-prepare: |
+dopatch: |
     sed_in_place 's|po-conf test|po-conf|' Makefile.in
 
 install: |

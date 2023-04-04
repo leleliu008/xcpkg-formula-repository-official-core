@@ -6,7 +6,7 @@ src-sha: f5ca69db03eea17fa8705bdfb1a9f58d76a46c9010518109bb38f313137e0a28
 dep-pkg: libnghttp2 openssl zstd brotli
 license: curl
 
-prepare: |
+dopatch: |
     sed_in_place 's|-lbrotlidec|-lbrotlidec -lbrotlicommon|' configure
     sed_in_place '/min="-mmacosx-version-min=/d' configure
 

@@ -6,7 +6,7 @@ src-sha: 882975323317f595093125467d7b9604f78bded7ba1005f5fc17e33358cdb0fa
 bsystem: gmake
 binbstd: yes
 
-prepare: sed_in_place '/VENDOR_OS =/d' GNUmakefile
+dopatch: sed_in_place '/VENDOR_OS =/d' GNUmakefile
 
 install: |
     gmakew distclean &&

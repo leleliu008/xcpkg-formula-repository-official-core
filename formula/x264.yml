@@ -5,7 +5,7 @@ git-sha: baee400fa9ced6f5481a728138fed6e867b0ff7f
 license: GPL-2.0-only
 version: r3095
 
-#prepare: sed_in_place 's|ARCH="AARCH64"|ARCH="ARM"|' configure
+#dopatch: sed_in_place 's|ARCH="AARCH64"|ARCH="ARM"|' configure
 
 install: |
     configure \

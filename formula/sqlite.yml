@@ -7,7 +7,7 @@ license: blessing
 version: 3.41.1
 dep-pkg: readline zlib
 
-prepare: inject_stub_system shell.c
+dopatch: inject_stub_system shell.c
 install: |
     configure \
         --enable-threadsafe \

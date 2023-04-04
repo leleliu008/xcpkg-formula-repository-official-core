@@ -9,7 +9,7 @@ dep-pkg: openssl pcre2 zlib
 bsystem: gmake
 binbstd: yes
 
-prepare: |
+dopatch: |
     trace_configure() {
         for item in $(ls $1)
         do

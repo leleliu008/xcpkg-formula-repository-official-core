@@ -6,7 +6,7 @@ license: GPL-2.0-or-later
 bsystem: configure
 dep-pkg: gmp
 
-prepare: |
+dopatch: |
     sed_in_place '/cat >conftest.c <<EOF/a #include<stdlib.h>' configure &&
     sed_in_place 's/-soname=/-install_name,/g' configure
 

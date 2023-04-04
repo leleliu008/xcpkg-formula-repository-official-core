@@ -12,7 +12,7 @@ license: GPL-3.0-or-later
 
 dep-pkg: openssl popt lz4 zstd xxhash libiconv
 
-prepare: |
+dopatch: |
     patch -p1 < ../fix/patches/fileflags.diff
     inject_stub_system main.c
 

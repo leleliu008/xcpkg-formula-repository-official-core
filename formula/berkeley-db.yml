@@ -7,7 +7,7 @@ bsystem: configure
 dep-pkg: openssl
 bscript: dist
 
-prepare: |
+dopatch: |
     sed_in_place 's| install_docs||' Makefile.in
 
 install: |

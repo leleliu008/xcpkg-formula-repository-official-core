@@ -11,7 +11,7 @@ bsystem: configure
 # https://www.talkwithdevices.com/archives/260
 build0: run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
 
-    #prepare: |
+    #dopatch: |
     #cp config/mh-darwin config/mh-unknown &&
     #inject_stub_system tools/tzcode/zic.c tools/pkgdata/pkgdata.cpp
 

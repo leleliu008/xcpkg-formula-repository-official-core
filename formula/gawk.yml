@@ -6,7 +6,7 @@ src-sha: d87629386e894bbea11a5e00515fc909dc9b7249529dad9e6a3a2c77085f7ea2
 license: GPL-3.0-or-later
 dep-pkg: mpfr
 
-prepare: inject_stub_system builtin.c
+dopatch: inject_stub_system builtin.c
 
 install: |
     configure \

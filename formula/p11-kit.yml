@@ -7,7 +7,7 @@ bsystem: configure
 
 # ld: targeted OS version does not support use of thread local variables in _thread_local_message for architecture x86_64
 
-prepare: |
+dopatch: |
     # p11-kit cannot be used as a static library
     sed_in_place 's/if test "$enable_static" = "yes"; then/if false ; then/' configure
 

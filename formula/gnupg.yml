@@ -5,7 +5,7 @@ src-sha: 10b55e49d78b3e49f1edb58d7541ecbdad92ddaeeb885b6f486ed23d1cd1da5c
 dep-pkg: libgcrypt libassuan libksba npth libiconv libbz2 readline
 bsystem: configure
 
-prepare: |
+dopatch: |
     inject_stub_system g10/exec.c
 
 install: |

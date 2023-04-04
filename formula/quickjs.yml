@@ -7,7 +7,7 @@ src-sha: a45bface4c3379538dea8533878d694e289330488ea7028b105f72572fe7fe1a
 license: MIT
 binbstd: yes
 
-prepare: |
+dopatch: |
     sed_in_place 's|-g||' Makefile &&
     sed_in_place 's|LIBS+=-ldl -lpthread|LIBS+=-ldl|' Makefile &&
     sed_in_place 's|$(QJSC) -c|./host-qjsc -c|'       Makefile &&

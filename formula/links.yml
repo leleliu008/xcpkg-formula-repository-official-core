@@ -8,7 +8,7 @@ license: GPL-2.0-or-later
 bsystem: gmake
 binbstd: yes
 
-prepare: inject_stub_system drivers.c os_dep.c
+dopatch: inject_stub_system drivers.c os_dep.c
 
 install: |
     OPENSSL_LIBS="$(pkg-config --libs openssl)"

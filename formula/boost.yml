@@ -12,7 +12,7 @@ binbstd: yes
 # https://sites.google.com/site/robdevelopertips/how-to-build-boost-1-64-0-for-android
 # https://www.boost.org/doc/libs/1_73_0/libs/context/doc/html/context/architectures/crosscompiling.html
 # https://www.boost.org/doc/libs/1_65_1/libs/context/doc/html/context/architectures.html
-prepare: |
+dopatch: |
     sed_in_place '1a set -x' bootstrap.sh &&
     sed_in_place '1a set -x' tools/build/src/engine/build.sh &&
     run ./bootstrap.sh

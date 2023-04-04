@@ -7,4 +7,4 @@ dep-pkg: zlib zstd libbz2
 dep-upp: pkg-config
 bsystem: cmake
 
-prepare: sed_in_place 's|if(COMMONCRYPTO_FOUND)|if(OFF)|' CMakeLists.txt
+dopatch: sed_in_place 's|if(COMMONCRYPTO_FOUND)|if(OFF)|' CMakeLists.txt

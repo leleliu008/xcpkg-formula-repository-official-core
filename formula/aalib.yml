@@ -7,7 +7,7 @@ dep-pkg: ncurses
 dep-upp: libtool
 bsystem: autotools
 
-prepare: |
+dopatch: |
     run autoreconf -ivf &&
     sed_in_place '203c return 0;'         src/aalinuxkbd.c &&
     sed_in_place '1i #include <stdlib.h>' src/aalinuxkbd.c &&

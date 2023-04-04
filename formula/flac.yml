@@ -6,7 +6,7 @@ src-sha: e322d58a1f48d23d9dd38f432672865f6f79e73a6f9cc5a5f57fcaa83eb5a8e4
 license: GFDL-1.2-or-later
 dep-pkg: libogg libiconv gettext
 
-prepare: |
+dopatch: |
     # 去掉libintl的查找
     cat > src/share/getopt/CMakeLists.txt <<EOF
     check_include_file("string.h" HAVE_STRING_H)

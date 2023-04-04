@@ -5,7 +5,7 @@ src-sha: eede71f28371bf39aa69b45de23b329d37214016e2055269b3b5e7cfd40b59f5
 license: BSD-3-Clause
 dep-pkg: gflags
 
-prepare: sed_in_place 's|(system(diffcmd.c_str())|(execl("/bin/sh" "sh" "-c", diffcmd.c_str(), (char*)NULL)|' src/googletest.h
+dopatch: sed_in_place 's|(system(diffcmd.c_str())|(execl("/bin/sh" "sh" "-c", diffcmd.c_str(), (char*)NULL)|' src/googletest.h
 
 install: |
     cmakew \
