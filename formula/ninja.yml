@@ -4,9 +4,4 @@ git-url: https://github.com/ninja-build/ninja
 src-url: https://github.com/ninja-build/ninja/archive/v1.11.0.tar.gz
 src-sha: 3c6ba2e66400fe3f1ae83deb4b235faf3137ec20bd5b08c29bfc368db143e4c6
 license: Apache-2.0
-dep-upp: python3
-
-binbstd: yes
-install: |
-    run python3 configure.py --bootstrap --verbose --with-python=python3 &&
-    run install_bins ninja
+bsystem: cmake
