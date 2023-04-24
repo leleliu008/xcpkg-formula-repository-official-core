@@ -30,4 +30,5 @@ install: |
         --enable-threads=posix \
         --enable-libasprintf \
         --enable-namespacing \
-        --enable-nls
+        --enable-nls \
+        --enable-relocatable

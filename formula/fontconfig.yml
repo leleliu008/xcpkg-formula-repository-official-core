@@ -4,7 +4,6 @@ git-url: https://gitlab.freedesktop.org/fontconfig/fontconfig
 src-url: https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
 src-sha: f655dd2a986d7aa97e052261b36aa67b0a64989496361eca8d604e6414006741
 license: MIT
-bsystem: configure
 dep-upp: pkg-config gperf
 dep-pkg: gettext libiconv json-c expat freetype2-with-harfbuzz
 ldflags: -lgraphite2 -lbz2 -lz -lm -lbrotlidec -lbrotlicommon -lpng -lharfbuzz -lglib-2.0 -liconv -lintl
