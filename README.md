@@ -2,7 +2,7 @@
 the offical formula repository for [xcpkg](https://github.com/leleliu008/xcpkg)
 
 ## xcpkg formula
-a xcpkg formula is a [YAML](https://yaml.org/spec/1.2.2/) format file which is used to config a xcpkg package's meta-infomation including one sentence description, package version, installation instructions, etc.
+a xcpkg formula is a [YAML](https://yaml.org/spec/1.2.2/) format file which is used to config a xcpkg package's meta-information including one sentence description, package version, installation instructions, etc.
 
 ## xcpkg formula scheme
 |KEY|required?|overview|
@@ -38,20 +38,18 @@ a xcpkg formula is a [YAML](https://yaml.org/spec/1.2.2/) format file which is u
 |`xxflags`|optional|append to `CXXFLAGS`|
 |`ldflags`|optional|append to `LDFLAGS`|
 ||||
-|`exetype`|optional|indicates whether can be built as statically-linked executable.<br>value can be any of `statically-linked` `dynamically-linked`. If this mapping is not present, `statically-linked` will be used. this mapping only affects `GNU/Linux` system.|
-||||
 |`bsystem`|optional|build system.<br>values can be any of `autogen` `autotools` `configure` `cmake` `cmake-gmake` `cmake-ninja` `meson` `xmake` `gmake` `ninja` `cargo` `go`|
 |`bscript`|optional|the directory where the build script is located in, relative to `PACKAGE_WORKING_DIR`. build script such as `configure`, `Makefile`, `CMakeLists.txt`, `meson.build`, `Cargo.toml`, etc.|
 |`binbstd`|optional|whether build in the directory where the build script is located in, otherwise build in other directory. value can be `yes` or `no`. default value is `no`.|
-|`prepare`|optional|POSIX shell code to be run before `install`. `pwd` is `$PACKAGE_BSCRIPT_DIR`|
-|`install`|optional|POSIX shell code to be run when user run `xcpkg install <PKG>`. If this mapping is not present, `xcpkg` will run default install code according to `bsystem`|
+|`dopatch`|optional|POSIX shell code to be run before `dobuild`. `pwd` is `$PACKAGE_BSCRIPT_DIR`|
+|`dobuild`|optional|POSIX shell code to be run when user run `xcpkg install <PKG>`. If this mapping is not present, `xcpkg` will run default install code according to `bsystem`|
 |`symlink`|optional|whether symlink installed files to `$XCPKG_HOME/symlinked/*`. value can be `yes` or `no`. default value is `yes`.|
 
 ### the commands can be invoked in prepare and install block
 |command|usage-example|
 |-|-|
 |`echo`|`echo 'your message.'`|
-|`info`|`info 'your infomation.'`|
+|`info`|`info 'your information.'`|
 |`warn`|`warn "no package manager found."`|
 |`error`|`error 'error message.'`|
 |`die`|`die "please specify a package name."`|
