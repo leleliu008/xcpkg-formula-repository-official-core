@@ -9,6 +9,12 @@ dep-pkg: gettext expat curl pcre2
 bsystem: configure
 binbstd: yes
 install: |
+    # to bypass git error: cannot run test program while cross compiling
+    export ac_cv_fread_reads_directories=yes
+    export ac_cv_header_libintl_h=yes
+    export ac_cv_iconv_omits_bom=no
+    export ac_cv_snprintf_returns_bogus=no
+
     export ac_cv_lib_curl_curl_global_init=yes
 
     LIBCURL_LIBS="$(pkg-config --libs libcurl)"
