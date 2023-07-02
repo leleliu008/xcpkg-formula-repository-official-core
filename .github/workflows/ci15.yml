@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci15 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         runner: [macos-12]
         target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
-        pkg: [PKGLIST]
+        pkg: [nng,nnn,nsh,nspr,ntbtls,nushell,oat++,obfs4proxy,onefetch,open264,openal-soft,openblas,openlibm,openmpi,p11-kit,p7zip,packcc,patch,patchelf,pget]
 
     runs-on: ${{ matrix.os }}
 

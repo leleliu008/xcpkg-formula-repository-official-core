@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci8 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         runner: [macos-12]
         target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
-        pkg: [PKGLIST]
+        pkg: [gm4,gmake,gn,gnu-barcode,gnupg,gnutls,gnu-which,godu,gogs,go-md2man,gomobile,google-benchmark,google-highway,goreleaser,gosh,gotop,gotty,gox,gperf,gping]
 
     runs-on: ${{ matrix.os }}
 

@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci5 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         runner: [macos-12]
         target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
-        pkg: [PKGLIST]
+        pkg: [ctop,cue,curlie,cxxopts,d2,darkhttpd,dasel,dash,dav1d,delta,diffutils,distcc,dmalloc,dns2tcp,dnsmap,dog,dos2unix,doxygen,dua,duf]
 
     runs-on: ${{ matrix.os }}
 
