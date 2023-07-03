@@ -1,14 +1,8 @@
 summary: Audio codec designed for speech
-web-url: https://speex.org
+web-url: https://speex.org/
 git-url: https://github.com/xiph/speex
-src-url: https://github.com/xiph/speex/archive/refs/tags/Speex-1.2.0.tar.gz
-src-sha: 4781a30d3a501abc59a4266f9bbf8b1da66fd509bef014697dc3f61e406b990c
+src-url: https://github.com/xiph/speex/archive/refs/tags/Speex-1.2.1.tar.gz
+src-sha: beaf2642e81a822eaade4d9ebf92e1678f301abfc74a29159c4e721ee70fdce0
 dep-pkg: libogg speexdsp
+license: BSD-3-Clause
 bsystem: autogen
-
-install: |
-    configure \
-        OGG_CFLAGS="-logg" \
-        OGG_LIBS="-logg" \
-        SPEEXDSP_CFLAGS="-lspeexdsp" \
-        SPEEXDSP_LIBS="-lspeexdsp"

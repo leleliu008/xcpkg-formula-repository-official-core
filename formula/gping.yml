@@ -1,7 +1,7 @@
 summary: Ping, but with a graph
 git-url: https://github.com/orf/gping
-src-url: https://github.com/orf/gping/archive/refs/tags/gping-v1.4.0.tar.gz
-src-sha: f68735ee9f6f3fde6881b727c518550d9c486a4259c0a2a2d261971715b77970
+src-url: https://github.com/orf/gping/archive/refs/tags/gping-v1.12.0.tar.gz
+src-sha: 63b5a60d1389e44c5baef07cec41d148b454798683baf220bb260d450a4906b8
 license: MIT
 bscript: gping
 bsystem: cargo

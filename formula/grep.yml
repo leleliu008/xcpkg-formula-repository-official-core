@@ -1,7 +1,8 @@
 summary: GNU grep, egrep and fgrep
+git-url: https://git.savannah.gnu.org/git/grep
 web-url: https://www.gnu.org/software/grep
-src-url: https://ftp.gnu.org/gnu/grep/grep-3.4.tar.xz
-src-sha: 58e6751c41a7c25bfc6e9363a41786cff3ba5709cf11d5ad903cf7cce31cc3fb
+src-url: https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz
+src-sha: 1db2aedde89d0dea42b16d9528f894c8d15dae4e190b59aecc78f5a951276eab
 license: GPL-3.0-or-later
 
 install: |
@@ -9,4 +10,6 @@ install: |
         --enable-threads=posix \
         --disable-assert \
         --disable-gcc-warnings \
-        --with-included-regex
+        --with-included-regex &&
+    sed_in_place 's|bash|sh|' $PACKAGE_INSTALL_DIR/bin/egrep &&
+    sed_in_place 's|bash|sh|' $PACKAGE_INSTALL_DIR/bin/fgrep

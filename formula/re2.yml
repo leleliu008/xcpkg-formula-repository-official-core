@@ -1,10 +1,7 @@
 summary: Alternative to backtracking PCRE-style regular expression engines
-version: 20220201
 git-url: https://github.com/google/re2
-src-url: https://github.com/google/re2/archive/2022-02-01.tar.gz
-src-sha: 9c1e6acfd0fed71f40b025a7a1dabaf3ee2ebb74d64ced1f9ee1b0b01d22fd27
+src-url: https://github.com/google/re2/archive/2023-03-01.tar.gz
+src-sha: f89c61410a072e5cbcf8c27e3a778da7d6fd2f2b5b1445cd4f4508bee946ab0f
+version: 20230301
 license: BSD-3-Clause
-bsystem: cmake
-
-install: |
-    cmakew -DRE2_BUILD_TESTING=OFF
+install: cmakew -DRE2_BUILD_TESTING=OFF

@@ -11,19 +11,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: [macos-12]
         target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
         pkg: [hydroxide,hyperfine,ideviceinstaller,ixwebsocket,jbig2dec,jemalloc,jfrog-cli,joshuto,jpeg,jq,jsoncpp,json-glib,jump,k9s,krb5,lazygit,lcov,less,lf,libaec]
 
-    runs-on: ${{ matrix.os }}
-
-    env:
-      HOMEBREW_NO_INSTALL_CLEANUP: set
+    runs-on: macos-12
 
     steps:
-      - run: brew update
-      - run: brew install --overwrite python@3.10 python@3.11
-
       - uses: actions/checkout@v3
 
       - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/xcpkg

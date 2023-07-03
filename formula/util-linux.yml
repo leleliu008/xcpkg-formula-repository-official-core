@@ -1,18 +1,40 @@
 summary: Collection of Linux utilities
-git-url: https://github.com/karelzak/util-linux
-src-url: https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.tar.xz
-src-sha: 9e4b1c67eb13b9b67feb32ae1dc0d50e08ce9e5d82e1cccd0ee771ad2fa9e0b1
-license: GPL-2.0
+git-url: https://github.com/util-linux/util-linux
+src-url: https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.tar.xz
+src-sha: 32b30a336cda903182ed61feb3e9b908b762a5e66fe14e43efb88d37162075cb
+license: GPL-2.0-or-later
 dep-pkg: readline
-bsystem: configure
+dep-upp: automake libtool
+
+# Fix lib/procfs.c:9:10: fatal error: 'sys/vfs.h' file not found
+fix-url: https://github.com/util-linux/util-linux/commit/3671d4a878fb58aa953810ecf9af41809317294f.patch?full_index=1
+fix-sha: d38c9ae06c387da151492dd5862c58551559dd6d2b1877c74cc1e11754221fe4
+
+dopatch: |
+    if [ "$NATIVE_OS_KIND" = darwin ] ; then
+        patch -p1 < ../fix/d38c9ae06c387da151492dd5862c58551559dd6d2b1877c74cc1e11754221fe4.patch
+    fi
 
 install: |
-    export CPPFLAGS="$CPPFLAGS -D_PATH_VI=\\\"/usr/bin/vi\\\""
+    export AUTOMAKE="$(command -v automake)"
+    export ACLOCAL="$(command -v aclocal)"
+
+    unset EXTRA_CONFIGURE_ARGS
+
+    case $NATIVE_OS_KIND in
+        darwin) EXTRA_CONFIGURE_ARGS='--disable-libmount --disable-ipcrm --disable-ipcs --disable-wall' ;;
+    esac
+
     configure \
         --without-python \
         --without-systemd \
-        --with-ncursesw=no \
-        --with-ncurses \
-        --enable-widechar=no \
-        --disable-all-programs \
-        --enable-libuuid
+        --enable-widechar \
+        --enable-libuuid \
+        --disable-use-tty-group \
+        --disable-chfn-chsh \
+        --disable-login \
+        --disable-su \
+        --disable-runuser \
+        --disable-makeinstall-chown \
+        --disable-makeinstall-setuid \
+        $EXTRA_CONFIGURE_ARGS

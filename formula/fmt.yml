@@ -1,8 +1,8 @@
 summary: Open-source formatting library for C++
 web-url: https://fmt.dev
 git-url: https://github.com/fmtlib/fmt
-src-url: https://github.com/fmtlib/fmt/archive/8.1.1.tar.gz
-src-sha: 3d794d3cf67633b34b2771eb9f073bde87e846e0d395d254df7b211ef1ec7346
+src-url: https://github.com/fmtlib/fmt/archive/10.0.0.tar.gz
+src-sha: ede1b6b42188163a3f2e0f25ad5c0637eca564bd8df74d02e31a311dd6b37ad8
 license: MIT
 
 install: |

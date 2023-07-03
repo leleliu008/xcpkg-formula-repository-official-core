@@ -1,8 +1,8 @@
 summary: Next generation open source RPC library and framework
 web-url: https://grpc.io
 git-url: https://github.com/grpc/grpc
-src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.53.0.tar.gz
-src-sha: 9717ffc52120861136e478155c2ff3a9c21740e2244de52fa966f376d7471adf
+src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.56.0.tar.gz
+src-sha: e034992a0b464042021f6d440f2090acc2422c103a322b0844e3921ccea981dc
 license: Apache-2.0
 dep-pkg: abseil c-ares openssl protobuf re2
 
@@ -19,4 +19,3 @@ install: |
         -DgRPC_SSL_PROVIDER=package \
         -DgRPC_ZLIB_PROVIDER=package \
         -DgRPC_RE2_PROVIDER=package
-    sed_in_place '/^Requires: /s|$| libcares|' "$PACKAGE_INSTALL_DIR/lib/pkgconfig/gpr.pc"

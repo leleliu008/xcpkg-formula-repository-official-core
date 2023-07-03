@@ -1,8 +1,9 @@
 summary: The Universal WebAssembly Runtime
 web-url: https://wasmer.io
 git-url: https://github.com/wasmerio/wasmer
-src-url: https://github.com/wasmerio/wasmer/archive/2.3.0.tar.gz
-src-sha: b27d12494191a5fe4a77b2cce085b6005f2bf6285ede6c86601a3062c6135782
+src-url: https://github.com/wasmerio/wasmer/archive/v4.0.0.tar.gz
+src-sha: fcac7573c6c54e8bed8e2ec9dc3d3973ce1fa949c6c1956b3b6bf7e27bb186bb
 license: MIT
+dep-pkg: wabt
 bscript: lib/cli
 install: cargow install --features cranelift
