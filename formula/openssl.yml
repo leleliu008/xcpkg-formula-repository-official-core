@@ -4,7 +4,7 @@ web-url: https://www.openssl.org/
 src-url: https://www.openssl.org/source/openssl-3.1.1.tar.gz
 src-sha: b3aa61334233b852b63ddb048df181177c2c659eb9d4376008118f9c08d07674
 license: Apache-2.0
-dep-pkg: perl
+dep-upp: perl
 
 bsystem: gmake
 binbstd: yes
