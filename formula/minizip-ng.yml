@@ -1,10 +1,7 @@
 summary: Zip file manipulation library with minizip 1.x compatibility layer
 git-url: https://github.com/zlib-ng/minizip-ng
-src-url: https://github.com/zlib-ng/minizip-ng/archive/3.0.5.tar.gz
-src-sha: 1a248c378fdf4ef6c517024bb65577603d5146cffaebe81900bec9c0a5035d4d
+src-url: https://github.com/zlib-ng/minizip-ng/archive/4.0.0.tar.gz
+src-sha: f9062e576de026fd5026d65597de3b05263cd4d91400cacdbbe36dfa8a642fff
 license: Zlib
-dep-pkg: zlib zstd libbz2
-dep-upp: pkg-config
+dep-pkg: libzstd libbz2
 bsystem: cmake
-
-dopatch: sed_in_place 's|if(COMMONCRYPTO_FOUND)|if(OFF)|' CMakeLists.txt

@@ -1,7 +1,7 @@
 summary: Command-line Git information tool
 git-url: https://github.com/o2sh/onefetch
-src-url: https://github.com/o2sh/onefetch/archive/v2.13.2.tar.gz
-src-sha: 6a57e12fb049af89de13aeaf06f206be602e73872458ff4cd5725d3b82289123
+src-url: https://github.com/o2sh/onefetch/archive/2.18.1.tar.gz
+src-sha: 7b0f03e9d2383ac32283cfb9ec09d10c8789a298969c8b7d45fa0168bd909140
 license: MIT
 bsystem: cargo cmake
 install: cargow install

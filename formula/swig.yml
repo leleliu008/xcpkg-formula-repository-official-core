@@ -1,11 +1,10 @@
 summary: Generate scripting interfaces to C/C++ code
-web-url: http://www.swig.org
+web-url: https://www.swig.org/
 git-url: https://github.com/swig/swig
-src-url: https://downloads.sourceforge.net/project/swig/swig/swig-4.0.2/swig-4.0.2.tar.gz
-src-sha: d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc
-license: GPL-3.0
-bsystem: configure
-dep-pkg: pcre
+src-url: https://downloads.sourceforge.net/project/swig/swig/swig-4.1.1/swig-4.1.1.tar.gz
+src-sha: 2af08aced8fcd65cdb5cc62426768914bedc735b1c250325203716f78e39ac9b
+license: GPL-3.0-or-later
+dep-pkg: pcre2
 
 install: |
     configure \

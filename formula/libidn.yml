@@ -1,9 +1,9 @@
 summary: International domain name library
 web-url: https://www.gnu.org/software/libidn/
-src-url: https://ftp.gnu.org/gnu/libidn/libidn-1.38.tar.gz
-src-sha: de00b840f757cd3bb14dd9a20d5936473235ddcba06d4bc2da804654b8bbf0f6
-bsystem: configure
-dep-upp: pkg-config
+src-url: https://ftp.gnu.org/gnu/libidn/libidn-1.41.tar.gz
+src-sha: 884d706364b81abdd17bee9686d8ff2ae7431c5a14651047c68adf8b31fd8945
+git-url: https://git.savannah.gnu.org/git/libidn
+license: GPL-2.0-or-later LGPL-3.0-or-later
 
 install: |
     configure \

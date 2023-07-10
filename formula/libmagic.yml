@@ -1,17 +1,15 @@
-summary: Utility to determine file types
+summary: Library to determine file types
 web-url: https://www.darwinsys.com/file
 git-url: https://github.com/file/file
 src-url: https://astron.com/pub/file/file-5.44.tar.gz
 src-sha: 3751c7fba8dbc831cb8d7cc8aff21035459b8ce5155ef8b0880a27d028475f3b
 license: BSD-2-Clause
-dep-pkg: libmagic
-install: |
-    export LDFLAGS="$LDFLAGS $libmagic_LIBRARY_DIR/libmagic.a"
+dep-pkg: zlib
 
-    configure_only \
+install: |
+    configure \
         --enable-zlib \
         --disable-bzlib \
         --disable-xzlib &&
-    gmakew install-exec &&
-    gmakew -C doc install-man1 &&
-    rm -rf "$PACKAGE_INSTALL_DIR/lib"
+    rm -rf "$PACKAGE_INSTALL_DIR/bin" &&
+    rm -rf "$PACKAGE_INSTALL_DIR/share/man/man1"
