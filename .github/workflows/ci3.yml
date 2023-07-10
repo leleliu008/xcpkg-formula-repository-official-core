@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci3 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
         target-platform: [ 'MacOSX/13.0/x86_64', 'MacOSX/13.0/arm64' ]
-        pkg: [PKGLIST]
+        pkg: [dufs,dust,easyutils,ed,edencommon,eigen,elvish,epsilon,esbuild,ethereum,exa,exhale,faac,faad2,fcp,fd,fdk-aac,fff,fftw,findutils,fish,flatbuffers,flex,fselect,fsmon,fzf,fzy,garble,gawk,gbt,gdu,geographiclib,geos,gettext-tools,gh,git,git-lfs,gitui,glib-tools,glow,gm4,gmake,gn,gnu-barcode,gnupg,gnu-which,godu,gogs,go-md2man,gomobile]
 
     runs-on: macos-13
 

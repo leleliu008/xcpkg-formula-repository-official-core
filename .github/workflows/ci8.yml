@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci8 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
         target-platform: [ 'MacOSX/13.0/x86_64', 'MacOSX/13.0/arm64' ]
-        pkg: [PKGLIST]
+        pkg: [taglib,tarlz,tbb,tbox,tcc,tcl-core,tcpdump,tdu,tealdeer,tectonic,tengo,tig,tinysearch,tinyxml2,tmux,tokei,toml++,toml11,tree,ttyd,ttygif,ttyrec,tweego,twolame,uchardet,uctags,unbound,unixodbc,unrar,unzip,uppm,usrsctp,utf8.h,utfcpp,vala,vapoursynth,vde,vegeta,virustotal-cli,viu,volta,vsftpd,wangle,wasm3,wasmer,wasmtime,watchexec,wavpack,webhook,websocketpp]
 
     runs-on: macos-13
 

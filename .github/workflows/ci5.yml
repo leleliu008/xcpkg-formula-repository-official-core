@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci5 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
         target-platform: [ 'MacOSX/13.0/x86_64', 'MacOSX/13.0/arm64' ]
-        pkg: [PKGLIST]
+        pkg: [libao,libavif,libb2,libbcrypt,libcaca,libcddb,libcdio,libcroco,libdeflate,libexif,libheif,libidn,libimagequant,libirecovery,libisoburn,liblinear,liblqr,libmaxminddb,libmetalink,libmill,libphonenumber,libpipeline,libpsl,libqalculate,libraqm,libraw,libsamplerate,libsmi,libspng,libtorrent-rasterbar,libunibreak,libupnp,libwebm,libxml2-utils,libyuv,lighttpd,links,livego,llhttp,lmdb,lodepng,log4cplus,lolcat,lrzip,lsd,lsof,luau,lunatic,lunzip,lychee]
 
     runs-on: macos-13
 

@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci7 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
         target-platform: [ 'MacOSX/13.0/x86_64', 'MacOSX/13.0/arm64' ]
-        pkg: [PKGLIST]
+        pkg: [pkgconf,pkg-config,plzip,pngquant,ppkg,progress,putty,pybind11,pystring,python3-setup,qpdf,quiche,quickjs,ragel,rang,ranger,rapidjson,rclone,re2c,rhash,ripgrep,rlwrap,rsass,rsync,rtmpdump,rtorrent,rust-analyzer,sassc,scc,sccache,sd,shaderc,shc,shell2http,shiori,sjpeg,skcms,sl,slang,socat,soundtouch,starship,stylua,supervisord,suricata,svn-lite,syncthing,sysinfo,szip,t1utils]
 
     runs-on: macos-13
 

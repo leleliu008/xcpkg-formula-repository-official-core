@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci9 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       matrix:
         #target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
         target-platform: [ 'MacOSX/13.0/x86_64', 'MacOSX/13.0/arm64' ]
-        pkg: [PKGLIST]
+        pkg: [wget,wolfssl,wuzz,xh,xmake,xmlto,xorriso,xpup,xsltproc,xxd,yajl,yaml-cpp,yasm,youtubedr,yq,yyjson,z3,zip,zlib-ng,zlog,zola,zopfli,zoxide,zsh,zsync]
 
     runs-on: macos-13
 
