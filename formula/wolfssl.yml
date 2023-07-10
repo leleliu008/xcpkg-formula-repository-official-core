@@ -3,10 +3,9 @@ web-url: https://www.wolfssl.com
 git-url: https://github.com/wolfSSL/wolfssl
 src-url: https://github.com/wolfSSL/wolfssl/archive/refs/tags/v5.6.3-stable.tar.gz
 src-sha: 2e74a397fa797c2902d7467d500de904907666afb4ff80f6464f6efd5afb114a
+license: GPL-2.0-or-later
+dep-upp: libtool
 bsystem: autogen
-
-# ld: targeted OS version does not support use of thread local variables in _benchmark_test for architecture x86_64
-# https://stackoverflow.com/questions/52282646/build-error-targeted-os-version-does-not-support-use-of-thread-local-variables
 
 install: |
     configure \
@@ -58,3 +57,6 @@ install: |
         --enable-sp \
         --enable-fastmath \
         --enable-fasthugemath
+
+# ld: targeted OS version does not support use of thread local variables in _benchmark_test for architecture x86_64
+# https://stackoverflow.com/questions/52282646/build-error-targeted-os-version-does-not-support-use-of-thread-local-variables

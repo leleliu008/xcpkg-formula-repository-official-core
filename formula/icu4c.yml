@@ -17,7 +17,7 @@ build0: run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
 
 install: |
     if [ "$CROSS_COMPILING" = yes ] ; then
-        CONFIGURE_OPTS_EXTRA="--with-cross-build=$NATIVE_BUILD_DIR"
+        CONFIGURE_OPTS_EXTRA="--with-cross-build=$NATIVE_BCACHED_DIR"
     else
         CONFIGURE_OPTS_EXTRA=
     fi
