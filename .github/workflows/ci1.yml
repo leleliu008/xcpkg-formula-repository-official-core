@@ -1,0 +1,31 @@
+name: ci1 
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        #target-platform: [ 'MacOSX/10.15/x86_64', 'MacOSX/11.0/x86_64', 'MacOSX/12.0/x86_64', 'MacOSX/13.0/x86_64', 'MacOSX/11.0/arm64', 'MacOSX/12.0/arm64', 'MacOSX/13.0/arm64', 'iPhoneOS/11.0/arm64e', 'iPhoneOS/11.0/arm64' ]
+        target-platform: [ 'MacOSX/13.0/x86_64', 'MacOSX/13.0/arm64' ]
+        pkg: [aalib,ag,age,alacritty,alass,algernon,anchor-cli,antibody,apkeep,aptly,archiver,args,aria2,async++,autoconf,automake,autossh,autotools-setup,axel,b3sum,bandwhich,base16,base64,bash,basis_universal,bat,bazelisk,bc,bcrypt,bdw-gc,bear,berkeley-db,binaryen,bind,binocle,binutils,bison,bitcoin,bk,blake3,bmake,botan,bottom,boxes,brook,broot,bullet,byacc,bzip2,caddy]
+
+    runs-on: macos-13
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/xcpkg
+      - run: chmod u+x xcpkg
+      - run: ./xcpkg env
+      - run: ./xcpkg setup
+      - run: ./xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+      - run: mv formula ~/.xcpkg/repos.d/test/
+
+      - run: ./xcpkg install ${{ matrix.target-platform }}/${{ matrix.pkg }}
