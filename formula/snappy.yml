@@ -4,8 +4,8 @@ git-url: https://github.com/google/snappy
 src-url: https://github.com/google/snappy/archive/1.1.10.tar.gz
 src-sha: 49d831bffcc5f3d01482340fe5af59852ca2fe76c3e05df0e67203ebbe0f1d90
 license: BSD-3-Clause
-
-ccflags: -Wno-ignored-optimization-argument -Wno-sign-compare
+ccflags: -Wno-ignored-optimization-argument
+xxflags: -Wno-sign-compare
 install: |
     cmakew \
         -DSNAPPY_BUILD_BENCHMARKS=OFF \

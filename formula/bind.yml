@@ -8,7 +8,7 @@ dep-pkg: json-c openssl libxml2 libidn2 libnghttp2 libuv
 
 install: |
     export BUILD_CC="$CC_FOR_BUILD"
-    #export ac_cv_search_idn2_to_ascii_lz=yes
+    export ac_cv_search_idn2_to_ascii_lz=yes
     configure \
         --disable-linux-caps \
         --disable-static \

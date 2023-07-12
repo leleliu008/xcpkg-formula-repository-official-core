@@ -5,6 +5,5 @@ src-url: https://the.earth.li/~sgtatham/putty/0.78/putty-0.78.tar.gz
 src-sha: 274e01bcac6bd155dfd647b2f18f791b4b17ff313753aa919fcae2e32d34614f
 license: MIT
 dep-upp: perl
-install: |
-    export CPPFLAGS="$(printf '%s\n' "$CPPFLAGS" | sed 's|-DNDEBUG||g')"
-    cmakew -DPUTTY_GTK_VERSION=NONE
+dopatch: sed_in_place 's|-DNDEBUG||g' ../toolchain.cmake
+install: cmakew -DPUTTY_GTK_VERSION=NONE
