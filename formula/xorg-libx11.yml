@@ -1,0 +1,18 @@
+summary: X.Org protocol client library
+web-url: https://www.x.org/
+src-url: https://www.x.org/archive/individual/lib/libX11-1.8.4.tar.gz
+src-sha: efd3a3a43c1f177edc2c205bedb0719b6648203595e54c0b83a32576aeaca7cd
+license: MIT
+dep-pkg: xorg-xtrans xorg-libxcb
+install: |
+    unset LC_ALL
+    export LC_CTYPE=C
+
+    configure \
+        --enable-tcp-transport \
+        --enable-unix-transport \
+        --enable-local-transport \
+        --enable-ipv6 \
+        --enable-loadable-i18n \
+        --enable-xthreads \
+        --enable-specs=no
