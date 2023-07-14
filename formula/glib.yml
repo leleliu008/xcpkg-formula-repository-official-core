@@ -8,7 +8,12 @@ dep-pkg: gettext libffi pcre2
 
 dopatch: |
     sed_in_place "s|dependency('zlib')|cc.find_library('z', static : true, dirs : ['$zlib_LIBRARY_DIR'])|" meson.build
-    sed_in_place "s|, allow_fallback: false||"  meson.build
+    sed_in_place '2087,2114d'  meson.build
+    sed_in_place "2086a libiconv = cc.find_library('iconv', dirs: ['$libiconv_LIBRARY_DIR'])" meson.build
+    sed_in_place "2087a libintl  = cc.find_library('intl',  dirs: ['$gettext_LIBRARY_DIR'])" meson.build
+    sed_in_place "2088a core_foundation = dependency('CoreFoundation', method : 'extraframework')" meson.build
+    sed_in_place '2089a libintl_deps = [libintl, libiconv, core_foundation]' meson.build
+    run cat meson.build
 
 install: |
     # gobject-inspection needs shared libraries: gobject-2.0, glib-2.0
