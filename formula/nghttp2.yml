@@ -1,15 +1,10 @@
 summary: HTTP/2 C Library
 web-url: https://nghttp2.org/
 git-url: https://github.com/nghttp2/nghttp2
-src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.54.0/nghttp2-1.54.0.tar.gz
-src-sha: 890cb0761d2fac570f0aa7bce085cd7d3c77bcfd56510456b6ea0278cde812f0
+src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.55.1/nghttp2-1.55.1.tar.gz
+src-sha: e12fddb65ae3218b4edc083501519379928eba153e71a1673b185570f08beb96
 dep-pkg: libevent libev jansson libxml2 c-ares cunit
 license: MIT
-
-# fix for clang not following C++14 behaviour
-# https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
-dopatch: |
-    sed_in_place 's|return dconn;|return std::move(dconn);|' src/shrpx_client_handler.cc
 
 install: |
     cmakew \
@@ -31,6 +26,3 @@ install: |
         -DWITH_NEVERBLEED=OFF \
         -DWITH_LIBBPF=OFF \
         -DWITH_MRUBY=OFF
-
-# ld: targeted OS version does not support use of thread local variables in __ZN5shrpx10log_configEv for architecture x86_64
-# https://stackoverflow.com/questions/52282646/build-error-targeted-os-version-does-not-support-use-of-thread-local-variables

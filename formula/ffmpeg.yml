@@ -4,7 +4,7 @@ web-url: https://ffmpeg.org/
 src-url: https://ffmpeg.org/releases/ffmpeg-6.0.tar.xz
 src-sha: 57be87c22d9b49c112b6d24bc67d42508660e6b718b3db89c44e47e289137082
 license: GPL-2.0-or-later
-dep-pkg: gnutls aom dav1d rav1e opus libvpx theora speex x264 x265 lame frei0r libass libbluray librist libsoxr libvidstab opencore-amr rubberband snappy srt tesseract xvid zeromq zimg alsa-lib xorg-libxv
+dep-pkg: gnutls aom dav1d rav1e opus libvpx theora speex x264 x265 lame frei0r libass libbluray librist libsoxr libvidstab opencore-amr rubberband snappy srt tesseract xvid zeromq zimg xorg-libxv
 
 bsystem: gmake
 binbstd: yes
