@@ -1,8 +1,9 @@
-summary: Generate documentation for several programming languages
+summary: a command-line tool for generating documentation from annotated programming language source files.
 git-url: https://github.com/doxygen/doxygen
 web-url: https://www.doxygen.nl/
 src-url: https://www.doxygen.nl/files/doxygen-1.9.7.src.tar.gz
 src-sha: 87007641c38e2c392c8596f36711eb97633b984c8430f389e7bcf6323a098d94
 license: GPL-2.0-only
 dep-upp: gm4 flex bison python3
+dep-pkg: libiconv
 bsystem: cmake

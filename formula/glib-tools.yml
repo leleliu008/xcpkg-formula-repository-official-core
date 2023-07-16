@@ -7,7 +7,14 @@ license: LGPL-2.1-or-later
 dep-pkg: gettext libffi pcre2
 
 dopatch: |
+    sed_in_place "s|cc.find_library('resolv')|declare_dependency(link_args : ['-lresolv'])|" gio/meson.build
+    sed_in_place "/libiconv =/c libiconv = dependency('libiconv', method : 'pkg-config')" meson.build
     sed_in_place "s|dependency('zlib')|cc.find_library('z', static : true, dirs : ['$zlib_LIBRARY_DIR'])|" meson.build
+    sed_in_place '2087,2114d'  meson.build
+    sed_in_place "2086a libintl = cc.find_library('intl',  dirs: ['$gettext_LIBRARY_DIR'])" meson.build
+    sed_in_place "2087a core_foundation = dependency('CoreFoundation', method : 'extraframework')" meson.build
+    sed_in_place '2088a libintl_deps = [libintl, libiconv, core_foundation]' meson.build
+    run cat meson.build
 
 install: |
     mesonw \
