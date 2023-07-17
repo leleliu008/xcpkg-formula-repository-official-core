@@ -1,13 +1,51 @@
 summary: Cryptographic library based on the code from GnuPG
 git-url: https://dev.gnupg.org/source/libgcrypt
 web-url: https://www.gnupg.org/related_software/libgcrypt/
-src-url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.10.1.tar.bz2
-src-sha: ef14ae546b0084cd84259f61a55e07a38c3b53afc0f546bffcef2f01baffe9de
+src-url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.10.2.tar.bz2
+src-sha: 3b9c02a004b68c256add99701de00b383accccf37177e0d6c58289664cce0c03
 license: LGPL-2.1-or-later
 dep-pkg: libgpg-error
+dep-upp: patch
 bsystem: configure
 
-dopatch: inject_stub_system tests/random.c
+dopatch: |
+    inject_stub_system tests/random.c
+    patch -p1 <<EOF
+    diff --git a/random/rndgetentropy.c b/random/rndgetentropy.c
+    index 513da0b..d8eedce 100644
+    --- a/random/rndgetentropy.c
+    +++ b/random/rndgetentropy.c
+    @@ -81,27 +81,8 @@ _gcry_rndgetentropy_gather_random (void (*add)(const void*, size_t,
+           do
+             {
+               _gcry_pre_syscall ();
+    -          if (fips_mode ())
+    -            {
+    -              /* DRBG chaining defined in SP 800-90A (rev 1) specify
+    -               * the upstream (kernel) DRBG needs to be reseeded for
+    -               * initialization of downstream (libgcrypt) DRBG. For this
+    -               * in RHEL, we repurposed the GRND_RANDOM flag of getrandom API.
+    -               * The libgcrypt DRBG is initialized with 48B of entropy, but
+    -               * the kernel can provide only 32B at a time after reseeding
+    -               * so we need to limit our requests to 32B here.
+    -               * This is clarified in IG 7.19 / IG D.K. for FIPS 140-2 / 3
+    -               * and might not be applicable on other FIPS modules not running
+    -               * RHEL kernel.
+    -               */
+    -              nbytes = length < 32 ? length : 32;
+    -              ret = getrandom (buffer, nbytes, GRND_RANDOM);
+    -            }
+    -          else
+    -            {
+    -              nbytes = length < sizeof (buffer) ? length : sizeof (buffer);
+    -              ret = getentropy (buffer, nbytes);
+    -            }
+    +          nbytes = length < sizeof (buffer) ? length : sizeof (buffer);
+    +          ret = getentropy (buffer, nbytes);
+               _gcry_post_syscall ();
+             }
+           while (ret == -1 && errno == EINTR);
+    EOF
 
 install: |
     case $TARGET_PLATFORM_ARCH in
@@ -17,8 +55,7 @@ install: |
     esac
     
     configure \
+        --with-libgpg-error-prefix="$libgpg_error_INSTALL_DIR" \
         --enable-optimization \
         --disable-doc \
-        "$EXTRA_OPT" \
-        ac_cv_path_GPG_ERROR_CONFIG=no \
-        ac_cv_path_GPGRT_CONFIG="$libgpg_error_INSTALL_DIR/bin/gpgrt-config"
+        "$EXTRA_OPT"
