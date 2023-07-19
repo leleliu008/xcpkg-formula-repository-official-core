@@ -1,0 +1,20 @@
+summary: Open source programming language to build simple/reliable/efficient software
+git-url: https://github.com/golang/go
+web-url: https://go.dev/
+src-url: https://go.dev/dl/go1.20.6.src.tar.gz
+src-uri: https://fossies.org/linux/misc/go1.20.6.src.tar.gz
+src-sha: 62ee5bc6fb55b8bae8f705e0cb8df86d6453626b4ecf93279e2867092e0b7f70
+license: BSD-3-Clause
+version: 1.20.6
+dep-upp: bash
+binbstd: yes
+bscript: src
+bsystem: go
+install: |
+    export GOROOT_BOOTSTRAP="$(go env GOROOT)"
+
+    run ./make.bash &&
+    run rm -rf ../_ &&
+    run rm -rf pkg/obj &&
+    run install -d "$PACKAGE_INSTALL_DIR" &&
+    run cp -r ..   "$PACKAGE_INSTALL_DIR"
