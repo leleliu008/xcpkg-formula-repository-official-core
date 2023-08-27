@@ -1,0 +1,23 @@
+name: check if formula urls alive
+
+on:
+  push:
+    branches: [ master,dev ]
+  pull_request:
+    branches: [ master,dev ]
+  schedule:
+    - cron: '0 24 * * *'
+
+jobs:
+  check:
+
+    runs-on: macos-latest
+
+    steps:
+      - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/master/xcpkg
+      - run: chmod a+x xcpkg
+      - run: ./xcpkg setup
+      - run: ./xcpkg env
+      - run: ./xcpkg sysinfo
+      - run: ./xcpkg update
+      - run: ./xcpkg fetch @all
