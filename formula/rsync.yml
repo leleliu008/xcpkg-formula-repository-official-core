@@ -11,7 +11,7 @@ fix-sha: c3d13132b560f456fd8fc9fdf9f59377e91adf0dfc8117e33800d14b483d1a85
 license: GPL-3.0-or-later
 
 dep-pkg: openssl popt lz4 zstd xxhash libiconv
-
+dep-upp: patch
 dopatch: |
     patch -p1 < ../fix/patches/fileflags.diff
     inject_stub_system main.c
