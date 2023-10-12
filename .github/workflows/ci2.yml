@@ -12,8 +12,9 @@ jobs:
       fail-fast: false
       matrix:
         #target-platform: [ 'MacOSX:10.15:x86_64', 'MacOSX:11.0:x86_64', 'MacOSX:12.0:x86_64', 'MacOSX:13.0:x86_64', 'MacOSX:11.0:arm64', 'MacOSX:12.0:arm64', 'MacOSX:13.0:arm64', 'iPhoneOS:11.0:arm64e', 'iPhoneOS:11.0:arm64' ]
-        target-platform: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
-        pkg: [caddy,cargo-c,cargo-deb,catch2,catimg,ccache,cereal,c-examples,cflow,cgif,chafa,cheat,check,chezmoi,chicken,choose,cjson,clash,cli11,cmake,cmocka,coreutils,cpio,cppcheck,cppunit,cpu_features,cpuinfo,crc32c,croc,crosstool-ng,crowbook,ctop,cue,curlie,cxxopts,d2,darkhttpd,dasel,dash,delta,diffutils,distcc,dmalloc,dns2tcp,dnsmap,dog,dos2unix,doxygen,dua,duf]
+        #target-platform: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
+        target-platform: [ 'MacOSX:13.0:x86_64' ]
+        pkg: [cargo-c,cargo-deb,catch2,catimg,ccache,cereal,c-examples,cflow,cgif,chafa,cheat,check,chezmoi,chicken,choose,cjson,clash,cli11,cmake,cmocka,coreutils,cpio,cppcheck,cppunit,cpu_features,cpuinfo,crc32c,croc,crosstool-ng,crowbook,ctop,cue,curlie,cxxopts,d2,darkhttpd,dasel,dash,delta,diffutils,distcc,dmalloc,dns2tcp,dnsmap,dog,dos2unix,doxygen,dua,duf,dufs]
 
     runs-on: macos-13
 
