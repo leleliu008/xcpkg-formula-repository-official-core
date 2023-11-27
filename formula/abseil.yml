@@ -17,3 +17,7 @@ install: |
         -DCMAKE_CXX_STANDARD_REQUIRED=TRUE \
         -DABSL_PROPAGATE_CXX_STD=ON
     sed_in_place '/^Libs: /s|$| -framework CoreFoundation|' "$PACKAGE_INSTALL_DIR/lib/pkgconfig/absl_time.pc"
+    sed_in_place 's|-Xarch_x86_64 -Xarch_arm64||'           "$PACKAGE_INSTALL_DIR/lib/pkgconfig/absl_random_internal_randen_hwaes.pc"
+    sed_in_place 's|-Xarch_x86_64 -Xarch_arm64||'           "$PACKAGE_INSTALL_DIR/lib/pkgconfig/absl_random_internal_randen_hwaes_impl.pc"
+
+    # https://github.com/abseil/abseil-cpp/issues/1408

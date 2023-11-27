@@ -1,0 +1,7 @@
+summary: Audio time stretcher tool and library
+web-url: https://breakfastquay.com/rubberband/
+src-url: https://breakfastquay.com/files/releases/rubberband-3.2.1.tar.bz2
+src-sha: 82edacd0c50bfe56a6a85db1fcd4ca3346940ffe02843fc50f8b92f99a97d172
+license: GPL-2.0-or-later
+dep-pkg: libsamplerate libsndfile
+install: mesonw -Dresampler=libsamplerate
