@@ -7,7 +7,7 @@ license: BSD-2-Clause
 dep-pkg: openssl pcre2 zlib
 
 bsystem: gmake
-binbstd: yes
+binbstd: 1
 
 dopatch: |
     trace_configure() {

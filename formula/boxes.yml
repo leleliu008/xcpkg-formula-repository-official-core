@@ -6,7 +6,7 @@ src-sha: 98b8e3cf5008f46f096d5775d129c34db9f718728bffb0f5d67ae89bb494102e
 license: GPL-2.0-only
 dep-pkg: pcre2 libunistring
 dep-upp: gm4 flex bison
-binbstd: yes
+binbstd: 1
 install: |
     sed_in_place 's|STRIP=true||' src/Makefile
     sed_in_place 's|-lunistring|-lunistring -liconv|' src/Makefile

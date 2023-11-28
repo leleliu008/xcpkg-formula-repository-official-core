@@ -1,7 +1,7 @@
 summary: Fast, simple fuzzy text selector with an advanced scoring algorithm
 git-url: https://github.com/jhawthorn/fzy
 license: MIT
-binbstd: yes
+binbstd: 1
 install: |
     gmakew clean &&
     gmakew CCFLAGS="'$LDFLAGS'" &&

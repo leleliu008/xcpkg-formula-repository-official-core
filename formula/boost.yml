@@ -6,7 +6,7 @@ src-sha: fd60da30be908eff945735ac7d4d9addc7f7725b1ff6fcdcaede5262d511d21e
 version: 1.82.0
 license: BSL-1.0
 dep-pkg: xz libbz2 zstd icu4c libiconv
-binbstd: yes
+binbstd: 1
 
 # https://boostorg.github.io/build/manual/master/index.html
 # https://sites.google.com/site/robdevelopertips/how-to-build-boost-1-64-0-for-android

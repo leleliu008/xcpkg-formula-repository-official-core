@@ -10,7 +10,7 @@ fix-sha: a94e7bdd8840a31cecacc301684dfdbf7b98773ad824aeaab611fabfdc513036
 dep-upp: patch
 dopatch: patch < ../fix/a94e7bdd8840a31cecacc301684dfdbf7b98773ad824aeaab611fabfdc513036.patch
 
-binbstd: yes
+binbstd: 1
 
 install: |
     gmakew clean &&

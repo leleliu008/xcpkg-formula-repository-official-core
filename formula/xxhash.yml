@@ -4,7 +4,7 @@ src-url: https://github.com/Cyan4973/xxHash/archive/v0.8.1.tar.gz
 src-sha: 3bb6b7d6f30c591dd65aaaff1c8b7a5b94d81687998ca9400082c739a690436c
 license: BSD-2-Clause
 
-binbstd: yes
+binbstd: 1
 install: |
     gmakew clean &&
     gmakew install \

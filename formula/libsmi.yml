@@ -9,4 +9,4 @@ dopatch: |
     sed_in_place '/#include "yang-data.h"/a #include "yang-check.h"' lib/parser-yang.y &&
     sed_in_place '/#include "smi-data.h"/a #include "smi-check.h"' lib/error.h
 
-binbstd: yes
+binbstd: 1

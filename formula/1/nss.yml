@@ -25,7 +25,7 @@ prepare_includes() {
         fi
     done
 
-binbstd: yes
+binbstd: 1
 
 install: |
     makew clean &&

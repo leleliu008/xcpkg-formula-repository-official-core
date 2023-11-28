@@ -7,7 +7,7 @@ license: GPL-2.0-only
 dep-pkg: gettext expat curl pcre2
 
 bsystem: configure
-binbstd: yes
+binbstd: 1
 install: |
     # to bypass git error: cannot run test program while cross compiling
     export ac_cv_fread_reads_directories=yes

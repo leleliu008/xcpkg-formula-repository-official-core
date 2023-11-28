@@ -7,7 +7,7 @@ license: OpenSSL
 dep-upp: perl
 
 bsystem: gmake
-binbstd: yes
+binbstd: 1
 install: |
     case $TARGET_PLATFORM_NAME in
         MacOSX)

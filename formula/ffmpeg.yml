@@ -7,7 +7,7 @@ license: GPL-2.0-or-later
 dep-pkg: gnutls aom dav1d rav1e opus libvpx theora speex x264 x265 lame frei0r libass libbluray librist libsoxr libvidstab opencore-amr rubberband snappy srt tesseract xvid zeromq zimg xorg-libxv
 
 bsystem: gmake
-binbstd: yes
+binbstd: 1
 install: |
     run ./configure \
         --prefix=$PACKAGE_INSTALL_DIR \
