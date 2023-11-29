@@ -1,0 +1,32 @@
+name: ci2 
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        #target-platform: [ 'MacOSX:10.15:x86_64', 'MacOSX:11.0:x86_64', 'MacOSX:12.0:x86_64', 'MacOSX:13.0:x86_64', 'MacOSX:11.0:arm64', 'MacOSX:12.0:arm64', 'MacOSX:13.0:arm64', 'iPhoneOS:11.0:arm64e', 'iPhoneOS:11.0:arm64' ]
+        #target-platform: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
+        target-platform: [ 'MacOSX:13.0:x86_64' ]
+        pkg: [cargo-c,cargo-deb,catch2,catimg,ccache,cereal,c-examples,cflow,cgif,chafa,cheat,check,chezmoi,chicken,choose,cjson,cli11,cmake,cmocka,coreutils,cpio,cppcheck,cppunit,cpu_features,cpuinfo,crc32c,croc,crosstool-ng,crowbook,ctop,cue,curlie,cxxopts,d2,darkhttpd,dasel,dash,delta,diffutils,distcc,dmalloc,dns2tcp,dnsmap,dog,dos2unix,doxygen,dua,duf,dufs,dust]
+
+    runs-on: macos-13
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/xcpkg
+      - run: chmod u+x xcpkg
+      - run: ./xcpkg env
+      - run: ./xcpkg setup
+      - run: ./xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+      - run: mv formula ~/.xcpkg/repos.d/test/
+
+      - run: ./xcpkg install ${{ matrix.pkg }}:${{ matrix.target-platform }}
