@@ -11,9 +11,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        #target-platform: [ 'MacOSX:10.15:x86_64', 'MacOSX:11.0:x86_64', 'MacOSX:12.0:x86_64', 'MacOSX:13.0:x86_64', 'MacOSX:11.0:arm64', 'MacOSX:12.0:arm64', 'MacOSX:13.0:arm64', 'iPhoneOS:11.0:arm64e', 'iPhoneOS:11.0:arm64' ]
-        #target-platform: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
-        target-platform: [ 'MacOSX:13.0:x86_64' ]
+        #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
+        #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
+        target: [ 'MacOSX-13.0-x86_64' ]
         pkg: [lunatic,lunzip,lychee,lynx,lzip,lzop,magic_enum,mcfly,md4c,mdbook,mdcat,mediainfo,miniz,minizip,minizip-ng,mosh,mozjpeg,mpg123,mpir,msgpack-c,mujs,nano,nanomsg,nasm,navi,ncdu,neofetch,nghttp2,nginx,ngtcp2,ninja,nng,nnn,nsh,nspr,ntbtls,nushell,oat++,obfs4proxy,onefetch,open264,openal-soft,openblas,openlibm,openmpi,p11-kit,p7zip,packcc,patch,patchelf]
 
     runs-on: macos-13
@@ -29,4 +29,4 @@ jobs:
 
       - run: mv formula ~/.xcpkg/repos.d/test/
 
-      - run: ./xcpkg install ${{ matrix.pkg }}:${{ matrix.target-platform }}
+      - run: ./xcpkg install ${{ matrix.target }}/${{ matrix.pkg }}

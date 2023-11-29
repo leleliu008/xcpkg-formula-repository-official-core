@@ -11,9 +11,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        #target-platform: [ 'MacOSX:10.15:x86_64', 'MacOSX:11.0:x86_64', 'MacOSX:12.0:x86_64', 'MacOSX:13.0:x86_64', 'MacOSX:11.0:arm64', 'MacOSX:12.0:arm64', 'MacOSX:13.0:arm64', 'iPhoneOS:11.0:arm64e', 'iPhoneOS:11.0:arm64' ]
-        #target-platform: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
-        target-platform: [ 'MacOSX:13.0:x86_64' ]
+        #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
+        #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
+        target: [ 'MacOSX-13.0-x86_64' ]
         pkg: [aalib,ag,age,alacritty,alass,algernon,anchor-cli,antibody,apkeep,aptly,archiver,args,aria2,async++,autoconf,automake,autossh,autotools-setup,axel,b3sum,bandwhich,base16,base64,bash,basis_universal,bat,bazelisk,bc,bcrypt,bdw-gc,bear,berkeley-db,binaryen,bind,binocle,bison,bitcoin,bk,blake3,bmake,botan,bottom,boxes,brook,broot,bsdtar,bullet,byacc,bzip2,caddy]
 
     runs-on: macos-13
@@ -29,4 +29,4 @@ jobs:
 
       - run: mv formula ~/.xcpkg/repos.d/test/
 
-      - run: ./xcpkg install ${{ matrix.pkg }}:${{ matrix.target-platform }}
+      - run: ./xcpkg install ${{ matrix.target }}/${{ matrix.pkg }}
