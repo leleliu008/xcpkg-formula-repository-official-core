@@ -9,11 +9,6 @@ dep-pkg: openssl
 
 install: |
     # Due to freedesktop.org bug 74029, D-Bus capture support is not available on macOS
-    if [ "$NATIVE_OS_KIND" = darwin ] ; then
-        DISABLE_DBUS=ON
-    else
-        DISABLE_DBUS=OFF
-    fi
 
     cmakew \
         -DINET6=ON \
@@ -22,7 +17,7 @@ install: |
         -DDISABLE_USB=OFF \
         -DDISABLE_SEPTEL=OFF \
         -DDISABLE_NETMAP=OFF \
-        -DDISABLE_DBUS=$DISABLE_DBUS \
+        -DDISABLE_DBUS=ON \
         -DDISABLE_BLUETOOTH=OFF \
         -DDISABLE_DAG=ON \
         -DDISABLE_TC=ON \

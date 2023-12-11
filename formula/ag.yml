@@ -6,7 +6,5 @@ license: Apache-2.0
 dep-pkg: pcre liblzma
 bsystem: autogen
 install: |
-    if [ "$NATIVE_OS_KIND" = darwin ] ; then
-        export CFLAGS="$CFLAGS -fcommon"
-    fi
+    export CFLAGS="$CFLAGS -fcommon"
     configure

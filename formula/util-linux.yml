@@ -10,12 +10,6 @@ install: |
     export AUTOMAKE="$(command -v automake)"
     export ACLOCAL="$(command -v aclocal)"
 
-    unset EXTRA_CONFIGURE_ARGS
-
-    case $NATIVE_OS_KIND in
-        darwin) EXTRA_CONFIGURE_ARGS='--disable-libmount --disable-ipcrm --disable-ipcs --disable-wall' ;;
-    esac
-
     configure \
         --without-python \
         --without-systemd \
@@ -28,4 +22,7 @@ install: |
         --disable-runuser \
         --disable-makeinstall-chown \
         --disable-makeinstall-setuid \
-        $EXTRA_CONFIGURE_ARGS
+        --disable-libmount \
+        --disable-ipcrm \
+        --disable-ipcs \
+        --disable-wall

@@ -5,18 +5,11 @@ src-url: https://ftp.gnu.org/gnu/bash/bash-5.2.15.tar.gz
 src-sha: 13720965b5f4fc3a0d4b61dd37e7565c741da9a5be24edc2ae00182fc1b3588c
 license: GPL-3.0-or-later
 dep-pkg: readline
-bsystem: configure
 install: |
-    if [ "$NATIVE_OS_KIND" = darwin ] ; then
-        CONFIGURE_OPTIONS_EXTRA=--disable-static-link
-    else
-        CONFIGURE_OPTIONS_EXTRA=--enable-static-link
-    fi
-
     configure \
         --without-bash-malloc \
+        --disable-static-link \
         --disable-profiling \
         --enable-readline \
         --enable-select \
-        --enable-history \
-        $CONFIGURE_OPTIONS_EXTRA
+        --enable-history
