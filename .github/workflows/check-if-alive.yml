@@ -20,4 +20,8 @@ jobs:
       - run: ./xcpkg env
       - run: ./xcpkg sysinfo
       - run: ./xcpkg update
-      - run: ./xcpkg fetch @all
+      - run: |
+        for item in $(./xcpkg ls-available)
+        do
+          ./xcpkg fetch "$item"
+        done
