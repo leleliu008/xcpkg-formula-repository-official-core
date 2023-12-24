@@ -21,7 +21,7 @@ jobs:
       - run: ./xcpkg sysinfo
       - run: ./xcpkg update
       - run: |
-        for item in $(./xcpkg ls-available)
-        do
-          ./xcpkg fetch "$item"
-        done
+          for item in $(./xcpkg ls-available)
+          do
+            ./xcpkg fetch "$item"
+          done
