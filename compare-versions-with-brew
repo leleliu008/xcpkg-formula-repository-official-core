@@ -123,13 +123,13 @@ main() {
     do
         PACKAGE_VERSION="$(package_version "$PACKAGE_NAME")"
 
-        BREW_PACKAGE_NMAE="$(package_name_transform_from_uppm_to_brew "$PACKAGE_NAME")"
+        BREW_PACKAGE_NAME="$(package_name_transform_from_uppm_to_brew "$PACKAGE_NAME")"
 
-        if brew info "$BREW_PACKAGE_NMAE" > /dev/null 2>&1 ; then
-            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NMAE" --json | yq '.[0].versions.stable')
+        if brew info "$BREW_PACKAGE_NAME" > /dev/null 2>&1 ; then
+            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].versions.stable')
 
             if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
-                printf "${COLOR_RED}%-10s %-10s\n%-10s %-10s${COLOR_OFF}\n\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$BREW_PACKAGE_NMAE" "$BREW_PACKAGE_VERS"
+                printf "${COLOR_RED}%-10s %-10s\n%-10s %-10s${COLOR_OFF}\n\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$BREW_PACKAGE_NAME" "$BREW_PACKAGE_VERS"
             fi
         else
             printf "${COLOR_BLUE}%-10s %-10s${COLOR_OFF}\n\n" "$PACKAGE_NAME" "$PACKAGE_VERSION"

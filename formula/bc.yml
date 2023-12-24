@@ -16,7 +16,7 @@ dopatch: |
     sed_in_place 's/#include "libmath.h"/{"#include \\"libmath.h\\""}/' bc/global.c
 
 install: |
-    [ "$CROSS_COMPLING" = yes ] && {
+    [ "$CROSS_COMPILING" = yes ] && {
         run install -d "$PACKAGE_BCACHED_DIR/bc"
         run cp "$NATIVE_INSTALL_DIR/include/libmath.h" "$PACKAGE_BCACHED_DIR/bc"
         run touch -t 190001010000 $PACKAGE_BCACHED_DIR/bc/libmath.h

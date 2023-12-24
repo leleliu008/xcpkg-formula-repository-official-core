@@ -26,7 +26,7 @@ install: |
             esac
     esac
  
-    if [ "$LINK_TYPE" = static-only ] || [ "$LINK_TYPE" = static-prefered ] ; then
+    if [ "$LINK_TYPE" = static-only ] || [ "$LINK_TYPE" = static-most ] ; then
         export LDCMD=./build-openssl-cmd.sh
 
         cat > "$LDCMD" <<EOF

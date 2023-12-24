@@ -39,7 +39,7 @@ dopatch: |
 
 install: |
     export NGX_SYSTEM=Darwin
-    export NGX_RELEASE=unkown
+    export NGX_RELEASE=unknown
     export NGX_MACHINE="$TARGET_PLATFORM_ARCH"
 
     case $TARGET_PLATFORM_ARCH in
@@ -53,7 +53,7 @@ install: |
 
     run ./configure \
         --prefix="$PACKAGE_INSTALL_DIR" \
-        --crossbuild=Darwin:unkown:$TARGET_PLATFORM_ARCH \
+        --crossbuild=Darwin:unknown:$TARGET_PLATFORM_ARCH \
         --with-cc="$CC" \
         --with-cc-opt="'$CFLAGS $CPPFLAGS'" \
         --with-ld-opt="'$LDFLAGS -lcrypto'" \
