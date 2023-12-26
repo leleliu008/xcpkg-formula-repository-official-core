@@ -5,7 +5,7 @@ src-sha: 0a81542c03f1a0e6c27bf5015d8fbbc52634e1190838ec7da7645847d9332fef
 license: BSD-3-Clause
 bsystem: gmake
 binbstd: 1
-build01:  |
+do123451:  |
     run cp -r "$PACKAGE_WORKING_DIR/src" "$PACKAGE_WORKING_DIR/src-native"
     run cd "$PACKAGE_WORKING_DIR/src-native"
 

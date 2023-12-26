@@ -9,7 +9,7 @@ bscript: source
 bsystem: configure
 
 # https://www.talkwithdevices.com/archives/260
-build0: run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
+do12345: run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
 
     #dopatch: |
     #cp config/mh-darwin config/mh-unknown &&
