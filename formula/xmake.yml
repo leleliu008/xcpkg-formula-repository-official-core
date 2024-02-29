@@ -1,15 +1,15 @@
 summary: A cross-platform build utility based on Lua
 web-url: https://xmake.io/
 git-url: https://github.com/xmake-io/xmake
-src-url: https://github.com/xmake-io/xmake/releases/download/v2.8.3/xmake-v2.8.3.tar.gz
-src-sha: 042e916b355b4f5b2be112d0d594788476465c3a854afbaaa6de6f3f2303ca50
+src-url: https://github.com/xmake-io/xmake/releases/download/v2.8.7/xmake-v2.8.7.tar.gz
+src-sha: 8c7a8c6f77b1fc1705e785624e9a1e944716844a8378fece7341de27b99f0b89
 license: Apache-2.0
 binbstd: 1
 install: |
     sed_in_place 's|if is_host "macosx"|if false|' configure
     sed_in_place 's|\*/cc|*-cc|' configure
     sed_in_place 's|\*/c++|*-c++|' configure
-    run ./configure &&
-    gmakew clean &&
-    gmakew &&
+    run ./configure
+    gmakew clean
+    gmakew
     gmakew install PREFIX="$PACKAGE_INSTALL_DIR"
