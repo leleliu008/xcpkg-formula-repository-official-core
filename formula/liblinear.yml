@@ -10,11 +10,11 @@ binbstd: 1
 
 fix-url: https://raw.githubusercontent.com/Homebrew/formula-patches/bac35ae9140405dec00f1f700d2ecc27cf82526b/liblinear/patch-Makefile.diff
 fix-sha: 11a47747918f665d219b108fac073c626779555b5022903c9b240a4c29bbc2a0
-dep-upp: patch
-dopatch: patch -p0 < ../fix/11a47747918f665d219b108fac073c626779555b5022903c9b240a4c29bbc2a0.diff
+fix-opt: -p0
+
 install: |
-    gmakew clean &&
-    gmakew all CFLAGS="'$CFLAGS'" &&
-    install_bins predict train &&
-    install_incs linear.h &&
+    gmakew clean
+    gmakew all CFLAGS="'$CFLAGS'"
+    install_bins predict train
+    install_incs linear.h
     install_libs liblinear.*

@@ -1,4 +1,4 @@
-summary: a command-line tool for extracting zip-compressed archives(.zip files)
+summary: A command-line tool for extracting zip-compressed archives(.zip files)
 web-url: https://infozip.sourceforge.io/UnZip.html
 
 src-url: https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz
@@ -13,7 +13,7 @@ license: Info-ZIP
 dep-pkg: libbz2
 binbstd: 1
 ccflags: -include time.h
-dep-upp: patch
+
 dopatch: |
     for patchfile in $(cat ../fix/patches/series)
     do
@@ -21,17 +21,72 @@ dopatch: |
     done
 
 install: |
-    gmakew -f unix/Makefile clean &&
-    gmakew -f unix/Makefile unzips \
+    if [ "$TARGET_PLATFORM_NAME" = openbsd ] ; then
+        # https://www.gnu.org/software/gnulib/manual/html_node/sys_002ftimeb_002eh.html
+        # https://github.com/facebook/zstd/issues/319
+        mkdir sys
+        cat > sys/timeb.h <<EOF
+    #ifndef _SYS_TIMEB_H
+    #define _SYS_TIMEB_H
+    #include <sys/time.h>
+    struct timeb {
+        time_t          time;
+        unsigned short  millitm;
+        short           timezone;
+        short           dstflag;
+    };
+    extern int  ftime(struct timeb*  timebuf);
+    #endif
+    EOF
+
+        cat > ftime.c <<EOF
+    #include <sys/timeb.h>
+    #include <sys/time.h>
+    int ftime(struct timeb *tb)
+    {
+        struct timeval  tv;
+        struct timezone tz;
+        if (gettimeofday (&tv, &tz) < 0)
+            return -1;
+        tb->time    = tv.tv_sec;
+        tb->millitm = (tv.tv_usec + 500) / 1000;
+        if (tb->millitm == 1000) {
+            ++tb->time;
+            tb->millitm = 0;
+        }
+        tb->timezone = tz.tz_minuteswest;
+        tb->dstflag  = tz.tz_dsttime;
+        return 0;
+    }
+    EOF
+
+        run $CC $CFLAGS $CPPFLAGS -I. -c -o ftime.o ftime.c
+        sed_in_place 's|^LFLAGS2="|LFLAGS2="ftime.o |' unix/configure
+    fi
+
+    unset TARGET_COMPILE
+
+    if [ "$TARGET_PLATFORM_NAME" = macos ] ; then
+        TARGET_COMPILE=macosx
+    else
+        TARGET_COMPILE=generic
+    fi
+
+    if printf '%s\n' "$LDFLAGS" | grep -q '\-static' ; then
+        sed_in_place 's|^LFLAGS2="|LFLAGS2="-static |' unix/configure
+    fi
+
+    gmakew -f unix/Makefile clean
+    gmakew -f unix/Makefile $TARGET_COMPILE \
         CC="$CC" \
         CFLAGS="'$CFLAGS $CPPFLAGS $LDFLAGS'" \
         AS="$AS" \
         LD="'$CC'" \
         STRIP="$STRIP" \
-        LOC="'$CFLAGS $CPPFLAGS -DLARGE_FILE_SUPPORT -DUNICODE_SUPPORT -DUNICODE_WCHAR -DUTF8_MAYBE_NATIVE -DNO_WORKING_ISPRINT -DUSE_BZIP2'" \
-        LFLAGS1="'$LDFLAGS'" \
-        LF2= \
-        L_BZ2=-lbz2 &&
+        LOCAL_UNZIP="'$CFLAGS $CPPFLAGS $LDFLAGS'" \
+        LOC=-DLARGE_FILE_SUPPORT \
+        D_USE_BZ2=-DUSE_BZIP2 \
+        L_BZ2=-lbz2
     gmakew -f unix/Makefile install \
         prefix="$PACKAGE_INSTALL_DIR" \
         MANDIR="$PACKAGE_INSTALL_DIR/share/man/man1"

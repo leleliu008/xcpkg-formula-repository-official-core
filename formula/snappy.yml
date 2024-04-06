@@ -7,8 +7,6 @@ license: BSD-3-Clause
 
 fix-url: https://github.com/google/snappy/commit/00aa9ac61d37194cffb0913d9b7d71611eb05a4b.patch?full_index=1
 fix-sha: 84e22a7229de1c0044be03bf437d3a2850c1b9c84460445a56db01e3b57d8def
-dep-upp: patch
-dopatch: patch -p1 < ../fix/84e22a7229de1c0044be03bf437d3a2850c1b9c84460445a56db01e3b57d8def.patch
 
 install: |
     cmakew \

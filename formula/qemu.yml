@@ -10,7 +10,7 @@ binbstd: 1
 
 fix-url: https://gitlab.com/qemu-project/qemu/-/commit/0d58c660689f6da1e3feff8a997014003d928b3b.diff
 fix-sha: b0f9f899f269074304d59dedf980fa83296c806f705b16a5164ba4d34aad1382
-dopatch: patch -p1 < ../fix/b0f9f899f269074304d59dedf980fa83296c806f705b16a5164ba4d34aad1382.diff
+
 install: |
     export CPPFLAGS="$(printf '%s\n' "$CPPFLAGS" | sed 's|-DNDEBUG||')"
     ./configure \

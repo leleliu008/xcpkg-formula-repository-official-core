@@ -9,25 +9,31 @@ fix-url: https://deb.debian.org/debian/pool/main/z/zip/zip_3.0-11.debian.tar.xz
 fix-sha: c5c0714a88592f9e02146bfe4a8d26cd9bd97e8d33b1efc8b37784997caa40ed
 
 version: 3.0.11
+
 license: Info-ZIP
 dep-pkg: libbz2
 binbstd: 1
-dep-upp: patch
+
 dopatch: |
     for patchfile in $(cat ../fix/patches/series)
     do  
         patch -p1 < ../fix/patches/$patchfile || return 1
     done
 
+    if [ "$TARGET_PLATFORM_NAME" = macos ] ; then
+        sed_in_place '/-DZMEM/c true' unix/configure
+        sed_in_place '/-DNO_/c  true' unix/configure
+    fi
+
 install: |
-    gmakew -f unix/Makefile clean &&
-    gmakew -f unix/Makefile zips \
+    gmakew -f unix/Makefile clean
+    gmakew -f unix/Makefile generic \
         CC="$CC" \
         CPP="'$CPP'" \
         AS="$AS" \
         AR="$AR" \
-        CFLAGS="'$CFLAGS $CPPFLAGS -I. -Iunix -DUNIX -DBZIP2_SUPPORT'" \
-        LFLAGS2="'$LDFLAGS -lbz2'" &&
+        LOCAL_ZIP="'$CFLAGS $CPPFLAGS'" \
+        LFLAGS2="'$LDFLAGS'"
     gmakew -f unix/Makefile install \
         prefix="$PACKAGE_INSTALL_DIR" \
         MANDIR="$PACKAGE_INSTALL_DIR/share/man/man1"
