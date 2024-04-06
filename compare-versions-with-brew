@@ -76,22 +76,67 @@ version_match() {
 package_name_transform_from_uppm_to_brew() {
     case $1 in
         gm4)      printf '%s\n' 'm4'        ;;
+        xxd)      printf '%s\n' 'vim'       ;;
         file)     printf '%s\n' 'file-formula' ;;
+        gtar)     printf '%s\n' 'gnu-tar'   ;;
+        gmake)    printf '%s\n' 'make'      ;;
+        gindent)  printf '%s\n' 'gnu-indent';;
         xattr)    printf '%s\n' 'attr'      ;;
         patch)    printf '%s\n' 'gpatch'    ;;
         delta)    printf '%s\n' 'git-delta' ;;
-        gmake)    printf '%s\n' 'make'      ;;
-        gtar)     printf '%s\n' 'gnu-tar'   ;;
-        libjxl)   printf '%s\n' 'jpeg-xl'   ;;
-        blake3)   printf '%s\n' 'b3sum'     ;;
-        libwebp)  printf '%s\n' 'webp'      ;;
         proj7)    printf '%s\n' 'proj@7'    ;;
+        bsdtar)   printf '%s\n' 'libarchive';;
+        blake3)   printf '%s\n' 'b3sum'     ;;
+        utfcpp)   printf '%s\n' 'utf8cpp'   ;;
+        tcl-core) printf '%s\n' 'tcl-tk'    ;;
+        openpmix) printf '%s\n' 'pmix'      ;;
+        xsltproc) printf '%s\n' 'libxslt'   ;;
+
         freetype2)printf '%s\n' 'freetype'  ;;
         freetype2-with-harfbuzz)
                   printf '%s\n' 'freetype'  ;;
+
+        golang@1.21)
+                  printf '%s\n' 'go@1.21'   ;;
+        golang)   printf '%s\n' 'go'        ;;
+
+        dot_static)
+                  printf '%s\n' 'graphviz'  ;;
+
+        glib-tools)
+                  printf '%s\n' 'glib'      ;;
+
+        gettext-tools)
+                  printf '%s\n' 'gettext'   ;;
+        gettext-runtime)
+                  printf '%s\n' 'gettext'   ;;
+
         libmediainfo|mediainfo)
                   printf '%s\n' 'media-info';;
-        tcl-core) printf '%s\n' 'tcl-tk'    ;;
+
+        libxml2-utils|libxml2-python3)
+                  printf '%s\n' 'libxml2'   ;;
+
+        libprotobuf)
+                  printf '%s\n' 'protobuf'  ;;
+
+        libsqlite3)printf '%s\n' 'sqlite'   ;;
+        libpcre2) printf '%s\n' 'pcre2'     ;;
+        libexpat) printf '%s\n' 'expat'     ;;
+        libpcre)  printf '%s\n' 'pcre'      ;;
+        libcurl)  printf '%s\n' 'curl'      ;;
+        libwebp)  printf '%s\n' 'webp'      ;;
+        libzstd)  printf '%s\n' 'zstd'      ;;
+        liblzma)  printf '%s\n' 'xz'        ;;
+        libopus)  printf '%s\n' 'opus'      ;;
+        libuuid)  printf '%s\n' 'util-linux';;
+        libz3.a)  printf '%s\n' 'z3'        ;;
+        libgmp)   printf '%s\n' 'gmp'       ;;
+        libbz2)   printf '%s\n' 'bzip2'     ;;
+        libzmq)   printf '%s\n' 'zeromq'    ;;
+        libjxl)   printf '%s\n' 'jpeg-xl'   ;;
+
+        toml++)   printf '%s\n' 'tomlplusplus'  ;;
 
         xorg-*)   printf '%s\n' "$1" | cut -c6- ;;
 
@@ -99,37 +144,33 @@ package_name_transform_from_uppm_to_brew() {
     esac
 }
 
-package_version() {
-    PACKAGE_VERSION="$(sed -n '/^version:/p' formula/$1.yml | cut -c10-)"
-
-    if [ -n "$PACKAGE_VERSION" ] ; then
-        printf '%s\n' "$PACKAGE_VERSION"
-        return 0
-    fi
-
-    PACKAGE_SRC_URL="$(sed -n '/^src-url:/p' formula/$1.yml | cut -c10-)"
-
-    if [ -z "$PACKAGE_SRC_URL" ] ; then
-        return 0
-    else
-        basename "$PACKAGE_SRC_URL" | tr '_@' - | sed -e 's|\.tar\.[glx]z$||' -e 's|\.tar\.bz2$||' -e 's|\.t[glx]z$||' -e 's|\.zip$||' -e 's|-stable||' -e 's|-source||' -e 's|[-.]src$||' -e 's|\.orig||' | awk -F- '{print $NF}' | sed -e 's|^v||'
-    fi
+get_version_from_url() {
+    basename "$1" | tr '_@' - | sed -e 's|\.tar\.[glx]z$||' -e 's|\.tar\.bz2$||' -e 's|\.t[glx]z$||' -e 's|\.zip$||' -e 's|-stable||' -e 's|-source||' -e 's|[-.]src$||' -e 's|\.orig||' | awk -F- '{print $NF}' | sed -e 's|^v||'
 }
 
 main() {
-    AVAILABLE_PACKAGE_NAMES="$(find formula -maxdepth 1 -type f -name '*.yml' -exec basename {} .yml \;)"
-
-    for PACKAGE_NAME in $AVAILABLE_PACKAGE_NAMES
+    for FORMULA_FILE in formula/*.yml
     do
-        PACKAGE_VERSION="$(package_version "$PACKAGE_NAME")"
+        PACKAGE_NAME="${FORMULA_FILE%.yml}"
+        PACKAGE_NAME="${PACKAGE_NAME##*/}"
 
-        BREW_PACKAGE_NAME="$(package_name_transform_from_uppm_to_brew "$PACKAGE_NAME")"
+        PACKAGE_VERSION="$(sed -n '/^version:/p' "$FORMULA_FILE" | cut -c10-)"
 
-        if brew info "$BREW_PACKAGE_NAME" > /dev/null 2>&1 ; then
-            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].versions.stable')
+        if [ -z "$PACKAGE_VERSION" ] ; then
+            PACKAGE_SRC_URL="$(sed -n '/^src-url:/p' "$FORMULA_FILE" | cut -c10-)"
+
+            if [ -n "$PACKAGE_SRC_URL" ] ; then
+                PACKAGE_VERSION="$(get_version_from_url "$PACKAGE_SRC_URL")"
+            fi
+        fi
+
+        BREW_PACKAGE_NMAE="$(package_name_transform_from_uppm_to_brew "$PACKAGE_NAME")"
+
+        if brew info "$BREW_PACKAGE_NMAE" > /dev/null 2>&1 ; then
+            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NMAE" --json | yq '.[0].versions.stable')
 
             if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
-                printf "${COLOR_RED}%-10s %-10s\n%-10s %-10s${COLOR_OFF}\n\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$BREW_PACKAGE_NAME" "$BREW_PACKAGE_VERS"
+                printf "${COLOR_RED}%-10s %-10s\n%-10s %-10s${COLOR_OFF}\n\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$BREW_PACKAGE_NMAE" "$BREW_PACKAGE_VERS"
             fi
         else
             printf "${COLOR_BLUE}%-10s %-10s${COLOR_OFF}\n\n" "$PACKAGE_NAME" "$PACKAGE_VERSION"
