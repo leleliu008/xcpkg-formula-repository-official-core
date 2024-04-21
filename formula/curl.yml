@@ -21,7 +21,6 @@ install: |
         --without-ngtcp2 \
         --without-quiche \
         --without-librtmp \
-        --without-libidn2 &&
-    {
-        sed_in_place '/^Libs:/s|$| -framework CoreFoundation -framework SystemConfiguration|' "$PACKAGE_INSTALL_DIR/lib/pkgconfig/libcurl.pc"
-    }
+        --without-libidn2
+
+dotweak: sed_in_place '/^Libs:/s|$| -framework CoreFoundation -framework SystemConfiguration|' lib/pkgconfig/libcurl.pc
