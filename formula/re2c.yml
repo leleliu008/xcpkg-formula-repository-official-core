@@ -6,6 +6,8 @@ src-sha: 0ac299ad359e3f512b06a99397d025cfff81d3be34464ded0656f8a96676c029
 dep-upp: python3
 install: |
     cmakew \
-        -DRE2C_REBUILD_DOCS=OFF \
-        -DRE2C_BUILD_RE2GO=OFF \
-        -DRE2C_BUILD_LIBS=ON
+        -DBUILD_SHARED_LIBS=OFF \
+        -DRE2C_BUILD_LIBS=ON \
+        -DRE2C_BUILD_RE2GO=ON \
+        -DRE2C_BUILD_RE2RUST=ON \
+        -DRE2C_REBUILD_DOCS=OFF

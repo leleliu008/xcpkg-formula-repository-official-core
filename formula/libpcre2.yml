@@ -6,14 +6,14 @@ src-sha: e2a53984ff0b07dfdb5ae4486bbb9b21cca8e7df2434096cc9bf1b728c350bcb
 license: BSD-3-Clause
 
 dopatch: |
-    sed_in_place 's|man/man1|share/man/man1|' CMakeLists.txt
-    sed_in_place 's|man/man3|share/man/man3|' CMakeLists.txt
     sed_in_place 's|DESTINATION cmake|DESTINATION lib/cmake|' CMakeLists.txt
 
 install: |
     cmakew \
         -DCMAKE_C_STANDARD=99 \
         -DCMAKE_C_STANDARD_REQUIRED=ON \
+        -DBUILD_SHARED_LIBS=ON \
+        -DBUILD_STATIC_LIBS=ON \
         -DPCRE2_BUILD_PCRE2_8=ON \
         -DPCRE2_BUILD_PCRE2_16=ON \
         -DPCRE2_BUILD_PCRE2_32=ON \

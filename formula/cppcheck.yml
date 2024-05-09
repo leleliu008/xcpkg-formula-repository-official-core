@@ -4,5 +4,5 @@ git-url: https://github.com/danmar/cppcheck
 src-url: https://github.com/danmar/cppcheck/archive/2.11.1.tar.gz
 src-sha: fef6ef868d562d49136f158e1d0f7a38237e7e1c0a91d9189bdd465f1fe54316
 license: GPL-3.0-or-later
-dep-pkg: pcre libxml2
+dep-pkg: libpcre libxml2
 bsystem: cmake

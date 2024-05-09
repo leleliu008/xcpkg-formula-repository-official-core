@@ -1,4 +1,4 @@
-summary: Tool for downloading RTMP streaming media
+summary: A command-line tool for downloading RTMP streaming media
 web-url: https://rtmpdump.mplayerhq.hu
 git-url: https://git.ffmpeg.org/rtmpdump
 
@@ -11,13 +11,10 @@ fix-opt: -p0
 
 version: 2.4+20151223
 license: GPL-2.0-or-later
-dep-pkg: zlib openssl
-binbstd: 1
+dep-pkg: libz openssl-dev
 parallel: 0
 
-dopatch: sed_in_place 's|soname|install_name|' librtmp/Makefile
-
 install: |
-    gmakew clean   SYS=posix
-    gmakew         SYS=posix CC=$CC LD=$LD CRYPTO=OPENSSL OPT= THREADLIB_posix= XCFLAGS="'$CFLAGS $CPPFLAGS'" XLDFLAGS="'$LDFLAGS'"
-    gmakew install SYS=posix prefix="$PACKAGE_INSTALL_DIR" mandir="$PACKAGE_INSTALL_DIR/share/man"
+    gmakew clean   SYS=darwin
+    gmakew         SYS=darwin CC="$CC" LD="$LD" LIB_RTMP=librtmp/librtmp.a OPT= XCFLAGS="'$CFLAGS $CPPFLAGS'" XLDFLAGS="'$LDFLAGS'"
+    gmakew install SYS=darwin prefix="$PACKAGE_INSTALL_DIR"

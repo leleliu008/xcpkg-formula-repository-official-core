@@ -7,7 +7,7 @@ license: GPL-2.0-or-later
 dep-pkg: libmp3lame libtheora libspeex libdav1d librav1e libopus libxvid libx264 libx265 libvpx libass libbluray librist libsoxr libzmq libvidstab frei0r gnutls aom opencore-amr rubberband snappy srt tesseract zimg alsa-lib xorg-libxv
 
 bsystem: gmake
-binbstd: 1
+
 install: |
     run ./configure \
         --prefix=$PACKAGE_INSTALL_DIR \

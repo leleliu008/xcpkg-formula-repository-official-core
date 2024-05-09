@@ -1,17 +1,19 @@
 summary: Interpreted, interactive, object-oriented programming language
 git-url: https://github.com/python/cpython
 web-url: https://www.python.org/
-src-url: https://www.python.org/ftp/python/3.11.6/Python-3.11.6.tgz
-src-sha: c049bf317e877cbf9fce8c3af902436774ecef5249a29d10984ca3a37f7f4736
+src-url: https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz
+src-sha: e7de3240a8bc2b1e1ba5c81bf943f06861ff494b69fda990ce2722a504c6153d
 license: Python-2.0
-dep-pkg: gdbm expat openssl libsqlite3 libffi liblzma libbz2
+dep-pkg: openssl-dev libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
+
+onready: ENABLE_LTO=0
 
 install: |
     unset PYTHONHOME
     unset PYTHONPATH
 
-    export ZLIB_CFLAGS="-I$zlib_INCLUDE_DIR"
-    export ZLIB_LIBS="-L$zlib_LIBRARY_DIR -lz"
+    export ZLIB_CFLAGS="-I$libz_INCLUDE_DIR"
+    export ZLIB_LIBS="-L$libz_LIBRARY_DIR -lz"
 
     export BZIP2_CFLAGS="-I$libbz2_INCLUDE_DIR"
     export BZIP2_LIBS="-L$libbz2_LIBRARY_DIR -lbz2"
@@ -22,15 +24,15 @@ install: |
     export LIBSQLITE3_CFLAGS="-I$libsqlite3_INCLUDE_DIR"
     export LIBSQLITE3_LIBS="-L$libsqlite3_LIBRARY_DIR -lsqlite3"
 
-    export GDBM_CFLAGS="-I$gdbm_INCLUDE_DIR"
-    export GDBM_LIBS="-L$gdbm_LIBRARY_DIR -lgdbm -lgdbm_compat"
+    export GDBM_CFLAGS="-I$libgdbm_INCLUDE_DIR"
+    export GDBM_LIBS="-L$libgdbm_LIBRARY_DIR -lgdbm -lgdbm_compat"
 
     export LIBS='-lm'
 
     configure \
         --with-system-expat \
         --with-system-ffi \
-        --with-openssl="$openssl_INSTALL_DIR" \
+        --with-openssl="$openssl_dev_INSTALL_DIR" \
         --with-ensurepip=yes \
         --with-lto \
         --enable-ipv6 \

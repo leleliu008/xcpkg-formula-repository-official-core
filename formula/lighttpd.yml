@@ -3,12 +3,12 @@ web-url: https://www.lighttpd.net/
 src-url: https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.72.tar.xz
 src-sha: f7cade4d69b754a0748c01463c33cd8b456ca9cc03bb09e85a71bcbcd54e55ec
 license: BSD-3-Clause
-dep-pkg: openssl zlib libbz2 pcre
+dep-pkg: openssl-dev libz libbz2 libpcre
 dep-upp: libtool
 bsystem: autogen
 install: |
     configure \
         --with-openssl \
-        --with-pcre="$pcre_INSTALL_DIR" \
+        --with-pcre="$libpcre_INSTALL_DIR" \
         --with-zlib \
         --with-bzip2
