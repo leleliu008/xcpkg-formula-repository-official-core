@@ -1,9 +1,8 @@
 summary: User-friendly command-line shell for UNIX-like operating systems
 web-url: https://fishshell.com/
 git-url: https://github.com/fish-shell/fish-shell
-src-url: https://github.com/fish-shell/fish-shell/releases/download/3.6.1/fish-3.6.1.tar.xz
-src-sha: 55402bb47ca6739d8aba25e41780905b5ce1bce0a5e0dd17dca908b5bc0b49b2
-dep-pkg: pcre2 libbz2 ncurses readline
+src-url: https://github.com/fish-shell/fish-shell/releases/download/3.7.1/fish-3.7.1.tar.xz
+src-sha: 614c9f5643cd0799df391395fa6bbc3649427bb839722ce3b114d3bbc1a3b250
 license: GPL-2.0-or-later
-dopatch: inject_stub_system src/print_help.cpp
+dep-pkg: libpcre2 readline
 install: cmakew -DWITH_GETTEXT=OFF

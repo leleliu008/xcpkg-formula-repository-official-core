@@ -1,23 +1,29 @@
+pkgtype: exe+lib
 summary: HTTP/2 C Library
 web-url: https://nghttp2.org/
 git-url: https://github.com/nghttp2/nghttp2
-src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.55.1/nghttp2-1.55.1.tar.gz
-src-sha: e12fddb65ae3218b4edc083501519379928eba153e71a1673b185570f08beb96
-dep-pkg: libevent libev jansson libxml2 c-ares cunit
+src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.61.0/nghttp2-1.61.0.tar.gz
+src-sha: aa7594c846e56a22fbf3d6e260e472268808d3b49d5e0ed339f589e9cc9d484c
+dep-pkg: libevent libev libcares libjansson libxml2 cunit
 license: MIT
+
+fix-url: https://github.com/nghttp2/nghttp2/commit/829258e7038fe7eff849677f1ccaeca3e704eb67.patch?full_index=1
+fix-sha: c4bcf5cf73d5305fc479206676027533bb06d4ff2840eb672f6265ba3239031e
+
+dopatch: sed_in_place '/find_package(LibXml2/c find_package(LibXml2 CONFIG)' CMakeLists.txt
 
 install: |
     cmakew \
+        -DBUILD_SHARED_LIBS=ON \
+        -DBUILD_STATIC_LIBS=OFF \
         -DENABLE_DEBUG=OFF \
         -DENABLE_WERROR=OFF \
         -DENABLE_THREADS=ON \
         -DENABLE_APP=ON \
         -DENABLE_HTTP3=OFF \
-        -DENABLE_EXAMPLES=ON \
+        -DENABLE_EXAMPLES=OFF \
         -DENABLE_HPACK_TOOLS=ON \
         -DENABLE_ASIO_LIB=OFF \
-        -DENABLE_STATIC_LIB=ON \
-        -DENABLE_SHARED_LIB=ON \
         -DENABLE_LIB_ONLY=OFF \
         -DENABLE_PYTHON_BINDINGS=OFF \
         -DENABLE_FAILMALLOC=ON \

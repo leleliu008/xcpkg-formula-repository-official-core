@@ -131,6 +131,7 @@ case $1 in
     libpcre)  printf '%s\n' 'pcre'      ;;
     libcurl)  printf '%s\n' 'curl'      ;;
     liblmdb)  printf '%s\n' 'lmdb'      ;;
+    libgdbm)  printf '%s\n' 'gdbm'      ;;
     libwebp)  printf '%s\n' 'webp'      ;;
     libzstd)  printf '%s\n' 'zstd'      ;;
     liblzma)  printf '%s\n' 'xz'        ;;

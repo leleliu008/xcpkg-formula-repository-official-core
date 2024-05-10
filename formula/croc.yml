@@ -1,6 +1,6 @@
-summary: Securely send things from one computer to another
+summary: A command-line tool that allows you to easily and securely send files from one computer to another
 git-url: https://github.com/schollz/croc
-src-url: https://github.com/schollz/croc/archive/v9.6.5.tar.gz
-src-sha: 2d3ba7bae3c49e3870e2f8523c6be00e92fe6e46828269a8cea34d4034102cad
+src-url: https://github.com/schollz/croc/archive/refs/tags/v9.6.15.tar.gz
+src-sha: ca118155cdf3ceb7496928b1c76387ba74f39b774372d30543e6cbd23d2c0a97
 license: MIT
 bsystem: go

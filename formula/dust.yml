@@ -1,6 +1,6 @@
-summary: More intuitive version of du(1) in rust
+summary: A more intuitive version of du(1) in rust
 git-url: https://github.com/bootandy/dust
-src-url: https://github.com/bootandy/dust/archive/v0.8.6.tar.gz
-src-sha: feede818e814011207c5bfeaf06dd9fc95825c59ab70942aa9b9314791c5d6b6
+src-url: https://github.com/bootandy/dust/archive/refs/tags/v1.0.0.tar.gz
+src-sha: 34b72116ab6db9bdb97bc1e49dadf392a1619838204b44b0a4695539d54ffbe8
 license: Apache-2.0
 bsystem: cargo
