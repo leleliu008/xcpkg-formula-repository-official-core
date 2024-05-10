@@ -4,21 +4,19 @@ git-url: https://github.com/GNOME/glib
 src-url: https://download.gnome.org/sources/glib/2.76/glib-2.76.4.tar.xz
 src-sha: 5a5a191c96836e166a7771f7ea6ca2b0069c603c7da3cba1cd38d1694a395dda
 license: LGPL-2.1-or-later
-dep-pkg: gettext libffi pcre2
+dep-pkg: gettext-dev libffi pcre2
 
 dopatch: |
     sed_in_place "s|cc.find_library('resolv')|declare_dependency(link_args : ['-lresolv'])|" gio/meson.build
     sed_in_place "/libiconv =/c libiconv = dependency('libiconv', method : 'pkg-config')" meson.build
     sed_in_place "s|dependency('zlib')|cc.find_library('z', static : true, dirs : ['$zlib_LIBRARY_DIR'])|" meson.build
     sed_in_place '2087,2114d'  meson.build
-    sed_in_place "2086a libintl = cc.find_library('intl',  dirs: ['$gettext_LIBRARY_DIR'])" meson.build
+    sed_in_place "2086a libintl = cc.find_library('intl',  dirs: ['$gettext_dev_LIBRARY_DIR'])" meson.build
     sed_in_place "2087a core_foundation = dependency('CoreFoundation', method : 'extraframework')" meson.build
     sed_in_place '2088a libintl_deps = [libintl, libiconv, core_foundation]' meson.build
     run cat meson.build
 
 install: |
-    # gobject-inspection needs shared libraries: gobject-2.0, glib-2.0
-    INSTALL_LIB=both
     mesonw \
         -Dnls=disabled \
         -Dman=false \

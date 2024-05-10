@@ -1,8 +1,9 @@
 summary: New way to see and navigate directory trees
 web-url: https://dystroy.org/broot/
 git-url: https://github.com/Canop/broot
-src-url: https://github.com/Canop/broot/archive/v1.26.1.tar.gz
-src-sha: 1cd2e98a9afe8a8d8bed08beaa98bdef0eed0de5d99e38599a59ea0f50d68ac5
+src-url: https://github.com/Canop/broot/archive/refs/tags/v1.37.0.tar.gz
+src-sha: 59335d101b943a7907ceb1ef2d4cf29e755cdf062d3459ebfc294965d4be0e7d
 license: MIT
-dep-pkg: zlib
+dep-pkg: libz
+prepare: export LIBZ_SYS_STATIC=1
 install: cargow install --locked

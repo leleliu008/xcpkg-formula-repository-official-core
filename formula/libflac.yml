@@ -4,21 +4,14 @@ git-url: https://github.com/xiph/flac
 src-url: https://github.com/xiph/flac/releases/download/1.4.3/flac-1.4.3.tar.xz
 src-sha: 6c58e69cd22348f441b861092b825e591d0b822e106de6eb0ee4d05d27205b70
 license: GFDL-1.2-or-later
-dep-pkg: libogg libiconv gettext
-
-dopatch: |
-    # 去掉libintl的查找
-    cat > src/share/getopt/CMakeLists.txt <<EOF
-    check_include_file("string.h" HAVE_STRING_H)
-    add_library(getopt STATIC getopt.c getopt1.c)
-    EOF
+dep-pkg: libogg
 
 install: |
     cmakew \
         -DWITH_OGG=ON \
         -DBUILD_CXXLIBS=ON \
-        -DBUILD_PROGRAMS=ON \
-        -DBUILD_EXAMPLES=ON \
+        -DBUILD_PROGRAMS=OFF \
+        -DBUILD_EXAMPLES=OFF \
         -DBUILD_TESTING=OFF \
         -DBUILD_DOCS=OFF \
         -DINSTALL_MANPAGES=ON \

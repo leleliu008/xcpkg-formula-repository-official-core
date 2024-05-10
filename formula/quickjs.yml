@@ -8,7 +8,6 @@ license: MIT
 
 dopatch: |
     sed_in_place 's|-g||' Makefile
-    sed_in_place 's|LIBS+=-ldl -lpthread|LIBS+=-ldl|' Makefile
     sed_in_place 's|lib/quickjs|lib|g'         Makefile
     sed_in_place 's|include/quickjs|include|g' Makefile
     sed_in_place 's|$(HOST_CC) $(LDFLAGS)|$(HOST_CC) -B/usr/bin $(LDFLAGS)|' Makefile

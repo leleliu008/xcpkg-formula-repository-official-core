@@ -1,22 +1,33 @@
-summary: Next generation open source RPC library and framework
+summary: grpc plugins
 web-url: https://grpc.io
 git-url: https://github.com/grpc/grpc
-src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.56.1.tar.gz
-src-sha: cc3e039aedd7b76f59cf922215adc7c308347a662be1e5e26711ffbc7fd3ce48
+src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.63.0.tar.gz
+src-sha: 493d9905aa09124c2f44268b66205dd013f3925a7e82995f36745974e97af609
 license: Apache-2.0
-dep-pkg: abseil c-ares openssl protobuf re2
+dep-pkg: openssl-dev re2 libprotobuf libcares
+dep-upp: grpc-plugins
 
 install: |
     cmakew \
         -DCMAKE_CXX_STANDARD=17 \
         -DCMAKE_CXX_STANDARD_REQUIRED=TRUE \
-        -DBUILD_SHARED_LIBS=OFF \
-        -DgRPC_BUILD_TESTS=OFF \
-        -DgRPC_INSTALL=ON \
         -DgRPC_ABSL_PROVIDER=package \
         -DgRPC_CARES_PROVIDER=package \
         -DgRPC_PROTOBUF_PROVIDER=package \
         -DgRPC_SSL_PROVIDER=package \
         -DgRPC_ZLIB_PROVIDER=package \
-        -DgRPC_RE2_PROVIDER=package
-    sed_in_place '/^Requires: /s|$| libcares|' "$PACKAGE_INSTALL_DIR/lib/pkgconfig/gpr.pc"
+        -DgRPC_RE2_PROVIDER=package \
+        -DgRPC_INSTALL=ON \
+        -DgRPC_BUILD_TESTS=OFF \
+        -DgRPC_BUILD_GRPC_CPP_PLUGIN=ON \
+        -DgRPC_BUILD_GRPC_PHP_PLUGIN=ON \
+        -DgRPC_BUILD_GRPC_NODE_PLUGIN=ON \
+        -DgRPC_BUILD_GRPC_RUBY_PLUGIN=ON \
+        -DgRPC_BUILD_GRPC_PYTHON_PLUGIN=ON \
+        -DgRPC_BUILD_GRPC_CSHARP_PLUGIN=ON \
+        -DgRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN=ON \
+        -DBUILD_SHARED_LIBS=OFF
+
+dotweak: |
+    rm -rf include
+    rm -rf lib
