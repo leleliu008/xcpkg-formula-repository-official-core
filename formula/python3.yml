@@ -30,6 +30,7 @@ install: |
     export LIBS='-lm'
 
     configure \
+        --build=$($PACKAGE_BSCRIPT_DIR/config.guess) \
         --with-system-expat \
         --with-system-ffi \
         --with-openssl="$openssl_dev_INSTALL_DIR" \

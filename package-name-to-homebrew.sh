@@ -59,8 +59,6 @@ case $1 in
               printf '%s\n' 'flatbuffers' ;;
     libprotobuf)
               printf '%s\n' 'protobuf'  ;;
-    librtmpdump)
-              printf '%s\n' 'rtmpdump'  ;;
     libfontconfig)
               printf '%s\n' 'fontconfig';;
     libtesseract)
@@ -133,6 +131,8 @@ case $1 in
     liblmdb)  printf '%s\n' 'lmdb'      ;;
     libgdbm)  printf '%s\n' 'gdbm'      ;;
     libwebp)  printf '%s\n' 'webp'      ;;
+    libjpeg)  printf '%s\n' 'jpeg'      ;;
+    librtmp)  printf '%s\n' 'rtmpdump'  ;;
     libzstd)  printf '%s\n' 'zstd'      ;;
     liblzma)  printf '%s\n' 'xz'        ;;
     libuuid)  printf '%s\n' 'util-linux';;

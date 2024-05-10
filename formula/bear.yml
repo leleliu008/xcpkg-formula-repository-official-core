@@ -2,8 +2,9 @@ summary: Generate compilation database for clang tooling
 git-url: https://github.com/rizsotto/Bear
 src-url: https://github.com/rizsotto/Bear/archive/3.1.3.tar.gz
 src-sha: 8314438428069ffeca15e2644eaa51284f884b7a1b2ddfdafe12152581b13398
-dep-pkg: grpc nlohmann-json spdlog
 license: GPL-3.0-or-later
+dep-pkg: grpc nlohmann-json spdlog
+dep-upp: grpc-plugins
 
 dopatch2: |
     sed_in_place '/-DPKG_CONFIG_EXECUTABLE/a -DCMAKE_PROJECT_INCLUDE=${CMAKE_PROJECT_INCLUDE}' CMakeLists.txt

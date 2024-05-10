@@ -4,7 +4,6 @@ git-url: https://github.com/libuv/libuv
 src-url: https://github.com/libuv/libuv/archive/v1.46.0.tar.gz
 src-sha: 7aa66be3413ae10605e1f5c9ae934504ffe317ef68ea16fdaa83e23905c681bd
 license: MIT
-
 install: |
     cmakew \
         -DLIBUV_BUILD_TESTS=OFF \

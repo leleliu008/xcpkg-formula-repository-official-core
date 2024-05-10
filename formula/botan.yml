@@ -4,9 +4,9 @@ web-url: https://botan.randombit.net/
 src-url: https://botan.randombit.net/releases/Botan-3.1.1.tar.xz
 src-sha: 30c84fe919936a98fef5331f246c62aa2c0e4d2085b2d4511207f6a20afa3a6b
 license: BSD-2-Clause
-dep-pkg: python3 libsqlite3 libbz2 zlib
+dep-pkg: python3 libsqlite3 libbz2 libz
 bsystem: gmake
-binbstd: 1
+
 install: |
     export CXXFLAGS="$CXXFLAGS $CPPFLAGS"
     python3 configure.py \
@@ -15,5 +15,5 @@ install: |
         --cc=gcc \
         --with-zlib \
         --with-bzip2 \
-        --with-sqlite3 &&
+        --with-sqlite3
     gmakew install

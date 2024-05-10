@@ -1,0 +1,6 @@
+summary: A source code spell checker
+git-url: https://github.com/crate-ci/typos
+src-url: https://github.com/crate-ci/typos/archive/refs/tags/v1.20.10.tar.gz
+src-sha: d9fa88f6e74c3801e72cd0e77401d49973bfdf63dfd17902b3fc5120a0a32af8
+license: MIT
+install: cargow install --path crates/typos-cli

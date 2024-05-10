@@ -1,14 +1,21 @@
+pkgtype: exe+lib
 summary: Cryptographic and SSL/TLS library
 web-url: https://tls.mbed.org
 git-url: https://github.com/Mbed-TLS/mbedtls
-src-url: https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-3.4.0.tar.gz
-src-sha: a5dac98592b1ac2232de0aed8f4ee62dffaa99e843e6f41dca2958095c737afd
+src-url: https://github.com/Mbed-TLS/mbedtls/releases/download/v3.6.0/mbedtls-3.6.0.tar.bz2
+src-sha: 3ecf94fcfdaacafb757786a01b7538a61750ebd85c4b024f56ff8ba1490fcd38
 license: Apache-2.0
-dep-pkg: zlib
+dep-pkg: libz
+
+dopatch: |
+    # https://github.com/Mbed-TLS/mbedtls/issues/8832
+    if [ "$TARGET_PLATFORM_ARCH" = i686 ] ; then
+        sed_in_place '/#define MBEDTLS_AESNI_C/d' include/mbedtls/mbedtls_config.h
+    fi
 
 install: |
     cmakew \
-        -DUSE_STATIC_MBEDTLS_LIBRARY=OFF \
+        -DUSE_STATIC_MBEDTLS_LIBRARY=ON \
         -DUSE_SHARED_MBEDTLS_LIBRARY=ON \
         -DUSE_PKCS11_HELPER_LIBRARY=OFF \
         -DUNSAFE_BUILD=OFF \

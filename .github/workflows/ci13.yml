@@ -14,7 +14,7 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [supervisord,suricata,svn-lite,syncthing,sysinfo,szip,t1utils,taglib,tarlz,tbb,tbox,tcc,tcl-core,tcpdump,tdu,tealdeer,tectonic,tengo,terragrunt,theora,tig,timg,tinysearch,tinyxml2,tmux,tokei,toml++,toml11,tree,ttyd]
+        pkg: [sqlite3,starship,stylua,supervisord,suricata,svn-lite,syncthing,sysinfo,szip,t1utils,taglib,tarlz,tbb,tbox,tcc,tcl-core,tcpdump,tdu,tealdeer,tectonic,tengo,terragrunt,theora,tig,timg,tinysearch,tinyxml2,tmux,tokei,toml++]
 
     runs-on: macos-14
 
