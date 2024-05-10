@@ -14,12 +14,12 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [libcdio,libcgif,libcrc32c,libcroco,libdeflate,libfftw3,libflatbuffers,libheif,libidn,libimagequant,libirecovery,libisoburn,liblinear,liblqr,libmaxminddb,libmetalink,libmill,libmpir,libopenh264,libphonenumber,libpipeline,libplacebo,libpsl,libqalculate,libraqm,libraw,librtmpdump,libsmi,libspng,libtorrent-rasterbar]
+        pkg: [libcddb,libcdio,libcgif,libcrc32c,libcroco,libfftw3,libflatbuffers,libheif,libidn,libimagequant,libirecovery,libisoburn,liblinear,liblmdb,liblqr,libmaxminddb,libmetalink,libmill,libmpir,libopenh264,libphonenumber,libpipeline,libplacebo,libpsl,libqalculate,libraqm,libraw,librtmpdump,libsmi,libspng]
 
     runs-on: macos-14
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/xcpkg
       - run: chmod u+x xcpkg

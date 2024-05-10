@@ -14,12 +14,12 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [hunspell,hurl,hwloc,hydroxide,hyperfine,ideviceinstaller,intltool,ixwebsocket,jbig2dec,jemalloc,jfrog-cli,joshuto,jpeg,jq,json-glib,jump,k9s,krb5,lame,lazygit,lcov,less,lf,libaec,libao,libasync++,libb2,libbcrypt,libcaca,libcddb]
+        pkg: [hugo,hunspell,hurl,hwloc,hydroxide,hyperfine,ideviceinstaller,intltool,ixwebsocket,jbig2dec,jemalloc,jfrog-cli,joshuto,jpeg,jq,json-glib,jump,k9s,krb5,lame,lazygit,lcov,less,lf,libaec,libao,libasync++,libb2,libbcrypt,libcaca]
 
     runs-on: macos-14
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/xcpkg
       - run: chmod u+x xcpkg

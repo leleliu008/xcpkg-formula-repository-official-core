@@ -14,12 +14,12 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [libupnp,libwebm,libxcrypt,libxml2-python3,libxml2-utils,libyuv,lighttpd,links,livego,llhttp,lmdb,lodepng,log4cplus,lolcat,lrzip,lsd,lsof,luau,lunatic,lunzip,lychee,lynx,lzip,lzop,magic_enum,mcfly,md4c,mdbook,mdcat,mediainfo]
+        pkg: [libtorrent-rasterbar,libupnp,libwebm,libxcrypt,libxml2-python3,libxml2-utils,libyuv,lighttpd,links,livego,llhttp,lodepng,log4cplus,lolcat,lrzip,lsd,lsof,luau,lunatic,lunzip,lychee,lynx,lzip,lzop,magic_enum,mcfly,md4c,mdbook,mdcat,mediainfo]
 
     runs-on: macos-14
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/xcpkg
       - run: chmod u+x xcpkg
