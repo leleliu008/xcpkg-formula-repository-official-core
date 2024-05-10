@@ -1,6 +1,6 @@
-summary: Command-line hex viewer
+summary: A simple hex viewer for the terminal
 git-url: https://github.com/sharkdp/hexyl
-src-url: https://github.com/sharkdp/hexyl/archive/v0.13.0.tar.gz
-src-sha: 1b5d2fc49724a7ce76253f328190b9b5e09ba39af7ca1be9aa610c5c7e8c91b9
+src-url: https://github.com/sharkdp/hexyl/archive/refs/tags/v0.14.0.tar.gz
+src-sha: 5205fa1a483c66997f5a7179cdd1a277ebb5e0a743bb269a962d20b29dd735f8
 license: MIT
 bsystem: cargo

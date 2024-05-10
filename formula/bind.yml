@@ -1,22 +1,22 @@
 summary: Implementation of the DNS protocols
 web-url: https://www.isc.org/downloads/bind
 git-url: https://github.com/isc-projects/bind9
-src-url: https://downloads.isc.org/isc/bind9/9.18.16/bind-9.18.16.tar.xz
-src-sha: c88234fe07ee75c3c8a9e59152fee64b714643de8e22cf98da3db4d0b57e0775
+src-url: https://downloads.isc.org/isc/bind9/9.18.26/bind-9.18.26.tar.xz
+src-sha: 75ffee52731e9604c849b658df29e927f1c4f01d5a71ea3ebcbeb63702cb6651
 license: MPL-2.0
-dep-pkg: json-c openssl libxml2 libidn2 libnghttp2 libuv
+dep-pkg: libnghttp2 openssl-dev json-c libxml2 libidn2 libuv
 
 install: |
-    export BUILD_CC="$CC_FOR_BUILD"
-    export ac_cv_search_idn2_to_ascii_lz='-lidn2 -lunistring -liconv'
     configure \
         --disable-linux-caps \
         --disable-static \
         --enable-shared \
         --without-python \
         --without-gssapi \
+        --without-lmdb \
         --with-zlib \
         --with-json-c \
         --with-libxml2 \
         --with-libidn2="$libidn2_INSTALL_DIR" \
-        --with-openssl="$openssl_INSTALL_DIR"
+        --with-openssl="$openssl_dev_INSTALL_DIR" \
+        ac_cv_search_idn2_to_ascii_lz="'-lidn2 -lunistring -liconv'"
