@@ -1,37 +1,30 @@
 summary: C/C++ and Java libraries for Unicode and globalization
 web-url: http://site.icu-project.org/home
 git-url: https://github.com/unicode-org/icu
-src-url: https://github.com/unicode-org/icu/releases/download/release-73-2/icu4c-73_2-src.tgz                                                            
-src-sha: 818a80712ed3caacd9b652305e01afc7fa167e6f2e94996da44b90c2ab604ce1
+src-url: https://github.com/unicode-org/icu/releases/download/release-74-2/icu4c-74_2-src.tgz
+src-sha: 68db082212a96d6f53e35d60f47d38b962e9f9d207a74cfac78029ae8ff5e08c
 license: ICU
-version: 73.2
+version: 74.2
 bscript: source
-bsystem: configure
 
 # https://www.talkwithdevices.com/archives/260
 do12345: run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
 
-    #dopatch: |
-    #cp config/mh-darwin config/mh-unknown &&
-    #inject_stub_system tools/tzcode/zic.c tools/pkgdata/pkgdata.cpp
-
-install: |
+prepare: |
     if [ "$CROSS_COMPILING" = 1 ] ; then
         CONFIGURE_OPTS_EXTRA="--with-cross-build=$NATIVE_BCACHED_DIR"
     else
-        CONFIGURE_OPTS_EXTRA=
+        case $TARGET_PLATFORM_ARCH in
+            *64) CONFIGURE_OPTS_EXTRA="$CONFIGURE_OPTS_EXTRA --with-library-bits=64" ;;
+            *)   CONFIGURE_OPTS_EXTRA="$CONFIGURE_OPTS_EXTRA --with-library-bits=32" ;;
+        esac
     fi
 
-    case $TARGET_PLATFORM_ARCH in
-        *64) BIT=64 ;;
-        *)   BIT=32 ;;
-    esac
-
+install: |
     configure \
         --enable-release \
         --enable-tools \
         --disable-tests \
         --disable-fuzzer \
         --disable-samples \
-        --with-library-bits="$BIT" \
         "$CONFIGURE_OPTS_EXTRA"

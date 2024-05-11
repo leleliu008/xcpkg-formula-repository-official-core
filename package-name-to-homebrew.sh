@@ -107,6 +107,10 @@ case $1 in
               printf '%s\n' 'crc32c'    ;;
     libblake3)
               printf '%s\n' 'b3sum'     ;;
+    libxxhash)
+              printf '%s\n' 'xxhash'    ;;
+    libxapian)
+              printf '%s\n' 'xapian'    ;;
     libspeexdsp)
               printf '%s\n' 'speexdsp'  ;;
     libspeex) printf '%s\n' 'speex'     ;;
@@ -140,6 +144,7 @@ case $1 in
     libre2c)  printf '%s\n' 're2c'      ;;
     libcgif)  printf '%s\n' 'cgif'      ;;
     libzlog)  printf '%s\n' 'zlog'      ;;
+    libpopt)  printf '%s\n' 'popt'      ;;
     libz3.a)  printf '%s\n' 'z3'        ;;
     libmpfr)  printf '%s\n' 'mpfr'      ;;
     libmpir)  printf '%s\n' 'mpir'      ;;

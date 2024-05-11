@@ -1,0 +1,16 @@
+summary: Modern Linker
+git-url: https://github.com/rui314/mold
+src-url: https://github.com/rui314/mold/archive/refs/tags/v2.31.0.tar.gz
+src-sha: 3dc3af83a5d22a4b29971bfad17261851d426961c665480e2ca294e5c74aa1e5
+license: AGPL-3.0-only
+dep-pkg: libz
+
+install: |
+    cmakew \
+        -DMOLD_LTO=OFF \
+        -DMOLD_USE_ASAN=OFF \
+        -DMOLD_USE_TSAN=OFF \
+        -DMOLD_USE_MIMALLOC=ON \
+        -DMOLD_MOSTLY_STATIC=OFF \
+        -DBUILD_SHARED_LIBS=OFF \
+        -DCMAKE_SKIP_INSTALL_RULES=OFF

@@ -5,4 +5,3 @@ src-sha: df0f010f20e6072a8a52365f195cc94c35ebaf486cc285948e10eabf768d17ba
 license: GPL-3.0-only
 dep-pkg: libz
 bsystem: cargo
-prepare: export LIBZ_SYS_STATIC=1

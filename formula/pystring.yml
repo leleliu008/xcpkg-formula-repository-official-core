@@ -9,5 +9,5 @@ install: |
     run rm -f pystring.a
     run $CXX -c $CXXFLAGS $CPPFLAGS -o pystring.o pystring.cpp
     run $AR rsc libpystring.a pystring.o
-    run install_incs pystring.h:pystring
+    run install_incs :pystring pystring.h
     run install_libs libpystring.a

@@ -1,12 +1,13 @@
 summary: Open source continuous file synchronization application
 web-url: https://syncthing.net/
 git-url: https://github.com/syncthing/syncthing
-src-url: https://github.com/syncthing/syncthing/archive/refs/tags/v1.25.0.tar.gz
-src-sha: 25948ff788d98b74672b8fdb67a414b96d7a28cf9c48a52b32213dbc34d6bb65
+src-url: https://github.com/syncthing/syncthing/archive/refs/tags/v1.27.7.tar.gz
+src-sha: 26c57b75663fb892ea19f077124a2dcf89fbc1cf55bd9e94b5e0495af41c9ff2
 license: MPL-2.0
 bsystem: go
 
 do12345: run go build build.go
+
 install: |
     TARGET_CC="$CC"
     TARGET_GOARCH="$GOARCH"
@@ -19,8 +20,13 @@ install: |
     unset GOOS
     unset GOARCH
 
-    run rm -f syncthing &&
-    run ./build -cc "$TARGET_CC" -goos android -goarch "$TARGET_GOARCH" -version "v$PACKAGE_VERSION" -no-upgrade build &&
-    ls &&
-    run install_bins syncthing &&
+    run rm -f syncthing
+
+    if [ ! -f build ] ; then
+        run go build build.go
+    fi
+
+    run ./build -cc "$TARGET_CC" -goos android -goarch "$TARGET_GOARCH" -version "v$PACKAGE_VERSION" -no-upgrade build
+
+    run install_bins syncthing
     run install_mans man/*.1 man/*.5 man/*.7

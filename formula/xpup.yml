@@ -1,9 +1,8 @@
-summary: a command line tool for XML parsing
+summary: A command line XML parsing tool
 git-url: https://github.com/ericchiang/xpup
 license: Apache-2.0
-
 bsystem: go
-install: |
-    run go mod init &&
-    run go mod tidy &&
-    gow
+
+dopatch: |
+    run go mod init
+    run go mod tidy

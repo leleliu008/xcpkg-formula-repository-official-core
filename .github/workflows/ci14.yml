@@ -14,7 +14,7 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [toml11,tree,ttyd,ttygif,ttyrec,tweego,twolame,typos,uctags,unbound,unixodbc,unrar,unzip,uppm,uppm@0.15.1,uppm@0.15.2,usrsctp,utf8.h,utfcpp,util-linux,vala,vapoursynth,vegeta,vim,virustotal-cli,viu,volta,vsftpd,wasm3,wasmer]
+        pkg: [tealdeer,tectonic,tengo,terragrunt,tesseract,tig,timg,tinysearch,tinyxml2,tlrc,tmux,tokei,toml++,toml11,tree,ttyd,ttygif,ttyrec,tweego,twolame,typos,uctags,unbound,unixodbc,unrar,unzip,uppm,uppm@0.15.1,uppm@0.15.2,usrsctp]
 
     runs-on: macos-14
 

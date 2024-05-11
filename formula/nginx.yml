@@ -1,10 +1,10 @@
 summary: HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 git-url: https://github.com/nginx/nginx
 web-url: https://nginx.org
-src-url: https://nginx.org/download/nginx-1.25.1.tar.gz
-src-sha: f09071ac46e0ea3adc0008ef0baca229fc6b4be4533baef9bbbfba7de29a8602
+src-url: https://nginx.org/download/nginx-1.25.5.tar.gz
+src-sha: 2fe2294f8af4144e7e842eaea884182a84ee7970e11046ba98194400902bbec0
 license: BSD-2-Clause
-dep-pkg: openssl pcre2 zlib
+dep-pkg: openssl-dev libpcre2 libz
 
 bsystem: gmake
 
@@ -29,11 +29,11 @@ dopatch: |
         sed_in_place '1i set -x' configure
     fi
 
-    sed_in_place 's/ngx_test="$CC/ngx_test="$CC $NGX_CC_OPT/' auto/include &&
-    sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/feature &&
-    sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/endianness &&
-    sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/typedef &&
-    sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/sizeof &&
+    sed_in_place 's/ngx_test="$CC/ngx_test="$CC $NGX_CC_OPT/' auto/include
+    sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/feature
+    sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/endianness
+    sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/typedef
+    sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/sizeof
     sed_in_place '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/uintptr_t
 
 install: |
@@ -56,5 +56,5 @@ install: |
         --with-cc="$CC" \
         --with-cc-opt="'$CFLAGS $CPPFLAGS'" \
         --with-ld-opt="'$LDFLAGS -lcrypto'" \
-        --with-pcre &&
+        --with-pcre
     gmakew install
