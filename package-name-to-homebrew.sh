@@ -143,6 +143,7 @@ case $1 in
     libargp)  printf '%s\n' 'argp-standalone';;
     libre2c)  printf '%s\n' 're2c'      ;;
     libcgif)  printf '%s\n' 'cgif'      ;;
+    libgif)   printf '%s\n' 'giflib'    ;;
     libzlog)  printf '%s\n' 'zlog'      ;;
     libpopt)  printf '%s\n' 'popt'      ;;
     libz3.a)  printf '%s\n' 'z3'        ;;

@@ -26,7 +26,7 @@ install: |
         run go build build.go
     fi
 
-    run ./build -cc "$TARGET_CC" -goos android -goarch "$TARGET_GOARCH" -version "v$PACKAGE_VERSION" -no-upgrade build
+    run ./build -cc "$TARGET_CC" -goos darwin -goarch "$TARGET_GOARCH" -version "v$PACKAGE_VERSION" -no-upgrade build
 
     run install_bins syncthing
     run install_mans man/*.1 man/*.5 man/*.7

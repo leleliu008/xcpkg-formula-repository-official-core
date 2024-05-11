@@ -13,7 +13,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
-        target: [ 'MacOSX-13.0-x86_64' ]
+        target: [ 'MacOSX-14.0-arm64', 'MacOSX-13.0-x86_64' ]
         pkg: [bear,berkeley-db,binaryen,bind,binocle,bison,bitcoin,bk,bmake,boringssl,botan,bottom,boxes,brook,broot,bsdtar,bullet,byacc,bzip2,c-examples,caddy,cargo-c,cargo-deb,catch2,catimg,ccache,cereal,cflow,chafa,cheat]
 
     runs-on: macos-14

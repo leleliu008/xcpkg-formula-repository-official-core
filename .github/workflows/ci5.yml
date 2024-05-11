@@ -13,8 +13,8 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
-        target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [fish,flatc,flex,flock,fnm,frei0r,fselect,fsmon,fzf,fzy,garble,gawk,gbt,gdu,geographiclib,geos,gettext-tools,gh,git,git-cliff,git-lfs,gitui,glib-tools,glow,gm4,gmake,gn,gnu-barcode,gnu-which,gnupg]
+        target: [ 'MacOSX-14.0-arm64', 'MacOSX-13.0-x86_64' ]
+        pkg: [flatc,flex,flock,fnm,frei0r,fselect,fsmon,fzf,fzy,garble,gawk,gbt,gdu,geographiclib,geos,gettext-tools,gh,giflib,git,git-cliff,git-lfs,gitui,glib-tools,glow,gm4,gmake,gn,gnu-barcode,gnu-which,gnupg]
 
     runs-on: macos-14
 

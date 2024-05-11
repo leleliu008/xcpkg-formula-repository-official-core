@@ -13,8 +13,8 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
-        target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [libplacebo,libpsl,libqalculate,libraqm,libraw,librtmp,libsmi,libspng,libsrtp,libtorrent-rasterbar,libupnp,libwebm,libxcrypt,libxml2-python3,libxml2-utils,libyuv,libz3,libzim,libzlog,lighttpd,links,livego,llhttp,lodepng,log4cplus,lolcat,lrzip,lsd,lsof,luau]
+        target: [ 'MacOSX-14.0-arm64', 'MacOSX-13.0-x86_64' ]
+        pkg: [libplacebo,libpsl,libqalculate,libraqm,libraw,librtmp,libsmi,libspng,libsrtp,libtesseract,libtorrent-rasterbar,libupnp,libwebm,libxcrypt,libxml2-python3,libxml2-utils,libyuv,libz3,libzim,libzlog,lighttpd,links,livego,llhttp,lodepng,log4cplus,lolcat,lrzip,lsd,lsof]
 
     runs-on: macos-14
 

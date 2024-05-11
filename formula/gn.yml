@@ -5,6 +5,6 @@ dep-upp: python3
 bsystem: ninja
 binbstd: 1
 install: |
-    run python3 build/gen.py --platform=linux
+    run python3 build/gen.py --platform=darwin
     run ninja -C out/
     run install_bins out/gn
