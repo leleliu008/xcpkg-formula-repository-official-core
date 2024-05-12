@@ -7,6 +7,7 @@ dep-pkg: libz
 version: 8.6.14
 license: TCL
 bscript: unix
+bsystem: autotools
 
 prepare: |
     case $TARGET_PLATFORM_ARCH in

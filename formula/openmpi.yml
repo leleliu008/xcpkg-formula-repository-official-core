@@ -8,7 +8,7 @@ dep-pkg: libevent hwloc
 dep-upp: perl
 ldflags: -Wl,-ld_classic
 
-dopatch: |
+dopatch2: |
     inject_stub_system \
         opal/tools/opal-restart/opal-restart.c \
         opal/mca/hwloc/hwloc201/hwloc/hwloc/dolib.c \

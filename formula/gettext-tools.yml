@@ -1,8 +1,8 @@
 summary: GNU internationalization (i18n) and localization (l10n) library
 git-url: https://git.savannah.gnu.org/git/gettext.git
 web-url: https://www.gnu.org/software/gettext
-src-url: https://ftp.gnu.org/gnu/gettext/gettext-0.21.tar.xz
-src-sha: d20fcbb537e02dcf1383197ba05bd0734ef7bf5db06bdb241eb69b7d16b73192
+src-url: https://ftp.gnu.org/gnu/gettext/gettext-0.22.5.tar.gz
+src-sha: ec1705b1e969b83a9f073144ec806151db88127f5e40fe5a94cb6c8fa48996a0
 license: GPL-3.0-or-later
 dep-pkg: ncurses libiconv
 
@@ -19,12 +19,16 @@ install: |
         --disable-openmp \
         --disable-csharp \
         --disable-java \
+        --disable-shared \
+        --enable-static \
         --enable-c++ \
         --enable-curses \
         --enable-threads=posix \
         --enable-libasprintf \
         --enable-namespacing \
         --enable-nls \
-        --enable-relocatable &&
-    rm -rf "$PACKAGE_INSTALL_DIR/lib" &&
-    rm -rf "$PACKAGE_INSTALL_DIR/include"
+        --enable-relocatable
+
+dotweak: |
+    rm -rf lib
+    rm -rf include
