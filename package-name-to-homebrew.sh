@@ -65,6 +65,8 @@ case $1 in
               printf '%s\n' 'tesseract' ;;
     libgraphite2)
               printf '%s\n' 'graphite2' ;;
+    libqrencode)
+              printf '%s\n' 'qrencode'  ;;
     libgraphene)
               printf '%s\n' 'graphene'  ;;
     libfreetype)
@@ -168,6 +170,7 @@ case $1 in
     libtwolame|stwolame)
               printf '%s\n' 'two-lame'  ;;
 
+    getopt)   printf '%s\n' 'util-linux';;
     toml++)   printf '%s\n' 'tomlplusplus'  ;;
     xorg-*)   printf '%s\n' "$1" | cut -c6- ;;
     *)        printf '%s\n' "$1"

@@ -1,11 +1,13 @@
-summary: A post-modern modal text editor.
+summary: A post-modern modal text editor
 web-url: https://helix-editor.com/
 git-url: https://github.com/helix-editor/helix
-src-url: https://github.com/helix-editor/helix/releases/download/23.05/helix-23.05-source.tar.xz
-src-sha: c1ca69facde99d708175c686ce5bf3585e119e372c83e1c3dc1d562c7a8e3d87
+src-url: https://github.com/helix-editor/helix/releases/download/24.03/helix-24.03-source.tar.xz
+src-sha: c59a5988f066c2ab90132e03a0e6b35b3dd89f48d3d78bf0ec81bd7d88c7677e
 license: MPL-2.0
+dep-upp: git
 install: |
-    cargow install --path helix-term &&
-    rm -rf runtime/grammars/sources/ &&
-    install -d -v    "$PACKAGE_INSTALL_DIR/libexec" &&
+    export RUSTUP_TOOLCHAIN=1.74
+    cargow install --path helix-term
+    rm -rf runtime/grammars/sources/
+    install -d -v    "$PACKAGE_INSTALL_DIR/libexec"
     cp -v -r runtime "$PACKAGE_INSTALL_DIR/libexec"

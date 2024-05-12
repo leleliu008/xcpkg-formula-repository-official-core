@@ -5,9 +5,12 @@ src-url: https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz
 src-sha: e7de3240a8bc2b1e1ba5c81bf943f06861ff494b69fda990ce2722a504c6153d
 license: Python-2.0
 dep-pkg: openssl-dev libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
-dep-upp: python3
 
 onready: ENABLE_LTO=0
+
+# CPython do not support cross-compiling on macOS
+# configure: error: cross build not supported for x86_64-apple-darwin
+# https://bugs.python.org/issue46749
 
 install: |
     unset PYTHONHOME
@@ -32,7 +35,6 @@ install: |
 
     configure \
         --build=$($PACKAGE_BSCRIPT_DIR/config.guess) \
-        --with-build-python=python3 \
         --with-system-expat \
         --with-system-ffi \
         --with-openssl="$openssl_dev_INSTALL_DIR" \

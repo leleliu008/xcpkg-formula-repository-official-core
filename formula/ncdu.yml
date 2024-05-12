@@ -5,7 +5,15 @@ src-sha: 4a3d0002309cf6a7cea791938dac9becdece4d529d0d6dc8d91b73b4e6855509
 license: MIT
 dep-pkg: ncurses
 dep-upp: zig@0.12
+bsystem: zig
 binbstd: 1
 install: |
-    run zig build --prefix "$PACKAGE_INSTALL_DIR" -Dpie=true --release=fast --search-prefix "$ncurses_INSTALL_DIR"
+    # https://zig.guide/build-system/cross-compilation/
+    if [ "$TARGET_PLATFORM_ARCH" = arm64 ] ; then
+        ZIG_BUILD_TARGET='aarch64-macos'
+    else
+        ZIG_BUILD_TARGET="$TARGET_PLATFORM_ARCH-macos"
+    fi
+
+    run zig build -Dtarget="$ZIG_BUILD_TARGET" --prefix "$PACKAGE_INSTALL_DIR" -Dpie=true --release=fast --search-prefix "$ncurses_INSTALL_DIR"
     install_mans ncdu.1

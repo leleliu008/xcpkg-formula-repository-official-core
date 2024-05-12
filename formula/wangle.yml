@@ -1,3 +1,4 @@
+pkgtype: lib
 summary: Modular, composable client/server abstractions framework
 git-url: https://github.com/facebook/wangle
 src-url: https://github.com/facebook/wangle/archive/refs/tags/v2023.07.10.00.tar.gz

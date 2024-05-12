@@ -1,13 +1,28 @@
 summary: Network IDS, IPS, and security monitoring engine
 web-url: https://suricata-ids.org
 git-url: https://github.com/OISF/suricata
-src-url: https://www.openinfosecfoundation.org/download/suricata-7.0.1.tar.gz
-src-sha: 6047c75f9e79a9b0cc6d6c7632024a4126812bc212f52acf5d3c813cc7c9fb0b
+src-url: https://www.openinfosecfoundation.org/download/suricata-7.0.5.tar.gz
+src-sha: 1ffb568158f265c08554464bfb854e6568ef683bf03312923b51f28c50790a4e
 license: GPL-2.0-or-later
-dep-pkg: jansson libmagic libnet libpcap libyaml liblz4 libpcre libiconv
-bsystem: configure cargo
-install: |
+dep-pkg: libjansson liblz4 libmagic libpcre2 libiconv libyaml libpcap libnet
+dep-upp: libtool
+bsystem: autotools cargo
+
+dopatch: |
+    sed_in_place '/^if RUST_CROSS_COMPILE/d' rust/Makefile.am
+    sed_in_place '/^RUST_TARGET = /{n;d}'    rust/Makefile.am
+    sed_in_place "/RUST_TARGET = --target/c RUST_TARGET = --target $RUST_TARGET" rust/Makefile.am
+    sed_in_place "/RUST_SURICATA_LIB_XC_DIR=/c RUST_SURICATA_LIB_XC_DIR=$RUST_TARGET/" configure.ac
+
+prepare: |
     export CARGO_BUILD_TARGET="$RUST_TARGET"
-    export RUST_TARGET="--target $RUST_TARGET"
-    export LIBS=-liconv
-    configure --enable-pie
+    run rustup target add "$CARGO_BUILD_TARGET"
+
+install: |
+    configure \
+        --enable-pie \
+        --with-libpcap-includes="$libpcap_INCLUDE_DIR" \
+        --with-libpcap-libraries="$libpcap_LIBRARY_DIR" \
+        ac_cv_lib_pthread_pthread_create=yes \
+        ac_cv_lib_jansson_json_dump_callback=yes \
+        ac_cv_lib_pcap_pcap_open_dead=yes

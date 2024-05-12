@@ -1,0 +1,26 @@
+pkgtype: exe+lib
+summary: Tool Command Language
+web-url: https://www.tcl-lang.org
+src-url: https://downloads.sourceforge.net/project/tcl/Tcl/8.6.14/tcl8.6.14-src.tar.gz
+src-sha: 5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66
+dep-pkg: libz
+version: 8.6.14
+license: TCL
+bscript: unix
+
+prepare: |
+    case $TARGET_PLATFORM_ARCH in
+        *64*) EXTRA_CONFIGURE_FLAGS='--enable-64bit' ;;
+        *)    EXTRA_CONFIGURE_FLAGS='--disable-64bit';;
+    esac
+
+install: |
+    configure \
+        --enable-dtrace \
+        --enable-zipfs \
+        --enable-load \
+        --enable-dll-unloading \
+        --enable-threads \
+        --disable-symbols \
+        --with-tzdata \
+        $EXTRA_CONFIGURE_FLAGS
