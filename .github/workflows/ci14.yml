@@ -14,7 +14,7 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-14.0-arm64', 'MacOSX-13.0-x86_64' ]
-        pkg: [tdu,tealdeer,tectonic,tengo,terragrunt,tig,timg,tinysearch,tinyxml2,tlrc,tmux,tokei,toml++,toml11,tree,ttyd,ttygif,ttyrec,tweego,twolame,typos,uctags,unbound,unixodbc,unrar,unzip,uppm,uppm@0.15.2,usrsctp,utf8.h]
+        pkg: [tcl,tcpdump,tdu,tealdeer,tectonic,tengo,terragrunt,tig,timg,tinysearch,tinyxml2,tlrc,tmux,tokei,toml++,toml11,tree,ttyd,ttygif,ttyrec,tweego,twolame,typos,uctags,unbound,unixodbc,unrar,unzip,uppm,uppm@0.15.2]
 
     runs-on: macos-14
 

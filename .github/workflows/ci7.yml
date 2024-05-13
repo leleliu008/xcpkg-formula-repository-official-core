@@ -14,7 +14,7 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-14.0-arm64', 'MacOSX-13.0-x86_64' ]
-        pkg: [hexdump,hexyl,htop,htslib,hugo,hunspell,hurl,hydroxide,hyperfine,ideviceinstaller,intltool,ixwebsocket,jansson,jemalloc,jfrog-cli,jj,joshuto,jpeg,jq,json-glib,jump,k9s,krb5,lame,lazygit,lcov,less,lf,libaec,libao]
+        pkg: [hexdump,hexyl,htop,htslib,hugo,hunspell,hurl,hydroxide,hyperfine,ideviceinstaller,intltool,ixwebsocket,jansson,jemalloc,jfrog-cli,jj,joshuto,jpeg,jq,json-glib,jump,k9s,krb5,lame,lazygit,lcms2,lcov,less,lf,libaec]
 
     runs-on: macos-14
 

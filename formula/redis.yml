@@ -1,10 +1,10 @@
 summary: Persistent key-value database, with built-in net interface
 web-url: https://redis.io
 git-url: https://github.com/redis/redis
-src-url: https://download.redis.io/releases/redis-7.0.12.tar.gz
-src-sha: 9dd83d5b278bb2bf0e39bfeb75c3e8170024edbaf11ba13b7037b2945cf48ab7
+src-url: https://download.redis.io/releases/redis-7.2.4.tar.gz
+src-sha: 8d104c26a154b29fd67d6568b4f375212212ad41e0c2caa3d66480e78dbd3b59
 license: BSD-3-Clause
-dep-pkg: openssl
+dep-pkg: openssl-dev
 
 install: |
     gmakew clean

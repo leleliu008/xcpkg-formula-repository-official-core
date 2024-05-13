@@ -132,6 +132,7 @@ case $1 in
     libpcre2) printf '%s\n' 'pcre2'     ;;
     libexpat) printf '%s\n' 'expat'     ;;
     libmhash) printf '%s\n' 'mhash'     ;;
+    liblcms2) printf '%s\n' 'little-cms2' ;;
     libpcre)  printf '%s\n' 'pcre'      ;;
     libcurl)  printf '%s\n' 'curl'      ;;
     liblmdb)  printf '%s\n' 'lmdb'      ;;
@@ -161,6 +162,7 @@ case $1 in
     libjxl)   printf '%s\n' 'jpeg-xl'   ;;
     libcaf)   printf '%s\n' 'caf'       ;;
     libglm)   printf '%s\n' 'glm'       ;;
+    libhwy)   printf '%s\n' 'highway'   ;;
     libz)     printf '%s\n' 'zlib'      ;;
 
     png)      printf '%s\n' 'libpng'    ;;

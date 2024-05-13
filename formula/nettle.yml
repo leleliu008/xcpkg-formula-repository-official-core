@@ -20,4 +20,4 @@ install: |
         --disable-openssl \
         --disable-mini-gmp \
         --disable-assembler \
-        --enable-documentation
+        --disable-documentation

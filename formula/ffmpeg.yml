@@ -56,7 +56,7 @@ install: |
         --enable-libxml2 \
         --enable-lzma \
         --enable-gpl \
-        --enable-jni \
+        --disable-jni \
         --disable-doc \
         --disable-debug \
         --disable-vulkan \
