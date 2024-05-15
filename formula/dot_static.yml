@@ -1,5 +1,4 @@
-pkgtype: exe+lib
-summary: An open source graph visualization software
+summary: A command-line tool for drawing graphs
 web-url: https://www.graphviz.org/
 git-url: https://gitlab.com/graphviz/graphviz
 src-url: https://gitlab.com/graphviz/graphviz/-/archive/11.0.0/graphviz-11.0.0.tar.bz2
@@ -10,7 +9,7 @@ dep-upp: gm4 flex bison gawk git python3 libtool
 bsystem: autogen
 
 install: |
-    configure \
+    configure_only \
         --disable-swig \
         --disable-php \
         --disable-tcl \
@@ -18,5 +17,6 @@ install: |
         --without-gtk \
         --without-qt \
         --without-x
-
-dotweak: cd lib && ln -s graphviz/lib*.dylib .
+    gmakew
+    install_bins cmd/dot/.libs/dot_static
+    install_libs lib/xdot/.libs/libxdot.4.dylib

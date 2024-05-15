@@ -40,7 +40,6 @@ install: |
         --enable-shared \
         --enable-ffplay \
         --enable-ffprobe \
-        --enable-mediacodec \
         --enable-libmp3lame \
         --enable-libtheora \
         --enable-libvorbis \
@@ -60,6 +59,7 @@ install: |
         --disable-doc \
         --disable-debug \
         --disable-vulkan \
+        --disable-mediacodec \
         --disable-libfdk-aac ; then
         gmakew clean
         gmakew install V=1

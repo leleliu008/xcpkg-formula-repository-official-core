@@ -11,6 +11,7 @@ install: |
         -Dicu=enabled \
         -Dglib=enabled \
         -Dcairo=disabled \
+        -Dcoretext=enabled \
         -Dfreetype=enabled \
         -Dgraphite=disabled \
         -Dgraphite2=enabled \

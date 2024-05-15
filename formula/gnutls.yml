@@ -1,3 +1,4 @@
+pkgtype: lib
 summary: GNU Transport Layer Security (TLS) Library
 web-url: https://gnutls.org
 git-url: https://github.com/gnutls/gnutls
