@@ -1,15 +1,12 @@
 summary: Emulator for x86 and PowerPC
 web-url: https://www.qemu.org/
 git-url: https://git.qemu.org/git/qemu.git
-src-url: https://download.qemu.org/qemu-8.1.1.tar.xz
-src-sha: 37ce2ef5e500fb752f681117c68b45118303ea49a7e26bd54080ced54fab7def
+src-url: https://download.qemu.org/qemu-9.0.0.tar.xz
+src-sha: 32708ac66c30d8c892633ea968c771c1c76d597d70ddead21a0d22ccf386da69
 license: GPL-2.0-only
-dep-pkg: capstone libslirp libssh libusb libpng libjpeg-turbo libpixman libzstd liblzo gnutls nettle snappy vde
+dep-pkg: capstone libfdt libusb libslirp libssh libpng libjpeg-turbo libpixman libzstd liblzo gnutls nettle libsnappy vde
 dep-upp: ninja
 bsystem: gmake
-
-fix-url: https://gitlab.com/qemu-project/qemu/-/commit/0d58c660689f6da1e3feff8a997014003d928b3b.diff
-fix-sha: b0f9f899f269074304d59dedf980fa83296c806f705b16a5164ba4d34aad1382
 
 ppflags: -UNDEBUG
 
@@ -23,12 +20,14 @@ install: |
         --disable-bsd-user \
         --disable-guest-agent \
         --enable-capstone \
+        --enable-virtfs \
         --enable-curses \
         --enable-libssh \
-        --enable-slirp=system \
-        --enable-vde \
-        --enable-virtfs \
+        --enable-cocoa \
+        --enable-slirp \
         --enable-zstd \
+        --enable-fdt=system \
+        --enable-vde \
         --disable-sdl \
         --disable-gtk
     gmakew install V=1

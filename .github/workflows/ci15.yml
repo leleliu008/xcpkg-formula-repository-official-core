@@ -14,7 +14,7 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-14.0-arm64', 'MacOSX-13.0-x86_64' ]
-        pkg: [uppm,uppm@0.15.2,usrsctp,utf8.h,utfcpp,util-linux,vala,vapoursynth,vegeta,vim,virustotal-cli,viu,volta,vsftpd,wasm3,wasmer,wasmtime,watchexec,watchman,wavpack,webhook,websocketpp,wget,wolfssl,wuzz,x264,x265,xh,xmake,xmlto]
+        pkg: [uctags,unbound,unixodbc,unrar,unzip,uppm,uppm@0.15.2,usrsctp,utf8.h,utfcpp,util-linux,vala,vapoursynth,vegeta,vim,virustotal-cli,viu,volta,vsftpd,wasm3,wasmer,wasmtime,watchexec,watchman,wavpack,webhook,websocketpp,wget,wolfssl,wuzz]
 
     runs-on: macos-14
 
