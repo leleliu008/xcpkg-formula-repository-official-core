@@ -8,6 +8,11 @@ dep-upp: gdk-pixbuf
 dep-pkg: gdk-pixbuf pango
 bsystem: configure cargo
 
+    #dopatch: sed_in_place "s|RUST_LIB = \$(CARGO_TARGET_DIR)|RUST_LIB = $PWD/target/$RUST_TARGET|" Makefile.in
+dopatch: |
+    sed_in_place "/^CARGO_TARGET_DIR = /c CARGO_TARGET_DIR = $PWD/target/$RUST_TARGET" Makefile.in
+    sed_in_place '/CARGO_TARGET_DIR=/d' Makefile.in
+
 install: |
     configure \
         --enable-tools=yes \

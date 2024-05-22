@@ -6,20 +6,22 @@ license: GPL-3.0-or-later
 dep-upp: bison flex ed texinfo
 bsystem: configure
 
-do12345: |
-    configure --without-readline --without-libedit &&
-    install -d           "$NATIVE_INSTALL_DIR/include" &&
-    install bc/libmath.h "$NATIVE_INSTALL_DIR/include"
+do12345: | 
+    if [ "$CROSS_COMPILING" = 1 ] ; then
+        configure --without-readline --without-libedit
+        install -d           "$NATIVE_INSTALL_DIR/include"
+        install bc/libmath.h "$NATIVE_INSTALL_DIR/include"
+    fi
 
 dopatch: |
-    inject_stub_system dc/misc.c &&
+    inject_stub_system dc/misc.c
     sed_in_place 's/#include "libmath.h"/{"#include \\"libmath.h\\""}/' bc/global.c
 
 install: |
-    [ "$CROSS_COMPILING" = yes ] && {
+    if [ "$CROSS_COMPILING" = 1 ] ; then
         run install -d "$PACKAGE_BCACHED_DIR/bc"
         run cp "$NATIVE_INSTALL_DIR/include/libmath.h" "$PACKAGE_BCACHED_DIR/bc"
         run touch -t 190001010000 $PACKAGE_BCACHED_DIR/bc/libmath.h
-    }
+    fi
 
     configure --without-readline --without-libedit

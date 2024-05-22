@@ -6,6 +6,10 @@ src-sha: 4157c5cacdb59737c5d627e47ac26b140e9ee28b1102f812b36068aab728c1ed
 license: Apache-2.0
 
 do12345: |
+    if [ "$CROSS_COMPILING" != 1 ] ; then
+        return 0
+    fi
+
     cmakew \
         -DFLATBUFFERS_BUILD_FLATC=ON \
         -DFLATBUFFERS_BUILD_TESTS=OFF \

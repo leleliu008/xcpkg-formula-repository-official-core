@@ -1,0 +1,18 @@
+summary: Reliable Internet Stream Transport (RIST)
+web-url: https://code.videolan.org/rist/
+git-url: https://code.videolan.org/rist/librist
+src-url: https://code.videolan.org/rist/librist/-/archive/v0.2.10/librist-v0.2.10.tar.gz
+src-sha: 797e486961cd09bc220c5f6561ca5a08e7747b313ec84029704d39cbd73c598c
+license: BSD-2-Clause
+dep-pkg: cjson cmocka mbedtls
+
+dopatch: sed_in_place 's|st_mtim|st_mtimespec|g' tools/srp_shared.c
+
+install: |
+    mesonw \
+        -Dtest=false \
+        -Duse_tun=false \
+        -Duse_nettle=false \
+        -Duse_gnutls=false \
+        -Duse_mbedtls=true \
+        -Dfallback_builtin=true

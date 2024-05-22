@@ -7,6 +7,10 @@ dep-pkg: zlib jsoncpp abseil
 
 # used by other package. make sure protoc and libprotoc have the same version
 do12345: |
+    if [ "$CROSS_COMPILING" != 1 ] ; then
+        return 0
+    fi
+
     cmakew \
         -DCMAKE_CXX_STANDARD=17 \
         -Dprotobuf_WITH_ZLIB=ON \

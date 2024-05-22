@@ -1,20 +1,20 @@
-summary: a collection of portable C++ source libraries
+pkgtype: lib
+summary: A collection of portable C++ source libraries
 web-url: https://www.boost.org/
 git-url: https://github.com/boostorg/boost
-src-url: https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.xz
-src-sha: fd60da30be908eff945735ac7d4d9addc7f7725b1ff6fcdcaede5262d511d21e
-version: 1.82.0
+src-url: https://github.com/boostorg/boost/releases/download/boost-1.84.0/boost-1.84.0.tar.xz
+src-sha: 2e64e5d79a738d0fa6fb546c6e5c2bd28f88d268a2a080546f74e5ff98f29d0e
 license: BSL-1.0
-dep-pkg: xz libbz2 zstd icu4c libiconv
+dep-pkg: libz libbz2 liblzma libzstd libiconv icu4c
 binbstd: 1
 
 # https://boostorg.github.io/build/manual/master/index.html
 # https://sites.google.com/site/robdevelopertips/how-to-build-boost-1-64-0-for-android
 # https://www.boost.org/doc/libs/1_73_0/libs/context/doc/html/context/architectures/crosscompiling.html
 # https://www.boost.org/doc/libs/1_65_1/libs/context/doc/html/context/architectures.html
-dopatch: |
-    sed_in_place '1a set -x' bootstrap.sh &&
-    sed_in_place '1a set -x' tools/build/src/engine/build.sh &&
+do12345: |
+    sed_in_place '1a set -x' bootstrap.sh
+    sed_in_place '1a set -x' tools/build/src/engine/build.sh
     run ./bootstrap.sh
 
 install: |

@@ -6,6 +6,14 @@ src-sha: fc97f51029bb0e2c9f4e3bffefdaf678f0e039ee872b9de5c002a6d09c784d82
 license: BSD-2-Clause
 dep-pkg: libz
 
-do12345: configure --disable-zlib --disable-bzlib --disable-xzlib
-prepare: export FILE_COMPILE="$NATIVE_INSTALL_DIR/bin/file"
+do12345: |
+    if [ "$CROSS_COMPILING" = 1 ] ; then
+        configure --disable-zlib --disable-bzlib --disable-xzlib
+    fi
+
+prepare: |
+    if [ "$CROSS_COMPILING" = 1 ] ; then
+        export FILE_COMPILE="$NATIVE_INSTALL_DIR/bin/file"
+    fi
+
 install: configure --enable-zlib --disable-bzlib --disable-xzlib --enable-static --disable-shared

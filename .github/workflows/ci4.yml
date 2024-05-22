@@ -14,7 +14,7 @@ jobs:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
         target: [ 'MacOSX-14.0-arm64', 'MacOSX-13.0-x86_64' ]
-        pkg: [dmalloc,dns2tcp,dnslookup,dnsmap,dnsx,dog,dos2unix,dot_static,doxygen,dtc,dua,duf,dufs,dust,easyutils,ed,eigen,elvish,epsilon,esbuild,ethereum,exa,exhale,faac,faad2,fcp,fd,fdk-aac,fdroidcl,fff]
+        pkg: [dnslookup,dnsmap,dnsx,dog,dos2unix,dot_static,doxygen,dtc,dua,duf,dufs,dust,easyutils,ed,eigen,elvish,epsilon,esbuild,ethereum,exa,exhale,faac,faad2,fcp,fd,fdk-aac,fdroidcl,fff,figlet,findent]
 
     runs-on: macos-14
 

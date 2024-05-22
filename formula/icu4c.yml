@@ -8,7 +8,10 @@ version: 74.2
 bscript: source
 
 # https://www.talkwithdevices.com/archives/260
-do12345: run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
+do12345: |
+    if [ "$CROSS_COMPILING" = 1 ] ; then
+        run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
+    fi
 
 prepare: |
     if [ "$CROSS_COMPILING" = 1 ] ; then

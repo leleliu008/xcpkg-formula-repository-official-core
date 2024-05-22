@@ -22,10 +22,6 @@ install: |
 
     run rm -f syncthing
 
-    if [ ! -f build ] ; then
-        run go build build.go
-    fi
-
     run ./build -cc "$TARGET_CC" -goos darwin -goarch "$TARGET_GOARCH" -version "v$PACKAGE_VERSION" -no-upgrade build
 
     run install_bins syncthing

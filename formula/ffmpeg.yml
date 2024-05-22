@@ -5,15 +5,23 @@ web-url: https://ffmpeg.org/
 src-url: https://ffmpeg.org/releases/ffmpeg-7.0.tar.xz
 src-sha: 4426a94dd2c814945456600c8adfc402bee65ec14a70e8c531ec9a2cd651da7b
 license: GPL-2.0-or-later
-dep-pkg: libmp3lame libtheora libvorbis libspeex librav1e libdav1d libx264 libx265 libopus libxvid libvpx libwebp libtiff libpng libjpeg-turbo libgif libxml2 sdl2
+dep-pkg: libmp3lame libsamplerate libtheora libvorbis libspeex librav1e libdav1d libx264 libx265 libopus libxvid libsoxr libvpx libwebp libtiff libpng libjpeg-turbo libgif libsrt libzimg libzmq libxml2 libarchive sdl2
 dep-upp: nasm
 bsystem: gmake
 
 install: |
+    CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
+
+    # https://github.com/spack/spack/issues/40159
+    if [ "$CLANG_VERSION_MAJOR" -ge 15 ] ; then
+        export LDFLAGS="$LDFLAGS -Wl,-ld_classic"
+    fi
+
     unset CONFIGURE_EXTRA_ARGS
 
     case $TARGET_PLATFORM_ARCH in
         aarch64) CONFIGURE_EXTRA_ARGS='--enable-neon' ;;
+        arm64)   CONFIGURE_EXTRA_ARGS='--enable-neon' ;;
         armv7a)  CONFIGURE_EXTRA_ARGS='--enable-neon' ;;
         i686)    CONFIGURE_EXTRA_ARGS='--disable-asm' ;;
     esac
@@ -40,6 +48,8 @@ install: |
         --enable-shared \
         --enable-ffplay \
         --enable-ffprobe \
+        --enable-videotoolbox \
+        --enable-audiotoolbox \
         --enable-libmp3lame \
         --enable-libtheora \
         --enable-libvorbis \
@@ -48,10 +58,13 @@ install: |
         --enable-libdav1d \
         --enable-libopus \
         --enable-libwebp \
+        --enable-libzimg \
         --enable-libx264 \
         --enable-libx265 \
         --enable-libxvid \
+        --enable-libsoxr \
         --enable-libvpx \
+        --enable-libsrt \
         --enable-libxml2 \
         --enable-lzma \
         --enable-gpl \
@@ -60,7 +73,8 @@ install: |
         --disable-debug \
         --disable-vulkan \
         --disable-mediacodec \
-        --disable-libfdk-aac ; then
+        --disable-libfdk-aac \
+        $CONFIGURE_EXTRA_ARGS ; then
         gmakew clean
         gmakew install V=1
         run cp ffbuild/config.log .

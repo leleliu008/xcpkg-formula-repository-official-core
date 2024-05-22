@@ -7,13 +7,21 @@ dep-upp: gm4 bison perl
 dep-pkg: openssl-dev libedit
 bscript: src
 install: |
-    configure \
+    configure_only \
         --disable-nls \
         --enable-static \
         --disable-shared \
         --without-keyutils \
         --without-system-verto
+    gmakew -C util clean
+    gmakew -C util
 
-patches: |
-    5fab23b85d030c3cac0fd5a3c1d8952a65e5afe42cd2229a22ca58e230100c91|https://raw.githubusercontent.com/macports/macports-ports/master/net/kerberos5/files/patch-lib_rpc_Makefile.in-explicitly-link-krb5support.diff||-p0
-    34a417670f8b0bc85767c817cfec83a9a7213d16c356bf2347d4a4bc2bc3a876|https://raw.githubusercontent.com/macports/macports-ports/master/net/kerberos5/files/patch-config__shlib.conf-do-not-pass-dylib-file-ldflags.diff||-p0
+    gmakew -C include clean
+    gmakew -C include
+    install -d "$PACKAGE_INSTALL_DIR/include/krb5"
+    gmakew -C include install
+
+    gmakew -C lib/krb5 clean
+    gmakew -C lib/krb5
+    install -d "$PACKAGE_INSTALL_DIR/lib"
+    gmakew -C lib/krb5 install

@@ -8,6 +8,10 @@ license: MIT
 dep-upp: gsed grep
 
 do12345: |
+    if [ "$CROSS_COMPILING" != 1 ] ; then
+        return 0
+    fi
+
     {
         # https://github.com/termux/termux-packages/issues/4487
         if command -v tic > /dev/null ; then
@@ -27,13 +31,16 @@ do12345: |
 
 dopatch: sed_in_place 's|cf_ok_build_cc=unknown|cf_ok_build_cc=yes|' configure
 
-install: |
+prepare: |
     export BUILD_CC="$CC_FOR_BUILD"
     export BUILD_CFLAGS="$CFLAGS_FOR_BUILD"
     export BUILD_CPPFLAGS="$CPPFLAGS_FOR_BUILD"
     export BUILD_LDFLAGS="$LDFLAGS_FOR_BUILD"
     unset  BUILD_LIBS
+
     unset  TERMINFO
+
+install: |
     configure \
         --with-pkg-config-libdir="$PACKAGE_INSTALL_DIR/lib/pkgconfig" \
         --with-cxx-shared \
