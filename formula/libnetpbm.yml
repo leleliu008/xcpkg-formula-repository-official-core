@@ -40,5 +40,4 @@ dotweak: |
     Version: $PACKAGE_VERSION
     Cflags: -I\${includedir}
     Libs: -L\${libdir} -lnetpbm
-    Requires: jasper libpng libjpeg libtiff-4 libxml-2.0
     EOF

@@ -19,4 +19,7 @@ install: |
         --without-qt \
         --without-x
 
-dotweak: cd lib && ln -s graphviz/lib*.dylib .
+dotweak: |
+    cd lib
+    ln -s graphviz/lib*.dylib .
+    printf 'Requires: libxdot libcdt libcgraph libpathplan expat libz\n' >> pkgconfig/libgvc.pc

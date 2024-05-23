@@ -1,8 +1,8 @@
 summary: Low-level access to audio, keyboard, mouse, joystick and graphics
-git-url: https://github.com/libsdl-org/SDL
 web-url: https://www.libsdl.org/
-src-url: https://www.libsdl.org/release/SDL2-2.28.1.tar.gz
-src-sha: 4977ceba5c0054dbe6c2f114641aced43ce3bf2b41ea64b6a372d6ba129cb15d
+git-url: https://github.com/libsdl-org/SDL
+src-url: https://github.com/libsdl-org/SDL/releases/download/release-2.30.3/SDL2-2.30.3.tar.gz
+src-sha: 820440072f8f5b50188c1dae104f2ad25984de268785be40c41a099a510f0aec
 license: Zlib
 bsystem: cmake
 
@@ -24,10 +24,12 @@ install: |
     esac
 
     cmakew \
-        -DSDL_SHARED=OFF \
+        -DSDL_SHARED=ON \
         -DSDL_STATIC=ON \
         -DSDL_TEST=OFF \
         -DSDL_HAPTIC=OFF \
+        -DSDL_HIDAPI=ON \
+        -DSDL_FRAMEWORK_IOKIT=ON \
         -DSDL_JOYSTICK=OFF \
         -DSDL_POWER=OFF \
         -DPTHREADS=ON \

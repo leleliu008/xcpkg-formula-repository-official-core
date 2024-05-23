@@ -1,0 +1,27 @@
+pkgtype: exe+lib
+summary: Tools and libraries to manipulate images in many formats
+git-url: https://github.com/ImageMagick/ImageMagick
+web-url: https://imagemagick.org/
+src-url: https://imagemagick.org/archive/releases/ImageMagick-7.1.1-32.tar.xz
+src-sha: e7a6b98f105e6b0f4f1b1e1d72f002262cc1a375b8c05b5f9e8dd2be438897d2
+version: 7.1.1.32
+license: ImageMagick
+dep-pkg: ghostscript libheif liblqr libtool
+
+install: |
+    configure \
+        --with-freetype=yes \
+        --with-gvc=no \
+        --with-modules \
+        --with-openjp2 \
+        --with-openexr \
+        --with-webp=yes \
+        --with-heic=yes \
+        --with-gslib \
+        --with-pango \
+        --with-lqr \
+        --without-x \
+        --without-wmf \
+        --without-fftw \
+        --disable-opencl \
+        --enable-openmp

@@ -27,7 +27,7 @@ install: |
     esac
 
     sed_in_place 's|-lxvidcore|-lxvidcore -lm|' configure
-    sed_in_place "s|SDL2_CONFIG=|SDL2_CONFIG='$sdl2_INSTALL_DIR/bin/sdl2-config'|" configure
+    sed_in_place "/SDL2_CONFIG=/c SDL2_CONFIG='$sdl2_INSTALL_DIR/bin/sdl2-config'" configure
 
     if run ./configure \
         --prefix="$PACKAGE_INSTALL_DIR" \
@@ -67,6 +67,7 @@ install: |
         --enable-libsrt \
         --enable-libxml2 \
         --enable-lzma \
+        --enable-sdl \
         --enable-gpl \
         --disable-jni \
         --disable-doc \
