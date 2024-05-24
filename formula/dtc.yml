@@ -9,5 +9,5 @@ dopatch: sed_in_place 's|libfdt.$(SHAREDLIB_EXT).1|libfdt.1.$(SHAREDLIB_EXT)|' l
 
 install: |
     gmakew clean
-    gmakew NO_PYTHON=1
+    gmakew NO_PYTHON=1 CC="$CC" CFLAGS="'$CFLAGS -DNO_YAML'"
     gmakew NO_PYTHON=1 PREFIX="$PACKAGE_INSTALL_DIR" INSTALL="$(command -v install)" install

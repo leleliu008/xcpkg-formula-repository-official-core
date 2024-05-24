@@ -12,5 +12,5 @@ dopatch: |
 
 install: |
     gmakew clean
-    gmakew NO_PYTHON=1
+    gmakew NO_PYTHON=1 CC="$CC" CFLAGS="'$CFLAGS'"
     gmakew NO_PYTHON=1 PREFIX="$PACKAGE_INSTALL_DIR" INSTALL="$(command -v install)" install
