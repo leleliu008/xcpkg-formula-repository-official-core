@@ -1,0 +1,32 @@
+name: ci6 
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
+        #target: [ 'MacOSX:13.0:x86_64', 'MacOSX:13.0:arm64' ]
+        target: [ 'MacOSX-14.0-arm64', 'MacOSX-13.0-x86_64' ]
+        pkg: [gn,gnu-barcode,gnu-which,gnupg,go-md2man,go-tools,godu,gogs,golang,gomobile,google-benchmark,goreleaser,gosh,gotop,gotty,gox,gperf,gperftools,gping,gpsim,gputils,graphene,grep,grex,groff,gron,grpc-plugins,gsed,gtar,gzip]
+
+    runs-on: macos-14
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/xcpkg
+      - run: chmod u+x xcpkg
+      - run: ./xcpkg env
+      - run: ./xcpkg setup
+      - run: ./xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+      - run: mv formula ~/.xcpkg/repos.d/test/
+
+      - run: ./xcpkg install ${{ matrix.target }}/${{ matrix.pkg }}
