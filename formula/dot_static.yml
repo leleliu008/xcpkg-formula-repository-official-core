@@ -19,4 +19,3 @@ install: |
         --without-x
     gmakew
     install_bins cmd/dot/.libs/dot_static
-    install_libs lib/xdot/.libs/libxdot.4.dylib

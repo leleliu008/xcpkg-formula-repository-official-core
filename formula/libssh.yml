@@ -12,4 +12,6 @@ install: |
     cmakew -DWITH_SYMBOL_VERSIONING=OFF -DWITH_EXAMPLES=OFF -DBUILD_SHARED_LIBS=OFF
 
 dotweak: |
-    printf 'Requires: openssl, libz\n' >> lib/pkgconfig/libssh.pc
+    cd lib/pkgconfig
+    sed_in_place 's|-lssh|-lssh -framework Kerberos|' libssh.pc
+    printf 'Requires: openssl libz\n' >>              libssh.pc

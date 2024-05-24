@@ -11,6 +11,10 @@ dep-pkg: libgmp libunistring nettle libtasn1 libidn2
 prepare2:
     inject_stub_system src/libopts/pgusage.c tests/pkcs11/pkcs11-mock2.c
 
+dopatch: |
+    # https://gitlab.com/gnutls/gnutls/-/issues/1537
+    sed_in_place '/gmp-glue\.h/a \#define nettle_rsa_compute_root_tr _gnutls_nettle_backport_rsa_compute_root_tr' lib/nettle/backport/rsa-sign-tr.c
+
 install: |
     configure \
         --without-gcov \
