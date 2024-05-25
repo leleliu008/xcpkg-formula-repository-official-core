@@ -7,3 +7,4 @@ license: GPL-2.0-or-later
 dep-pkg: autoconf
 dep-upp: gm4
 bsystem: configure
+movable: 0

@@ -7,3 +7,4 @@ license: GPL-2.0-or-later
 dep-upp: gm4
 dep-pkg: perl
 bsystem: configure
+movable: 0

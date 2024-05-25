@@ -4,11 +4,12 @@ web-url: https://nghttp2.org/
 git-url: https://github.com/nghttp2/nghttp2
 src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.61.0/nghttp2-1.61.0.tar.gz
 src-sha: aa7594c846e56a22fbf3d6e260e472268808d3b49d5e0ed339f589e9cc9d484c
-dep-pkg: libevent libev libcares libjansson libxml2 cunit
+dep-pkg: libevent libev libcares libjansson libxml2 brotli cunit
 license: MIT
 
 dopatch: |
     sed_in_place '/find_package(LibXml2/c find_package(LibXml2 CONFIG)' CMakeLists.txt
+    sed_in_place 's|${LIBCARES_LIBRARY}|${LIBCARES_LIBRARY} -lresolv|' cmake/FindLibcares.cmake
     sed_in_place 's|return dconn;|return std::move(dconn);|' src/shrpx_client_handler.cc
 
 install: |
