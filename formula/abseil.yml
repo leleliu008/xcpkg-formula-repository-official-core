@@ -18,7 +18,7 @@ install: |
         -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
 
 dotweak: |
-    __tweak_mach_o_files() {
+    __check_mach_o_files() {
         :
     }
 

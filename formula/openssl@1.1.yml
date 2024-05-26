@@ -1,13 +1,15 @@
+pkgtype: lib
 summary: Cryptography and SSL/TLS Toolkit
 git-url: https://github.com/openssl/openssl
 web-url: https://www.openssl.org/
-src-url: https://www.openssl.org/source/openssl-1.1.1u.tar.gz
-src-sha: e2f8d84b523eecd06c7be7626830370300fbcc15386bf5142d72758f6963ebc6
+src-url: https://www.openssl.org/source/openssl-1.1.1w.tar.gz
+src-sha: cf3098950cb4d853ad95c0841f1f9c6d3dc102dccfcacd521d93925208b76ac8
 license: OpenSSL
 dep-upp: perl
 
 bsystem: gmake
-binbstd: 1
+
+# https://github.com/openssl/openssl/blob/master/INSTALL.md
 install: |
     case $TARGET_PLATFORM_NAME in
         MacOSX)
@@ -25,29 +27,17 @@ install: |
                     ;;
             esac
     esac
- 
-    if [ "$LINK_TYPE" = static-only ] || [ "$LINK_TYPE" = static-most ] ; then
-        export LDCMD=./build-openssl-cmd.sh
-
-        cat > "$LDCMD" <<EOF
-        #!/bin/sh
-        $CC \$(printf '%s\n' "\$*" | sed -e 's|-lssl|./libssl.a|g' -e 's|-lcrypto|./libcrypto.a|g')
-    EOF
-
-        chmod +x "$LDCMD"
-    fi
 
     run ./Configure \
-        no-engine \
         no-tests \
         no-ssl2 \
         no-ssl3 \
         no-comp \
         no-asm \
-        no-hw \
         --prefix="$PACKAGE_INSTALL_DIR" \
-        --libdir=$PACKAGE_INSTALL_DIR/lib \
-        "$os_compiler" &&
-    gmakew clean &&
-    gmakew CROSS_COMPILE= &&
-    gmakew CROSS_COMPILE= install
+        --libdir=lib \
+        --openssldir=etc/ssl \
+        "$os_compiler"
+    gmakew clean
+    gmakew build_libs
+    gmakew install_dev

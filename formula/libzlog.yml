@@ -9,13 +9,5 @@ dopatch: sed_in_place '/cp -f/d' makefile
 
 install: |
     gmakew clean
-    gmakew all \
-        CC="$CC" \
-        REAL_CFLAGS="'$CPPFLAGS $CFLAGS'" \
-        REAL_LDFLAGS="'$LDFLAGS'" \
-        DYLIB_MINOR_NAME=libzlog.dylib \
-        DYLIB_MAJOR_NAME=libzlog.dylib \
-        STLIB_MAKE_CMD="'$AR rcs libzlog.a'"
-    install_libs libzlog.a libzlog.dylib
-    install_incs zlog.h
-    install_bins zlog-chk-conf
+    gmakew         PREFIX="$PACKAGE_INSTALL_DIR" CC="$CC" REAL_CFLAGS="'$CPPFLAGS $CFLAGS'" REAL_LDFLAGS="'$LDFLAGS'"
+    gmakew install PREFIX="$PACKAGE_INSTALL_DIR"
