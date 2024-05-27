@@ -17,3 +17,10 @@ prepare: |
     fi
 
 install: configure --enable-zlib --disable-bzlib --disable-xzlib --enable-static --disable-shared
+
+caveats: |
+    The following environment variables should be set if you move/copy this software to other location
+
+    FILE_INSTALLED_DIR=/somewhere
+
+    export MAGIC="$FILE_INSTALLED_DIR/share/misc/magic.mgc"

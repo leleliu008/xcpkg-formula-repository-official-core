@@ -43,6 +43,7 @@ case $1 in
               printf '%s\n' 'gettext'   ;;
     libasprintf)
               printf '%s\n' 'gettext'   ;;
+    libintl)  printf '%s\n' 'gettext'   ;;
     gettext-dev)
               printf '%s\n' 'gettext'   ;;
     openssl-dev)
