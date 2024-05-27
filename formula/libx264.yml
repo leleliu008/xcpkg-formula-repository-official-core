@@ -8,7 +8,7 @@ dep-upp: nasm
 
 prepare: |
     case $TARGET_PLATFORM_ARCH in
-        x86_64) CONFIGURE_EXTRA_ARGS='--enable-asm'  ;;
+        x86_64) CONFIGURE_EXTRA_ARGS='--enable-asm' ; export AS=nasm ;;
         *)      CONFIGURE_EXTRA_ARGS='--disable-asm' ;;
     esac
 

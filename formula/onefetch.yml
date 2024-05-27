@@ -1,7 +1,8 @@
 summary: Command-line Git information tool
 git-url: https://github.com/o2sh/onefetch
-src-url: https://github.com/o2sh/onefetch/archive/2.18.1.tar.gz
-src-sha: 7b0f03e9d2383ac32283cfb9ec09d10c8789a298969c8b7d45fa0168bd909140
+src-url: https://github.com/o2sh/onefetch/archive/refs/tags/2.21.0.tar.gz
+src-sha: a035bc44ef0c04a330b409e08ee61ac8a66a56cb672f87a824d4c0349989eaf2
 license: MIT
+dep-pkg: libzstd
 bsystem: cargo cmake
-install: cargow install
+prepare: export ZSTD_SYS_USE_PKG_CONFIG=1
