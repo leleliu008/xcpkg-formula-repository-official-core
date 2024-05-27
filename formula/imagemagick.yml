@@ -24,4 +24,5 @@ install: |
         --without-wmf \
         --without-fftw \
         --disable-opencl \
-        --enable-openmp
+        --enable-openmp \
+        --enable-delegate-build
