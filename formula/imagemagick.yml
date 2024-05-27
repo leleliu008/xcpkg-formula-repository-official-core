@@ -26,3 +26,10 @@ install: |
         --disable-opencl \
         --enable-openmp \
         --enable-delegate-build
+
+caveats: |
+    The following environment variables should be set if you move/copy this software to other location
+
+    export MAGICK_HOME=/somewhere
+    export MAGICK_CODER_MODULE_PATH="$MAGICK_HOME/lib/ImageMagick-7.1.1/modules-Q16HDRI/coders"
+    export MAGICK_CONFIGURE_PATH="$MAGICK_HOME/etc/ImageMagick-7"
