@@ -1,9 +1,17 @@
 pkgtype: lib
 summary: Image loading and rendering library
 web-url: https://sourceforge.net/projects/enlightenment/
-src-url: https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.11.1/imlib2-1.11.1.tar.xz
-src-sha: f712b6bb9dcad46d8b8f4ad52610dcbbaebb4cc80b5fd12f93124d3a380fa6bf
+src-url: https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.12.2/imlib2-1.12.2.tar.gz
+src-sha: e96b43014ac9d61a0775e28a46cf7befbd49654705df845001e849e44839481b
 license: Imlib2
 dep-pkg: libgif libjpeg-turbo libpng libtiff libwebp libfreetype xorg-libxext
 
-install: configure --enable-amd64=no --without-id3
+install: |
+    configure \
+        --enable-amd64=no \
+        --without-heif \
+        --without-id3 \
+        --without-j2k \
+        --without-jxl \
+        --without-svg \
+        --without-ps
