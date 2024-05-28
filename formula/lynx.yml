@@ -3,10 +3,8 @@ web-url: http://lynx.browser.org
 version: 2.8.9rel.1
 src-url: https://mirrors.tuna.tsinghua.edu.cn/debian/pool/main/l/lynx/lynx_2.8.9rel.1.orig.tar.bz2
 src-sha: 387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595
-license: GPL-2.0
-dep-pkg: ncurses libbz2 openssl-dev
-ccflags: -Wno-implicit-function-declaration
-ldflags: -lncurses
+license: GPL-2.0-only
+dep-pkg: ncurses libz libbz2 openssl-dev
 
 dopatch: |
     sed_in_place 's/XOPEN_SOURCE=500/XOPEN_SOURCE=600/g'        configure
@@ -15,6 +13,15 @@ dopatch: |
     sed_in_place 's/vasprintf(&temp/vsprintf(temp/'         WWW/Library/Implementation/HTString.c
     inject_stub_system src/LYUtils.c
     sed_in_place "1i char* mkdtemp(char*);" src/LYUtils.c
+
+prepare: |
+    CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
+    CLANG_VERSION_MINOR="$("$CC" -E -dM - < /dev/null | grep __clang_minor__ | cut -d ' ' -f3)"
+    CLANG_VERSION_PATCH="$("$CC" -E -dM - < /dev/null | grep __clang_patchlevel__ | cut -d ' ' -f3)"
+
+    if [ "$CLANG_VERSION_MAJOR$CLANG_VERSION_MINOR$CLANG_VERSION_PATCH" -ge 1403 ] ; then
+        export CFLAGS="$CFLAGS -Wno-implicit-function-declaration"
+    fi
 
 install: |
     configure \
