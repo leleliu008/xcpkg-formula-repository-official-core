@@ -1,4 +1,4 @@
-summary: A flexible, lightweight pure C library for implementing modern network protocols easily with a tiny footprint, using a nonblocking event loop.
+summary: A flexible, lightweight pure C library for implementing modern network protocols easily with a tiny footprint, using a nonblocking event loop
 web-url: https://libwebsockets.org
 git-url: https://github.com/warmcat/libwebsockets
 src-url: https://github.com/warmcat/libwebsockets/archive/refs/tags/v4.3.3.tar.gz

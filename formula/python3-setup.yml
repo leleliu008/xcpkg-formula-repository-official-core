@@ -1,4 +1,4 @@
-summary: a command-line tool to setup CPython3.
+summary: A command-line tool to setup CPython3
 git-url: https://github.com/leleliu008/python3-setup
 license: Apache-2.0
 dep-pkg: curl libarchive libyaml
