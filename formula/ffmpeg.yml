@@ -5,7 +5,7 @@ web-url: https://ffmpeg.org/
 src-url: https://ffmpeg.org/releases/ffmpeg-7.0.tar.xz
 src-sha: 4426a94dd2c814945456600c8adfc402bee65ec14a70e8c531ec9a2cd651da7b
 license: GPL-2.0-or-later
-dep-pkg: libmp3lame libsamplerate libtheora libvorbis libspeex librav1e libdav1d libx264 libx265 libopus libxvid libsoxr libvpx libwebp libtiff libpng libjpeg-turbo libgif libsrt libzimg libzmq libxml2 libarchive sdl2
+dep-pkg: libmp3lame libsamplerate libtheora libvorbis libspeex librav1e libdav1d libx264 libx265 libopus libxvid libsoxr libvpx libwebp libtiff libpng libjpeg-turbo libgif libsrt libzimg libzmq libxml2 libarchive libsdl2
 dep-upp: nasm
 bsystem: gmake
 
@@ -27,7 +27,7 @@ install: |
     esac
 
     sed_in_place 's|-lxvidcore|-lxvidcore -lm|' configure
-    sed_in_place "/SDL2_CONFIG=/c SDL2_CONFIG='$sdl2_INSTALL_DIR/bin/sdl2-config'" configure
+    sed_in_place "/SDL2_CONFIG=/c SDL2_CONFIG='$libsdl2_INSTALL_DIR/bin/sdl2-config'" configure
 
     if run ./configure \
         --prefix="$PACKAGE_INSTALL_DIR" \

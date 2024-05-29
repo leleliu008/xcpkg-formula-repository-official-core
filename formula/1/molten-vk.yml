@@ -1,0 +1,6 @@
+summary: Implementation of the Vulkan graphics and compute API on top of Metal
+git-url: https://github.com/KhronosGroup/MoltenVK
+src-url: https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.2.7.tar.gz
+src-sha: 3166edcfdca886b4be1a24a3c140f11f9a9e8e49878ea999e3580dfbf9fe4bec
+license: Apache-2.0
+bsystem: gmake

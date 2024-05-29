@@ -1,0 +1,26 @@
+summary: Just-In-Time Compiler (JIT) for the Lua programming language
+web-url: https://luajit.org/
+git-url: https://github.com/LuaJIT/LuaJIT
+git-sha: 93e87998b24021b94de8d1c8db244444c46fb6e9
+version: 2.1.1716656478
+license: MIT
+
+install: |
+    export MACOSX_DEPLOYMENT_TARGET='14.0'
+    gmakew clean amalg install \
+        PREFIX="$PACKAGE_INSTALL_DIR" \
+        CC="$CC" \
+        LD="$CC" \
+        CFLAGS="'$CFLAGS'" \
+        LDFLAGS="'$LDFLAGS'" \
+        HOST_CC="'$CC_FOR_BUILD'" \
+        HOST_LD="$CC_FOR_BUILD" \
+        TARGET_CC="$CC" \
+        TARGET_LD="$CC" \
+        TARGET_AR="'$AR rcus'" \
+        TARGET_STRIP=true \
+        TARGET_SYS=Darwin \
+        HOST_SYS=Darwin \
+        Q=
+
+dotweak: sed_in_place 's|-Wl,-E||' lib/pkgconfig/luajit.pc

@@ -4,9 +4,9 @@ git-url: https://github.com/libsdl-org/SDL
 src-url: https://github.com/libsdl-org/SDL/releases/download/release-2.30.3/SDL2-2.30.3.tar.gz
 src-sha: 820440072f8f5b50188c1dae104f2ad25984de268785be40c41a099a510f0aec
 license: Zlib
-bsystem: cmake
+dep-pkg: libiconv
 
-install: |
+prepare: |
     case $TARGET_PLATFORM_ARCH in
         arm*)
             _3DNOW=OFF
@@ -23,6 +23,7 @@ install: |
             ARMSIMD=OFF
     esac
 
+install: |
     cmakew \
         -DSDL_SHARED=ON \
         -DSDL_STATIC=ON \
@@ -34,8 +35,8 @@ install: |
         -DSDL_POWER=OFF \
         -DPTHREADS=ON \
         -DPTHREADS_SEM=ON \
-        -DPULSEAUDIO=OFF \
         -DLIBSAMPLERATE=OFF \
+        -DPULSEAUDIO=OFF \
         -DALSA=OFF \
         -DASSEMBLY=ON \
         -D3DNOW="$_3DNOW" \
