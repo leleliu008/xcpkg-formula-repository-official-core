@@ -7,9 +7,8 @@ license: BSD-3-Clause
 dep-upp: gm4 flex bison
 dep-pkg: openssl
 
+# Due to freedesktop.org bug 74029, D-Bus capture support is not available on macOS
 install: |
-    # Due to freedesktop.org bug 74029, D-Bus capture support is not available on macOS
-
     cmakew \
         -DINET6=ON \
         -DBDEBUG=OFF \
@@ -21,11 +20,12 @@ install: |
         -DDISABLE_BLUETOOTH=OFF \
         -DDISABLE_DAG=ON \
         -DDISABLE_TC=ON \
-        -DDISABLE_SNF=ON &&
-    (
-        cd "$PACKAGE_INSTALL_DIR/lib/pkgconfig" &&
-        sed_in_place 's@-l[^ ]*/libssl\.a@-lssl@g'                    libpcap.pc &&
-        sed_in_place 's@-l[^ ]*/libcrypto\.a@-lcrypto@g'              libpcap.pc &&
-        sed_in_place 's@-l[^ ]*/libssl\.\(so\|dylib\)@-lssl@g'        libpcap.pc &&
-        sed_in_place 's@-l[^ ]*/libcrypto\.\(so\|dylib\)@-lcrypto@g'  libpcap.pc
-    )
+        -DDISABLE_SNF=ON
+
+dotweak: |
+    cd lib/pkgconfig
+
+    sed_in_place 's@-l[^ ]*/libssl\.a@-lssl@g'                   libpcap.pc
+    sed_in_place 's@-l[^ ]*/libcrypto\.a@-lcrypto@g'             libpcap.pc
+    sed_in_place 's@-l[^ ]*/libssl\.\(so\|dylib\)@-lssl@g'       libpcap.pc
+    sed_in_place 's@-l[^ ]*/libcrypto\.\(so\|dylib\)@-lcrypto@g' libpcap.pc

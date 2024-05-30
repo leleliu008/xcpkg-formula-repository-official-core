@@ -6,6 +6,7 @@ dep-pkg: icu4c glib libgraphite2
 license: MIT
 
 dopatch: sed_in_place "/subdir('util')/d" meson.build
+
 install: |
     mesonw \
         -Dicu=enabled \
