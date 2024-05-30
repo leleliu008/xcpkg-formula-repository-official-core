@@ -4,8 +4,5 @@ git-url: https://github.com/wasmerio/wasmer
 src-url: https://github.com/wasmerio/wasmer/archive/refs/tags/v4.3.0.tar.gz
 src-sha: f975b852e0774d8c5ea0a184c6a39836a37dbf669c417a4c5ed2775805b505d7
 license: MIT
-dep-pkg: wabt
-bscript: lib/cli
-install: |
-    #export RUSTUP_TOOLCHAIN=1.74
-    cargow install --features cranelift
+dep-upp: wabt
+install: cargow install --features cranelift --path lib/cli
