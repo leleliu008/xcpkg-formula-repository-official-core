@@ -1,56 +1,19 @@
 summary: Portable version of NetBSD make(1)
 web-url: https://www.crufty.net/help/sjg/bmake.html
-src-url: https://www.crufty.net/ftp/pub/sjg/bmake-20230711.tar.gz
-src-sha: 0a81542c03f1a0e6c27bf5015d8fbbc52634e1190838ec7da7645847d9332fef
+src-url: https://www.crufty.net/ftp/pub/sjg/bmake-20240520.tar.gz
+src-sha: 2210ccd455b008df7951f6dbd347bfcc1837c46473014e4b8dd5ff3091ae2894
 license: BSD-3-Clause
-bsystem: gmake
-
-do123451:  |
-    run cp -r "$PACKAGE_WORKING_DIR/src" "$PACKAGE_WORKING_DIR/src-native"
-    run cd "$PACKAGE_WORKING_DIR/src-native"
-
-    # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
-    export ac_cv_func_vfork=no
-
-    sed_in_place 's|MANTARGET?|MANTARGET|'   mk/man.mk &&
-    sed_in_place '/deptgt-delete_on_error/d' unit-tests/Makefile &&
-    sed_in_place '/shell-ksh/d'              unit-tests/Makefile &&
-    run ./configure &&
-    run sh ./make-bootstrap.sh &&
-    run install -d "$NATIVE_INSTALL_DIR/bin"
-    run cp bmake   "$NATIVE_INSTALL_DIR/bin"
+binbstd: 1
 
 install: |
-    #if [ "$CROSS_COMPILING" = 1 ] && [ -f "$NATIVE_INSTALL_DIR/bin/bmake" ] ; then
-    #    sed_in_place "/^BMAKE=/c BMAKE=$NATIVE_INSTALL_DIR/bin/bmake" boot-strap
-    #fi
-
     # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
     export ac_cv_func_vfork=no
 
-    sed_in_place 's|MANTARGET?|MANTARGET|'   mk/man.mk &&
-    sed_in_place '/deptgt-delete_on_error/d' unit-tests/Makefile &&
-    sed_in_place '/shell-ksh/d'              unit-tests/Makefile && {
-        if [ "$CROSS_COMPILING" = 1 ] ; then
-            if [ 'arm64' = "$TARGET_PLATFORM_ARCH" ] ; then
-                if [ "$PACKAGE_IOS_IOS" = yes ] ; then
-                    TARGET_TRIPLE='aarch64-apple-ios'
-                else
-                    TARGET_TRIPLE='aarch64-apple-darwin'
-                fi
-            else
-                if [ "$PACKAGE_IOS_IOS" = yes ] ; then
-                    TARGET_TRIPLE="$TARGET_PLATFORM_ARCH-apple-ios"
-                else
-                    TARGET_TRIPLE="$TARGET_PLATFORM_ARCH-apple-darwin"
-                fi
-            fi
+    sed_in_place 's|MANTARGET?|MANTARGET|'   mk/man.mk
+    sed_in_place '/deptgt-delete_on_error/d' unit-tests/Makefile
+    sed_in_place '/shell-ksh/d'              unit-tests/Makefile
 
-            ./configure --host=$TARGET_TRIPLE
-        else
-            ./configure
-        fi
-    } &&
-    run sh ./make-bootstrap.sh &&
-    install_bins bmake &&
+    run ./configure
+    run sh ./make-bootstrap.sh
+    install_bins bmake
     install_mans bmake.1
