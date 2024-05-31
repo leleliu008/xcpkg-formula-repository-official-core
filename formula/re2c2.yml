@@ -36,4 +36,5 @@ dopatch: |
     ZGVyCiAgICAgICAgICAgICBhZGRfY3VzdG9tX2NvbW1hbmQoCiAgICAgICAgICAgICAgICAgT1VU
     UFVUICIke291dHB1dH0iICIke2hlYWRlcn0iCg==' | base64 -d | patch -p0
 
+    install -d _
     cp -v bootstrap/src/parse/lex.h _/src/parse/lex.h
