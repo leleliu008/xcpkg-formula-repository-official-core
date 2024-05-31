@@ -11,3 +11,10 @@ install: |
         -DRE2C_BUILD_RE2GO=ON \
         -DRE2C_BUILD_RE2RUST=ON \
         -DRE2C_REBUILD_DOCS=OFF
+
+dopatch: |
+    # macos-14.5
+    # fatal error: 'src/parse/lex.h' file not found
+    # I have no idea why this happened, but it works
+    install -d _/src/parse/
+    cp -v bootstrap/src/parse/lex.h _/src/parse/lex.h
