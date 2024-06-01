@@ -145,6 +145,7 @@ case $1 in
     libmujs)  printf '%s\n' 'mujs'      ;;
     libpcre)  printf '%s\n' 'pcre'      ;;
     libcurl)  printf '%s\n' 'curl'      ;;
+    libldns)  printf '%s\n' 'ldns'      ;;
     liblmdb)  printf '%s\n' 'lmdb'      ;;
     libgdbm)  printf '%s\n' 'gdbm'      ;;
     libwebp)  printf '%s\n' 'webp'      ;;
@@ -173,6 +174,7 @@ case $1 in
     libcaf)   printf '%s\n' 'caf'       ;;
     libglm)   printf '%s\n' 'glm'       ;;
     libhwy)   printf '%s\n' 'highway'   ;;
+    libtbb)   printf '%s\n' 'tbb'       ;;
     libsrt)   printf '%s\n' 'srt'       ;;
     libz3)    printf '%s\n' 'z3'        ;;
     libz)     printf '%s\n' 'zlib'      ;;

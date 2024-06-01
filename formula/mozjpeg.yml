@@ -9,8 +9,6 @@ dep-upp: nasm
 
 install: |
     cmakew \
-        -DENABLE_STATIC=OFF \
-        -DENABLE_SHARED=ON \
         -DPNG_SUPPORTED=ON \
         -DWITH_JAVA=OFF \
         -DWITH_FUZZ=OFF

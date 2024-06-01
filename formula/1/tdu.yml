@@ -1,0 +1,24 @@
+summary: Top Disk Usage
+git-url: https://github.com/josephpaul0/tdu
+src-url: https://github.com/josephpaul0/tdu/archive/refs/tags/v1.36.tar.gz
+src-sha: 7917e952048964c6e64e633c1638f9b1bfaad5d53054998d4b24f41dfad05077
+license: GPL-2.0-or-later
+bsystem: go
+
+dep-upp: patch
+dopatch: |
+    patch -p1 <<EOF
+    diff --git a/tdu_generic.go b/tdu_generic.go
+    index ee6b8db..aa89680 100644
+    --- a/tdu_generic.go
+    +++ b/tdu_generic.go
+    @@ -28,7 +28,7 @@ func osEnd() bool {
+     }
+     
+     // Console width is fixed on other systems
+    -func getTtyWidth() int {
+    +func getTtyWidth(sc *s_scan) int {
+        return 80
+     }
+     
+    EOF
