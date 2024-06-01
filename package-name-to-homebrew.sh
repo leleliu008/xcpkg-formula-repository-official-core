@@ -100,6 +100,8 @@ case $1 in
               printf '%s\n' 'cpuinfo'   ;;
     libhiredis)
               printf '%s\n' 'hiredis'   ;;
+    libcfitsio)
+              printf '%s\n' 'cfitsio'   ;;
     libtheora)
               printf '%s\n' 'theora'    ;;
     libexhale)
@@ -120,6 +122,12 @@ case $1 in
               printf '%s\n' 'xapian'    ;;
     libnetpbm)
               printf '%s\n' 'netpbm'    ;;
+    libfreexl)
+              printf '%s\n' 'freexl'    ;;
+    libphysfs)
+              printf '%s\n' 'physfs'    ;;
+    libtalloc)
+              printf '%s\n' 'talloc'    ;;
     libspeexdsp)
               printf '%s\n' 'speexdsp'  ;;
     libspeex) printf '%s\n' 'speex'     ;;

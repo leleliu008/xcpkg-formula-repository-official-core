@@ -5,10 +5,100 @@ src-url: https://github.com/mozilla/mozjpeg/archive/refs/tags/v4.1.5.tar.gz
 src-sha: 9fcbb7171f6ac383f5b391175d6fb3acde5e64c4c4727274eade84ed0998fcc1
 license: BSD-3-Clause
 dep-pkg: libpng
-dep-upp: nasm
+dep-upp: nasm patch
 
 install: |
     cmakew \
         -DPNG_SUPPORTED=ON \
         -DWITH_JAVA=OFF \
         -DWITH_FUZZ=OFF
+
+dopatch: |
+    patch -p1 <<EOF
+    diff --git a/CMakeLists.txt b/CMakeLists.txt
+    index 939625d4..a6ab1d32 100644
+    --- a/CMakeLists.txt
+    +++ b/CMakeLists.txt
+    @@ -739,6 +739,7 @@ endif()
+     if(WIN32)
+       set(USE_SETMODE "-DUSE_SETMODE")
+     endif()
+    +
+     if(WITH_12BIT)
+       set(COMPILE_FLAGS "-DGIF_SUPPORTED -DPPM_SUPPORTED \${USE_SETMODE}")
+     else()
+    @@ -754,54 +755,38 @@ else()
+     endif()
+     
+     if(ENABLE_STATIC)
+    -  add_executable(cjpeg-static cjpeg.c cdjpeg.c rdgif.c rdppm.c rdjpeg.c rdswitch.c
+    -    \${CJPEG_BMP_SOURCES})
+    -  set_property(TARGET cjpeg-static PROPERTY COMPILE_FLAGS \${COMPILE_FLAGS})
+    -  target_link_libraries(cjpeg-static jpeg-static)
+    -  if(UNIX)
+    -    target_link_libraries(cjpeg-static m)
+    -  endif()
+    +  add_executable(cjpeg-static cjpeg.c cdjpeg.c rdgif.c rdppm.c rdjpeg.c rdswitch.c \${CJPEG_BMP_SOURCES})
+    +  add_executable(djpeg-static djpeg.c cdjpeg.c rdcolmap.c rdswitch.c wrgif.c wrppm.c \${DJPEG_BMP_SOURCES})
+    +  add_executable(jpegtran-static jpegtran.c cdjpeg.c rdswitch.c transupp.c)
+    +
+    +  set_property(TARGET cjpeg-static    PROPERTY COMPILE_FLAGS \${COMPILE_FLAGS})
+    +  set_property(TARGET djpeg-static    PROPERTY COMPILE_FLAGS \${COMPILE_FLAGS})
+    +  set_property(TARGET jpegtran-static PROPERTY COMPILE_FLAGS "\${USE_SETMODE}")
+     
+       if(PNG_SUPPORTED)
+    -    # to avoid finding shared library from CMake cache
+    -    unset(PNG_LIBRARY CACHE)
+    -    unset(PNG_LIBRARY_RELEASE CACHE)
+    -    unset(PNG_LIBRARY_DEBUG CACHE)
+    -    unset(ZLIB_LIBRARY CACHE)
+    -    unset(ZLIB_LIBRARY_RELEASE CACHE)
+    -    unset(ZLIB_LIBRARY_DEBUG CACHE)
+    -
+    -    if (APPLE)
+    -      find_package(ZLIB REQUIRED) # macos doesn't have static zlib
+    -    endif()
+    -    set(CMAKE_FIND_LIBRARY_SUFFIXES \${CMAKE_STATIC_LIBRARY_SUFFIX})
+    -    find_package(PNG 1.6 REQUIRED)
+    -    if (NOT APPLE)
+    -      find_package(ZLIB REQUIRED)
+    -    endif()
+    -    target_include_directories(cjpeg-static PUBLIC \${PNG_INCLUDE_DIR} \${ZLIB_INCLUDE_DIR})
+    -    target_link_libraries(cjpeg-static \${PNG_LIBRARY} \${ZLIB_LIBRARY})
+    -  endif()
+    +      find_path(LIBZ_INCLUDE_DIR   zlib.h)
+    +      find_path(LIBPNG_INCLUDE_DIR png.h)
+     
+    -  add_executable(djpeg-static djpeg.c cdjpeg.c rdcolmap.c rdswitch.c wrgif.c
+    -    wrppm.c \${DJPEG_BMP_SOURCES})
+    -  set_property(TARGET djpeg-static PROPERTY COMPILE_FLAGS \${COMPILE_FLAGS})
+    -  target_link_libraries(djpeg-static jpeg-static)
+    -  if(UNIX)
+    -    target_link_libraries(djpeg-static m)
+    +      find_library(LIBZ_LIBRARY   libz.a)
+    +      find_library(LIBPNG_LIBRARY libpng.a)
+    +
+    +      target_include_directories(cjpeg-static PUBLIC \${LIBPNG_INCLUDE_DIR} \${LIBZ_INCLUDE_DIR})
+    +      target_link_libraries(cjpeg-static \${LIBPNG_LIBRARY} \${LIBZ_LIBRARY})
+       endif()
+     
+    -  add_executable(jpegtran-static jpegtran.c cdjpeg.c rdswitch.c transupp.c)
+    +  target_link_libraries(djpeg-static    jpeg-static)
+    +  target_link_libraries(cjpeg-static    jpeg-static)
+       target_link_libraries(jpegtran-static jpeg-static)
+    +
+       if(UNIX)
+    +    target_link_libraries(cjpeg-static    m)
+    +    target_link_libraries(djpeg-static    m)
+         target_link_libraries(jpegtran-static m)
+       endif()
+     
+    -  set_property(TARGET jpegtran-static PROPERTY COMPILE_FLAGS "\${USE_SETMODE}")
+     endif()
+     
+     add_executable(rdjpgcom rdjpgcom.c)
+    -
+     add_executable(wrjpgcom wrjpgcom.c)
+     
+     
+    EOF
