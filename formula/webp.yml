@@ -6,7 +6,10 @@ src-sha: 61f873ec69e3be1b99535634340d5bde750b2e4447caa1db9f61be3fd49ab1e5
 dep-pkg: libgif libpng libtiff libjpeg-turbo
 license: BSD-3-Clause
 
-dopatch: sed_in_place 's|CMAKE_INSTALL_DATADIR|CMAKE_INSTALL_LIBDIR|' CMakeLists.txt
+dopatch: |
+    sed_in_place 's|CMAKE_INSTALL_DATADIR|CMAKE_INSTALL_LIBDIR|' CMakeLists.txt
+    sed_in_place 's|LOCAL_GIF_PREREQ(4,2)|1|' examples/gifdec.c
+    sed_in_place 's|LOCAL_GIF_PREREQ(5,0)|1|' examples/gifdec.c
 
 install: |
     cmakew \

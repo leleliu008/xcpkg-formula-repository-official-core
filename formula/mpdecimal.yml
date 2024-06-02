@@ -5,9 +5,7 @@ src-url: https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.ta
 src-sha: 942445c3245b22730fd41a67a7c5c231d11cb1b9936b9c0f76334fb7d0b4468c
 license: BSD-2-Clause
 binbstd: 1
-
-dopatch: |
-    sed_in_place 's|ac_sys_system=`uname -s`|ac_sys_system=$host|' configure
+xxflags: -std=c++11
 
 install: |
     export LD="$CC"
