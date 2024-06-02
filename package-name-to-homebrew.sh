@@ -135,6 +135,7 @@ case $1 in
     libdav1d) printf '%s\n' 'dav1d'     ;;
     libexiv2) printf '%s\n' 'exiv2'     ;;
     libfftw3) printf '%s\n' 'fftw'      ;;
+    libglfw3) printf '%s\n' 'glfw'      ;;
     libeigen) printf '%s\n' 'eigen'     ;;
     libcares) printf '%s\n' 'c-ares'    ;;
     libfolly) printf '%s\n' 'folly'     ;;
