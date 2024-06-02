@@ -13,6 +13,7 @@ dopatch: |
 
 install: |
     cmakew \
+        -DCMAKE_FIND_FRAMEWORK=LAST \
         -DWEBP_BUILD_CWEBP=ON \
         -DWEBP_BUILD_DWEBP=ON \
         -DWEBP_BUILD_VWEBP=ON \
