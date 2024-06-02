@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci5 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [libao,libasprintf,libasync++,libb2,libb64,libbcrypt,libblake3,libcaca,libcddb,libcdio,libcerf,libcfitsio,libcgif,libcpuinfo,libcroco,libduktape,libexhale,libexiv2,libflatbuffers,libglm,libgraphene,libilbc,libimagequant,libintl,libintl-lite,libirecovery,libisoburn,libjpeg,libkrb5,libleveldb,liblinear,liblmdb,liblua,libmaxminddb,libmd,libmesalink,libmetalink,libmhash,libmicrohttpd,libmill,libmimalloc,libminiz,libmpir,libnetpbm,libnng,libopenh264,libphonenumber,libphysfs,libpipeline,libpng++,libpsl,libpugixml,libqalculate,libquiche,libraqm,librasterlite,libraw,libre,libressl,librist]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [libao,libasprintf,libasync++,libb2,libb64,libbcrypt,libblake3,libcaca,libcddb,libcdio,libcerf,libcfitsio,libcgif,libcpuinfo,libcroco,libduktape,libexhale,libexiv2,libflatbuffers,libglm,libgraphene,libilbc,libimagequant,libintl,libintl-lite,libirecovery,libisoburn,libjpeg,libkrb5,libleveldb,liblinear,liblmdb,liblua,libmaxminddb,libmd,libmesalink,libmetalink,libmhash,libmicrohttpd,libmill,libmimalloc,libminiz,libmpir,libnetpbm,libnng,libopenh264,libphonenumber,libphysfs,libpipeline,libpng++,libpsl,libpugixml,libqalculate,libquiche,libraqm,librasterlite,libraw,libre,libressl,librist]
 
     runs-on: macos-13
 

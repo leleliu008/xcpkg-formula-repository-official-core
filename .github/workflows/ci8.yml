@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci8 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [python3-setup,q,qemu,qpdf,qrencode,quiche,quickjs,ragel,rang,ranger,rapidjson,rav1e,rclone,re2c,redis,restic,resvg,rhash,ripgrep,ripgrep-all,rlwrap,rsass,rsync,rtmpdump,rtorrent,ruff,rust-analyzer,sassc,scc,sccache,screenresolution,sd,shared-mime-info,shc,shell2http,shellharden,shiori,silicon,simdjson,sjpeg,skcms,sl,slang,socat,soundtouch,speex,spirv-tools,sqlite3,starship,stwolame,stylua,subfinder,supervisord,suricata,svn-lite,swig,syncthing,sysinfo,szip,t1utils]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [python3-setup,q,qemu,qpdf,qrencode,quiche,quickjs,ragel,rang,ranger,rapidjson,rav1e,rclone,re2c,redis,restic,resvg,rhash,ripgrep,ripgrep-all,rlwrap,rsass,rsync,rtmpdump,rtorrent,ruff,rust-analyzer,sassc,scc,sccache,screenresolution,sd,shared-mime-info,shc,shell2http,shellharden,shiori,silicon,simdjson,sjpeg,skcms,sl,slang,socat,soundtouch,speex,spirv-tools,sqlite3,starship,stwolame,stylua,subfinder,supervisord,suricata,svn-lite,swig,syncthing,sysinfo,szip,t1utils]
 
     runs-on: macos-13
 

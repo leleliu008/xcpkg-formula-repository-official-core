@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci2 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [ccache,cereal,cflow,cgal,chafa,cheat,check,chezmoi,chicken,chinese-calendar,chisel,choose,cli11,clog,cmake,cmark,cmatrix,coreutils,cotp,cpio,cppcheck,cppunit,cpuid,cpuinfo,croc,crosstool-ng,crowbook,ctop,cue,curlie,cxxopts,d2,darkhttpd,dasel,dash,dav1d,delta,diffutils,distcc,dmalloc,dns2tcp,dnslookup,dnsmap,dnsx,dog,doggo,dos2unix,dot_static,doxygen,dtc,dua,duf,dufs,duktape,dust,dylibbundler,easyutils,ed,elvish,epsilon]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [ccache,cereal,cflow,cgal,chafa,cheat,check,chezmoi,chicken,chinese-calendar,chisel,choose,cli11,clog,cmake,cmark,cmatrix,coreutils,cotp,cpio,cppcheck,cppunit,cpuid,cpuinfo,croc,crosstool-ng,crowbook,ctop,cue,curlie,cxxopts,d2,darkhttpd,dasel,dash,dav1d,delta,diffutils,distcc,dmalloc,dns2tcp,dnslookup,dnsmap,dnsx,dog,doggo,dos2unix,dot_static,doxygen,dtc,dua,duf,dufs,duktape,dust,dylibbundler,easyutils,ed,elvish,epsilon]
 
     runs-on: macos-13
 

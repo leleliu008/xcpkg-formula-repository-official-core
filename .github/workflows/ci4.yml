@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci4 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [gomobile,google-benchmark,gopls,goreleaser,gosh,gotop,gotty,gox,gperf,gperftools,gping,gpsim,gputils,grep,grex,groff,gron,grpc-plugins,gsed,gtar,gzip,halibut,helix,helm,hexdump,hexyl,htop,htslib,httpx,hugo,hunspell,hurl,hydroxide,hyperfine,id3lib,ideviceinstaller,intltool,invoice,ixwebsocket,jansson,jemalloc,jfrog-cli,jj,joshuto,jq,json-glib,jump,k9s,kcp,kcptun,ko,krb5,lame,lazygit,lcms2,lcov,ldns,less,lf,libaec]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [gomobile,google-benchmark,gopls,goreleaser,gosh,gotop,gotty,gox,gperf,gperftools,gping,gpsim,gputils,grep,grex,groff,gron,grpc-plugins,gsed,gtar,gzip,halibut,helix,helm,hexdump,hexyl,htop,htslib,httpx,hugo,hunspell,hurl,hydroxide,hyperfine,id3lib,ideviceinstaller,intltool,invoice,ixwebsocket,jansson,jemalloc,jfrog-cli,jj,joshuto,jq,json-glib,jump,k9s,kcp,kcptun,ko,krb5,lame,lazygit,lcms2,lcov,ldns,less,lf,libaec]
 
     runs-on: macos-13
 

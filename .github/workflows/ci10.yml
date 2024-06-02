@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci10 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [x265,xh,xmake,xmlrpc-c,xmlto,xmlutils,xmlwf,xorg-libxcursor,xorg-libxdamage,xorg-libxmu,xorg-libxpresent,xorg-libxscrnsaver,xorg-libxshmfence,xorg-libxvmc,xorg-libxxf86vm,xorg-xinput,xorriso,xpup,xsltproc,xxd,xxhash,xz,yajl,yaml-cpp,yasm,youtubedr,yq,yyjson,zip,zlib-ng,zls,zola,zopfli,zoxide,zsh,zstd,zsync]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [x265,xh,xmake,xmlrpc-c,xmlto,xmlutils,xmlwf,xorg-libxcursor,xorg-libxdamage,xorg-libxmu,xorg-libxpresent,xorg-libxscrnsaver,xorg-libxshmfence,xorg-libxvmc,xorg-libxxf86vm,xorg-xinput,xorriso,xpup,xsltproc,xxd,xxhash,xz,yajl,yaml-cpp,yasm,youtubedr,yq,yyjson,zip,zlib-ng,zls,zola,zopfli,zoxide,zsh,zstd,zsync]
 
     runs-on: macos-13
 

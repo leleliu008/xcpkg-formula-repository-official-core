@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci3 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [esbuild,ethereum,exa,exhale,exiv2,eza,faac,faad2,fcp,fd,fdk-aac,fdroidcl,fff,figlet,findent,findutils,fish,flac,flatc,flex,flock,fnm,fontconfig,fortune,frei0r,fselect,fsmon,fswatch,fzf,fzy,garble,gawk,gbt,gdu,geographiclib,germanium,getopt,gettext-tools,gh,giflib,gindent,git,git-cliff,git-lfs,gitui,gitwatch,glib-tools,glow,glslang,gm4,gmake,gn,gnu-barcode,gnu-which,gnupg,go-md2man,go-tools,godu,gogs,golang]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [esbuild,ethereum,exa,exhale,exiv2,eza,faac,faad2,fcp,fd,fdk-aac,fdroidcl,fff,figlet,findent,findutils,fish,flac,flatc,flex,flock,fnm,fontconfig,fortune,frei0r,fselect,fsmon,fswatch,fzf,fzy,garble,gawk,gbt,gdu,geographiclib,germanium,getopt,gettext-tools,gh,giflib,gindent,git,git-cliff,git-lfs,gitui,gitwatch,glib-tools,glow,glslang,gm4,gmake,gn,gnu-barcode,gnu-which,gnupg,go-md2man,go-tools,godu,gogs,golang]
 
     runs-on: macos-13
 

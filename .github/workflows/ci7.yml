@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci7 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [mpv,msgpack-c,mujs,nano,nanomsg,nap,nasm,navi,ncdu,neofetch,netcat,nethogs,netpbm,nghttp2,nginx,ngtcp2,ninja,nnn,nsh,nspr,ntbtls,nuclei,nushell,oat++,obfs4proxy,onefetch,openal-soft,opencolorio,opencv,openlibm,openmpi,openslide,openssh,p11-kit,p7zip,packcc,patch,patchelf,pbzip2,pcapplusplus,pget,pigz,pjsip,pkg-config,pkgconf,plog,plzip,png,pngcheck,pngquant,pngsplit,poco,ppkg,procs,progress,proj,psimd,pup,putty,pybind11]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [mpv,msgpack-c,mujs,nano,nanomsg,nap,nasm,navi,ncdu,neofetch,netcat,nethogs,netpbm,nghttp2,nginx,ngtcp2,ninja,nnn,nsh,nspr,ntbtls,nuclei,nushell,oat++,obfs4proxy,onefetch,openal-soft,opencolorio,opencv,openlibm,openmpi,openslide,openssh,p11-kit,p7zip,packcc,patch,patchelf,pbzip2,pcapplusplus,pget,pigz,pjsip,pkg-config,pkgconf,plog,plzip,png,pngcheck,pngquant,pngsplit,poco,ppkg,procs,progress,proj,psimd,pup,putty,pybind11]
 
     runs-on: macos-13
 

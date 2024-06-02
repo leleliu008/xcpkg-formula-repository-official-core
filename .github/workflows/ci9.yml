@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci9 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [taglib,tarlz,tbox,tcc,tcl,tcpdump,tealdeer,tectonic,tengo,terragrunt,tiff,tig,timg,tinysearch,tlrc,tmux,tokei,toml++,toml11,tree,ttyd,ttygif,ttyrec,tweego,twolame,typos,uctags,unbound,unixodbc,unrar,unzip,uppm,uppm@0.15.2,uppm@0.15.3,utf8.h,utfcpp,util-linux,vala,valijson,vegeta,vim,virustotal-cli,viu,volta,vsftpd,wabt,wasm3,wasmer,wasmtime,watchexec,watchman,wavpack,webhook,webp,websocketpp,wget,whois,wolfssl,wuzz,x264]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [taglib,tarlz,tbox,tcc,tcl,tcpdump,tealdeer,tectonic,tengo,terragrunt,tiff,tig,timg,tinysearch,tlrc,tmux,tokei,toml++,toml11,tree,ttyd,ttygif,ttyrec,tweego,twolame,typos,uctags,unbound,unixodbc,unrar,unzip,uppm,uppm@0.15.2,uppm@0.15.3,utf8.h,utfcpp,util-linux,vala,valijson,vegeta,vim,virustotal-cli,viu,volta,vsftpd,wabt,wasm3,wasmer,wasmtime,watchexec,watchman,wavpack,webhook,webp,websocketpp,wget,whois,wolfssl,wuzz,x264]
 
     runs-on: macos-13
 

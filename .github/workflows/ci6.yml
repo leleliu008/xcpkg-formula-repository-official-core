@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci6 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [librtmp,libsmi,libspectre,libspng,libsrtp,libtalloc,libtextstyle,libthai,libtinyxml2,libtorrent-rasterbar,libtwolame,libupnp,libusrsctp,libuuid,libvips,libwasmtime,libwavpack,libwebm,libxcrypt,libxml2-python3,libyuv,libzim,libzlog,lief,lighttpd,links,livego,llhttp,llvm+clang+lld,lmdb,lodepng,log4cplus,lolcat,lrzip,lsd,lsof,luau,lunatic,lunzip,lychee,lynx,lz4,lzip,lzo,lzop,magic_enum,mcfly,md4c,mdbook,mdcat,mediainfo,minisign,miniz,minizip,mold,mosh,mozjpeg,mozjpeg2,mpdecimal,mpg123]
 
     runs-on: macos-14
 
@@ -37,7 +37,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [ 'MacOSX-13.0-x86_64' ]
-        pkg: [PKGLIST]
+        pkg: [librtmp,libsmi,libspectre,libspng,libsrtp,libtalloc,libtextstyle,libthai,libtinyxml2,libtorrent-rasterbar,libtwolame,libupnp,libusrsctp,libuuid,libvips,libwasmtime,libwavpack,libwebm,libxcrypt,libxml2-python3,libyuv,libzim,libzlog,lief,lighttpd,links,livego,llhttp,llvm+clang+lld,lmdb,lodepng,log4cplus,lolcat,lrzip,lsd,lsof,luau,lunatic,lunzip,lychee,lynx,lz4,lzip,lzo,lzop,magic_enum,mcfly,md4c,mdbook,mdcat,mediainfo,minisign,miniz,minizip,mold,mosh,mozjpeg,mozjpeg2,mpdecimal,mpg123]
 
     runs-on: macos-13
 
