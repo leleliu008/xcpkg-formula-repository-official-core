@@ -4,8 +4,8 @@ git-url: https://github.com/git/git
 src-url: https://www.kernel.org/pub/software/scm/git/git-2.45.0.tar.xz
 src-sha: 0aac200bd06476e7df1ff026eb123c6827bc10fe69d2823b4bf2ebebe5953429
 license: GPL-2.0-only
-dep-pkg: gettext-dev libpcre2 libexpat libcurl libz
-dep-upp: gettext-tools patch
+dep-pkg: libpcre2 libintl libexpat libcurl libz
+dep-upp: patch
 bsystem: configure
 binbstd: 1
 
@@ -30,6 +30,8 @@ install: |
     export ac_cv_snprintf_returns_bogus=no
 
     export ac_cv_lib_curl_curl_global_init=yes
+
+    export ac_cv_prog_CURL_CONFIG="$libcurl_INSTALL_DIR/bin/curl-config"
 
     LIBCURL_LIBS="$(pkg-config --libs libcurl)"
     printf 'LIBCURL_LIBS=%s\n' "$LIBCURL_LIBS"
