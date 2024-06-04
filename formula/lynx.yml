@@ -15,11 +15,7 @@ dopatch: |
     sed_in_place "1i char* mkdtemp(char*);" src/LYUtils.c
 
 prepare: |
-    CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
-    CLANG_VERSION_MINOR="$("$CC" -E -dM - < /dev/null | grep __clang_minor__ | cut -d ' ' -f3)"
-    CLANG_VERSION_PATCH="$("$CC" -E -dM - < /dev/null | grep __clang_patchlevel__ | cut -d ' ' -f3)"
-
-    if [ "$CLANG_VERSION_MAJOR$CLANG_VERSION_MINOR$CLANG_VERSION_PATCH" -ge 1403 ] ; then
+    if printf 'int main() { return 0; }\n' | "$CC" -c -x c -Werror -Wimplicit-function-declaration - ; then
         export CFLAGS="$CFLAGS -Wno-implicit-function-declaration"
     fi
 
