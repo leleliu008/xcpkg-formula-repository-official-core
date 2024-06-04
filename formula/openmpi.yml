@@ -6,7 +6,6 @@ src-sha: 990582f206b3ab32e938aa31bbf07c639368e4405dca196fabe7f0f76eeda90b
 license: BSD-3-Clause
 dep-pkg: libevent hwloc
 dep-upp: perl
-ldflags: -Wl,-ld_classic
 
 dopatch2: |
     inject_stub_system \
@@ -18,6 +17,14 @@ dopatch2: |
         orte/mca/filem/raw/filem_raw_module.c \
         orte/mca/sstore/stage/sstore_stage_global.c \
         orte/mca/sstore/stage/sstore_stage_local.c
+
+prepare: |
+    CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
+
+    # https://github.com/spack/spack/issues/40159
+    if [ "$CLANG_VERSION_MAJOR" -ge 15 ] ; then
+        export LDFLAGS="$LDFLAGS -Wl,-ld_classic"
+    fi
 
 install: |
     configure \
