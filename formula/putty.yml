@@ -5,5 +5,5 @@ src-url: https://the.earth.li/~sgtatham/putty/0.81/putty-0.81.tar.gz
 src-sha: cb8b00a94f453494e345a3df281d7a3ed26bb0dd7e36264f145206f8857639fe
 license: MIT
 dep-upp: perl
-dopatch: sed_in_place 's|-DNDEBUG||g' "$CMAKE_TOOLCHAIN_FILE"
+ppflags: -UNDEBUG
 install: cmakew -DPUTTY_GTK_VERSION=NONE

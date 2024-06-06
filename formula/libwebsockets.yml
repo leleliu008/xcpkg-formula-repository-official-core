@@ -9,7 +9,7 @@ dep-pkg: libz libuv libevent
 dopatch: sed_in_place 's|include(LwsCheckRequirements)|include(${LWS_CMAKE_DIR}/LwsCheckRequirements.cmake)|' cmake/libwebsockets-config.cmake.in
 
 prepare: |
-    if printf 'int main() { return 0; }\n' | "$CC" -c -x c -Werror -Wunused-but-set-variable - ; then
+    if printf 'int main() { return 0; }\n' | "$CC" -c -x c -Werror -Wunused-but-set-variable -o /dev/null - ; then
         export CFLAGS="$CFLAGS -Wno-unused-but-set-variable"
     fi
 

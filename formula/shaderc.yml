@@ -5,12 +5,7 @@ src-sha: c761044e4e204be8e0b9a2d7494f08671ca35b92c4c791c7049594ca7514197f
 license: Apache-2.0
 dep-upp: python3 git
 
-prepare: |
-    run cd third_party
-
-    run git clone --depth=1 https://github.com/KhronosGroup/SPIRV-Headers
-    run git clone --depth=1 https://github.com/KhronosGroup/SPIRV-Tools
-    run git clone --depth=1 https://github.com/KhronosGroup/glslang
+prepare: python3 utils/git-sync-deps
 
 install: |
     cmakew \

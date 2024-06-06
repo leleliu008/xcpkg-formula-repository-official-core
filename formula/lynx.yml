@@ -15,7 +15,7 @@ dopatch: |
     sed_in_place "1i char* mkdtemp(char*);" src/LYUtils.c
 
 prepare: |
-    if printf 'int main() { return 0; }\n' | "$CC" -c -x c -Werror -Wimplicit-function-declaration - ; then
+    if printf 'int main() { return 0; }\n' | "$CC" -c -x c -Werror -Wimplicit-function-declaration -o /dev/null - ; then
         export CFLAGS="$CFLAGS -Wno-implicit-function-declaration"
     fi
 
