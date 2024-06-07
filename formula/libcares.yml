@@ -16,4 +16,4 @@ install: |
 dotweak: |
     cd lib 
     ln -s libcares_static.a libcares.a
-    sed_in_place 's|-lcares|-lcares -lresolv|' pkgconfig/libcares.pc
+    sedInPlace 's|-lcares|-lcares -lresolv|' pkgconfig/libcares.pc

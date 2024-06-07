@@ -6,7 +6,7 @@ license: MIT
 binbstd: 1
 bscript: Chisel
 
-dopatch: sed_in_place 's|<string>Original</string>|<string>Original</string><key>DisableBuildSystemDeprecationDiagnostic</key><true/>|' Chisel.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+dopatch: sedInPlace 's|<string>Original</string>|<string>Original</string><key>DisableBuildSystemDeprecationDiagnostic</key><true/>|' Chisel.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
 
 install: |
     run xcodebuild -scheme Chisel -configuration Release -sdk iphonesimulator -arch "$TARGET_PLATFORM_ARCH" install IPHONEOS_DEPLOYMENT_TARGET=12.0 INSTALL_ROOT="$PACKAGE_INSTALL_DIR" INSTALL_PATH=lib

@@ -12,7 +12,7 @@ dopatch: |
     # clang: error: linker command failed with exit code 1 (use -v to see invocation)
     # make[3]: *** [libmp3lame.la] Error 1
 
-    sed_in_place '/lame_init_old/d' include/libmp3lame.sym
+    sedInPlace '/lame_init_old/d' include/libmp3lame.sym
 
 install: |
     configure \

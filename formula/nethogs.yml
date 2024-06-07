@@ -7,6 +7,6 @@ license: GPL-2.0
 dep-pkg: libpcap ncurses
 
 install: |
-    sed_in_place 's|-lpcap|-lpcap -lssl -lcrypto|' src/MakeApp.mk
+    sedInPlace 's|-lpcap|-lpcap -lssl -lcrypto|' src/MakeApp.mk
     gmakew clean
     gmakew install PREFIX="$PACKAGE_INSTALL_DIR" CXX="$CXX" CXXFLAGS="'$CXXFLAGS -std=c++14'" CPPFLAGS="'$CPPFLAGS'"

@@ -5,7 +5,7 @@ src-url: https://mirrors.aliyun.com/macports/distfiles/libcerf/libcerf-2.4.tar.b
 src-sha: c62f16a71d09731e0681046267b34ea2f5a6a8f6b7367116f3269c2c7f4944f7
 license: MIT
 
-dopatch: sed_in_place '/add_subdirectory(test)/d' CMakeLists.txt
+dopatch: sedInPlace '/add_subdirectory(test)/d' CMakeLists.txt
 
 install: |
     cmakew \

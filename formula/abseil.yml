@@ -25,6 +25,6 @@ dotweak: |
     cd lib/pkgconfig
 
     # https://github.com/abseil/abseil-cpp/issues/1408
-    sed_in_place '/^Libs: /s|$| -framework CoreFoundation|' absl_time.pc
-    sed_in_place 's|-Xarch_x86_64 -Xarch_arm64||'           absl_random_internal_randen_hwaes.pc
-    sed_in_place 's|-Xarch_x86_64 -Xarch_arm64||'           absl_random_internal_randen_hwaes_impl.pc
+    sedInPlace '/^Libs: /s|$| -framework CoreFoundation|' absl_time.pc
+    sedInPlace 's|-Xarch_x86_64 -Xarch_arm64||'           absl_random_internal_randen_hwaes.pc
+    sedInPlace 's|-Xarch_x86_64 -Xarch_arm64||'           absl_random_internal_randen_hwaes_impl.pc

@@ -8,9 +8,7 @@ license: MIT
 dep-upp: gsed grep
 
 do12345: |
-    if [ "$CROSS_COMPILING" != 1 ] ; then
-        return 0
-    fi
+    isCrossBuild || return 0
 
     {
         # https://github.com/termux/termux-packages/issues/4487
@@ -29,7 +27,7 @@ do12345: |
         ac_cv_header_unistd_h=yes \
         ac_cv_header_sys_time_h=yes
 
-dopatch: sed_in_place 's|cf_ok_build_cc=unknown|cf_ok_build_cc=yes|' configure
+dopatch: sedInPlace 's|cf_ok_build_cc=unknown|cf_ok_build_cc=yes|' configure
 
 prepare: |
     export BUILD_CC="$CC_FOR_BUILD"

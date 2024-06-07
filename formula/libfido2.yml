@@ -15,5 +15,5 @@ install: |
         -DBUILD_SHARED_LIBS=ON
 
 dotweak: |
-    sed_in_place 's|libcrypto|libcrypto libcbor libz|' lib/pkgconfig/libfido2.pc
-    sed_in_place 's|-lfido2|-lfido2 -framework CoreFoundation -framework IOKit|' lib/pkgconfig/libfido2.pc
+    sedInPlace 's|libcrypto|libcrypto libcbor libz|' lib/pkgconfig/libfido2.pc
+    sedInPlace 's|-lfido2|-lfido2 -framework CoreFoundation -framework IOKit|' lib/pkgconfig/libfido2.pc

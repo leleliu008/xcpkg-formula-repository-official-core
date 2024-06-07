@@ -1,8 +1,8 @@
 summary: A fast, small, safe, gradually typed embeddable scripting language derived from Lua
 web-url: https://luau-lang.org
 git-url: https://github.com/luau-lang/luau
-src-url: https://github.com/luau-lang/luau/archive/refs/tags/0.627.tar.gz
-src-sha: 96a9cb1331663ec35fb7e868460d2f0895a2203fbf4f280525b1023d449b1da6
+src-url: https://github.com/luau-lang/luau/archive/refs/tags/0.628.tar.gz
+src-sha: 0838255824f5bdd03694bc565bd98a363fa7313b02aec7f693048013277786de
 license: MIT
 install: |
     cmakew \

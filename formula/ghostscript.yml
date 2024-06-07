@@ -19,7 +19,7 @@ prepare: |
     rm -rf zlib
     rm -rf tesseract
 
-    if [ "$CROSS_COMPILING" = 1 ] ; then
+    if isCrossBuild ; then
         export CCAUX="$CC_FOR_BUILD"
         export CFLAGSAUX="$CFLAGS_FOR_BUILD $LDFLAGS_FOR_BUILD"
         export CPPFLAGSAUX="$CPPFLAGS_FOR_BUILD"

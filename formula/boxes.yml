@@ -8,8 +8,8 @@ dep-pkg: libpcre2 libunistring
 dep-upp: gm4 flex bison
 
 install: |
-    sed_in_place 's|STRIP=true||' src/Makefile
-    sed_in_place 's|-lunistring|-lunistring -liconv|' src/Makefile
+    sedInPlace 's|STRIP=true||' src/Makefile
+    sedInPlace 's|-lunistring|-lunistring -liconv|' src/Makefile
 
     export CPPFLAGS="$CPPFLAGS -I. -I../src -include string.h"
 

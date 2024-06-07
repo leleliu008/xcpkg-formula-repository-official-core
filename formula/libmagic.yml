@@ -7,12 +7,12 @@ license: BSD-2-Clause
 dep-pkg: libz
 
 do12345: |
-    if [ "$CROSS_COMPILING" = 1 ] ; then
+    if isCrossBuild ; then
         configure --disable-zlib --disable-bzlib --disable-xzlib
     fi
 
 prepare: |
-    if [ "$CROSS_COMPILING" = 1 ] ; then
+    if isCrossBuild ; then
         export FILE_COMPILE="$NATIVE_INSTALL_DIR/bin/file"
     fi
 

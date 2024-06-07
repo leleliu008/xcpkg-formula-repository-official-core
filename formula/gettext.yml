@@ -7,8 +7,8 @@ license: GPL-3.0-or-later
 dep-pkg: ncurses libiconv
 
 dopatch: |
-    sed_in_place 's/defined __APPLE__ && defined __MACH__/0/g' libtextstyle/lib/get_ppid_of.c
-    sed_in_place 's/defined __APPLE__ && defined __MACH__/0/g' libtextstyle/lib/get_progname_of.c
+    sedInPlace 's/defined __APPLE__ && defined __MACH__/0/g' libtextstyle/lib/get_ppid_of.c
+    sedInPlace 's/defined __APPLE__ && defined __MACH__/0/g' libtextstyle/lib/get_progname_of.c
 
 install: |
     export CPPFLAGS="$CPPFLAGS -DOMIT_SETLOCALE_LOCK=0"

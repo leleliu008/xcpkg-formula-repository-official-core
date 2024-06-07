@@ -6,7 +6,7 @@ src-sha: c015475880f6a382e706169c94371a7dd6cc22078832f6e0865af8289c2ef42b
 dep-pkg: readline
 
 install: |
-    sed_in_place "s|-lreadline|-lreadline -lncurses $LDFLAGS|" Makefile
+    sedInPlace "s|-lreadline|-lreadline -lncurses $LDFLAGS|" Makefile
     gmakew clean
     gmakew build/release/mujs build/release/mujs-pp CFLAGS="'-std=c99 $CFLAGS $CPPFLAGS'" OPTIM=
     install_bins build/release/mujs build/release/mujs-pp

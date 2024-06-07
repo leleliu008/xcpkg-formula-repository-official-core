@@ -9,12 +9,12 @@ bscript: source
 
 # https://www.talkwithdevices.com/archives/260
 do12345: |
-    if [ "$CROSS_COMPILING" = 1 ] ; then
+    if isCrossBuild ; then
         run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
     fi
 
 prepare: |
-    if [ "$CROSS_COMPILING" = 1 ] ; then
+    if isCrossBuild ; then
         CONFIGURE_OPTS_EXTRA="--with-cross-build=$NATIVE_BCACHED_DIR"
     else
         case $TARGET_PLATFORM_ARCH in

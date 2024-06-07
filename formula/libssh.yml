@@ -13,5 +13,5 @@ install: |
 
 dotweak: |
     cd lib/pkgconfig
-    sed_in_place 's|-lssh|-lssh -framework Kerberos|' libssh.pc
+    sedInPlace 's|-lssh|-lssh -framework Kerberos|' libssh.pc
     printf 'Requires: openssl libz\n' >>              libssh.pc

@@ -6,7 +6,7 @@ license: GPL-3.0-or-later
 dep-pkg: grpc nlohmann-json spdlog
 dep-upp: grpc-plugins
 
-dopatch: sed_in_place 's|spdlog::spdlog|spdlog::spdlog -lresolv|' source/intercept/CMakeLists.txt
+dopatch: sedInPlace 's|spdlog::spdlog|spdlog::spdlog -lresolv|' source/intercept/CMakeLists.txt
 
 install: |
     cmakew \

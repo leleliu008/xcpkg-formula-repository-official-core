@@ -8,7 +8,7 @@ dep-upp: getopt
 bsystem: configure
 
 dopatch: |
-    sed_in_place 's|main(int|int main(int|' xmlif/xmlif.l
-    sed_in_place 's|static ifsense|static int ifsense|' xmlif/xmlif.l
+    sedInPlace 's|main(int|int main(int|' xmlif/xmlif.l
+    sedInPlace 's|static ifsense|static int ifsense|' xmlif/xmlif.l
 
 prepare: export GETOPT="$(command -v getopt)"

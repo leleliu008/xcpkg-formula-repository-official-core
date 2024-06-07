@@ -5,5 +5,5 @@ src-sha: 456fb61eacd9296bd452ef030b9727a1470933a31f326bdaddb52a59b2feef16
 license: MIT
 dep-pkg: python3 libpcre2 fb303 edencommon cpptoml
 bsystem: cmake cargo
-dopatch: sed_in_place 's|^t_test|#t_test|' CMakeLists.txt
+dopatch: sedInPlace 's|^t_test|#t_test|' CMakeLists.txt
 install: cmakew -DENABLE_EDEN_SUPPORT=ON

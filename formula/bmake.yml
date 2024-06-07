@@ -9,9 +9,9 @@ install: |
     # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
     export ac_cv_func_vfork=no
 
-    sed_in_place 's|MANTARGET?|MANTARGET|'   mk/man.mk
-    sed_in_place '/deptgt-delete_on_error/d' unit-tests/Makefile
-    sed_in_place '/shell-ksh/d'              unit-tests/Makefile
+    sedInPlace 's|MANTARGET?|MANTARGET|'   mk/man.mk
+    sedInPlace '/deptgt-delete_on_error/d' unit-tests/Makefile
+    sedInPlace '/shell-ksh/d'              unit-tests/Makefile
 
     run ./configure
     run sh ./make-bootstrap.sh

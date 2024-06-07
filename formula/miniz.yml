@@ -5,7 +5,7 @@ src-sha: bd1136d0a1554520dcb527a239655777148d90fd2d51cf02c36540afc552e6ec
 bsystem: cmake
 
 dopatch: |
-    sed_in_place 's|${CMAKE_INSTALL_DATADIR}/pkgconfig|${CMAKE_INSTALL_LIBDIR}/pkgconfig|' CMakeLists.txt
+    sedInPlace 's|${CMAKE_INSTALL_DATADIR}/pkgconfig|${CMAKE_INSTALL_LIBDIR}/pkgconfig|' CMakeLists.txt
 
 install: |
     cmakew -DBUILD_EXAMPLES=OFF

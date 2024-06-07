@@ -1,17 +1,17 @@
 summary: A library to render SVG files using Cairo
 web-url: https://wiki.gnome.org/Projects/LibRsvg
 git-url: https://gitlab.gnome.org/GNOME/librsvg
-src-url: https://download.gnome.org/sources/librsvg/2.58/librsvg-2.58.0.tar.xz
-src-sha: d7c444a926406b59790be0deae196e18ed26059da573fa1aa9ec9ca7658a559c
+src-url: https://download.gnome.org/sources/librsvg/2.58/librsvg-2.58.1.tar.xz
+src-sha: 3728596290a8576d305d06ec8afdf473516feee9dff22e03235eac433d56824e
 license: LGPL-2.1-or-later
     #dep-upp: gdk-pixbuf
 dep-pkg: gdk-pixbuf pango
 bsystem: configure cargo
 
-    #dopatch: sed_in_place "s|RUST_LIB = \$(CARGO_TARGET_DIR)|RUST_LIB = $PWD/target/$RUST_TARGET|" Makefile.in
+    #dopatch: sedInPlace "s|RUST_LIB = \$(CARGO_TARGET_DIR)|RUST_LIB = $PWD/target/$RUST_TARGET|" Makefile.in
 dopatch: |
-    sed_in_place "/^CARGO_TARGET_DIR = /c CARGO_TARGET_DIR = $PWD/target/$RUST_TARGET" Makefile.in
-    sed_in_place '/CARGO_TARGET_DIR=/d' Makefile.in
+    sedInPlace "/^CARGO_TARGET_DIR = /c CARGO_TARGET_DIR = $PWD/target/$RUST_TARGET" Makefile.in
+    sedInPlace '/CARGO_TARGET_DIR=/d' Makefile.in
 
 install: |
     configure \
@@ -22,5 +22,5 @@ install: |
         --disable-static
 
 dotweak: |
-    sed_in_place '/^Requires:/d'                                             lib/pkgconfig/librsvg-2.0.pc
+    sedInPlace '/^Requires:/d'                                             lib/pkgconfig/librsvg-2.0.pc
     printf 'Requires: gdk-pixbuf-2.0 libxml-2.0 pangocairo cairo-gobject' >> lib/pkgconfig/librsvg-2.0.pc
