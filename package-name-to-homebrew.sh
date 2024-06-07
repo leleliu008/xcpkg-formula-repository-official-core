@@ -54,6 +54,8 @@ case $1 in
               printf '%s\n' 'media-info';;
     libxml2-python3|xmlutils)
               printf '%s\n' 'libxml2'   ;;
+    libminizip-ng)
+              printf '%s\n' 'minizip-ng';;
     libjpeg-turbo)
               printf '%s\n' 'jpeg-turbo';;
     libflatbuffers|flatc)
