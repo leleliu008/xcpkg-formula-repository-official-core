@@ -31,4 +31,4 @@ install: |
 
 dotweak: |
     sedInPlace '/Libs: /s|$| -liconv|' lib/pkgconfig/libarchive.pc
-    sedInPlace '/Requires.private:/d'  lib/pkgconfig/libarchive.pc
+    sedInPlace '/Requires:/d'          lib/pkgconfig/libarchive.pc

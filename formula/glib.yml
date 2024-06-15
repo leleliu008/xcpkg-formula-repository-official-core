@@ -27,5 +27,6 @@ install: |
         -Dinstalled_tests=false \
         -Dbsymbolic_functions=false
 
-dotweak: sedInPlace 's|libiconv|libintl libffi libz|' lib/pkgconfig/glib-2.0.pc
-onfinal: sedInPlace 's|-lintl|-lresolv|g'             lib/pkgconfig/glib-2.0.pc
+dotweak: |
+    sedInPlace 's|libiconv|libintl libffi libz|' lib/pkgconfig/glib-2.0.pc
+    sedInPlace 's|-lintl|-lresolv|g'             lib/pkgconfig/glib-2.0.pc

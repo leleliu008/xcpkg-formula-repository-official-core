@@ -12,5 +12,3 @@ install: |
         -DENABLE_CLI=ON \
         -DENABLE_SHARED=ON \
         -DENABLE_ASSEMBLY=OFF
-
-dotweak: sedInPlace '/^Libs.private:/s|-l-l||' lib/pkgconfig/x265.pc
