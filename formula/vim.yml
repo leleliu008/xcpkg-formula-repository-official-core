@@ -12,7 +12,7 @@ install: |
         --without-x \
         --with-lua-prefix="$liblua_INSTALL_DIR" \
         --with-tlib=ncursesw \
-        --with-compiledby=ndk-pkg \
+        --with-compiledby=xcpkg \
         --with-features=huge \
         --enable-cscope \
         --enable-terminal \

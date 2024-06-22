@@ -3,6 +3,11 @@ web-url: https://ctags.io/
 git-url: https://github.com/universal-ctags/ctags
 license: GPL-2.0-or-later
 dep-pkg: libjansson libyaml libxml2
-dep-upp: pkg-config
 bsystem: autogen
+
+dopatch: |
+    if [ "$TARGET_PLATFORM_NAME" = iPhoneOS ] ; then
+        sedInPlace '/sort_p\.h/r ../stub/system.c' main/sort.c
+    fi
+
 install: configure --disable-seccomp --disable-static

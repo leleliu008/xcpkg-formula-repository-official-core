@@ -12,7 +12,7 @@ install: |
 dotweak: |
     install -d lib/pkgconfig
     cat >      lib/pkgconfig/glm.pc <<EOF
-    prefix=$PACKAGE_INSTALL_DIR
+    prefix=\${pcfiledir}/../..
     includedir=\${prefix}/include
 
     Name: GLM

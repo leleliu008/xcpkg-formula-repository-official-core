@@ -11,7 +11,7 @@ dopatch: |
     sedInPlace 's/test "x$cf_have_ncuconfig" = "xno"/false/g' configure
     sedInPlace 's/#define socklen_t int/#define XXXXXXX/' WWW/Library/Implementation/www_tcp.h
     sedInPlace 's/vasprintf(&temp/vsprintf(temp/'         WWW/Library/Implementation/HTString.c
-    inject_stub_system src/LYUtils.c
+    #inject_stub_system src/LYUtils.c
     sedInPlace "1i char* mkdtemp(char*);" src/LYUtils.c
 
 prepare: |
