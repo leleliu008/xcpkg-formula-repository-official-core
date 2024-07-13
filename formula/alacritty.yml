@@ -1,4 +1,4 @@
-summary: GPU-accelerated terminal emulator
+summary: A cross-platform, GPU-accelerated terminal emulator
 webpage: https://alacritty.org/
 git-url: https://github.com/alacritty/alacritty
 src-url: https://github.com/alacritty/alacritty/archive/refs/tags/v0.13.2.tar.gz

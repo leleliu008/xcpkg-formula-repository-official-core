@@ -1,4 +1,4 @@
-summary: Emulator for x86 and PowerPC
+summary: A generic and open source machine & userspace emulator and virtualizer
 web-url: https://www.qemu.org/
 git-url: https://git.qemu.org/git/qemu.git
 src-url: https://download.qemu.org/qemu-9.0.0.tar.xz

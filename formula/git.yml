@@ -4,12 +4,11 @@ git-url: https://github.com/git/git
 src-url: https://www.kernel.org/pub/software/scm/git/git-2.45.0.tar.xz
 src-sha: 0aac200bd06476e7df1ff026eb123c6827bc10fe69d2823b4bf2ebebe5953429
 license: GPL-2.0-only
-dep-pkg: libpcre2 libintl libexpat libcurl libz
+dep-pkg: libpcre2 libexpat libcurl libintl libz
 dep-upp: patch
-bsystem: configure
 binbstd: 1
 
-install: |
+dopatch: |
     printf '%s' '
     LS0tIHJ1bi1jb21tYW5kLmMJMjAyMy0wNi0wMSAxNTowMzowNS4wMDAwMDAwMDAgKzA4MDAKKysr
     IHJ1bi1jb21tYW5kLmNoYW5nZWQJMjAyMy0wNy0yMSAwMToxMToxNy41MjcxNDY0NzcgKzA4MDAK
@@ -23,6 +22,7 @@ install: |
     ZWxsYXRpb24iKTsKIAlDSEVDS19CVUcocHRocmVhZF9zaWdtYXNrKFNJR19TRVRNQVNLLCAmYXMt
     Pm9sZCwgTlVMTCksCiAJCSJyZXN0b3Jpbmcgc2lnbmFsIG1hc2siKTsKICNlbmRpZgo=' | base64 -d | patch -p0
 
+prepare: |
     # to bypass git error: cannot run test program while cross compiling
     export ac_cv_fread_reads_directories=yes
     export ac_cv_header_libintl_h=yes
@@ -38,6 +38,7 @@ install: |
 
     export LDFLAGS="$LDFLAGS $LIBCURL_LIBS"
 
+install: |
     configure \
         --with-zlib="$libz_INSTALL_DIR" \
         --with-curl="$libcurl_INSTALL_DIR" \
