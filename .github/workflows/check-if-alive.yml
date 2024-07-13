@@ -16,10 +16,12 @@ jobs:
     steps:
       - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/master/xcpkg
       - run: chmod a+x xcpkg
+
       - run: ./xcpkg setup
-      - run: ./xcpkg env
+      - run: ./xcpkg about
       - run: ./xcpkg sysinfo
       - run: ./xcpkg update
+
       - run: |
           for item in $(./xcpkg ls-available)
           do
