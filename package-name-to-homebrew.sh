@@ -82,6 +82,8 @@ case $1 in
               printf '%s\n' 'pugixml'   ;;
     libminizip)
               printf '%s\n' 'minizip'   ;;
+    libpystring)
+              printf '%s\n' 'pystring'  ;;
     libopenh264)
               printf '%s\n' 'openh264'  ;;
     libtinyxml2)
