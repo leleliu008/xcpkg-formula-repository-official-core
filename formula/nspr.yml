@@ -6,8 +6,6 @@ license: MPL-2.0
 bscript: nspr
 
 install: |
-    export CC="$CC -arch $TARGET_PLATFORM_ARCH"
-
     configure \
         --enable-strip \
         --enable-ipv6 \
