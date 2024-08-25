@@ -1,4 +1,4 @@
-summary: A lightweight multi-protocol & multi-source, cross platform download utility
+summary: A lightweight multi-protocol & multi-source, cross platform download library
 web-url: https://aria2.github.io
 git-url: https://github.com/aria2/aria2
 src-url: https://github.com/aria2/aria2/releases/download/release-1.37.0/aria2-1.37.0.tar.xz
@@ -9,8 +9,8 @@ dep-pkg: libcares libssh2 libxml2 libsqlite3
 install: |
     configure \
         --enable-static \
-        --disable-shared \
-        --disable-libaria2 \
+        --enable-shared \
+        --enable-libaria2 \
         --without-libnettle \
         --without-libgcrypt \
         --without-libexpat \
@@ -23,3 +23,7 @@ install: |
         --with-openssl \
         --with-libz \
         LIBS=-liconv
+
+dotweak: |
+    rm -rf bin/
+    rm -rf share/man/
