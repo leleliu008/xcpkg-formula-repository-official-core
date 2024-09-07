@@ -7,7 +7,7 @@ license: curl
 dep-pkg: libnghttp2 libbrotli libzstd libz openssl-dev
 dep-upp: perl
 
-dopatch: sedInPlace 's|-lbrotlidec|-lbrotlidec -lbrotlicommon|' configure
+dopatch: gsed -i 's|-lbrotlidec|-lbrotlidec -lbrotlicommon|' configure
 
 install: |
     configure \
@@ -29,4 +29,4 @@ dotweak: |
     cd lib/pkgconfig
     sed -i -e 's|-lssl||g' -e 's|-lcrypto||g' -e 's|-lnghttp2||g' -e 's|-lzstd||g' -e 's|-lz||g' -e 's|-lbrotlidec||g' -e 's|-lbrotlicommon||g' libcurl.pc
     printf 'Requires: libnghttp2 openssl libzstd libz libbrotlidec\n' >> libcurl.pc
-    sedInPlace '/^Libs:/s|$| -framework CoreFoundation -framework SystemConfiguration|' libcurl.pc
+    gsed -i '/^Libs:/s|$| -framework CoreFoundation -framework SystemConfiguration|' libcurl.pc

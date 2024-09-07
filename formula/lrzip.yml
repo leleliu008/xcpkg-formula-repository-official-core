@@ -8,6 +8,6 @@ dep-pkg: liblz4 liblzo libbz2 libz
 dep-upp: libtool
 bsystem: autotools
 
-dopatch: sedInPlace 's|SUBDIRS = C ASM/x86|SUBDIRS = C|' lzma/Makefile.am
+dopatch: gsed -i 's|SUBDIRS = C ASM/x86|SUBDIRS = C|' lzma/Makefile.am
 
 install: configure --disable-asm

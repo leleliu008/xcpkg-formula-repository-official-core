@@ -8,10 +8,10 @@ license: LGPL-2.1-or-later
 dep-pkg: gdk-pixbuf pango
 bsystem: configure cargo
 
-    #dopatch: sedInPlace "s|RUST_LIB = \$(CARGO_TARGET_DIR)|RUST_LIB = $PWD/target/$RUST_TARGET|" Makefile.in
+    #dopatch: gsed -i "s|RUST_LIB = \$(CARGO_TARGET_DIR)|RUST_LIB = $PWD/target/$RUST_TARGET|" Makefile.in
 dopatch: |
-    sedInPlace "/^CARGO_TARGET_DIR = /c CARGO_TARGET_DIR = $PWD/target/$RUST_TARGET" Makefile.in
-    sedInPlace '/CARGO_TARGET_DIR=/d' Makefile.in
+    gsed -i "/^CARGO_TARGET_DIR = /c CARGO_TARGET_DIR = $PWD/target/$RUST_TARGET" Makefile.in
+    gsed -i '/CARGO_TARGET_DIR=/d' Makefile.in
 
 install: |
     configure \
@@ -22,5 +22,5 @@ install: |
         --disable-static
 
 dotweak: |
-    sedInPlace '/^Requires:/d'                                             lib/pkgconfig/librsvg-2.0.pc
+    gsed -i '/^Requires:/d'                                             lib/pkgconfig/librsvg-2.0.pc
     printf 'Requires: gdk-pixbuf-2.0 libxml-2.0 pangocairo cairo-gobject' >> lib/pkgconfig/librsvg-2.0.pc

@@ -7,7 +7,7 @@ bsystem: autogen
 
 dopatch: |
     if [ "$TARGET_PLATFORM_NAME" = iPhoneOS ] ; then
-        sedInPlace '/sort_p\.h/r ../stub/system.c' main/sort.c
+        gsed -i '/sort_p\.h/r ../stub/system.c' main/sort.c
     fi
 
 install: configure --disable-seccomp --disable-static

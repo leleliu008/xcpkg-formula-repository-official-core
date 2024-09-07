@@ -14,9 +14,9 @@ dopatch: |
         do
             if [ -f "$1/$item" ] ; then
                 if [ "$XCPKG_XTRACE" = yes ] ; then
-                    sedInPlace '1i set -x' "$1/$item"
+                    gsed -i '1i set -x' "$1/$item"
                 fi
-                sedInPlace 's/ngx_feature_run=yes/ngx_feature_run=no/g' "$1/$item"
+                gsed -i 's/ngx_feature_run=yes/ngx_feature_run=no/g' "$1/$item"
             elif [ -d "$1/$item" ] ; then
                 trace_configure "$1/$item"
             fi
@@ -26,15 +26,15 @@ dopatch: |
     trace_configure auto
 
     if [ "$XCPKG_XTRACE" = yes ] ; then
-        sedInPlace '1i set -x' configure
+        gsed -i '1i set -x' configure
     fi
 
-    sedInPlace 's/ngx_test="$CC/ngx_test="$CC $NGX_CC_OPT/' auto/include
-    sedInPlace '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/feature
-    sedInPlace '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/endianness
-    sedInPlace '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/typedef
-    sedInPlace '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/sizeof
-    sedInPlace '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/uintptr_t
+    gsed -i 's/ngx_test="$CC/ngx_test="$CC $NGX_CC_OPT/' auto/include
+    gsed -i '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/feature
+    gsed -i '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/endianness
+    gsed -i '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/typedef
+    gsed -i '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/sizeof
+    gsed -i '/ngx_test=/i CC_TEST_FLAGS="$NGX_CC_OPT"' auto/types/uintptr_t
 
 install: |
     export NGX_SYSTEM=Darwin
@@ -43,9 +43,9 @@ install: |
 
     case $TARGET_PLATFORM_ARCH in
         armv*|x86)
-            sedInPlace 's/ngx_size=`$NGX_AUTOTEST`/ngx_size=4/' auto/types/sizeof ;;
+            gsed -i 's/ngx_size=`$NGX_AUTOTEST`/ngx_size=4/' auto/types/sizeof ;;
         arm64*|x86_64)
-            sedInPlace 's/ngx_size=`$NGX_AUTOTEST`/ngx_size=8/' auto/types/sizeof ;;
+            gsed -i 's/ngx_size=`$NGX_AUTOTEST`/ngx_size=8/' auto/types/sizeof ;;
     esac
 
     [ -f Makefile ] && gmakew clean

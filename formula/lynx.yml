@@ -8,12 +8,12 @@ license: GPL-2.0-only
 dep-pkg: ncurses libz libbz2 openssl-dev
 
 dopatch: |
-    sedInPlace 's/XOPEN_SOURCE=500/XOPEN_SOURCE=600/g'        configure
-    sedInPlace 's/test "x$cf_have_ncuconfig" = "xno"/false/g' configure
-    sedInPlace 's/#define socklen_t int/#define XXXXXXX/' WWW/Library/Implementation/www_tcp.h
-    sedInPlace 's/vasprintf(&temp/vsprintf(temp/'         WWW/Library/Implementation/HTString.c
+    gsed -i 's/XOPEN_SOURCE=500/XOPEN_SOURCE=600/g'        configure
+    gsed -i 's/test "x$cf_have_ncuconfig" = "xno"/false/g' configure
+    gsed -i 's/#define socklen_t int/#define XXXXXXX/' WWW/Library/Implementation/www_tcp.h
+    gsed -i 's/vasprintf(&temp/vsprintf(temp/'         WWW/Library/Implementation/HTString.c
     #inject_stub_system src/LYUtils.c
-    sedInPlace "1i char* mkdtemp(char*);" src/LYUtils.c
+    gsed -i "1i char* mkdtemp(char*);" src/LYUtils.c
 
 prepare: |
     if printf 'int main() { return 0; }\n' | "$CC" -c -x c -Werror -Wimplicit-function-declaration -o /dev/null - ; then

@@ -13,7 +13,7 @@ prepare2:
 
 dopatch: |
     # https://gitlab.com/gnutls/gnutls/-/issues/1537
-    sedInPlace '/gmp-glue\.h/a \#define nettle_rsa_compute_root_tr _gnutls_nettle_backport_rsa_compute_root_tr' lib/nettle/backport/rsa-sign-tr.c
+    gsed -i '/gmp-glue\.h/a \#define nettle_rsa_compute_root_tr _gnutls_nettle_backport_rsa_compute_root_tr' lib/nettle/backport/rsa-sign-tr.c
 
 install: |
     configure \

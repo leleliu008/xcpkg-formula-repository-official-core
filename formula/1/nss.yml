@@ -8,7 +8,7 @@ dep-pkg: nspr
 bscript: nss
 
 dopatch: |
-    sedInPlace 's/$(AR) $(OBJS)/$(AR) $@ $(OBJS)/' coreconf/rules.mk &&
+    gsed -i 's/$(AR) $(OBJS)/$(AR) $@ $(OBJS)/' coreconf/rules.mk &&
     unset XCFLAGS &&
     prepare_includes "$PWD/lib" 
 

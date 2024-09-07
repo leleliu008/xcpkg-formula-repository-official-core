@@ -15,5 +15,5 @@ install: |
 dotweak: |
     for item in xzmore xzdiff xzdiff xzless xzgrep
     do
-        sedInPlace '1c #!/usr/bin/env bash' "bin/$item"
+        gsed -i '1c #!/usr/bin/env bash' "bin/$item"
     done

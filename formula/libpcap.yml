@@ -25,7 +25,7 @@ install: |
 dotweak: |
     cd lib/pkgconfig
 
-    sedInPlace 's@-l[^ ]*/libssl\.a@-lssl@g'                   libpcap.pc
-    sedInPlace 's@-l[^ ]*/libcrypto\.a@-lcrypto@g'             libpcap.pc
-    sedInPlace 's@-l[^ ]*/libssl\.\(so\|dylib\)@-lssl@g'       libpcap.pc
-    sedInPlace 's@-l[^ ]*/libcrypto\.\(so\|dylib\)@-lcrypto@g' libpcap.pc
+    gsed -i 's@-l[^ ]*/libssl\.a@-lssl@g'                   libpcap.pc
+    gsed -i 's@-l[^ ]*/libcrypto\.a@-lcrypto@g'             libpcap.pc
+    gsed -i 's@-l[^ ]*/libssl\.\(so\|dylib\)@-lssl@g'       libpcap.pc
+    gsed -i 's@-l[^ ]*/libcrypto\.\(so\|dylib\)@-lcrypto@g' libpcap.pc

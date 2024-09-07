@@ -6,7 +6,7 @@ src-sha: 797e486961cd09bc220c5f6561ca5a08e7747b313ec84029704d39cbd73c598c
 license: BSD-2-Clause
 dep-pkg: cjson cmocka mbedtls
 
-dopatch: sedInPlace 's|st_mtim|st_mtimespec|g' tools/srp_shared.c
+dopatch: gsed -i 's|st_mtim|st_mtimespec|g' tools/srp_shared.c
 
 install: |
     mesonw \

@@ -8,8 +8,8 @@ dep-upp: gm4
 dep-pkg: libgmp
 
 dopatch: |
-    sedInPlace '/cat >conftest.c <<EOF/a #include<stdlib.h>' configure
-    sedInPlace 's/-soname=/-install_name,/g' configure
+    gsed -i '/cat >conftest.c <<EOF/a #include<stdlib.h>' configure
+    gsed -i 's/-soname=/-install_name,/g' configure
 
 install: |
     configure \

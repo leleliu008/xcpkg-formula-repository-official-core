@@ -23,4 +23,4 @@ install: |
         HOST_SYS=Darwin \
         Q=
 
-dotweak: sedInPlace 's|-Wl,-E||' lib/pkgconfig/luajit.pc
+dotweak: gsed -i 's|-Wl,-E||' lib/pkgconfig/luajit.pc

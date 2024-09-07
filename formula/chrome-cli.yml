@@ -1,5 +1,4 @@
 summary: Control Google Chrome from the command-line
-git-url: https://github.com/prasmussen/chrome-cli
 src-url: https://github.com/prasmussen/chrome-cli/archive/refs/tags/1.9.3.tar.gz
 src-sha: cc213ebd087bafd6f1faaaeb4cc1fae4da2a7e1c484ee9265cf113f6ce108376
 license: MIT

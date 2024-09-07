@@ -8,5 +8,5 @@ xxflags: -std=c++11
 binbstd: 1
 install: |
     # https://sourceforge.net/p/gpsim/bugs/245/
-    sedInPlace '/error\.h/d' src/modules.cc
+    gsed -i '/error\.h/d' src/modules.cc
     configure --disable-gui

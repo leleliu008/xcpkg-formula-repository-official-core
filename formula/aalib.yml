@@ -9,13 +9,13 @@ bsystem: autotools
 
 dopatch: |
     run autoreconf -ivf
-    sedInPlace '203c return 0;'         src/aalinuxkbd.c
-    sedInPlace '1i #include <stdlib.h>' src/aalinuxkbd.c
-    sedInPlace '1i #include <stdlib.h>' src/aainfo.c
-    sedInPlace '1i #include <stdlib.h>' src/aafire.c
-    sedInPlace '1i #include <malloc.h>' src/aatest.c
-    sedInPlace '1i #include <string.h>' src/aamoureg.c
-    sedInPlace 's|exit(1)|return 1|'    src/aasavefont.c
+    gsed -i '203c return 0;'         src/aalinuxkbd.c
+    gsed -i '1i #include <stdlib.h>' src/aalinuxkbd.c
+    gsed -i '1i #include <stdlib.h>' src/aainfo.c
+    gsed -i '1i #include <stdlib.h>' src/aafire.c
+    gsed -i '1i #include <malloc.h>' src/aatest.c
+    gsed -i '1i #include <string.h>' src/aamoureg.c
+    gsed -i 's|exit(1)|return 1|'    src/aasavefont.c
     printf '%s\n' '#include <stdlib.h>' >  malloc.h
     printf '%s\n' '#include <string.h>' >> malloc.h
 

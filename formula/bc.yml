@@ -15,7 +15,7 @@ do12345: |
 
 dopatch: |
     #inject_stub_system dc/misc.c
-    sedInPlace 's/#include "libmath.h"/{"#include \\"libmath.h\\""}/' bc/global.c
+    gsed -i 's/#include "libmath.h"/{"#include \\"libmath.h\\""}/' bc/global.c
 
 install: |
     if isCrossBuild ; then

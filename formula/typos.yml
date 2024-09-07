@@ -1,5 +1,4 @@
 summary: A source code spell checker
-git-url: https://github.com/crate-ci/typos
 src-url: https://github.com/crate-ci/typos/archive/refs/tags/v1.21.0.tar.gz
 src-sha: 64de2b4dcf92b96760e8b7861eb24475b3161fb1a500a9006b414ef506f5bd3b
 license: MIT
