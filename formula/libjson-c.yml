@@ -1,0 +1,15 @@
+summary: A JSON parser for C
+version: 0.17
+src-url: https://github.com/json-c/json-c/archive/refs/tags/json-c-0.17-20230812.tar.gz
+src-sha: 024d302a3aadcbf9f78735320a6d5aedf8b77876c8ac8bbb95081ca55054c7eb
+license: MIT
+
+install: |
+    cmakew \
+        -DBUILD_SHARED_LIBS=ON \
+        -DBUILD_STATIC_LIBS=ON \
+        -DDISABLE_BSYMBOLIC=OFF \
+        -DDISABLE_THREAD_LOCAL_STORAGE=OFF \
+        -DDISABLE_WERROR=ON \
+        -DENABLE_RDRAND=ON \
+        -DENABLE_THREADING=ON
