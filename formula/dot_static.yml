@@ -8,7 +8,7 @@ dep-upp: gm4 flex bison gawk git python3 libtool
 bsystem: autogen
 
 install: |
-    configure_only \
+    configure only \
         --disable-swig \
         --disable-php \
         --disable-tcl \
