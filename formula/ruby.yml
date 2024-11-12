@@ -1,9 +1,22 @@
-summary: Powerful, clean, object-oriented scripting language
+summary: The officical ruby interpreter/runtime
 git-url: https://github.com/ruby/ruby
 web-url: https://www.ruby-lang.org/
-src-url: https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.gz
-src-sha: 96c57558871a6748de5bc9f274e93f4b5aad06cd8f37befa0e8d94e7b8a423bc
+src-url: https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.6.tar.gz
+src-sha: 8dc48fffaf270f86f1019053f28e51e4da4cce32a36760a0603a9aee67d7fd8d
 license: Ruby
-dep-pkg: libyaml libffi libz openssl-dev readline 
-install: configure
-movable: 0
+dep-pkg: libyaml libffi libz openssl-dev libreadline 
+
+prepare: |
+    cat > cc-wrapper <<EOF
+    #!/bin/sh
+    if [ "\$1" = -dynamic ] && [ "\$2" = -bundle ] ; then
+        exec "$CC" "\$@" "$PWD/_/libruby.3.3-static.a" -framework CoreFoundation
+    else
+        exec "$CC" "\$@"
+    fi
+    EOF
+
+    chmod +x cc-wrapper
+    export CC="$PWD/cc-wrapper"
+
+install: configure --disable-install-doc --disable-install-rdoc --disable-rpath --enable-load-relative --with-static-linked-ext --without-gmp

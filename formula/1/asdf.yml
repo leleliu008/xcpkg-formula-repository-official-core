@@ -3,6 +3,6 @@ web-url: https://asdf-vm.com/
 src-url: https://github.com/asdf-vm/asdf/archive/refs/tags/v0.14.0.tar.gz
 src-sha: 8bca30e01e7fdb71d93fe7bc6efc80bfa41f27a3ff584d184138817962be8058
 license: MIT
-dep-pkg: libyaml openssl-dev readline unixodbc
+dep-pkg: libyaml openssl-dev libreadline unixodbc
 dep-upp: libtool
 bsystem: autotools
