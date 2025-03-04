@@ -5,7 +5,7 @@ src-url: https://mirrors.tuna.tsinghua.edu.cn/debian/pool/main/l/lynx/lynx_2.8.9
 src-uri: https://distfiles.macports.org/lynx/lynx2.8.9rel.1.tar.bz2
 src-sha: 387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595
 license: GPL-2.0-only
-dep-pkg: ncurses libz libbz2 openssl-dev
+dep-pkg: libncurses libz libbz2 openssl-dev
 
 dopatch: |
     gsed -i 's/XOPEN_SOURCE=500/XOPEN_SOURCE=600/g'        configure
@@ -28,7 +28,7 @@ install: |
         --enable-ftp \
         --disable-trace \
         --with-screen=ncurses \
-        --with-curses-dir="$ncurses_INSTALL_DIR" \
+        --with-curses-dir="$libncurses_INSTALL_DIR" \
         --with-zlib \
         --with-bzlib \
         --with-ssl \

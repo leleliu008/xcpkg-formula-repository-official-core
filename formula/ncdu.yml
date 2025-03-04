@@ -3,7 +3,7 @@ web-url: https://dev.yorhel.nl/ncdu
 src-url: https://dev.yorhel.nl/download/ncdu-2.4.tar.gz
 src-sha: 4a3d0002309cf6a7cea791938dac9becdece4d529d0d6dc8d91b73b4e6855509
 license: MIT
-dep-pkg: ncurses
+dep-pkg: libncurses
 dep-upp: zig@0.12
 bsystem: zig
 binbstd: 1
@@ -15,5 +15,5 @@ install: |
         ZIG_BUILD_TARGET="$TARGET_PLATFORM_ARCH-macos"
     fi
 
-    run zig build -Dtarget="$ZIG_BUILD_TARGET" --prefix "$PACKAGE_INSTALL_DIR" -Dpie=true --release=fast --search-prefix "$ncurses_INSTALL_DIR"
+    run zig build -Dtarget="$ZIG_BUILD_TARGET" --prefix "$PACKAGE_INSTALL_DIR" -Dpie=true --release=fast --search-prefix "$libncurses_INSTALL_DIR"
     install_mans ncdu.1

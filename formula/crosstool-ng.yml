@@ -3,7 +3,7 @@ web-url: https://crosstool-ng.github.io
 git-url: https://github.com/crosstool-ng/crosstool-ng
 src-url: http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.26.0.tar.xz
 src-sha: e8ce69c5c8ca8d904e6923ccf86c53576761b9cf219e2e69235b139c8e1b74fc
-dep-pkg: ncurses libiconv gettext libtool help2man texinfo file binutils
+dep-pkg: libncurses libiconv gettext libtool help2man texinfo file binutils
 dep-upp: gm4 flex bison patch
 license: LGPL-2.1-or-later
 
@@ -13,6 +13,6 @@ install: |
         --with-ncurses \
         --with-libiconv-prefix=$libiconv_INSTALL_DIR \
         --with-libintl-prefix=$gettext_INSTALL_DIR \
-        CURSES_LIBS=$ncurses_LIBRARY_DIR/libncurses$SHARED_LIBRARY_SUFFIX \
-        PANEL_LIBS=$ncurses_LIBRARY_DIR/libpanel$SHARED_LIBRARY_SUFFIX \
-        MENU_LIBS=$ncurses_LIBRARY_DIR/libmenu$SHARED_LIBRARY_SUFFIX
+        CURSES_LIBS=$libncurses_LIBRARY_DIR/libncurses$SHARED_LIBRARY_SUFFIX \
+        PANEL_LIBS=$libncurses_LIBRARY_DIR/libpanel$SHARED_LIBRARY_SUFFIX \
+        MENU_LIBS=$libncurses_LIBRARY_DIR/libmenu$SHARED_LIBRARY_SUFFIX

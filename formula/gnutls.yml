@@ -4,7 +4,7 @@ web-url: https://gnutls.org
 git-url: https://github.com/gnutls/gnutls
 src-url: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.4.tar.xz
 src-sha: 2bea4e154794f3f00180fa2a5c51fe8b005ac7a31cd58bd44cdfa7f36ebc3a9b
-dep-pkg: libgmp libunistring nettle libtasn1 libidn2
+dep-pkg: libgmp libunistring libnettle libtasn1 libidn2
 
 # thread-local storage is not supported for the current target
 

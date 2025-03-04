@@ -5,7 +5,7 @@ src-url: https://download.gnome.org/sources/librsvg/2.58/librsvg-2.58.1.tar.xz
 src-sha: 3728596290a8576d305d06ec8afdf473516feee9dff22e03235eac433d56824e
 license: LGPL-2.1-or-later
     #dep-upp: gdk-pixbuf
-dep-pkg: gdk-pixbuf pango
+dep-pkg: gdk-pixbuf libpango
 bsystem: configure cargo
 
     #dopatch: gsed -i "s|RUST_LIB = \$(CARGO_TARGET_DIR)|RUST_LIB = $PWD/target/$RUST_TARGET|" Makefile.in
