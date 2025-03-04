@@ -4,4 +4,4 @@ src-sha: a035bc44ef0c04a330b409e08ee61ac8a66a56cb672f87a824d4c0349989eaf2
 license: MIT
 dep-pkg: libzstd
 bsystem: cargo cmake
-prepare: export ZSTD_SYS_USE_PKG_CONFIG=1
+dosetup: export ZSTD_SYS_USE_PKG_CONFIG=1

@@ -9,7 +9,7 @@ license: TCL
 bscript: unix
 bsystem: autotools
 
-prepare: |
+dosetup: |
     case $TARGET_PLATFORM_ARCH in
         *64*) EXTRA_CONFIGURE_FLAGS='--enable-64bit' ;;
         *)    EXTRA_CONFIGURE_FLAGS='--disable-64bit';;

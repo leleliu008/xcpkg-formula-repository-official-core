@@ -3,9 +3,7 @@ web-url: https://libical.github.io/libical
 src-url: https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz
 src-sha: 09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f
 license: LGPL-2.1-or-later
-bsystem: cmake
-dep-upp: pkg-config
-dep-pkg: icu4c libxml2 glib
+dep-pkg: libicu libxml2 glib
 
 install: |
     cmakew \
@@ -24,6 +22,6 @@ install: |
         -DTHREAD_SANITIZER=OFF \
         -DUSE_BUILTIN_TZDATA=OFF \
         -DWITH_CXX_BINDINGS=ON \
-        -DICU_INCLUDE_DIR="$icu4c_INCLUDE_DIR" \
-        -DICU_LIBRARY="$icu4c_LIBRARY_DIR/libicuuc.a" \
-        -DICU_I18N_LIBRARY="$icu4c_LIBRARY_DIR/libicui18n.a"
+        -DICU_INCLUDE_DIR="$libicu_INCLUDE_DIR" \
+        -DICU_LIBRARY="$libicu_LIBRARY_DIR/libicuuc.a" \
+        -DICU_I18N_LIBRARY="$libicu_LIBRARY_DIR/libicui18n.a"

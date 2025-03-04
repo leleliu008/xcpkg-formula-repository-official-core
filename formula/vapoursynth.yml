@@ -7,4 +7,4 @@ dep-upp: libtool nasm
 dep-pkg: libzimg python@3.12
 bsystem: autogen
 binbstd: 1
-prepare: run pip3 install --upgrade cython
+dosetup: run pip3 install --upgrade cython

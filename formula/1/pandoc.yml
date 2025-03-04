@@ -6,7 +6,7 @@ license: GPL-2.0-or-later
 dep-upp: ghc cabal-install
 dep-pkg: libffi libz
 
-prepare: |
+dosetup: |
     GHC_OPTIONS=
 
     for flag in $CFLAGS $CPPFLAGS

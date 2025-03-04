@@ -10,7 +10,7 @@ dopatch: |
         gsed -i 's|cf_ok_build_cc=unknown|cf_ok_build_cc=yes|' configure
     fi
 
-prepare: |
+dosetup: |
     export BUILD_CC="$CC_FOR_BUILD"
     export BUILD_CFLAGS="$CFLAGS_FOR_BUILD"
     export BUILD_CPPFLAGS="$CPPFLAGS_FOR_BUILD"

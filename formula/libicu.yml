@@ -12,7 +12,7 @@ do12345: |
         run "$PACKAGE_WORKING_DIR/src/source/runConfigureICU" MacOSX && make
     fi
 
-prepare: |
+dosetup: |
     if isCrossBuild ; then
         CONFIGURE_OPTS_EXTRA="--with-cross-build=$NATIVE_BCACHED_DIR"
     else

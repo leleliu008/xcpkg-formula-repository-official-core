@@ -22,7 +22,7 @@ dopatch: |
     ZWxsYXRpb24iKTsKIAlDSEVDS19CVUcocHRocmVhZF9zaWdtYXNrKFNJR19TRVRNQVNLLCAmYXMt
     Pm9sZCwgTlVMTCksCiAJCSJyZXN0b3Jpbmcgc2lnbmFsIG1hc2siKTsKICNlbmRpZgo=' | base64 -d | patch -p0
 
-prepare: |
+dosetup: |
     # to bypass git error: cannot run test program while cross compiling
     export ac_cv_fread_reads_directories=yes
     export ac_cv_header_libintl_h=yes

@@ -18,7 +18,7 @@ dopatch2: |
         orte/mca/sstore/stage/sstore_stage_global.c \
         orte/mca/sstore/stage/sstore_stage_local.c
 
-prepare: |
+dosetup: |
     CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
 
     # https://github.com/spack/spack/issues/40159

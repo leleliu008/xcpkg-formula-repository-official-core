@@ -5,7 +5,7 @@ src-url: https://github.com/xianyi/OpenBLAS/archive/refs/tags/v0.3.27.tar.gz
 src-sha: aa2d68b1564fe2b13bc292672608e9cdeeeb6dc34995512e65c3b10f4599e897
 license: BSD-3-Clause
 
-prepare: |
+dosetup: |
     case $TARGET_PLATFORM_ARCH in
         armv7*)  ARCH=arm   ; TARGET='ARMV7' ; BINARY=32 ; ARM_SOFTFP_ABI=1 ;;
         arm64)   ARCH=arm64 ; TARGET='ARMV8' ; BINARY=64 ; ARM_SOFTFP_ABI=1 ;;

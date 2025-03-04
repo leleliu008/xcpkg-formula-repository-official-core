@@ -3,5 +3,5 @@ src-url: https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.55.
 src-sha: 54546d834ff5d8b35d9955319ad2e428f6d9ae4c61b932d1bd716ed81ad135f7
 license: Apache-2.0
 dep-pkg: libusb libglfw3 openssl-dev
-prepare: export CMAKE_GENERATOR=Xcode
+dosetup: export CMAKE_GENERATOR=Xcode
 install: cmakew -DENABLE_CCACHE=OFF -DBUILD_WITH_OPENMP=OFF

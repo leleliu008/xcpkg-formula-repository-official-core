@@ -11,4 +11,4 @@ dopatch: |
     gsed -i 's|main(int|int main(int|' xmlif/xmlif.l
     gsed -i 's|static ifsense|static int ifsense|' xmlif/xmlif.l
 
-prepare: export GETOPT="$(command -v getopt)"
+dosetup: export GETOPT="$(command -v getopt)"
