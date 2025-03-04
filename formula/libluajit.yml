@@ -1,0 +1,30 @@
+summary: Just-In-Time Compiler (JIT) for the Lua programming language
+web-url: https://luajit.org/luajit.html
+src-url: https://github.com/LuaJIT/LuaJIT/archive/19878ec05c239ccaf5f3d17af27670a963e25b8b.tar.gz
+src-sha: e91acbe181cf6ffa3ef15870b8e620131002240ba24c5c779fd0131db021517f
+version: 2.1.1732813678
+license: MIT
+
+dopatch: |
+    gsed -i '/^INSTALL_DEP= /c INSTALL_DEP= src/libluajit.a src/libluajit.dylib' Makefile
+    gsed -i '/cd src\/jit/d' Makefile
+
+install: |
+    export MACOSX_DEPLOYMENT_TARGET="$TARGET_PLATFORM_VERS"
+    gmakew -C src clean libluajit.a libluajit.so \
+        CC="$CC" \
+        LD="$CC" \
+        CFLAGS="'$CFLAGS'" \
+        LDFLAGS="'$LDFLAGS'" \
+        HOST_CC="'$CC_FOR_BUILD'" \
+        HOST_LD="$CC_FOR_BUILD" \
+        TARGET_CC="$CC" \
+        TARGET_LD="$CC" \
+        TARGET_AR="'$AR rcus'" \
+        TARGET_STRIP=true \
+        TARGET_SYS=Darwin \
+        Q=
+    touch src/luajit
+    gmakew install PREFIX="$PACKAGE_INSTALL_DIR"
+
+dotweak: rm -rf bin/ share/
