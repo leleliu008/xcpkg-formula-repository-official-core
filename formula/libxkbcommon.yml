@@ -1,9 +1,8 @@
 summary: Keyboard handling library
-git-url: https://github.com/xkbcommon/libxkbcommon
 web-url: https://xkbcommon.org/
-src-url: https://xkbcommon.org/download/libxkbcommon-1.7.0.tar.xz
-src-sha: 65782f0a10a4b455af9c6baab7040e2f537520caa2ec2092805cdfd36863b247
+src-url: https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.8.0.tar.gz
+src-sha: 025c53032776ed850fbfb92683a703048cd70256df4ac1a1ec41ed3455d5d39c
 license: MIT
 dep-upp: gm4 bison
 dep-pkg: xorg-libx11 xorg-libxcb xkeyboard-config
-install: mesonw -Denable-wayland=false -Denable-docs=false
+install: mesonw -Denable-x11=true -Denable-wayland=false -Denable-docs=false

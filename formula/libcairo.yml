@@ -16,5 +16,6 @@ install: |
         -Dglib=enabled \
         -Dxcb=enabled \
         -Dxlib=enabled \
+        -Dquartz=enabled \
         -Dfreetype=enabled \
         -Dfontconfig=enabled

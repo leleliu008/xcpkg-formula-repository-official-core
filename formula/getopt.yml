@@ -1,11 +1,11 @@
 summary: A command-line option parsing utility
 git-url: https://github.com/util-linux/util-linux
-src-url: https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.1.tar.xz
-src-sha: 59e676aa53ccb44b6c39f0ffe01a8fa274891c91bef1474752fad92461def24f
+src-url: https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.4.tar.xz
+src-sha: 5c1daf733b04e9859afdc3bd87cc481180ee0f88b5c0946b16fdec931975fb79
 license: GPL-2.0-or-later
 
 install: |
     configure only --disable-liblastlog2
-    gmakew getopt misc-utils/getopt.1
+    gmakew getopt
     install_bins getopt
-    install_mans misc-utils/getopt.1
+    install_mans ../misc-utils/getopt.1

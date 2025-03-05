@@ -1,18 +1,18 @@
 summary: GNU internationalization (i18n) and localization (l10n) library
 git-url: https://git.savannah.gnu.org/git/gettext.git
 web-url: https://www.gnu.org/software/gettext
-src-url: https://ftp.gnu.org/gnu/gettext/gettext-0.21.1.tar.gz
-src-sha: e8c3650e1d8cee875c4f355642382c1df83058bd5a11ee8555c0cf276d646d45
+src-url: https://ftp.gnu.org/gnu/gettext/gettext-0.24.tar.gz
+src-sha: c918503d593d70daf4844d175a13d816afacb667c06fba1ec9dcd5002c1518b7
 license: GPL-3.0-or-later
 dep-pkg: libncurses libiconv
 
-dopatch: |
+dopatch2: |
     gsed -i 's/defined __APPLE__ && defined __MACH__/0/g' libtextstyle/lib/get_ppid_of.c
     gsed -i 's/defined __APPLE__ && defined __MACH__/0/g' libtextstyle/lib/get_progname_of.c
 
 install: |
-    export CPPFLAGS="$CPPFLAGS -DOMIT_SETLOCALE_LOCK=0"
-    export LDFLAGS="$LDFLAGS -L$PACKAGE_BCACHED_DIR/gettext-tools/gnulib-lib/.libs/"
+    #export CPPFLAGS="$CPPFLAGS -DOMIT_SETLOCALE_LOCK=0"
+    #export LDFLAGS="$LDFLAGS -L$PACKAGE_BCACHED_DIR/gettext-tools/gnulib-lib/.libs/"
     configure \
         --with-included-regex \
         --with-included-gettext \

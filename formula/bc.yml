@@ -1,9 +1,10 @@
 summary: Arbitrary precision numeric processing language
 web-url: https://www.gnu.org/software/bc
-src-url: https://ftp.gnu.org/gnu/bc/bc-1.07.1.tar.gz
-src-sha: 62adfca89b0a1c0164c2cdca59ca210c1d44c3ffc46daf9931cf4942664cb02a
+src-url: https://ftp.gnu.org/gnu/bc/bc-1.08.1.tar.gz
+src-sha: b71457ffeb210d7ea61825ff72b3e49dc8f2c1a04102bbe23591d783d1bfe996
 license: GPL-3.0-or-later
-dep-upp: bison flex ed texinfo
+dep-pkg: libedit
+dep-upp: flex bison ed texinfo
 bsystem: configure
 
 do12345: | 
@@ -24,4 +25,4 @@ install: |
         run touch -t 190001010000 $PACKAGE_BCACHED_DIR/bc/libmath.h
     fi
 
-    configure --without-readline --without-libedit
+    configure --without-readline --with-libedit

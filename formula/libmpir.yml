@@ -7,6 +7,7 @@ version: 3.0.0
 license: GPL-3.0-or-later
 dep-upp: yasm gm4 libtool texinfo
 bsystem: autotools
+ccflags: -D_DARWIN_C_SOURCE
 
 dosetup: |
     if [ "$TARGET_PLATFORM_ARCH" = 'x86' ] ; then

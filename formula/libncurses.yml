@@ -75,6 +75,9 @@ dotweak: |
         ln -s "${item}w.dylib" "${item}.dylib"
     done
 
+    ln -s libncurses.a     libtermcap.a
+    ln -s libncurses.dylib libtermcap.dylib
+
     cd -
     cd lib/pkgconfig
     ln -s ncursesw.pc ncurses.pc
