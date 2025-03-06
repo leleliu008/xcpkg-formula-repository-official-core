@@ -1,33 +1,21 @@
 summary: A free and open source distributed version control system with speed and efficiency
 web-url: https://git-scm.com/
 git-url: https://github.com/git/git
-src-url: https://www.kernel.org/pub/software/scm/git/git-2.45.0.tar.xz
-src-sha: 0aac200bd06476e7df1ff026eb123c6827bc10fe69d2823b4bf2ebebe5953429
+src-url: https://www.kernel.org/pub/software/scm/git/git-2.48.1.tar.xz
+src-sha: 1c5d545f5dc1eb51e95d2c50d98fdf88b1a36ba1fa30e9ae5d5385c6024f82ad
 license: GPL-2.0-only
 dep-pkg: libpcre2 libexpat libcurl libintl libz
-dep-upp: patch
+dep-upp: gettext-tools
 binbstd: 1
 
-dopatch: |
-    printf '%s' '
-    LS0tIHJ1bi1jb21tYW5kLmMJMjAyMy0wNi0wMSAxNTowMzowNS4wMDAwMDAwMDAgKzA4MDAKKysr
-    IHJ1bi1jb21tYW5kLmNoYW5nZWQJMjAyMy0wNy0yMSAwMToxMToxNy41MjcxNDY0NzcgKzA4MDAK
-    QEAgLTUxNyw4ICs1MTcsNiBAQAogI2Vsc2UKIAlDSEVDS19CVUcocHRocmVhZF9zaWdtYXNrKFNJ
-    R19TRVRNQVNLLCAmYWxsLCAmYXMtPm9sZCksCiAJCSJibG9ja2luZyBhbGwgc2lnbmFscyIpOwot
-    CUNIRUNLX0JVRyhwdGhyZWFkX3NldGNhbmNlbHN0YXRlKFBUSFJFQURfQ0FOQ0VMX0RJU0FCTEUs
-    ICZhcy0+Y3MpLAotCQkiZGlzYWJsaW5nIGNhbmNlbGxhdGlvbiIpOwogI2VuZGlmCiB9CiAKQEAg
-    LTUyOCw4ICs1MjYsNiBAQAogCWlmIChzaWdwcm9jbWFzayhTSUdfU0VUTUFTSywgJmFzLT5vbGQs
-    IE5VTEwpKQogCQlkaWVfZXJybm8oInNpZ3Byb2NtYXNrIik7CiAjZWxzZQotCUNIRUNLX0JVRyhw
-    dGhyZWFkX3NldGNhbmNlbHN0YXRlKGFzLT5jcywgTlVMTCksCi0JCSJyZS1lbmFibGluZyBjYW5j
-    ZWxsYXRpb24iKTsKIAlDSEVDS19CVUcocHRocmVhZF9zaWdtYXNrKFNJR19TRVRNQVNLLCAmYXMt
-    Pm9sZCwgTlVMTCksCiAJCSJyZXN0b3Jpbmcgc2lnbmFsIG1hc2siKTsKICNlbmRpZgo=' | base64 -d | patch -p0
-
 dosetup: |
-    # to bypass git error: cannot run test program while cross compiling
-    export ac_cv_fread_reads_directories=yes
-    export ac_cv_header_libintl_h=yes
-    export ac_cv_iconv_omits_bom=no
-    export ac_cv_snprintf_returns_bogus=no
+    if isCrossBuild ; then
+        # to bypass git error: cannot run test program while cross compiling
+        export ac_cv_fread_reads_directories=yes
+        export ac_cv_header_libintl_h=yes
+        export ac_cv_iconv_omits_bom=no
+        export ac_cv_snprintf_returns_bogus=no
+    fi
 
     export ac_cv_lib_curl_curl_global_init=yes
 
@@ -48,11 +36,7 @@ install: |
         --with-libpcre2="$libpcre2_INSTALL_DIR" \
         --without-tcltk
 
-caveats: |
-    The following environment variables should be set if you move/copy this software to other location
-
-    GIT_INSTALLED_DIR=/somewhere
-
-    export GIT_EXEC_PATH="$GIT_INSTALLED_DIR/libexec/git-core"
-    export GIT_TEMPLATE_DIR="$GIT_INSTALLED_DIR/share/git-core/templates"
-    export GIT_CONFIG_NOSYSTEM=1
+bindenv: |
+    GIT_EXEC_PATH=%s/libexec/git-core
+    GIT_TEMPLATE_DIR=%s/share/git-core/templates
+    GIT_CONFIG_NOSYSTEM=1

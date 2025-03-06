@@ -1,18 +1,22 @@
 summary: A free, general-purpose data compression with a high compression ratio
 web-url: https://tukaani.org/xz
-git-url: https://github.com/tukaani-project/xz
-src-url: https://mirrors.aliyun.com/macports/distfiles/xz/xz-5.4.6.tar.bz2
-src-sha: 913851b274e8e1d31781ec949f1c23e8dbcf0ecf6e73a2436dc21769dd3e6f49
+src-url: https://github.com/tukaani-project/xz/releases/download/v5.6.4/xz-5.6.4.tar.gz
+src-sha: 269e3f2e512cbd3314849982014dc199a7b2148cf5c91cedc6db629acdf5e09b
 license: LGPL-2.1-or-later
 
 install: |
     configure \
         --disable-external-sha256 \
+        --disable-nls \
         --disable-werror \
+        --disable-shared \
+        --enable-static \
         --enable-assembler \
         --enable-threads=posix
 
 dotweak: |
+    rm -rf include/ lib/
+
     for item in xzmore xzdiff xzdiff xzless xzgrep
     do
         gsed -i '1c #!/usr/bin/env bash' "bin/$item"

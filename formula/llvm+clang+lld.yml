@@ -1,10 +1,10 @@
 summary: Next-gen compiler infrastructure
 web-url: https://llvm.org/
-src-url: https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.6/llvm-project-18.1.6.src.tar.xz
-src-sha: bd4b4cb6374bcd5fc5a3ba60cb80425d29da34f316b8821abc12c0db225cf6b4
+src-url: https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/llvm-project-18.1.8.src.tar.xz
+src-sha: 0b58557a6d32ceee97c8d533a59b9212d87e0fc4d2833924eb6c611247db2f2a
 license: Apache-2.0 with LLVM-exception
-dep-pkg: python3 libedit libxml2 libzstd libffi libz3
-dep-upp: swig
+dep-pkg: libedit libxml2 libzstd libffi libz3
+dep-upp: swig python3 perl
 bscript: llvm
 
 # https://llvm.org/docs/CMake.html

@@ -6,7 +6,7 @@ src-url: https://imagemagick.org/archive/releases/ImageMagick-7.1.1-44.tar.xz
 src-sha: 7e244bce3962228055839e020dde0d37fb428745815a09a2250ffe21eb9ec34d
 version: 7.1.1.44
 license: ImageMagick
-dep-pkg: ghostscript-dev libheif liblqr libtool
+dep-pkg: ghostscript-dev libheif liblqr libltdl
 
 install: |
     configure \
