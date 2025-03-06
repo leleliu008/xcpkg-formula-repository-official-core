@@ -6,6 +6,7 @@ license: GPL-3.0-or-later
 dep-pkg: libedit
 dep-upp: flex bison ed texinfo
 bsystem: configure
+ccflags: -D_DARWIN_C_SOURCE
 
 do12345: | 
     if isCrossBuild ; then

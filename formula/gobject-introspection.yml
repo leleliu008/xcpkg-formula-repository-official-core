@@ -1,10 +1,12 @@
-pkgtype: exe+lib
-summary: Generate introspection data for GObject libraries
+pkgtype: lib
+summary: A middleware layer between C libraries (using GObject) and language bindings
 web-url: https://gi.readthedocs.io
 git-url: https://gitlab.gnome.org/GNOME/gobject-introspection
-src-url: https://download.gnome.org/sources/gobject-introspection/1.76/gobject-introspection-1.76.1.tar.xz
-src-sha: 196178bf64345501dcdc4d8469b36aa6fe80489354efe71cb7cb8ab82a3738bf
+src-url: https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz
+src-uri: https://distfiles.macports.org/gobject-introspection/gobject-introspection-1.82.0.tar.xz
+src-sha: 0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09
 license: MIT
-dep-upp: gm4 flex bison
 dep-pkg: glib
-install: mesonw
+dep-upp: gm4 flex bison
+dep-pym: Mako MarkupSafe 'setuptools<65'
+bsystem: meson

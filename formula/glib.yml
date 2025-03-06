@@ -1,25 +1,19 @@
 summary: A general-purpose, portable utility library which provides many useful data types, macros, type conversions, string utilities, file utilities, a mainloop abstraction, and so on
 web-url: https://developer.gnome.org/glib
 git-url: https://github.com/GNOME/glib
-src-url: https://download.gnome.org/sources/glib/2.78/glib-2.78.4.tar.xz
-src-uri: https://distfiles.macports.org/glib2/glib-2.78.4.tar.xz
-src-sha: 24b8e0672dca120cc32d394bccb85844e732e04fe75d18bb0573b2dbc7548f63
+src-url: https://download.gnome.org/sources/glib/2.82/glib-2.82.4.tar.xz
+src-uri: https://distfiles.macports.org/glib2/glib-2.82.4.tar.xz
+src-sha: 37dd0877fe964cd15e9a2710b044a1830fb1bd93652a6d0cb6b8b2dff187c709
 license: LGPL-2.1-or-later
 dep-pkg: libpcre2 libintl libffi libz
-
-dopatch: |
-    gsed -i "s|cc.find_library('resolv')|declare_dependency(link_args : ['-lresolv'])|" gio/meson.build
-    gsed -i "/libiconv =/c libiconv = dependency('libiconv', method : 'pkg-config')" meson.build
-    gsed -i '2139,2165d'  meson.build
-    gsed -i "2138a libintl = cc.find_library('intl',  dirs: ['$libintl_LIBRARY_DIR'])" meson.build
-    gsed -i "2139a core_foundation = dependency('CoreFoundation', method : 'extraframework')" meson.build
-    gsed -i '2140a libintl_deps = [libintl, libiconv, core_foundation]' meson.build
+dep-upp: gettext-tools
 
 install: |
     mesonw \
+        -Dintrospection=disabled \
+        -Ddocumentation=false \
+        -Dman-pages=disabled \
         -Dnls=disabled \
-        -Dman=false \
-        -Dgtk_doc=false \
         -Ddtrace=false \
         -Dglib_debug=disabled \
         -Dglib_assert=false \
@@ -29,4 +23,7 @@ install: |
 
 dotweak: |
     gsed -i 's|libiconv|libintl libffi libz|' lib/pkgconfig/glib-2.0.pc
-    gsed -i 's|-lintl|-lresolv|g'             lib/pkgconfig/glib-2.0.pc
+
+    if [ "$TARGET_PLATFORM_NAME" = macos ] ; then
+        gsed -i 's|-lintl|-lresolv|g'         lib/pkgconfig/glib-2.0.pc
+    fi

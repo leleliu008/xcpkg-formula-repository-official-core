@@ -1,7 +1,7 @@
 summary: The minimal, blazing-fast, and infinitely customizable prompt for any shell
 web-url: https://starship.rs
-src-url: https://github.com/starship/starship/archive/refs/tags/v1.19.0.tar.gz
-src-sha: cf789791b5c11d6d7a00628590696627bb8f980e3d7c7a0200026787b08aba37
+src-url: https://github.com/starship/starship/archive/refs/tags/v1.22.1.tar.gz
+src-sha: 5434a3d1ca16987a1dd30146c36aaa4371dbe1c7f1a7995c0cf12ab3eb9326d7
 license: ISC
-dep-pkg: openssl-dev
-install: cargow install --locked --no-default-features
+dep-pkg: openssl-dev libz
+bsystem: cargo cmake gmake
