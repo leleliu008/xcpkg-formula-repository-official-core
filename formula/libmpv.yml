@@ -18,4 +18,5 @@ install: |
         -Dlibbluray=enabled \
         -Dlibarchive=enabled \
         -Djavascript=enabled \
+        -Dvapoursynth=disabled \
         -Dlua=luajit
