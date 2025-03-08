@@ -1,0 +1,11 @@
+summary: .NET Core
+web-url: https://dotnet.microsoft.com/
+src-url: https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.101.tar.gz
+src-sha: 2e19ec615afe23e318d15bb7cbceabb00b3c8fb8cdca8d3a4a0b98eae66411c7
+license: MIT
+dep-pkg: rapidjson libbrotli libicu libz openssl-dev
+dep-upp: python3 grep
+binbstd: 1
+install: |
+    run ./prep-source-build.sh
+    run ./build.sh --clean-while-building --source-build --with-system-libs brotli+libunwind+rapidjson+zlib
