@@ -1,0 +1,48 @@
+summary: Lightweight PDF and XPS viewer
+git-url: git://git.ghostscript.com/mupdf.git
+web-url: https://mupdf.com/
+src-url: https://mupdf.com/downloads/archive/mupdf-1.25.4-source.tar.gz
+src-sha: 74b943038fe81594bf7fc5621c60bca588b2847f0d46fb2e99652a21fa0d9491
+license: AGPL-3.0-or-later
+dep-pkg: openssl-dev libtesseract libjbig2dec libharfbuzz libgumbo libmujs
+
+dopatch: |
+    for item in $(find thirdparty -maxdepth 1 -mindepth 1 -type d)
+    do
+        [ "$item" = thirdparty/extract ] && continue
+        [ "$item" = thirdparty/lcms2 ]   && continue
+        run rm -rf "$item"
+    done
+
+dosetup: |
+    unset GMAKE_EXTRA_ARGS
+
+    for KV in FREETYPE:freetype2 HARFBUZZ:harfbuzz TESSERACT:tesseract LEPTONICA:lept OPENJPEG:libopenjp2 LIBJPEG:libjpeg GUMBO:gumbo
+    do
+        K="${KV%:*}"
+        V="${KV#*:}"
+
+        A="$(pkg-config --cflags "$V")"
+        B="$(pkg-config --libs   "$V")"
+
+        GMAKE_EXTRA_ARGS="$GMAKE_EXTRA_ARGS SYS_${K}_CFLAGS='$A' SYS_${K}_LIBS='$B'"
+    done
+
+install: |
+    gmakew clean
+    gmakew install-apps install-docs \
+        build=$PROFILE \
+        shared=no \
+        verbose=yes \
+        tesseract=yes \
+        prefix=$PACKAGE_INSTALL_DIR \
+        CC=$CC \
+        AR=$AR \
+        RANLIB=$RANLIB \
+        XCFLAGS="'$CFLAGS $CPPFLAGS'" \
+        USE_SYSTEM_LIBS=yes \
+        USE_SYSTEM_MUJS=yes \
+        USE_SYSTEM_LEPTONICA=yes \
+        USE_SYSTEM_TESSERACT=yes \
+        HAVE_SYS_LEPTONICA=yes \
+        $GMAKE_EXTRA_ARGS
