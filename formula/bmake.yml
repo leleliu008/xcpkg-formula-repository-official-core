@@ -1,19 +1,10 @@
 summary: Portable version of NetBSD make(1)
 web-url: https://www.crufty.net/help/sjg/bmake.html
-src-url: https://www.crufty.net/ftp/pub/sjg/bmake-20240722.tar.gz
-src-sha: 1654bd0cad284360849669a1e9a993181fed137896aac2694b82ea9a35f709e4
+src-url: https://www.crufty.net/ftp/pub/sjg/bmake-20250225.tar.gz
+src-sha: cc19b15438b454e334a23a8c91e3b87fd4b8be08c6fd9500d48e55cc683bba10
 license: BSD-3-Clause
 binbstd: 1
 
 install: |
-    # error: 'vfork' is deprecated: Use posix_spawn or fork [-Werror,-Wdeprecated-declarations]
-    export ac_cv_func_vfork=no
-
-    gsed -i 's|MANTARGET?|MANTARGET|'   mk/man.mk
-    gsed -i '/deptgt-delete_on_error/d' unit-tests/Makefile
-    gsed -i '/shell-ksh/d'              unit-tests/Makefile
-
-    run ./configure
-    run sh ./make-bootstrap.sh
-    install_bins bmake
+    run sh boot-strap --prefix=$PACKAGE_INSTALL_DIR -DWITHOUT_PROG_LINK --install BROKEN_TESTS=shell-ksh
     install_mans bmake.1
