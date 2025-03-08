@@ -7,7 +7,9 @@ license: GPL-3.0-or-later
 dep-upp: texinfo
 dep-pkg: libintl
 binbstd: 1
-ppflags: -D_DARWIN_C_SOURCE
+
 dopatch: gsed -i 's|_XOPEN_SOURCE 500|_XOPEN_SOURCE 600|' src/args.c
+
 install: configure --program-prefix=g LIBS="'-lintl -liconv -framework CoreFoundation'"
-dotweak: cd bin && ln -s gindent indent
+
+dotweak: run ln -s gindent bin/indent

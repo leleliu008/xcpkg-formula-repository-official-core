@@ -1,7 +1,11 @@
-pkgtype: exe+lib
 summary: C++ geography library
 web-url: https://geographiclib.sourceforge.io/
-src-url: https://github.com/geographiclib/geographiclib/archive/refs/tags/r2.2.tar.gz
-src-sha: 6611507210baf1827259f50ac970ab2e8c57a772f7c90ede4829f8834fd3d934
+src-url: https://github.com/geographiclib/geographiclib/archive/refs/tags/r2.5.tar.gz
+src-sha: 4b646358189799491e669f0de5072e94e3988d4a7486823344d182d57665ed35
 license: MIT
-install: cmakew -DBUILD_BOTH_LIBS=ON
+
+install: |
+    cmakew \
+        -DBUILD_BOTH_LIBS=ON \
+        -DBUILD_MANPAGES=OFF \
+        -DBUILD_DOCUMENTATION=OFF
