@@ -7,6 +7,6 @@ src-sha: 999d0a854f43864fc098266aaf25600ce7961318a1e2e358bff94a7f53580e30
 license: MIT
 dep-pym: Mako MarkupSafe PyYAML
 dep-upp: gm4 flex bison
-dep-pkg: llvm+clang+lld xorg-libxrandr libexpat
+dep-pkg: llvm+clang+lld xorg-libxfixes xorg-libxrandr libexpat
 
 install: mesonw -Db_ndebug=true -Dgallium-drivers=softpipe
