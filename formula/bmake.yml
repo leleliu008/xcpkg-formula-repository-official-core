@@ -8,3 +8,5 @@ binbstd: 1
 install: |
     run sh boot-strap --prefix=$PACKAGE_INSTALL_DIR -DWITHOUT_PROG_LINK --install BROKEN_TESTS=shell-ksh
     install_mans bmake.1
+
+bindenv: MAKESYSPATH=%s/share/mk

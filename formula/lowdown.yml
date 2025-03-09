@@ -11,6 +11,9 @@ install: |
     HAVE_SANDBOX_INIT=0
     EOF
 
+    BMAKE="$(command -v bmake)"
+    export MAKESYSPATH=${BMAKE%/bmake}/../share/mk
+
     run ./configure LINKER_SONAME=-install_name PREFIX="$PACKAGE_INSTALL_DIR"
-    run bmake
-    run bmake install_libs
+    run "$BMAKE"
+    run "$BMAKE" install_libs
