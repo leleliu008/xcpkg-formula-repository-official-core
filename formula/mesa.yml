@@ -11,4 +11,4 @@ dep-pkg: llvm+clang+lld xorg-libxfixes xorg-libxrandr libexpat
 
 install: mesonw -Db_ndebug=true -Dgallium-drivers=softpipe
 
-dotweak: run ln -s libgallium-$PACKAGE_VERSION.so libgallium-$PACKAGE_VERSION.dylib
+dotweak: run ln -s libgallium-$PACKAGE_VERSION.so lib/libgallium-$PACKAGE_VERSION.dylib

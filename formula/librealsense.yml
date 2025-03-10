@@ -1,0 +1,6 @@
+summary: Intel RealSense D400 series and SR300 capture
+src-url: https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.56.3.tar.gz
+src-sha: a18112df0dc0bf442b58fb754f719be1992ddbba154564db5321729ba340c8a9
+license: Apache-2.0
+dep-pkg: libusb libglfw3
+install: cmakew -DCMAKE_CXX_STANDARD=17 -DENABLE_CCACHE=OFF -DBUILD_WITH_OPENMP=OFF
