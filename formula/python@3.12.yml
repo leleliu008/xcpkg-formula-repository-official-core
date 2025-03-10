@@ -1,8 +1,8 @@
 summary: Interpreted, interactive, object-oriented programming language
 git-url: https://github.com/python/cpython
 web-url: https://www.python.org/
-src-url: https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz
-src-sha: a6b9459f45a6ebbbc1af44f5762623fa355a0c87208ed417628b379d762dddb0
+src-url: https://www.python.org/ftp/python/3.12.9/Python-3.12.9.tgz
+src-sha: 45313e4c5f0e8acdec9580161d565cf5fea578e3eabf25df7cc6355bf4afa1ee
 license: Python-2.0
 dep-pkg: openssl-dev libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
 movable: 0
@@ -30,7 +30,7 @@ install: |
     export LIBSQLITE3_LIBS="-L$libsqlite3_LIBRARY_DIR -lsqlite3"
 
     export GDBM_CFLAGS="-I$libgdbm_INCLUDE_DIR"
-    export GDBM_LIBS="-L$libgdbm_LIBRARY_DIR -lgdbm -lgdbm_compat"
+    export GDBM_LIBS="-L$libgdbm_LIBRARY_DIR -lgdbm_compat -lgdbm"
 
     export LIBS='-lm'
 
