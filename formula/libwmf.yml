@@ -11,8 +11,3 @@ install: |
         --with-png="$libpng_INSTALL_DIR" \
         --with-jpeg="$libjpeg_turbo_INSTALL_DIR" \
         --with-freetype="$libfreetype_INSTALL_DIR"
-
-dotweak2: |
-    cd lib
-    mv libwmf-0.2.so.7 libwmf-0.2.so
-    mv libwmflite-0.2.so.7 libwmflite-0.2.so
