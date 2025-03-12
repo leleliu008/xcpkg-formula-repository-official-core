@@ -1,7 +1,8 @@
 summary: A free cross-platform Open Source C++ library that uses freetype2 to simplify rendering fonts in OpenGL applications
 web-url: https://sourceforge.net/projects/ftgl/
-src-url: https://github.com/frankheckenbach/ftgl/archive/refs/tags/v2.4.0.tar.gz
-src-sha: aa97da1c3442a8fd3941037655df18016d70b5266381c81d81e8b5335f196ea8
+src-url: https://github.com/frankheckenbach/ftgl/archive/1f2b47428ec6a6452a3be5c7a916b94c65df80ce.tar.gz
+src-sha: 1fa9343565a478d26f12ead55a9673973991d6448eba4d794cc292270cb20c81
+version: 2.4.1
 license: MIT
 dep-pkg: libfreetype
 
