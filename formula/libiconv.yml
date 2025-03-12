@@ -1,19 +1,36 @@
 summary: charset conversion library
 git-url: https://git.savannah.gnu.org/git/libiconv.git
 web-url: https://www.gnu.org/software/libiconv
-src-url: https://ftp.gnu.org/gnu/libiconv/libiconv-1.17.tar.gz
-src-sha: 8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313
+src-url: https://ftp.gnu.org/gnu/libiconv/libiconv-1.18.tar.gz
+src-sha: 3b08f5f4f9b4eb82f151a7040bfd6fe6c6fb922efe4b1659c66ea933276965e8
 license: GPL-3.0-or-later LGPL-2.0-or-later
 
-install: configure --enable-extra-encodings
+fix-url: https://raw.githubusercontent.com/macports/macports-ports/refs/heads/master/textproc/libiconv/files/patch-utf8mac.diff
+fix-sha: 6aaa130c8ba72a758b1cf8b37566d4e9e0836576a3dacf86270b60e92a737e2a
+fix-opt: -p0
+
+dopatch: gsed -i '/define ei_utf8_oflags /a \#define ei_utf8mac_oflags (HAVE_ACCENTS | HAVE_QUOTATION_MARKS | HAVE_HANGUL_JAMO)' lib/flags.h
+
+dosetup: |
+    CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
+
+    if [ "$CLANG_VERSION_MAJOR" -ge 15 ] ; then
+        export CFLAGS="$CFLAGS -Wno-incompatible-function-pointer-types"
+    fi
+
+dep-upp: automake
+binbstd: 1
+parallel: 0
+install: |
+    configure only --enable-extra-encodings
+    #gsed -i 's|aclocal-1.17|aclocal|' Makefile.devel
+    gmakew -f Makefile.devel ACLOCAL=aclocal AUTOMAKE=automake CC="$CC" CFLAGS="'$CFLAGS'"
+    gmakew install
 
 dotweak: |
-    install -d lib/pkgconfig
-            cd lib/pkgconfig
-
     for item in iconv charset
     do
-        cat > "lib$item.pc" <<EOF
+        writepc "lib$item" <<EOF
     prefix=\${pcfiledir}/../..
     exec_prefix=\${prefix}
     libdir=\${exec_prefix}/lib
