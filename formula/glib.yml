@@ -21,5 +21,4 @@ install: |
         -Dinstalled_tests=false \
         -Dbsymbolic_functions=false
 
-dotweak: |
-    gsed -i -e 's|libiconv|libintl libffi libz|' -e 's|-lintl|-lresolv|g' lib/pkgconfig/glib-2.0.pc
+dotweak: gsed -i -e 's|libiconv|libintl libffi libz|' -e 's|-lintl|-lresolv|g' lib/pkgconfig/glib-2.0.pc

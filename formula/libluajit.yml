@@ -27,4 +27,4 @@ install: |
     touch src/luajit
     gmakew install PREFIX="$PACKAGE_INSTALL_DIR"
 
-dotweak: rm -rf bin/ share/
+doextra: run rm -rf bin/ share/

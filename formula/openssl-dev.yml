@@ -8,7 +8,7 @@ license: Apache-2.0
 dep-upp: perl
 bsystem: gmake
 
-dosetup: |
+prepare: |
     case $TARGET_PLATFORM_NAME in
         MacOSX)
             os_compiler="darwin64-$TARGET_PLATFORM_ARCH"

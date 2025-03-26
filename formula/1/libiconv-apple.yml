@@ -8,12 +8,9 @@ license: GPL-3.0-or-later LGPL-2.0-or-later
 install: configure --enable-extra-encodings
 
 dotweak: |
-    mkdir lib/pkgconfig
-    cd    lib/pkgconfig
-
     for item in iconv charset
     do
-        cat > "lib$item.pc" <<EOF
+        writepc "lib$item" <<EOF
     prefix=$PACKAGE_INSTALL_DIR
     exec_prefix=\${prefix}
     libdir=\${exec_prefix}/lib

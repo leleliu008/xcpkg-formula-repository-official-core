@@ -12,7 +12,7 @@ dopatch: |
 
     gsed -i 's|-g -o|$(LDFLAGS) -o|' base/unix-dll.mak
 
-dosetup: |
+prepare: |
     if isCrossBuild ; then
         export CCAUX="$CC_FOR_BUILD"
         export CFLAGSAUX="$CFLAGS_FOR_BUILD $LDFLAGS_FOR_BUILD"

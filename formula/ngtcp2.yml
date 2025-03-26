@@ -1,15 +1,17 @@
 summary: QUIC library written in C
 git-url: https://github.com/ngtcp2/ngtcp2
-bsystem: cmake
-dep-pkg: libev nghttp3
+dep-pkg: libev libbrotli libressl libnghttp3
 
 install: |
     cmakew \
-        -DENABLE_ASAN=ON \
+        -DENABLE_ASAN=OFF \
         -DENABLE_DEBUG=OFF \
         -DENABLE_WERROR=OFF \
         -DENABLE_GNUTLS=OFF \
-        -DENABLE_OPENSSL=OFF \
+        -DENABLE_OPENSSL=ON \
+        -DENABLE_WOLFSSL=OFF \
+        -DENABLE_PICOTLS=OFF \
+        -DENABLE_BORINGSSL=OFF \
         -DENABLE_LIB_ONLY=OFF \
-        -DLIBEV_INCLUDE_DIR="$libev_INCLUDE_DIR" \
-        -DLIBEV_LIBRARY="$libev_LIBRARY_DIR/libev.a"
+        -DENABLE_STATIC_LIB=ON \
+        -DENABLE_SHARED_LIB=OFF

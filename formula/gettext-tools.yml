@@ -29,4 +29,4 @@ install: |
         --enable-nls \
         --enable-relocatable
 
-dotweak: run rm -rf lib/ include/
+doextra: run rm -rf lib/ include/

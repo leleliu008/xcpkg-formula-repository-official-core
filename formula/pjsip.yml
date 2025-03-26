@@ -8,7 +8,7 @@ dep-pkg: openssl-dev
 binbstd: 1
 parallel: 0
 
-dosetup: |
+prepare: |
     export LD="$CC"
     export CFLAGS="$CPPFLAGS $CFLAGS"
 

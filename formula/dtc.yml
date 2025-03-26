@@ -9,4 +9,4 @@ dopatch: gsed -i "s|'-static'||" meson.build
 
 install: mesonw -Dtests=false -Dtools=true -Dstatic-build=true -Dpython=disabled -Dyaml=disabled
 
-dotweak: run rm -rf include/ lib/
+doextra: run rm -rf include/ lib/

@@ -9,7 +9,7 @@ dep-upp: yasm gm4 libtool texinfo
 bsystem: autotools
 ccflags: -D_DARWIN_C_SOURCE
 
-dosetup: |
+prepare: |
     if [ "$TARGET_PLATFORM_ARCH" = 'x86' ] ; then
         cat > ../bin/m4 <<EOF
     #!/bin/sh

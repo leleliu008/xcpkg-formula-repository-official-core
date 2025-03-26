@@ -6,7 +6,7 @@ src-sha: 002a2d6b30b58bf4bea46c43bdd96365aaf8daa6c428782aa4feee06da197df3
 license: Apache-2.0
 dep-upp: perl
 
-dosetup: |
+prepare: |
     case $TARGET_PLATFORM_NAME in
         MacOSX)
             os_compiler="darwin64-$TARGET_PLATFORM_ARCH"

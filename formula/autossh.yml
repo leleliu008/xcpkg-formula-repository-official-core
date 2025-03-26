@@ -6,4 +6,4 @@ src-sha: 5fc3cee3361ca1615af862364c480593171d0c54ec156de79fc421e31ae21277
 license: Unlicense
 bsystem: configure
 binbstd: 1
-dosetup: export ac_cv_func_setproctitle=no
+prepare: export ac_cv_func_setproctitle=no

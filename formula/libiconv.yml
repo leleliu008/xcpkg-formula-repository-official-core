@@ -4,6 +4,7 @@ web-url: https://www.gnu.org/software/libiconv
 src-url: https://ftp.gnu.org/gnu/libiconv/libiconv-1.18.tar.gz
 src-sha: 3b08f5f4f9b4eb82f151a7040bfd6fe6c6fb922efe4b1659c66ea933276965e8
 license: GPL-3.0-or-later LGPL-2.0-or-later
+dep-upp: automake
 
 fix-url: https://raw.githubusercontent.com/macports/macports-ports/refs/heads/master/textproc/libiconv/files/patch-utf8mac.diff
 fix-sha: 6aaa130c8ba72a758b1cf8b37566d4e9e0836576a3dacf86270b60e92a737e2a
@@ -13,14 +14,13 @@ dopatch: |
     gsed -i '/define ei_utf8_oflags /a \#define ei_utf8mac_oflags (HAVE_ACCENTS | HAVE_QUOTATION_MARKS | HAVE_HANGUL_JAMO)' lib/flags.h
     gsed -i '/ -o genaliases/s|$(CC) $(CFLAGS)|$(CC_FOR_BUILD) $(CFLAGS_FOR_BUILD)|' Makefile.devel
 
-dosetup: |
+prepare: |
     CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
 
     if [ "$CLANG_VERSION_MAJOR" -ge 15 ] ; then
         export CFLAGS="$CFLAGS -Wno-incompatible-function-pointer-types"
     fi
 
-dep-upp: automake
 binbstd: 1
 parallel: 0
 install: |

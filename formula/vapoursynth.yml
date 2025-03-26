@@ -8,6 +8,6 @@ dep-pkg: libzimg python@3.13
 dep-upp: libtool nasm
 bsystem: autogen
 binbstd: 1
-dosetup: |
+prepare: |
     export PATH="$python_3_13_INSTALL_DIR/bin:$PATH"
     run python3 -m pip install -U cython

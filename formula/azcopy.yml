@@ -3,4 +3,4 @@ src-url: https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.28.
 src-sha: 5c2ef0d11193df1ef86e8f0478d3ea1155fec5d82130c9f43a169d9ee4f55369
 license: MIT
 bsystem: go
-dosetup: export CGO_ENABLED=1
+prepare: export CGO_ENABLED=1

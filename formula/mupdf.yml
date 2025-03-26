@@ -14,7 +14,7 @@ dopatch: |
         run rm -rf "$item"
     done
 
-dosetup: |
+prepare: |
     unset GMAKE_EXTRA_ARGS
 
     for KV in FREETYPE:freetype2 HARFBUZZ:harfbuzz TESSERACT:tesseract LEPTONICA:lept OPENJPEG:libopenjp2 LIBJPEG:libjpeg GUMBO:gumbo

@@ -4,4 +4,4 @@ src-sha: 38fd762d2fa0e18312b50f056d9fd888c3038dc2882516687247b541b6649b25
 license: GPL-3.0-or-later
 binbstd: 1
 install: install_bins gitwatch.sh
-dotweak: mv bin/gitwatch.sh bin/gitwatch
+doextra: run mv bin/gitwatch.sh bin/gitwatch

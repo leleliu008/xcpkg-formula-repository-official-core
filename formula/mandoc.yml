@@ -7,7 +7,7 @@ dep-pkg: libz
 bsystem: configure
 binbstd: 1
 
-dosetup: |
+prepare: |
     mv cgi.h.example cgi.h
 
     cat > configure.local <<EOF
@@ -43,4 +43,4 @@ dosetup: |
     BUILD_CGI=1
     EOF
 
-dotweak: chmod +w bin/* sbin/*
+doextra: run chmod +w bin/* sbin/*

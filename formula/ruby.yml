@@ -6,7 +6,7 @@ src-sha: 41328ac21f2bfdd7de6b3565ef4f0dd7543354d37e96f157a1552a6bd0eb364b
 license: Ruby
 dep-pkg: libyaml libffi libz openssl-dev libreadline 
 
-dosetup: |
+prepare: |
     cat > cc-wrapper <<EOF
     #!/bin/sh
     if [ "\$1" = -dynamic ] && [ "\$2" = -bundle ] ; then
