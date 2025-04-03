@@ -5,4 +5,4 @@ src-url: https://distfiles.ariadne.space/pkgconf/pkgconf-2.1.1.tar.xz
 src-sha: 3a224f2accf091b77a5781316e27b9ee3ba82c083cc2e539e08940b68a44fec5
 license: ISC
 install: configure
-doextra: run ln -s pkgconf bin/pkg-config
+dotweak: run ln -s pkgconf bin/pkg-config

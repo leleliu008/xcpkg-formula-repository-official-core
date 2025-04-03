@@ -12,4 +12,4 @@ dopatch: gsed -i 's|_XOPEN_SOURCE 500|_XOPEN_SOURCE 600|' src/args.c
 
 install: configure --program-prefix=g LIBS="'-lintl -liconv -framework CoreFoundation'"
 
-doextra: run ln -s gindent bin/indent
+dotweak: run ln -s gindent bin/indent

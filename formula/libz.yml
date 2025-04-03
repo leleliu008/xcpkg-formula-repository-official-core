@@ -8,7 +8,7 @@ bsystem: cmake
 
 dopatch: gsed -i -e 's|/share/pkgconfig|/lib/pkgconfig|' -e 's|zlib)|zlibstatic)|' CMakeLists.txt
 
-doextra: run ln -s zlib.pc lib/pkgconfig/libz.pc
+dotweak: run ln -s zlib.pc lib/pkgconfig/libz.pc
 
 developer: |
     Jean-loup Gailly <jloup@gailly.net>

@@ -16,4 +16,4 @@ install: |
         --with-included-regex \
         --program-prefix=g
 
-doextra: run ln -s gm4 bin/m4
+dotweak: run ln -s gm4 bin/m4

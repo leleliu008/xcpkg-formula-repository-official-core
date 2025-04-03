@@ -1,8 +1,8 @@
-summary: Get a file from an HTTP, HTTPS or FTP server
+summary: A command-line tool for transferring data from/to an HTTP, HTTPS or FTP server
 git-url: https://github.com/curl/curl
 web-url: https://curl.haxx.se/
-src-url: https://curl.haxx.se/download/curl-8.8.0.tar.bz2
-src-sha: 40d3792d38cfa244d8f692974a567e9a5f3387c547579f1124e95ea2a1020d0d
+src-url: https://curl.haxx.se/download/curl-8.12.1.tar.bz2
+src-sha: 18681d84e2791183e0e5e4650ccb2a080c1f3a4e57ed2fbc2457228579d68269
 license: curl
 dep-pkg: libnghttp2 libbrotli libzstd libz openssl-dev
 dep-upp: perl
@@ -25,8 +25,4 @@ install: |
         --without-librtmp \
         --without-libidn2
 
-dotweak: |
-    cd lib/pkgconfig
-    sed -i -e 's|-lssl||g' -e 's|-lcrypto||g' -e 's|-lnghttp2||g' -e 's|-lzstd||g' -e 's|-lz||g' -e 's|-lbrotlidec||g' -e 's|-lbrotlicommon||g' libcurl.pc
-    printf 'Requires: libnghttp2 openssl libzstd libz libbrotlidec\n' >> libcurl.pc
-    gsed -i '/^Libs:/s|$| -framework CoreFoundation -framework SystemConfiguration|' libcurl.pc
+dotweak: run rm -rf bin/curl-config include/ lib/ share/aclocal/ share/man/man3/ share/man/man1/curl-config.1

@@ -6,4 +6,4 @@ license: GPL-3.0-or-later
 
 install: configure --program-prefix=g
 
-doextra: run ln -s gtime bin/time
+dotweak: run ln -s gtime bin/time

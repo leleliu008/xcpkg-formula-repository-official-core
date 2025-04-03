@@ -12,4 +12,4 @@ install: |
         --disable-gcc-warnings \
         --with-included-regex
 
-doextra: gsed -i 's|bash|sh|' bin/[ef]grep
+dotweak: gsed -i 's|bash|sh|' bin/[ef]grep

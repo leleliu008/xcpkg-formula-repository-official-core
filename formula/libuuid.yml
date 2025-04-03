@@ -21,7 +21,7 @@ install: |
         --disable-makeinstall-chown \
         --disable-makeinstall-setuid
 
-doextra: run rm -rf bin/ sbin/ share/man/man[158]/
+dotweak: run rm -rf bin/ sbin/ share/man/man[158]/
 
 fix-url: https://github.com/util-linux/util-linux/commit/9445f477cfcfb3615ffde8f93b1b98c809ee4eca.patch?full_index=1
 fix-sha: 7a7fe4d32806e59f90ca0eb33a9b4eb306e59c9c148493cd6a57f0dea3eafc64

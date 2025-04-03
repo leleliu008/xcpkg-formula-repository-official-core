@@ -22,4 +22,4 @@ install: |
     gmakew clean
     gmakew install-lib-static install-lib-shared install-lib-headers install-pkg-config
 
-doextra: run rm lib/librhash.so.1
+dotweak: run rm lib/librhash.so.1

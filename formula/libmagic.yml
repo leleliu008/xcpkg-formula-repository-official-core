@@ -18,4 +18,4 @@ prepare: |
 
 install: configure --enable-zlib --disable-bzlib --disable-xzlib
 
-doextra: run rm -rf bin/ share/man/man1/
+dotweak: run rm -rf bin/ share/man/man1/

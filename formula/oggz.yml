@@ -8,4 +8,4 @@ dep-pkg: libogg
 
 install: configure --enable-static --disable-shared
 
-doextra: run rm -rf include/ lib/
+dotweak: run rm -rf include/ lib/

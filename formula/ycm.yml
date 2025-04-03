@@ -6,7 +6,7 @@ bsystem: cmake
 binbstd: 1
 
 install: |
-    run python3 install.py --clang-completer
+    run python3 install.py --clangd-completer
     run install -d "$PACKAGE_INSTALL_DIR/"
     run mv * "$PACKAGE_INSTALL_DIR/"
     __check_mach_o_files() {
@@ -16,4 +16,4 @@ install: |
 caveats: |
     configure for vim-plug:
 
-    Plug '~/.xcpkg/installed/MacOSX-14.4.1-arm64/ycm'
+    Plug '~/.xcpkg/installed/MacOSX-15.3-arm64/ycm'

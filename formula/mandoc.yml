@@ -43,4 +43,4 @@ prepare: |
     BUILD_CGI=1
     EOF
 
-doextra: run chmod +w bin/* sbin/*
+dotweak: run chmod +w bin/* sbin/*
