@@ -5,7 +5,7 @@ src-url: https://www.python.org/ftp/python/3.10.16/Python-3.10.16.tgz
 src-sha: f2e22ed965a93cfeb642378ed6e6cdbc127682664b24123679f3d013fafe9cd0
 license: Python-2.0
 dep-pkg: openssl-dev libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
-disable: lto
+ltoable: 0
 
 # CPython do not support cross-compiling on macOS
 # configure: error: cross build not supported for x86_64-apple-darwin

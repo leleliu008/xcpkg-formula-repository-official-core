@@ -3,7 +3,7 @@ git-url: https://github.com/openssh/openssh-portable
 web-url: https://www.openssh.com/
 src-url: https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.9p2.tar.gz
 src-sha: 91aadb603e08cc285eddf965e1199d02585fa94d994d6cae5b41e1721e215673
-version: 9.7.1
+version: 9.9.2
 license: SSH-OpenSSH
 dep-pkg: libfido2 libldns libedit
 

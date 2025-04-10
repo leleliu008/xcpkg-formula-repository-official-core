@@ -2,7 +2,6 @@ summary: A Rust compiler front-end for IDEs
 web-url: https://rust-analyzer.github.io/
 src-url: https://github.com/rust-analyzer/rust-analyzer/archive/refs/tags/2024-05-27.tar.gz
 src-sha: bd1a3404c3229cbbeac0ca434ef6c45c85db83219fe2797a3cf0cc4071bdb524
-version: 2024.05.27
 license: Apache-2.0
 
 bscript: crates/rust-analyzer
