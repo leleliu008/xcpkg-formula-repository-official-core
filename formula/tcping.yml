@@ -1,0 +1,5 @@
+summary: A cross-platform ping program using TCP instead of ICMP
+src-url: https://github.com/pouriyajamshidi/tcping/archive/refs/tags/v2.7.1.tar.gz
+src-sha: 61ae7054c28b9fd80e925b130f10c8967223a947f99e00af19a3987ec676954e
+license: MIT
+bsystem: go
