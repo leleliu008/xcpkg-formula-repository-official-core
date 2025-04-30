@@ -1,0 +1,9 @@
+summary: A fast and config-free text editor and IDE limited by VT100
+web-url: https://roboticoverlords.org/orbiton/
+src-url: https://github.com/xyproto/orbiton/archive/refs/tags/v2.68.9.tar.gz
+src-sha: acce203a95f1fbbcfdc75abdf88cbe6473e5ff97f99757263d7e195eb4f8640d
+license: BSD-3-Clause
+bsystem: gmake go
+install: |
+    gmakew clean
+    gmakew install DESTDIR= PREFIX="$PACKAGE_INSTALL_DIR"
