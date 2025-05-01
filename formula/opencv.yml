@@ -9,10 +9,8 @@ dep-upp: python3
 
 dopatch: |
     # bundled third-party libraries are removed, we want to use our own
-    for d in ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg tbb zlib
-    do
-        rm -rf "3rdparty/$d"
-    done
+    run 3rdparty
+    run rm -rf ffmpeg/ libjasper/ libjpeg/ libjpeg-turbo/ libpng/ libtiff/ libwebp/ openexr/ openjpeg/ tbb/ zlib/
 
 install: |
     cmakew \
