@@ -5,12 +5,6 @@ src-sha: de384e29d7efc9330c6cdb126ebf88342b5025d920dcb7c645defad85195ea7f
 dep-pkg: libssh2 libpcre2 libiconv
 license: GPL-2.0-only
 
-dopatch: |
-    # https://github.com/libgit2/libgit2/issues/6280
-    if [ "$TARGET_PLATFORM_NAME" = openbsd ] ; then
-        gsed -i 's|sys/random.h|unistd.h|' src/util/rand.c
-    fi
-
 install: |
     cmakew 2 \
         -DBUILD_CLI=OFF \
