@@ -1,0 +1,7 @@
+summary: Cross-platform program for developing Haskell projects
+web-url: https://haskellstack.org/
+src-url: https://github.com/commercialhaskell/stack/archive/refs/tags/v3.5.1.tar.gz
+src-sha: 00de60eaefdba1aa289ed409a9cabe8d63f9f6d554018456ab7f78531b2c3629
+license: BSD-3-Clause
+bsystem: cabal
+dopatch: gsed -i '/^import:/d' cabal.project

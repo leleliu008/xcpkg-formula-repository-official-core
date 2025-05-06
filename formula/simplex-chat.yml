@@ -1,0 +1,14 @@
+summary: the first messaging network operating without user identifiers of any kind
+src-url: https://github.com/simplex-chat/simplex-chat/archive/refs/tags/v6.2.5.tar.gz
+src-sha: c55c0f7104aa8bdc2353594e1b0d9abc0d3a885075f3af85e3714c19b68851e1
+license: GPL-3.0-or-later
+dep-pkg: openssl-dev
+
+dopatch: |
+    gsed -i '/extra-source-files:/a \    PRIVACY.md' simplex-chat.cabal
+
+    mv scripts/cabal.project.local.linux cabal.project.local
+
+prepare: export BOOTSTRAP_HASKELL_GHC_VERSION='9.6.6'
+
+install: cabal_v2_install exe:simplex-chat
