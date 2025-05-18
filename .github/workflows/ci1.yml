@@ -38,6 +38,11 @@ jobs:
   build:
     runs-on: macos-15
 
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg: [aalib,abook,act,actionlint,adig,ag,age,alacritty,alass,algernon,aliyun-cli,amfora,anchor-cli,antibody,aom,apkeep,aptly,archiver,args,aria2,arping,autoconf-archive,automake,autossh,awk,axel,azcopy,b3sum,bandwhich,base16,base64,bash,basis_universal,bat,bazelisk,bc,bcrypt,bdw-gc,bear,berkeley-db,bgrep,binaryen,bind,binocle,bison,bit,bitcoin,bk,blockhash,bmake,boringssl,botan,bottom,boxes,brook,broot,brotli,bsdtar,buf,bullet,byacc,bzip2,c-examples,caddy,caf,cargo-c,cargo-deb,catch2,catimg,cbindgen,ccache,cereal,cflow,cgal,chafa,cheat,check,chezmoi,chicken,chinese-calendar,chisel,choose,chrome-cli,cilium-cli,cli11,clog,cmake,cmark,cmatrix,code-cli,coreutils,cotp,cpio,cpp-httplib,cppcheck,cppunit,cpu_features,cpufetch,cpuid,cpuinfo,croc,crosstool-ng,crowbook,ctop,cue,curl,curlie,cxxopts,d2,darkhttpd,dasel,dash,dav1d,ddgr,delta,desktop-file-utils,difftastic,diffutils,distcc,dmalloc,dns2tcp,dnslookup,dnsmap,dnsx,dog,doggo,dolt,dos2unix]
+
     steps:
       - uses: actions/checkout@v4
 
