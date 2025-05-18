@@ -1,4 +1,4 @@
-name: ciINDEX 
+name: ci3 
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [PKGLIST]
+        pkg: [invoice,ixwebsocket,jbig2dec,jemalloc,jfrog-cli,jj,jless,jo,joshuto,jpegoptim,jq,json-glib,jump,k9s,kcp,kcptun,ko,koka,krb5,lame,lazygit,lazysql,lcms2,lcov,less,lf,libaec,libao,libaria2,libasprintf,libasync++,libb2,libb64,libbcrypt,libblake3,libbrpc,libcaca,libcddb,libcdio,libcerf,libcfitsio,libcgif,libcpuinfo,libcroco,libdb,libduktape,libepoxy,libexhale,libexiv2,libfdk-aac,libflatbuffers,libftgl,libgit2@1.7,libglm,libgpgme,libgraphene,libilbc,libimagequant,libintl-lite,libirecovery,libisoburn,libjpeg,libkrb5,liblinear,liblmdb,libmaxminddb,libmd,libmesalink,libmetalink,libmhash,libmicrohttpd,libmill,libmimalloc,libminiz,libmms,libmpir,libmpv,libnetpbm,libnng,libolm,libopenh264,libopusenc,libp11-kit,libphonenumber,libphysfs,libpipeline,libpkcs11-helper,libpng++,libpsl,libpugixml,libqalculate,libqpdf,libquiche,libraqm,librasterlite2,libraw,libre,librealsense,libresvg,librist,librtmp,libsimdjson,libskcms,libsmi,libsndfile,libspectre,libspng,libsrtp,libsvg,libsvm,libtalloc,libtextstyle,libthai,libtinyxml2,libtool,libtorrent-rasterbar,libtwolame,libupnp,libusrsctp,libuuid,libvips,libwasmtime,libwavpack,libwebm,libwmf,libxcrypt,libxml2-python3,libxmlrpc-c]
 
     runs-on: macos-14
 
