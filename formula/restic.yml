@@ -1,6 +1,6 @@
 summary: A fast, efficient and secure backup program
 web-url: https://restic.github.io/
-src-url: https://github.com/restic/restic/archive/refs/tags/v0.16.4.tar.gz
-src-sha: d736a57972bb7ee3398cf6b45f30e5455d51266f5305987534b45a4ef505f965
+src-url: https://github.com/restic/restic/archive/refs/tags/v0.18.0.tar.gz
+src-sha: fc068d7fdd80dd6a968b57128d736b8c6147aa23bcba584c925eb73832f6523e
 license: BSD-2-Clause
 install: gow -X main.version=$PACKAGE_VERSION ./cmd/restic
