@@ -1,16 +1,5 @@
 summary: Language Server for Zig
-git-url: https://github.com/zigtools/zls
-git-sha: 68cd4ff4c7b84e89bd1e1b4ad29f9abd8b020174
-version: 0.12.0
-dep-upp: zig@0.12
-bsystem: zig
-binbstd: 1
-install: |
-    # https://zig.guide/build-system/cross-compilation/
-    if [ "$TARGET_PLATFORM_ARCH" = arm64 ] ; then
-        ZIG_BUILD_TARGET='aarch64-macos'
-    else
-        ZIG_BUILD_TARGET="$TARGET_PLATFORM_ARCH-macos"
-    fi
-
-    run zig build -Dtarget="$ZIG_BUILD_TARGET" --prefix "$PACKAGE_INSTALL_DIR" -Dpie=true --release=fast
+src-url: https://github.com/zigtools/zls/archive/refs/tags/0.14.0.tar.gz
+src-sha: 44cae74073b2f75cf627755398afadafaa382cccf7555b5b66b147dcaa6cef0d
+license: MIT
+bsystem: zig@0.14

@@ -4,3 +4,4 @@ src-sha: c24e4c26183a4d88a33e343902ed2d45da23e78c66b2a696a7420eb86deddda9
 license: GPL-3.0-only
 dep-pkg: libz
 bsystem: cargo
+prepare: export RUSTUP_TOOLCHAIN=1.82

@@ -1,0 +1,11 @@
+summary: HTTP/3 library written in C
+git-url: https://github.com/ngtcp2/nghttp3
+license: MIT
+install: |
+    cmakew \
+        -DENABLE_ASAN=OFF \
+        -DENABLE_DEBUG=OFF \
+        -DENABLE_WERROR=OFF \
+        -DENABLE_LIB_ONLY=ON \
+        -DENABLE_STATIC_LIB=ON \
+        -DENABLE_SHARED_LIB=ON
