@@ -1,7 +1,6 @@
 summary: Terminal-based HTTP/REST client
 web-url: https://slumber.lucaspickering.me/
-src-url: https://github.com/LucasPickering/slumber/archive/refs/tags/v3.0.1.tar.gz
-src-sha: 979c06dafc9ac619e6eb6d83ea42876241223c5d0fe9b628edf479459a4d6ebb
+src-url: https://github.com/LucasPickering/slumber/archive/refs/tags/v3.1.1.tar.gz
+src-sha: b7e6bdaae2ba181d5cb213cd1b8bb6e5e1341728bd26e74ca4b692537d4a7ead
 license: MIT
 bsystem: cargo
-prepare: export RUSTUP_TOOLCHAIN=1.81

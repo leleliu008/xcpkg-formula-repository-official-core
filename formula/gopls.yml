@@ -1,7 +1,7 @@
 summary: Language server for the Go language
 web-url: https://github.com/golang/tools/tree/master/gopls
-src-url: https://github.com/golang/tools/archive/refs/tags/gopls/v0.15.3.tar.gz
-src-sha: 7fb0a43ff5e562089ca0ec3e8e7819dd205977758c02ea9bded05f56d5080a54
+src-url: https://github.com/golang/tools/archive/refs/tags/gopls/v0.18.1.tar.gz
+src-sha: e49fae5dd964432a0ea1661868e858acd2aa66aaf7e1c1d646fb8506f15c8e52
 license: BSD-3-Clause
 bscript: gopls
-bsystem: go
+install: gow -X main.version=v$PACKAGE_VERSION
