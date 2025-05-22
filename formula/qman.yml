@@ -1,10 +1,6 @@
 summary: A more modern man page viewer for our terminals
-    #src-url: https://github.com/plp13/qman/archive/refs/tags/v1.4.0.tar.gz
-    #src-sha: e59365d83b670e197a9596db5cdd806795fbe86ecd6853a0bd362c9261339ed8
-
-git-url: https://github.com/plp13/qman
-git-ref: refs/heads/main
-
+src-url: https://github.com/plp13/qman/archive/refs/tags/v1.4.2.tar.gz
+src-sha: c624a52ae2611b8b7402ebab945feaea8768363fcdfe5f6390f93688cc263a48
 license: BSD-2-Clause
 dep-pkg: libncurses liblzma libbz2 libz
 dep-pym: cogapp

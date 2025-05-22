@@ -1,9 +1,8 @@
 summary: QUIC library written in C
-git-url: https://github.com/ngtcp2/ngtcp2
-    #src-url: https://github.com/ngtcp2/ngtcp2/archive/refs/tags/v1.12.0.tar.gz
-    #src-sha: 21c565e32b6b0094df282915722833fbf1ad0b1b136b6e7d55740b5368138cc8
+src-url: https://github.com/ngtcp2/ngtcp2/archive/refs/tags/v1.12.0.tar.gz
+src-sha: 21c565e32b6b0094df282915722833fbf1ad0b1b136b6e7d55740b5368138cc8
 license: MIT
-dep-pkg: libev libbrotli libnghttp3 openssl-dev
+dep-pkg: openssl-dev
 
 install: |
     cmakew \
@@ -15,6 +14,6 @@ install: |
         -DENABLE_WOLFSSL=OFF \
         -DENABLE_PICOTLS=OFF \
         -DENABLE_BORINGSSL=OFF \
-        -DENABLE_LIB_ONLY=OFF \
-        -DENABLE_STATIC_LIB=OFF \
+        -DENABLE_LIB_ONLY=ON \
+        -DENABLE_STATIC_LIB=ON \
         -DENABLE_SHARED_LIB=ON

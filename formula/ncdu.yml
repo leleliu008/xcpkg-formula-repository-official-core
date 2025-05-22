@@ -7,12 +7,13 @@ dep-pkg: libncurses libzstd
 bsystem: zig@0.13
 
 dopatch: |
-    run ln -s ../lib/libncursesw.a libncursesw.a
-    run ln -s ../lib/libzstd.a     libzstd.a
+    if [ -f ../lib/libzstd.a ] ; then
+        run ln -s ../lib/libncursesw.a libncursesw.a
+        run ln -s ../lib/libzstd.a     libzstd.a
 
-    gsed -i "s|linkSystemLibrary(\"ncursesw\", \.{})|addObjectFile(b.path(\"libncursesw.a\"))|" build.zig
-    gsed -i "s|linkSystemLibrary(\"libzstd\", \.{})|addObjectFile(b.path(\"libzstd.a\"))|" build.zig
-    #gsed -i '/addExecutable/a .linkage = .dynamic,' build.zig
+        gsed -i "s|linkSystemLibrary(\"ncursesw\", \.{})|addObjectFile(b.path(\"libncursesw.a\"))|" build.zig
+        gsed -i "s|linkSystemLibrary(\"libzstd\", \.{})|addObjectFile(b.path(\"libzstd.a\"))|" build.zig
+    fi
 
 install: |
     zig -Doptimize=ReleaseSafe -Dpie=true -Dstrip=true --search-prefix "$libncurses_INSTALL_DIR" --search-prefix "$libzstd_INSTALL_DIR"

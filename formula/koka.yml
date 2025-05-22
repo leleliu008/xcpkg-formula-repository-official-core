@@ -5,3 +5,6 @@ git-ref: refs/tags/v3.1.2
 license: Apache-2.0
 dep-pkg: libpcre2
 bsystem: cabal
+
+fix-url: https://github.com/koka-lang/koka/commit/86eb069440aa3e7da79b4f9b88867cfab4464354.patch?full_index=1
+fix-sha: 97229ae11d735963a29ded3c10adfa6d12672b7d07277190d1af3a898ee6045d

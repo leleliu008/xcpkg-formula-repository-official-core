@@ -1,4 +1,3 @@
-pkgtype: lib
 summary: A lightweight, portable SSL library written in C
 web-url: https://www.wolfssl.com
 src-url: https://github.com/wolfSSL/wolfssl/archive/refs/tags/v5.7.0-stable.tar.gz
@@ -6,6 +5,7 @@ src-sha: 2de93e8af588ee856fe67a6d7fce23fc1b226b74d710b0e3946bc8061f6aa18f
 license: GPL-2.0-or-later
 dep-upp: libtool
 bsystem: autogen
+
 install: |
     configure \
         --disable-asm \
@@ -54,6 +54,9 @@ install: |
         --enable-supportedcurves \
         --enable-tls13 \
         --enable-sp \
+        --enable-wolfssh \
         --enable-fastmath \
         --enable-fasthugemath \
         LIBS=-lm
+
+dotweak: gsed -i '/Libs:/s|$| -framework CoreFoundation -framework Security|' lib/pkgconfig/wolfssl.pc

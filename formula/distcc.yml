@@ -6,3 +6,6 @@ license: GPL-2.0-or-later
 dep-pkg: libiberty python3
 bsystem: autogen
 install: configure --disable-Werror PYTHON="$(command -v python3)"
+
+fix-url: https://github.com/distcc/distcc/commit/76873f8858bf5f32bda170fcdc1dfebb69de0e4b.patch?full_index=1
+fix-sha: 611910551841854755b06d2cac1dc204f7aaf8c495a5efda83ae4a1ef477d588
