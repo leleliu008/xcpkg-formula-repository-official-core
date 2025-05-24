@@ -3,5 +3,5 @@ web-url: https://timg.sh/
 src-url: https://github.com/hzeller/timg/archive/refs/tags/v1.6.1.tar.gz
 src-sha: 08147c41ce4cea61b6c494ad746e743b7c4501cfd247bec5134e8ede773bf2af
 license: GPL-2.0-only
-dep-pkg: ffmpeg graphicsmagick libsixel libexif librsvg
+dep-pkg: ffmpeg graphicsmagick libsixel libexif librsvg libpoppler
 bsystem: cmake

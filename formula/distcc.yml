@@ -5,6 +5,7 @@ src-sha: 2b99edda9dad9dbf283933a02eace6de7423fe5650daa4a728c950e5cd37bd7d
 license: GPL-2.0-or-later
 dep-pkg: libiberty python3
 bsystem: autogen
+prepare: run python3 -m pip install -U setuptools
 install: configure --disable-Werror PYTHON="$(command -v python3)"
 
 fix-url: https://github.com/distcc/distcc/commit/76873f8858bf5f32bda170fcdc1dfebb69de0e4b.patch?full_index=1

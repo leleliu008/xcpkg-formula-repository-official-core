@@ -5,6 +5,7 @@ dep-upp: python3 git
 bsystem: ninja
 binbstd: 1
 install: |
+    run git submodule update --init --recursive
     run python3 build/gen.py --platform=darwin
     run ninja -C out/
     run install_bins out/gn

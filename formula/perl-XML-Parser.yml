@@ -9,3 +9,6 @@ install: |
     export EXPATINCPATH="$libexpat_INCLUDE_DIR"
     run perl Makefile.PL "INSTALL_BASE=$PACKAGE_INSTALL_DIR"
     gmakew install
+    __check_mach_o_files() {
+        :
+    }

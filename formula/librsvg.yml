@@ -1,26 +1,10 @@
 summary: A library to render SVG files using Cairo
 web-url: https://wiki.gnome.org/Projects/LibRsvg
 git-url: https://gitlab.gnome.org/GNOME/librsvg
-src-url: https://download.gnome.org/sources/librsvg/2.58/librsvg-2.58.1.tar.xz
-src-sha: 3728596290a8576d305d06ec8afdf473516feee9dff22e03235eac433d56824e
+src-url: https://download.gnome.org/sources/librsvg/2.60/librsvg-2.60.0.tar.xz
+src-sha: 0b6ffccdf6e70afc9876882f5d2ce9ffcf2c713cbaaf1ad90170daa752e1eec3
 license: LGPL-2.1-or-later
-    #dep-upp: gdk-pixbuf
 dep-pkg: gdk-pixbuf libpango
-bsystem: configure cargo
-
-    #dopatch: gsed -i "s|RUST_LIB = \$(CARGO_TARGET_DIR)|RUST_LIB = $PWD/target/$RUST_TARGET|" Makefile.in
-dopatch: |
-    gsed -i "/^CARGO_TARGET_DIR = /c CARGO_TARGET_DIR = $PWD/target/$RUST_TARGET" Makefile.in
-    gsed -i '/CARGO_TARGET_DIR=/d' Makefile.in
-
-install: |
-    configure \
-        --enable-tools=yes \
-        --enable-pixbuf-loader=yes \
-        --enable-introspection=no \
-        --disable-Bsymbolic \
-        --disable-static
-
-dotweak: |
-    gsed -i '/^Requires:/d'                                             lib/pkgconfig/librsvg-2.0.pc
-    printf 'Requires: gdk-pixbuf-2.0 libxml-2.0 pangocairo cairo-gobject' >> lib/pkgconfig/librsvg-2.0.pc
+dep-upp: cargo-c
+bsystem: meson cargo
+install: mesonw -Dintrospection=disabled -Dpixbuf=disabled -Dpixbuf-loader=disabled

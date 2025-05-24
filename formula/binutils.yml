@@ -1,26 +1,22 @@
 summary: GNU binary tools for native development
 git-url: https://sourceware.org/git/binutils-gdb
 web-url: https://www.gnu.org/software/binutils/binutils.html
-src-url: https://ftp.gnu.org/gnu/binutils/binutils-2.43.1.tar.xz
-src-uri: https://sourceware.org/pub/binutils/releases/binutils-2.43.1.tar.xz
-src-sha: 13f74202a3c4c51118b797a39ea4200d3f6cfbe224da6d1d95bb938480132dfd
+src-url: https://ftp.gnu.org/gnu/binutils/binutils-2.44.tar.bz2
+src-uri: https://sourceware.org/pub/binutils/releases/binutils-2.44.tar.bz2
+src-sha: f66390a661faa117d00fab2e79cf2dc9d097b42cc296bf3f8677d1e7b452dc3a
 license: GPL-2.0-or-later
-dep-pkg: libisl libmpc libz libzstd
+dep-pkg: libz libzstd
 dep-upp: gm4 bison texinfo
+
+dopatch: gsed -i 's|$(LIBCTF_NOBFD)|$(LIBCTF_NOBFD) $(LIBCTF)|' binutils/Makefile.in
 
 install: |
     configure \
-        --with-isl="$libisl_INSTALL_DIR" \
-        --with-gmp="$libgmp_INSTALL_DIR" \
-        --with-mpc="$libmpc_INSTALL_DIR" \
-        --with-mpfr="$libmpfr_INSTALL_DIR" \
-        --with-static-standard-libraries \
         --with-zstd \
         --with-system-zlib \
         --disable-gprofng \
         --disable-werror \
         --disable-nls \
-        --disable-install-libbfd \
         --disable-shared \
         --enable-static \
         --enable-gold \
