@@ -1,8 +1,8 @@
 pkgtype: lib
 summary: A modern, open source, high-performance remote procedure call (RPC) framework
 web-url: https://grpc.io
-src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.71.0.tar.gz
-src-sha: 0d631419e54ec5b29def798623ee3bf5520dac77abeab3284ef7027ec2363f91
+src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.72.0.tar.gz
+src-sha: 4a8aa99d5e24f80ea6b7ec95463e16af5bd91aa805e26c661ef6491ae3d2d23c
 license: Apache-2.0
 dep-pkg: openssl-dev re2 libprotobuf libcares
 dep-upp: grpc-plugins

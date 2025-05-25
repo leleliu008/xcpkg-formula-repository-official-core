@@ -1,11 +1,9 @@
 summary: A meta-build system for generating build files for ninja
-git-url: https://gn.googlesource.com/gn
-git-nth: 0
+web-url: https://gn.googlesource.com/gn
 dep-upp: python3 git
-bsystem: ninja
-binbstd: 1
-install: |
-    run git submodule update --init --recursive
-    run python3 build/gen.py --platform=darwin
-    run ninja -C out/
-    run install_bins out/gn
+
+dofetch: run git clone --recursive https://gn.googlesource.com/gn .
+
+prepare: run python3 build/gen.py --platform=darwin --out-path=_
+
+install: ninjaw && install_bins gn

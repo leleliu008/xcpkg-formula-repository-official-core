@@ -1,16 +1,9 @@
-pkgtype: lib
 summary: A C++ library for interacting with JSON
-src-url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.5.tar.gz
-src-sha: f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2
+src-url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.6.tar.gz
+src-sha: f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2
 license: MIT
 
-install: |
-    cmakew \
-        -DJSONCPP_WITH_EXAMPLE=OFF \
-        -DJSONCPP_WITH_TESTS=OFF \
-        -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF \
-        -DJSONCPP_WITH_WARNING_AS_ERROR=OFF \
-        -DJSONCPP_WITH_PKGCONFIG_SUPPORT=ON \
-        -DJSONCPP_WITH_CMAKE_PACKAGE=ON \
-        -DJSONCPP_USE_SECURE_MEMORY=ON \
-        -DJSONCPP_WITH_STRICT_ISO=ON
+fix-url: https://github.com/open-source-parsers/jsoncpp/commit/3d47db0edcfa5cb5a6237c43efbe443221a32702.patch?full_index=1
+fix-sha: 1d042632c3272e6946ac9ac1a7cb3b1f0b2a61f901bd20001bed53fc6892d0e0
+
+install: mesonw -Dtests=false

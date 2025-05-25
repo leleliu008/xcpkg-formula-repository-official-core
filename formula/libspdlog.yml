@@ -1,11 +1,15 @@
-pkgtype: lib
 summary: Super fast C++ logging library
-src-url: https://github.com/gabime/spdlog/archive/refs/tags/v1.15.2.tar.gz
-src-sha: 7a80896357f3e8e920e85e92633b14ba0f229c506e6f978578bdc35ba09e9a5d
+src-url: https://github.com/gabime/spdlog/archive/refs/tags/v1.15.3.tar.gz
+src-sha: 15a04e69c222eb6c01094b5c7ff8a249b36bb22788d72519646fb85feb267e67
 license: MIT
 dep-pkg: libfmt
 
-dopatch: gsed -i 's| OR BUILD_SHARED_LIBS||' CMakeLists.txt
+dopatch: |
+    gsed -i 's| OR BUILD_SHARED_LIBS||' CMakeLists.txt
+    gsed -i '/define SPDLOG_FMT_EXTERNAL/c
+    #ifndef SPDLOG_FMT_EXTERNAL
+    #define SPDLOG_FMT_EXTERNAL
+    #endif' include/spdlog/tweakme.h
 
 install: |
     cmakew \
@@ -14,7 +18,6 @@ install: |
         -DSPDLOG_BUILD_TESTS=OFF \
         -DSPDLOG_BUILD_EXAMPLE=OFF \
         -DSPDLOG_BUILD_SHARED=ON
-    run rm -rf *
     cmakew \
         -DSPDLOG_FMT_EXTERNAL=ON \
         -DSPDLOG_BUILD_BENCH=OFF \

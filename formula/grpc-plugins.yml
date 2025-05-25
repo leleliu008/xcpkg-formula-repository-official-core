@@ -1,7 +1,7 @@
 summary: grpc plugins
 web-url: https://grpc.io
-src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.64.0.tar.gz
-src-sha: d5509e40fb24f6390deeef8a88668124f4ec77d2ebb3b1a957b235a2f08b70c0
+src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.72.0.tar.gz
+src-sha: 4a8aa99d5e24f80ea6b7ec95463e16af5bd91aa805e26c661ef6491ae3d2d23c
 license: Apache-2.0
 dep-pkg: openssl-dev re2 libprotobuf libcares
 dep-upp: grpc-plugins
@@ -28,6 +28,4 @@ install: |
         -DBUILD_SHARED_LIBS=OFF \
         -DPROTOBUF_PROTOC_EXECUTABLE="$(command -v protoc)"
 
-dotweak: |
-    rm -rf include
-    rm -rf lib
+dotweak: run rm -rf include/ lib/
