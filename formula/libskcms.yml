@@ -1,5 +1,6 @@
 summary: SkCMS
 git-url: https://skia.googlesource.com/skcms.git
+git-nth: 0
 license: BSD
 
 install: |

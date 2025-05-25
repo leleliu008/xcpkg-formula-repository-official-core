@@ -2,7 +2,7 @@ summary: A meta-build system for generating build files for ninja
 web-url: https://gn.googlesource.com/gn
 dep-upp: python3 git
 
-dofetch: run git clone --recursive https://gn.googlesource.com/gn .
+dofetch: run git clone --recursive https://gn.googlesource.com/gn src
 
 prepare: run python3 build/gen.py --platform=darwin --out-path=_
 
