@@ -6,6 +6,7 @@ license: BSD-3-Clause
 binbstd: 1
 
 install: |
+    gsed -i '/^srcdir=/c srcdir="$PWD"' boot-strap
     run sh boot-strap --prefix=$PACKAGE_INSTALL_DIR -DWITHOUT_PROG_LINK --install BROKEN_TESTS=shell-ksh
     install_mans bmake.1
 
