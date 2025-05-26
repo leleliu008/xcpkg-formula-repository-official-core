@@ -7,3 +7,7 @@ dep-pkg: purescript
 
 prepare: export BOOTSTRAP_HASKELL_GHC_VERSION='9.10.1'
 install: cabal_v2_install --allow-newer=turtle:text
+
+patches: |
+    e49585ff8127ccca0b35dc8a7caa04551de1638edfd9ac38e031d1148212091c|https://github.com/purescript/psc-package/commit/2817cfd7bbc29de790d2ab7bee582cd6167c16b5.patch?full_index=1
+    3151f1f426a126c707c13a8b4d720174b7219e7e25d13b753ea78d381af08360|https://raw.githubusercontent.com/leleliu008/xcpkg-formula-repository-official-core/refs/heads/master/patches/psc-package.diff

@@ -1,7 +1,0 @@
-pkgtype: lib
-summary: QUIC transport protocol implementation
-src-url: https://github.com/facebookincubator/mvfst/archive/refs/tags/v2024.05.06.00.tar.gz
-src-sha: 9bfbdf7a73fdaf2e135050a9efccec577be1590e8ecbb262543a78fea14424b5
-license: MIT
-dep-pkg: fizz
-install: cmakew -DBUILD_TESTS=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON

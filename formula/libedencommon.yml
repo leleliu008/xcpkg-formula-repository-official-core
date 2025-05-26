@@ -1,0 +1,9 @@
+summary: A shared library for Watchman and Eden projects
+src-url: https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.05.19.00.tar.gz
+src-sha: 4ac686c3f753ad5464661ed5abb95c26caa895c4260a9fceec62726c5ba947bb
+license: MIT
+dep-pkg: libfb303 googletest
+bsystem: cmake
+
+dopatch: |
+    gsed -i '/gtest_discover_tests/s|gtest_discover_tests(\(.*\))|gtest_discover_tests(\1 DISCOVERY_TIMEOUT 60)|' eden/common/os/test/CMakeLists.txt eden/common/utils/test/CMakeLists.txt

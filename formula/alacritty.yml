@@ -6,4 +6,4 @@ license: Apache-2.0
 dep-pkg: libfontconfig libxkbcommon
 dep-upp: python3
 bsystem: cargo cmake
-install: cargow install --path alacritty
+install: cargow install --locked --path alacritty

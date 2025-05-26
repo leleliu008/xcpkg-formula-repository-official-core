@@ -1,0 +1,58 @@
+name: ci2 
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+
+  build1:
+    if: false
+
+    strategy:
+      fail-fast: false
+      matrix:
+        #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
+        target: [ 'MacOSX-14.0-arm64' ]
+        pkg: [dot_static,doxygen,dtc,dua,duf,dufs,duktape,dust,dylibbundler,easyutils,ed,elftool,elvish,epsilon,erdtree,esbuild,ethereum,exa,execline,exhale,exif,exiv2,eza,faac,faad2,fastfetch,fcp,fd,fdroidcl,fff,figlet,file,findent,findutils,fish,flac,flatc,flex,flock,fnm,fontconfig,fontforge,fortune,frei0r,fselect,fsmon,fswatch,fx,fzf,fzy,g,garble,gat,gawk,gbt,gcli,gdu,geographiclib,germanium,getopt,gettext-tools,gf,gh,ghostscript,ghr,giflib,gindent,git,git-cliff,git-lfs,gitui,gitwatch,glew,glib-tools,glow,glslang,gm4,gmake,gn,gnu-barcode,gnu-which,go-md2man,go-tools,gobject-introspection@1.78,godu,gogs,gojq,golang,gomobile,google-benchmark,gopls,goreleaser,gosh,gotop,gotty,gox,gperf,gping,gpsim,gputils,grep,grex,groff,gron,grpc-plugins,gsed,gtar,gtime,gzip,halibut,hdiffpatch,helix,helm,help2man,hexdump,hexyl,hpack,htop,htslib,httpx,hugo,hunspell,hurl,hydroxide,hyperfine,id3lib,ideviceinstaller,intltool]
+
+    runs-on: macos-14
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/${{ github.ref_name }}/xcpkg
+      - run: chmod u+x xcpkg
+
+      - run: ./xcpkg about
+      - run: ./xcpkg setup
+      - run: ./xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+      - run: mv formula ~/.xcpkg/repos.d/test/
+
+      - run: ./xcpkg install ${{ matrix.target }}/${{ matrix.pkg }}
+
+
+  build:
+    runs-on: macos-15
+
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg: [dot_static,doxygen,dtc,dua,duf,dufs,duktape,dust,dylibbundler,easyutils,ed,elftool,elvish,epsilon,erdtree,esbuild,ethereum,exa,execline,exhale,exif,exiv2,eza,faac,faad2,fastfetch,fcp,fd,fdroidcl,fff,figlet,file,findent,findutils,fish,flac,flatc,flex,flock,fnm,fontconfig,fontforge,fortune,frei0r,fselect,fsmon,fswatch,fx,fzf,fzy,g,garble,gat,gawk,gbt,gcli,gdu,geographiclib,germanium,getopt,gettext-tools,gf,gh,ghostscript,ghr,giflib,gindent,git,git-cliff,git-lfs,gitui,gitwatch,glew,glib-tools,glow,glslang,gm4,gmake,gn,gnu-barcode,gnu-which,go-md2man,go-tools,gobject-introspection@1.78,godu,gogs,gojq,golang,gomobile,google-benchmark,gopls,goreleaser,gosh,gotop,gotty,gox,gperf,gping,gpsim,gputils,grep,grex,groff,gron,grpc-plugins,gsed,gtar,gtime,gzip,halibut,hdiffpatch,helix,helm,help2man,hexdump,hexyl,hpack,htop,htslib,httpx,hugo,hunspell,hurl,hydroxide,hyperfine,id3lib,ideviceinstaller,intltool]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
+      - run: /usr/bin/bsdtar xf xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz --strip-components=1
+
+      - run: bin/xcpkg about
+      - run: bin/xcpkg sysinfo
+      - run: bin/xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+      - run: mv formula ~/.xcpkg/repos.d/test/
+
+      - run: bin/xcpkg install ${{ matrix.pkg }}

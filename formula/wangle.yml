@@ -1,8 +1,0 @@
-pkgtype: lib
-summary: Modular, composable client/server abstractions framework
-src-url: https://github.com/facebook/wangle/archive/refs/tags/v2024.05.06.00.tar.gz
-src-sha: 44e22905a7d5334b37cc25b27ca4124a63df6891b55641e157d9a75fea7bc21c
-license: Apache-2.0
-dep-pkg: fizz
-bscript: wangle
-install: cmakew -DBUILD_TESTS=OFF
