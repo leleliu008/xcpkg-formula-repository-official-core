@@ -1,7 +1,7 @@
 summary: HTTP/2 C Library
 web-url: https://nghttp2.org/
-src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.61.0/nghttp2-1.61.0.tar.gz
-src-sha: aa7594c846e56a22fbf3d6e260e472268808d3b49d5e0ed339f589e9cc9d484c
+src-url: https://github.com/nghttp2/nghttp2/releases/download/v1.65.0/nghttp2-1.65.0.tar.gz
+src-sha: 8ca4f2a77ba7aac20aca3e3517a2c96cfcf7c6b064ab7d4a0809e7e4e9eb9914
 license: MIT
 
 install: |
