@@ -1,11 +1,10 @@
-pkgtype: lib
 summary: PDF rendering library (based on the xpdf-3.0 code base)
 git-url: https://gitlab.freedesktop.org/poppler/poppler.git
 web-url: https://poppler.freedesktop.org/
 src-url: https://poppler.freedesktop.org/poppler-24.12.0.tar.xz
 src-sha: 1cf374c3146f3f685d9257701bf0c2866c61d6c202c14d1f5c01a1f3a089028a
 license: GPL-2.0-only
-dep-pkg: libcairo liblcms2 libtiff libjpeg-turbo libopenjpeg libcurl libgpgme nss
+dep-pkg: libcairo liblcms2 libtiff libjpeg-turbo libopenjpeg libcurl libgpgme libnss
 dep-upp: gperf python3
 
 install: |
