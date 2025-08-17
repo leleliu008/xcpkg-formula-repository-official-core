@@ -1,6 +1,7 @@
 summary: Print info and check PNG, JNG, and MNG files
-web-url: http://www.libpng.org/pub/png/apps/pngcheck.html
-src-url: http://www.libpng.org/pub/png/src/pngcheck-3.0.3.tar.gz
+git-url: https://github.com/pnggroup/pngcheck
+web-url: https://www.libpng.org/pub/png/apps/pngcheck.html
+src-url: https://www.libpng.org/pub/png/src/pngcheck-3.0.3.tar.gz
 src-sha: c36a4491634af751f7798ea421321642f9590faa032eccb0dd5fb4533609dee6
 license: GPL-2.0-or-later
 dep-pkg: libz
