@@ -6,6 +6,7 @@ src-sha: aee02dab79d9138fdcc7226b67ec985121bce6007edebe30d0e39d42f69a340e
 license: GPL-3.0-or-later
 dep-pkg: libiconv
 bscript: gettext-runtime
+parallel: 0
 
 install: |
     configure \
