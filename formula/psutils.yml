@@ -4,7 +4,7 @@ src-url: https://files.pythonhosted.org/packages/92/07/ebcf289c31f4da85ea94e103f
 src-sha: a20a2a1359811bd0ad72e15349351a26774ddf8e355c2cde4250a70cf77fdf0c
 license: GPL-3.0-or-later
 dep-pkg: libpaper
-dep-pym: build pypdf puremagic
+dep-pip: build pypdf puremagic
 dep-upp: python3
 binbstd: 1
 install: |
