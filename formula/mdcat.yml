@@ -4,3 +4,4 @@ src-url: https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.7.1.tar.gz
 src-sha: 460024d9795eb578be09ec2284af243627721151aa001aae6ffb5589380b2ba1
 license: MPL-2.0
 bsystem: cargo cmake
+install: cargow install --locked

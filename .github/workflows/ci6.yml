@@ -16,7 +16,7 @@ jobs:
       matrix:
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-14.0-arm64' ]
-        pkg: [uv,vala,valijson,vapoursynth,vegeta,virustotal-cli,viu,volta,vsftpd,wabt,wasm3,wasmer,wasmtime,watchexec,watchman,wavpack,webhook,webp,websocketpp,wget,whois,wiki-tui,woff2,wolfssh,wuzz,x264,x265,xcpkg,xdotool,xh,xmake,xmlto,xmlutils,xmlwf,xorg-libxcursor,xorg-libxdamage,xorg-libxmu,xorg-libxpresent,xorg-libxscrnsaver,xorg-libxshmfence,xorg-libxvmc,xorg-libxxf86vm,xorg-xinput,xorriso,xpup,xsltproc,xxd,xxhash,xz,yasm,yazi,ycm,youtubedr,yq,yyjson,zellij,zeta,zip,zlib-ng,zls,zola,zopfli,zoxide,zsh,zstd,zsv,zsync]
+        pkg: [uppm@0.15.3,uppm@0.15.4,upx,utf8.h,utfcpp,util-linux,uutils-coreutils,uv,vala,valijson,vapoursynth,vegeta,virustotal-cli,viu,volta,vsftpd,wabt,wasm3,wasmer,wasmtime,watchexec,watchman,wavpack,webhook,webp,websocketpp,wget,whois,wiki-tui,woff2,wolfssh,wuzz,x264,x265,xcpkg,xdotool,xh,xmake,xmlto,xmlutils,xmlwf,xorg-libxcursor,xorg-libxdamage,xorg-libxmu,xorg-libxpresent,xorg-libxscrnsaver,xorg-libxshmfence,xorg-libxvmc,xorg-libxxf86vm,xorg-xinput,xorriso,xpup,xsltproc,xxd,xxhash,xz,yasm,yazi,ycm,youtubedr,yq,yyjson,zellij,zeta,zip,zlib-ng,zls,zola,zopfli,zoxide,zsh,zstd,zsv,zsync]
 
     runs-on: macos-14
 
@@ -41,7 +41,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pkg: [uv,vala,valijson,vapoursynth,vegeta,virustotal-cli,viu,volta,vsftpd,wabt,wasm3,wasmer,wasmtime,watchexec,watchman,wavpack,webhook,webp,websocketpp,wget,whois,wiki-tui,woff2,wolfssh,wuzz,x264,x265,xcpkg,xdotool,xh,xmake,xmlto,xmlutils,xmlwf,xorg-libxcursor,xorg-libxdamage,xorg-libxmu,xorg-libxpresent,xorg-libxscrnsaver,xorg-libxshmfence,xorg-libxvmc,xorg-libxxf86vm,xorg-xinput,xorriso,xpup,xsltproc,xxd,xxhash,xz,yasm,yazi,ycm,youtubedr,yq,yyjson,zellij,zeta,zip,zlib-ng,zls,zola,zopfli,zoxide,zsh,zstd,zsv,zsync]
+        pkg: [uppm@0.15.3,uppm@0.15.4,upx,utf8.h,utfcpp,util-linux,uutils-coreutils,uv,vala,valijson,vapoursynth,vegeta,virustotal-cli,viu,volta,vsftpd,wabt,wasm3,wasmer,wasmtime,watchexec,watchman,wavpack,webhook,webp,websocketpp,wget,whois,wiki-tui,woff2,wolfssh,wuzz,x264,x265,xcpkg,xdotool,xh,xmake,xmlto,xmlutils,xmlwf,xorg-libxcursor,xorg-libxdamage,xorg-libxmu,xorg-libxpresent,xorg-libxscrnsaver,xorg-libxshmfence,xorg-libxvmc,xorg-libxxf86vm,xorg-xinput,xorriso,xpup,xsltproc,xxd,xxhash,xz,yasm,yazi,ycm,youtubedr,yq,yyjson,zellij,zeta,zip,zlib-ng,zls,zola,zopfli,zoxide,zsh,zstd,zsv,zsync]
 
     steps:
       - uses: actions/checkout@v4

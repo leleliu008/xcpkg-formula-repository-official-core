@@ -5,6 +5,9 @@ src-url: https://distfiles.macports.org/libcaca/libcaca-0.99.beta20.tar.gz
 src-sha: 0241d42af3c46949768b956f2e96e8fe2fbc73c66fde3b0280cf1ab70da9e2c3
 license: WTFPL
 dep-pkg: imlib2
+dep-upp: libtool
+bsystem: autotools
+dopatch: run ./bootstrap
 
 install: |
     configure \
