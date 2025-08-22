@@ -1,8 +1,8 @@
 summary: Cryptography and SSL/TLS Toolkit
 git-url: https://github.com/openssl/openssl
 web-url: https://www.openssl.org/
-src-url: https://www.openssl.org/source/openssl-3.5.0.tar.gz
-src-sha: 344d0a79f1a9b08029b0744e2cc401a43f9c90acd1044d09a530b4885a8e9fc0
+src-url: https://www.openssl.org/source/openssl-3.5.2.tar.gz
+src-sha: c53a47e5e441c930c3928cf7bf6fb00e5d129b630e0aa873b08258656e7345ec
 license: Apache-2.0
 dep-upp: perl
 

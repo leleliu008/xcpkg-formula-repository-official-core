@@ -1,14 +1,26 @@
 summary: A generic and open source machine & userspace emulator and virtualizer
 web-url: https://www.qemu.org/
 git-url: https://git.qemu.org/git/qemu.git
-src-url: https://download.qemu.org/qemu-9.0.0.tar.xz
-src-sha: 32708ac66c30d8c892633ea968c771c1c76d597d70ddead21a0d22ccf386da69
+src-url: https://download.qemu.org/qemu-10.0.3.tar.xz
+src-uri: https://distfiles.macports.org/qemu/qemu-10.0.3.tar.xz
+src-sha: 5c891267b1534a774465db8b1a0dfcb0c5e6d7ecb6f71345625adf4e0889945b
 license: GPL-2.0-only
-dep-pkg: libncurses capstone libfdt libusb libslirp libssh libpng libjpeg-turbo libpixman libsnappy libzstd liblzo gnutls libnettle vde
+dep-pkg: libncurses libcapstone libslirp libfdt libusb libssh libpng libjpeg-turbo libpixman libnettle libsnappy libzstd liblzo gnutls vde
+dep-upp: libtool gm4 flex bison
+dep-pip: distlib
 bsystem: gmake meson
 
 ppflags: -UNDEBUG
 ldflags: -lc++
+
+dopatch: |
+    gsed -i 's|$meson setup |meson setup --prefer-static |' configure
+    gsed -i \
+         -e 's|-static-pie|-pie|' \
+         -e "s|cc.find_library('vdeplug'|cc.find_library('vdeplug', static : true, dirs : ['$vde_LIBRARY_DIR']|" \
+         -e "s|cc.find_library('fdt'|cc.find_library('fdt', static : true, dirs : ['$libfdt_LIBRARY_DIR']|" \
+         -e "/iconv = /c iconv = cc.find_library('iconv', static : true, dirs: ['$libiconv_LIBRARY_DIR'])" meson.build
+
 
 install: |
     ./configure \

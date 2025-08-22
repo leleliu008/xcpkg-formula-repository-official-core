@@ -5,8 +5,6 @@ src-sha: 4afab907a46d5a7d14e927a1080c3f4d7e3ca5a0f9aea81747d8fed0292377ff
 license: BSD-2-Clause
 
 install: |
-    #gsed -i 's|\.so|.dylib|g' Makefile.in
-    #gsed -i 's/-soname=/install_name,/g' Makefile.in
     run ./configure --enable-static --enable-shared --disable-ldconfig --prefix="$PACKAGE_INSTALL_DIR" CC="$CC" CFLAGS="'$CFLAGS'" CPPFLAGS="'$CPPFLAGS'" LDFLAGS="'$LDFLAGS'" AR="$AR"
     gmakew
     gmakew install
