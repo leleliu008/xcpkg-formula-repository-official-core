@@ -1,21 +1,24 @@
 summary: A toolkit for manipulation of graphic images, including conversion of images between a variety of different formats
 web-url: http://netpbm.sourceforge.net/
-src-url: https://downloads.sourceforge.net/project/netpbm/super_stable/10.86.41/netpbm-10.86.41.tgz
-src-sha: 045f7796224a801512efb5e7d6150a321674cbfb566128b21abf8d4ba65b4513
+src-url: https://downloads.sourceforge.net/project/netpbm/super_stable/10.86.47/netpbm-10.86.47.tgz
+src-sha: 4c7575dc0f38521e75917438835f19c07651523fa87f6d63492fa2a97d1ab21f
 license: GPL-3.0-or-later
-dep-pkg: libjasper libtiff libpng libjpeg-turbo libxml2
+dep-pkg: libjasper libtiff libpng libxml2
 dep-upp: gm4 flex perl
 parallel: 0
 ppflags: -D_DARWIN_C_SOURCE
 
 dopatch: |
-    # https://stackoverflow.com/questions/9168150/implicit-declaration-using-std-c99
-    gsed -i 's|$(CFLAGS)|-D_DARWIN_C_SOURCE|' buildtools/Makefile
-    gsed -i '/^CFLAGS_SHLIB =/c CFLAGS_SHLIB = -fPIC' config.mk.in
-    gsed -i '/^STRIPFLAG =/c STRIPFLAG = ' config.mk.in
-    gsed -i '/^INSTALL =/c INSTALL = install' config.mk.in
-    gsed -i '/^LDSHLIB =/c LDSHLIB = -shared ' config.mk.in
+    gsed -i \
+         -e '/^CFLAGS_SHLIB =/c CFLAGS_SHLIB = -fPIC' \
+         -e '/^STRIPFLAG =/c STRIPFLAG = ' \
+         -e '/^INSTALL =/c INSTALL = install' \
+         -e '/^LDSHLIB =/c LDSHLIB = -shared ' config.mk.in
+
     gsed -i 's/mkdir $(PKGDIR)/install -d $(PKGDIR)/' GNUmakefile
+
+    gsed -i 's|$(CFLAGS)|-D_DARWIN_C_SOURCE|' buildtools/Makefile
+
     run cp config.mk.in config.mk
 
 install: |

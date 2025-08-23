@@ -1,9 +1,8 @@
 summary: GNOME XML library
 web-url: http://xmlsoft.org
 git-url: https://gitlab.gnome.org/GNOME/libxml2
-src-url: https://download.gnome.org/sources/libxml2/2.12/libxml2-2.12.7.tar.xz
-src-uri: https://distfiles.macports.org/libxml2/libxml2-2.12.7.tar.xz
-src-sha: 24ae78ff1363a973e6d8beba941a7945da2ac056e19b53956aeb6927fd6cfb56
+src-url: https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.8.tar.xz
+src-sha: 277294cb33119ab71b2bc81f2f445e9bc9435b893ad15bb2cd2b0e859a0ee84a
 license: MIT
 dep-pkg: libiconv libz
 
@@ -18,7 +17,4 @@ install: |
         --without-debug \
         --enable-ipv6 LIBS="'-liconv -lm'"
 
-dotweak: |
-    sed -i '/^Requires: /d'                lib/pkgconfig/libxml-2.0.pc
-    sed -i -e 's|-liconv||g' -e 's|-lz||g' lib/pkgconfig/libxml-2.0.pc
-    printf 'Requires: libiconv libz\n' >>  lib/pkgconfig/libxml-2.0.pc
+dotweak: gsed -i -e '/^Requires/s|$| libiconv|' -e 's| -liconv||g' lib/pkgconfig/libxml-2.0.pc

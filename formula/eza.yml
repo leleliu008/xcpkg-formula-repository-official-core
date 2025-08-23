@@ -1,6 +1,6 @@
-summary: Modern replacement for ls(1)
-src-url: https://github.com/eza-community/eza/archive/refs/tags/v0.21.3.tar.gz
-src-sha: f0827d39406f0799e6676ab87e349193e88b6220af1670e98b988e8ee0c2b7c0
-license: MIT
+summary: A modern alternative to ls(1)
+src-url: https://github.com/eza-community/eza/archive/refs/tags/v0.23.0.tar.gz
+src-sha: 119973d58aef7490f6c553f818cfde142998f5e93205f53f94981a9631b50310
+license: EUPL-1.2
 dep-pkg: libz
 install: cargow install --locked
