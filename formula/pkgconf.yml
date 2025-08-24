@@ -1,8 +1,10 @@
 summary: Reimplementation of pkg-config
 web-url: http://pkgconf.org
 git-url: https://github.com/pkgconf/pkgconf
-src-url: https://distfiles.ariadne.space/pkgconf/pkgconf-2.1.1.tar.xz
-src-sha: 3a224f2accf091b77a5781316e27b9ee3ba82c083cc2e539e08940b68a44fec5
+src-url: https://distfiles.ariadne.space/pkgconf/pkgconf-2.5.1.tar.xz
+src-sha: cd05c9589b9f86ecf044c10a2269822bc9eb001eced2582cfffd658b0a50c243
 license: ISC
-install: configure
+
+install: configure --disable-shared
+
 dotweak: run ln -s pkgconf bin/pkg-config
