@@ -1,0 +1,105 @@
+summary: OCR (Optical Character Recognition) engine
+src-url: https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.5.1.tar.gz
+src-sha: a7a3f2a7420cb6a6a94d80c24163e183cf1d2f1bed2df3bbc397c81808a57237
+license: Apache-2.0
+dep-pkg: libicu libpango libleptonica libarchive libcurl
+ldflags: -framework Foundation -framework CoreFoundation -framework SystemConfiguration -framework ApplicationServices
+
+dopatch: |
+    CURL_LIBRARIES="$(pkg-config --libs-only-l libcurl | tr ' ' ';')"
+
+    cat > cmake/FindCURL.cmake <<EOF
+    set(CURL_INCLUDE_DIRS "$libcurl_INCLUDE_DIR")
+    set(CURL_LIBRARIES    "$CURL_LIBRARIES")
+
+    if (NOT TARGET  CURL::libcurl)
+        add_library(CURL::libcurl INTERFACE IMPORTED)
+        set_target_properties(CURL::libcurl PROPERTIES
+            INTERFACE_INCLUDE_DIRECTORIES "\${CURL_INCLUDE_DIRS}"
+            INTERFACE_LINK_LIBRARIES      "\${CURL_LIBRARIES}"
+        )
+    endif()
+
+    include(FindPackageHandleStandardArgs)
+    find_package_handle_standard_args(CURL REQUIRED_VARS CURL_LIBRARIES CURL_INCLUDE_DIRS VERSION_VAR CURL_VERSION)
+    mark_as_advanced(CURL_INCLUDE_DIRS CURL_LIBRARIES)
+    EOF
+
+    ####################################################################
+
+    TIFF_LIBRARIES="$(pkg-config --libs-only-l libtiff-4 | tr ' ' ';')"
+
+    cat > cmake/FindTIFF.cmake <<EOF
+    set(TIFF_INCLUDE_DIRS "$libtiff_INCLUDE_DIR")
+    set(TIFF_LIBRARIES    "$TIFF_LIBRARIES")
+
+    if (NOT TARGET  TIFF::TIFF)
+        add_library(TIFF::TIFF INTERFACE IMPORTED)
+        set_target_properties(TIFF::TIFF PROPERTIES
+            INTERFACE_INCLUDE_DIRECTORIES "\${TIFF_INCLUDE_DIRS}"
+            INTERFACE_LINK_LIBRARIES      "\${TIFF_LIBRARIES}"
+        )
+    endif()
+
+    include(FindPackageHandleStandardArgs)
+    find_package_handle_standard_args(TIFF REQUIRED_VARS TIFF_LIBRARIES TIFF_INCLUDE_DIRS VERSION_VAR TIFF_VERSION)
+    mark_as_advanced(TIFF_INCLUDE_DIRS TIFF_LIBRARIES)
+    EOF
+
+    ####################################################################
+
+    LIBARCHIVE_LIBRARIES="$(pkg-config --libs-only-l libarchive | tr ' ' ';')"
+
+    cat > cmake/FindLibArchive.cmake <<EOF
+    set(LibArchive_INCLUDE_DIRS "$libarchive_INCLUDE_DIR")
+    set(LibArchive_LIBRARIES    "$LIBARCHIVE_LIBRARIES")
+
+    if (NOT TARGET  LibArchive::LibArchive)
+        add_library(LibArchive::LibArchive INTERFACE IMPORTED)
+        set_target_properties(LibArchive::LibArchive PROPERTIES
+            INTERFACE_INCLUDE_DIRECTORIES "${LibArchive_INCLUDE_DIRS}"
+            INTERFACE_LINK_LIBRARIES      "${LibArchive_LIBRARIES}"
+        )
+    endif()
+
+    include(FindPackageHandleStandardArgs)
+    find_package_handle_standard_args(LibArchive REQUIRED_VARS LibArchive_LIBRARIES LibArchive_INCLUDE_DIRS VERSION_VAR LibArchive_VERSION)
+    mark_as_advanced(LibArchive_INCLUDE_DIRS LibArchive_LIBRARIES)
+    EOF
+
+    ####################################################################
+
+    Leptonica_LIBRARIES="$(pkg-config --libs-only-l lept | tr ' ' ';')"
+    Leptonica_VERSION="$(pkg-config --modversion lept)"
+
+    cat > cmake/FindLeptonica.cmake <<EOF
+    set(Leptonica_INCLUDE_DIRS "$libleptonica_INCLUDE_DIR/leptonica")
+    set(Leptonica_LIBRARIES    "$Leptonica_LIBRARIES")
+    set(Leptonica_VERSION      "$Leptonica_VERSION")
+
+    include(FindPackageHandleStandardArgs)
+    find_package_handle_standard_args(Leptonica REQUIRED_VARS Leptonica_LIBRARIES Leptonica_INCLUDE_DIRS VERSION_VAR Leptonica_VERSION)
+    mark_as_advanced(Leptonica_INCLUDE_DIRS Leptonica_LIBRARIES)
+    EOF
+
+    ####################################################################
+
+    PANGOCAIRO_LIBRARIES="$(pkg-config --libs-only-l pangocairo) -lintl -lpixman-1 -lffi  -lpcre2-8"
+    echo "$PANGOCAIRO_LIBRARIES=$PANGOCAIRO_LIBRARIES"
+    gsed -i "s|PkgConfig::PANGO|$PANGOCAIRO_LIBRARIES|" src/training/CMakeLists.txt
+
+    ####################################################################
+
+    gsed -i '/find_package(Leptonica/s|CONFIG||' CMakeLists.txt
+
+install: |
+    cmakew \
+        -DENABLE_LTO=ON \
+        -DUSE_SYSTEM_ICU=ON \
+        -DDISABLE_ARCHIVE=OFF \
+        -DDISABLE_CURL=OFF \
+        -DBUILD_TESTS=OFF \
+        -DBUILD_TRAINING_TOOLS=ON \
+        -DBUILD_SHARED_LIBS=OFF
+
+dotweak: rm -rf include/ lib/

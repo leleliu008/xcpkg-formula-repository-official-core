@@ -1,7 +1,7 @@
 summary: A lightweight RPC library for C/C++ based on XML and HTTP
 web-url: https://xmlrpc-c.sourceforge.io/
-src-url: https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.59.03/xmlrpc-c-1.59.03.tgz
-src-sha: bdb71db42ab0be51591555885d11682b044c1034d4a3296401bf921ec0b233fe
+src-url: https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.60.05/xmlrpc-c-1.60.05.tgz
+src-sha: 67d860062459ea2784c07b4d7913319d9539fa729f534378e8e41c8918f2adf6
 license: BSD-3-Clause
 dep-pkg: libcurl libxml2
 binbstd: 1
