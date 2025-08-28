@@ -5,3 +5,4 @@ src-sha: 460024d9795eb578be09ec2284af243627721151aa001aae6ffb5589380b2ba1
 license: MPL-2.0
 dep-pkg: openssl-dev
 bsystem: cargo cmake
+prepare: export RUSTUP_TOOLCHAIN=1.88

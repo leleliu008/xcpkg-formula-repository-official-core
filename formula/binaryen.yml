@@ -1,6 +1,35 @@
 summary: Compiler infrastructure and toolchain library for WebAssembly
 web-url: https://webassembly.org/
-src-url: https://github.com/WebAssembly/binaryen/archive/version_117.tar.gz
-src-sha: 9acf7cc5be94bcd16bebfb93a1f5ac6be10e0995a33e1981dd7c404dafe83387
+src-url: https://github.com/WebAssembly/binaryen/archive/version_123.tar.gz
+src-sha: a1e1caf250cab3a83938713594e55b6762591208e82087e3337f793e8c8eb7ab
 license: Apache-2.0
 install: cmakew -DBUILD_TESTS=OFF -DBUILD_STATIC_LIB=ON
+
+# https://github.com/WebAssembly/binaryen/pull/7699
+dep-upp: patch
+dopatch: |
+    patch -p1 <<EOF
+    diff --git a/src/wasm/wasm-debug.cpp b/src/wasm/wasm-debug.cpp
+    index abe1cd05c1f..bb065cc3cbd 100644
+    --- a/src/wasm/wasm-debug.cpp
+    +++ b/src/wasm/wasm-debug.cpp
+    @@ -18,7 +18,18 @@
+     #include "wasm.h"
+     
+     #ifdef BUILD_LLVM_DWARF
+    +
+    +#ifdef __clang__
+    +#pragma clang diagnostic push
+    +#pragma clang diagnostic warning "-Wdeprecated-declarations"
+    +#endif
+    +
+     #include "llvm/ObjectYAML/DWARFEmitter.h"
+    +
+    +#ifdef __clang__
+    +#pragma clang diagnostic pop
+    +#endif
+    +
+     #include "llvm/ObjectYAML/DWARFYAML.h"
+     #include "llvm/include/llvm/DebugInfo/DWARFContext.h"
+
+    EOF

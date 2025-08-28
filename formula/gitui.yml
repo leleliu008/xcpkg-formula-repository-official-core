@@ -6,3 +6,4 @@ dep-pkg: libz openssl-dev
 dep-upp: perl
 bsystem: cargo cmake
 install: cargow install --locked
+prepare: export RUSTUP_TOOLCHAIN=1.88
