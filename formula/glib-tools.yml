@@ -8,6 +8,7 @@ dep-pkg: libpcre2 libintl libffi libz
 dep-lib: libintl
 
 dopatch: |
+    gsed -i "s|dependency('intl'|dependency('libintl'|" meson.build
     gsed -i "s|dependency('iconv')|dependency('libiconv')|" meson.build
     gsed -i "s|cc.find_library('resolv')|declare_dependency(link_args : ['-lresolv'])|" gio/meson.build
 
