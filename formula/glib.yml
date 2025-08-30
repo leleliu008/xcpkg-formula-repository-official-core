@@ -12,15 +12,21 @@ dopatch: |
     gsed -i "s|dependency('iconv')|dependency('libiconv')|" meson.build
     gsed -i "s|cc.find_library('resolv')|declare_dependency(link_args : ['-lresolv'])|" gio/meson.build
 
+# https://docs.gtk.org/glib/building.html
 install: |
     mesonw \
         -Dintrospection=disabled \
         -Ddocumentation=false \
         -Dman-pages=disabled \
+        -Dsysprof=disabled \
+        -Dselinux=disabled \
+        -Ddtrace=disabled \
         -Dnls=disabled \
-        -Ddtrace=false \
+        -Dlibelf=disabled \
+        -Dlibmount=disabled \
         -Dglib_debug=disabled \
         -Dglib_assert=false \
+        -Dxattr=false \
         -Dtests=false \
         -Dinstalled_tests=false \
         -Dbsymbolic_functions=false
