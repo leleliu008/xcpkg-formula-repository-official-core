@@ -1,10 +1,11 @@
+pkgtype: exe+lib
 summary: Next-gen compiler infrastructure
 web-url: https://llvm.org/
-src-url: https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/llvm-project-18.1.8.src.tar.xz
-src-sha: 0b58557a6d32ceee97c8d533a59b9212d87e0fc4d2833924eb6c611247db2f2a
+src-url: https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-project-15.0.7.src.tar.xz
+src-sha: 8b5fcb24b4128cf04df1b0b9410ce8b1a729cb3c544e6da885d234280dedeac6
 license: Apache-2.0 with LLVM-exception
-dep-pkg: libedit libxml2 libzstd libffi libz3
-dep-upp: swig python3 perl
+dep-pkg: libz liblzma libzstd libxml2 libedit libffi libz3
+dep-upp: python3 perl swig
 bscript: llvm
 
 # https://llvm.org/docs/CMake.html
@@ -14,13 +15,16 @@ install: |
     cmakew \
         -DBUILD_SHARED_LIBS=OFF \
         -DLLVM_TARGETS_TO_BUILD=all \
-        -DLLVM_ENABLE_PROJECTS="'clang;lld'" \
+        -DLLVM_ENABLE_PROJECTS="'clang;clang-tools-extra;lld;lldb;mlir;polly;openmp'" \
+        -DLLVM_ENABLE_RUNTIMES="'compiler-rt;libcxx;libcxxabi;libunwind'" \
         -DLLVM_ENABLE_EH=ON \
         -DLLVM_ENABLE_PIC=ON \
         -DLLVM_ENABLE_FFI=ON \
         -DLLVM_ENABLE_ZLIB=ON \
         -DLLVM_ENABLE_ZSTD=ON \
         -DLLVM_ENABLE_RTTI=ON \
+        -DLLVM_ENABLE_LIBXML2=OFF \
+        -DLLVM_ENABLE_TERMINFO=OFF \
         -DLLVM_ENABLE_SPHINX=OFF \
         -DLLVM_ENABLE_DOXYGEN=OFF \
         -DLLVM_ENABLE_Z3_SOLVER=ON \

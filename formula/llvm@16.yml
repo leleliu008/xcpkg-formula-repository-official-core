@@ -1,0 +1,55 @@
+pkgtype: exe+lib
+summary: Next-gen compiler infrastructure
+web-url: https://llvm.org/
+src-url: https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz
+src-sha: ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e
+license: Apache-2.0 with LLVM-exception
+dep-pkg: libz liblzma libzstd libxml2 libedit libffi libz3
+dep-upp: python3 perl swig
+bscript: llvm
+
+# https://llvm.org/docs/CMake.html
+# https://llvm.org/docs/GettingStarted.html#local-llvm-configuration
+# https://lldb.llvm.org/resources/build.html
+install: |
+    cmakew \
+        -DBUILD_SHARED_LIBS=OFF \
+        -DLLVM_TARGETS_TO_BUILD=all \
+        -DLLVM_ENABLE_PROJECTS="'clang;clang-tools-extra;lld;lldb;mlir;polly;openmp'" \
+        -DLLVM_ENABLE_RUNTIMES="'compiler-rt;libcxx;libcxxabi;libunwind'" \
+        -DLLVM_ENABLE_EH=ON \
+        -DLLVM_ENABLE_PIC=ON \
+        -DLLVM_ENABLE_FFI=ON \
+        -DLLVM_ENABLE_ZLIB=ON \
+        -DLLVM_ENABLE_ZSTD=ON \
+        -DLLVM_ENABLE_RTTI=ON \
+        -DLLVM_ENABLE_LIBXML2=OFF \
+        -DLLVM_ENABLE_TERMINFO=OFF \
+        -DLLVM_ENABLE_SPHINX=OFF \
+        -DLLVM_ENABLE_DOXYGEN=OFF \
+        -DLLVM_ENABLE_Z3_SOLVER=ON \
+        -DLLVM_INCLUDE_DOCS=OFF \
+        -DLLVM_INCLUDE_TESTS=OFF \
+        -DLLVM_BUILD_DOCS=OFF \
+        -DLLVM_BUILD_TESTS=OFF \
+        -DLLVM_BUILD_TOOLS=ON \
+        -DLLVM_BUILD_EXAMPLES=OFF \
+        -DLLVM_BUILD_LLVM_DYLIB=ON \
+        -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON \
+        -DLLVM_LINK_LLVM_DYLIB=ON \
+        -DLLVM_POLLY_LINK_INTO_TOOLS=ON \
+        -DLLVM_INSTALL_UTILS=ON \
+        -DLLVM_OPTIMIZED_TABLEGEN=ON \
+        -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF \
+        -DCLANG_BUILD_TOOLS=ON \
+        -DCLANG_FORCE_MATCHING_LIBCLANG_SOVERSION=OFF \
+        -DLLD_BUILD_TOOLS=ON \
+        -DLLDB_USE_SYSTEM_DEBUGSERVER=ON \
+        -DLLDB_USE_SYSTEM_SIX=OFF \
+        -DLLDB_ENABLE_LUA=OFF \
+        -DLLDB_ENABLE_PYTHON=OFF \
+        -DLLDB_ENABLE_CURSES=ON \
+        -DLLDB_ENABLE_LIBEDIT=ON \
+        -DLLDB_ENABLE_LIBXML2=ON \
+        -DLLDB_ENABLE_LZMA=ON \
+        -DLIBOMP_INSTALL_ALIASES=OFF
