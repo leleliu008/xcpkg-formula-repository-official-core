@@ -1,6 +1,10 @@
 summary: An implementation of the Double Ratchet cryptographic ratchet
-git-url: https://gitlab.matrix.org/matrix-org/olm
-src-url: https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.16/olm-3.2.16.tar.gz
-src-sha: 1e90f9891009965fd064be747616da46b232086fe270b77605ec9bda34272a68
+web-url: https://github.com/matrix-org/olm
+src-url: https://distfiles.macports.org/olm/olm-3.2.16.tar.bz2
+src-sha: 327cfcb81ef0c42f4b1d5c24b25d56932b57d64ccd9f00ed919a893a43333411
 license: Apache-2.0
 bsystem: cmake
+
+dopatch: gsed -i 's|const other_pos = |other_pos = |' include/olm/list.hh
+
+caveats: This project has been deprecated in favor of https://github.com/matrix-org/vodozemac

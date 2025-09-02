@@ -8,6 +8,12 @@ dep-pkg: libz liblzma libzstd libxml2 libedit libffi libz3
 dep-upp: python3 perl swig
 bscript: llvm
 
+#/Users/runner/.xcpkg/run/933/MacOSX-15.5-arm64-llvm@15/src/lldb/include/lldb/API/SBFile.h:27:10: error: unknown type name 'FILE'
+#    27 |   SBFile(FILE *file, bool transfer_ownership);
+#       |          ^
+# https://github.com/llvm/llvm-project/commit/73e15b5edb4fa4a77e68c299a6e3b21e610d351f
+dopatch: gsed -i '14i \#include <cstdio>' ../lldb/include/lldb/API/SBFile.h
+
 # https://llvm.org/docs/CMake.html
 # https://llvm.org/docs/GettingStarted.html#local-llvm-configuration
 # https://lldb.llvm.org/resources/build.html
