@@ -1,0 +1,9 @@
+summary: A simple, decentralized dependency manager for Cocoa
+git-url: https://github.com/Carthage/Carthage
+git-sha: e33e133a5427129b38bfb1ae18d8f56b29a93204
+version: 0.40.0
+license: MIT
+install: |
+    gmakew clean
+    gmakew
+    gmakew prefix_install PREFIX="$PACKAGE_INSTALL_DIR"

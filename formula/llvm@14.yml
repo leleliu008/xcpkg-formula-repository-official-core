@@ -11,7 +11,9 @@ bscript: llvm
 #/Users/runner/.xcpkg/run/3199/MacOSX-15.5-arm64-llvm@14/src/llvm/_/CMakeFiles/CMakeTmp/testz3.cpp:6:11: error: use of undeclared identifier 'printf'
 #    6 |           printf("%u.%u.%u", major, minor, build);
 #      |           ^
-dopatch: gsed -i '/assert\.h/a \#include<stdio.h>' cmake/modules/FindZ3.cmake
+dopatch: |
+    gsed -i '/assert\.h/a \#include<stdio.h>' cmake/modules/FindZ3.cmake
+    gsed -i '14i \#include <cstdio>' ../lldb/include/lldb/API/SBFile.h
 
 # https://llvm.org/docs/CMake.html
 # https://llvm.org/docs/GettingStarted.html#local-llvm-configuration

@@ -1,10 +1,10 @@
 summary: A disk usage analyzer with an ncurses interface
 web-url: https://dev.yorhel.nl/ncdu
-src-url: https://dev.yorhel.nl/download/ncdu-2.7.tar.gz
-src-sha: b218cc14a2bb9852cf951db4e21aec8980e7a8c3aca097e3aa3417f20eb93000
+src-url: https://dev.yorhel.nl/download/ncdu-2.9.1.tar.gz
+src-sha: bfd1094e1400ee89cfd59200eab940f025ccdc0c238067105c984a3c4857bf7e
 license: MIT
 dep-pkg: libncurses libzstd
-bsystem: zig@0.13
+bsystem: zig@0.15
 
 dopatch: |
     if [ -f ../lib/libzstd.a ] ; then
@@ -12,7 +12,7 @@ dopatch: |
         run ln -s ../lib/libzstd.a     libzstd.a
 
         gsed -i "s|linkSystemLibrary(\"ncursesw\", \.{})|addObjectFile(b.path(\"libncursesw.a\"))|" build.zig
-        gsed -i "s|linkSystemLibrary(\"libzstd\", \.{})|addObjectFile(b.path(\"libzstd.a\"))|" build.zig
+        gsed -i "s|linkSystemLibrary(\"zstd\", \.{})|addObjectFile(b.path(\"libzstd.a\"))|" build.zig
     fi
 
 install: |

@@ -1,0 +1,10 @@
+summary: Cryptographically sign and verify files
+src-url: https://github.com/jpouellet/signify-osx/archive/refs/tags/1.4.tar.gz
+src-sha: 5aa954fe6c54f2fc939771779e5bb64298e46d0a4ae3d08637df44c7ed8d2897
+license: ISC
+
+install: |
+    gmakew clean
+    gmakew
+    install_bins signify
+    install_mans signify.1

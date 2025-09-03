@@ -1,0 +1,12 @@
+summary: A JavaScript runtime built on top of V8 JavaScript engine
+git-url: https://github.com/nodejs/node
+web-url: https://nodejs.org/
+src-url: https://nodejs.org/dist/v22.19.0/node-v22.19.0.tar.xz
+src-sha: 0272acfce50ce9ad060288321b1092719a7f19966f81419835410c59c09daa46
+license: MIT
+dep-upp: python3
+
+install: |
+    run ./configure --prefix="$PACKAGE_INSTALL_DIR"
+    gmakew
+    gmakew install
