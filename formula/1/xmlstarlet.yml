@@ -5,4 +5,12 @@ src-sha: 15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca
 license: MIT
 dep-pkg: libxslt
 bsystem: configure
-prepare: export CPPFLAGS="$CPPFLAGS -I$libxml2_INCLUDE_DIR/libxml2"
+
+prepare: |
+    export CPPFLAGS="$CPPFLAGS -I$libxml2_INCLUDE_DIR/libxml2"
+
+    CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
+
+    if [ "$CLANG_VERSION_MAJOR" -ge 15 ] ; then
+        export CFLAGS="$CFLAGS -Wno-incompatible-function-pointer-types"
+    fi

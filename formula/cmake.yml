@@ -5,7 +5,6 @@ src-sha: e3cde3ca83dc2d3212105326b8f1b565116be808394384007e7ef1c253af6caa
 license: BSD-3-Clause
 dep-pkg: libarchive libcurl libuv libjsoncpp librhash libncurses
 dep-lib: libarchive libcurl
-ldflags: -framework SystemConfiguration
 
 install: |
     cmakew \

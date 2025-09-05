@@ -1,8 +1,8 @@
 summary: PDF rendering library (based on the xpdf-3.0 code base)
 git-url: https://gitlab.freedesktop.org/poppler/poppler.git
 web-url: https://poppler.freedesktop.org/
-src-url: https://poppler.freedesktop.org/poppler-24.12.0.tar.xz
-src-sha: 1cf374c3146f3f685d9257701bf0c2866c61d6c202c14d1f5c01a1f3a089028a
+src-url: https://poppler.freedesktop.org/poppler-25.09.1.tar.xz
+src-sha: 0c1091d01d3dd1664a13816861e812d02b29201e96665454b81b52d261fad658
 license: GPL-2.0-only
 dep-pkg: libcairo liblcms2 libtiff libjpeg-turbo libopenjpeg libcurl libgpgme libnss
 dep-upp: gperf python3
@@ -18,5 +18,4 @@ install: |
         -DENABLE_UNSTABLE_API_ABI_HEADERS=ON \
         -DWITH_GObjectIntrospection=OFF
 
-dotweak: |
-    printf 'Requires: libcurl, libtiff-4, libjpeg, libopenjp2, lcms2, fontconfig, gpgmepp, nss\n' >> lib/pkgconfig/poppler.pc
+dotweak: gsed -i -e ':a' -e '/\\[[:space:]]*$/{N;s/\\[[:space:]]*\n[[:space:]]*/ /;ta}' -e 'P;D' lib/pkgconfig/poppler-glib.pc

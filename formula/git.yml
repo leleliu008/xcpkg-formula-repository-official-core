@@ -1,14 +1,19 @@
 summary: A free and open source distributed version control system with speed and efficiency
 web-url: https://git-scm.com/
 git-url: https://github.com/git/git
-src-url: https://www.kernel.org/pub/software/scm/git/git-2.49.0.tar.xz
-src-sha: 618190cf590b7e9f6c11f91f23b1d267cd98c3ab33b850416d8758f8b5a85628
+src-url: https://www.kernel.org/pub/software/scm/git/git-2.51.0.tar.xz
+src-sha: 60a7c2251cc2e588d5cd87bae567260617c6de0c22dca9cdbfc4c7d2b8990b62
 license: GPL-2.0-only
 dep-pkg: libpcre2 libexpat libcurl libintl libz
+dep-lib: libcurl
 dep-upp: gettext-tools
 binbstd: 1
 
 prepare: |
+    export NO_FINK=1
+    export NO_DARWIN_PORTS=1
+    export NO_INSTALL_HARDLINKS=1
+
     if isCrossBuild ; then
         # to bypass git error: cannot run test program while cross compiling
         export ac_cv_fread_reads_directories=yes
@@ -16,15 +21,6 @@ prepare: |
         export ac_cv_iconv_omits_bom=no
         export ac_cv_snprintf_returns_bogus=no
     fi
-
-    export ac_cv_lib_curl_curl_global_init=yes
-
-    export ac_cv_prog_CURL_CONFIG="$libcurl_INSTALL_DIR/bin/curl-config"
-
-    LIBCURL_LIBS="$(pkg-config --libs libcurl)"
-    printf 'LIBCURL_LIBS=%s\n' "$LIBCURL_LIBS"
-
-    export LDFLAGS="$LDFLAGS $LIBCURL_LIBS"
 
 install: |
     configure \

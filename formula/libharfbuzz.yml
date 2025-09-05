@@ -20,3 +20,5 @@ install: |
         -Ddocs=disabled \
         -Dtests=disabled \
         -Dbenchmark=disabled
+
+dotweak: gsed -i '/^Libs.private:/s|$| -framework CoreFoundation -framework CoreText -framework CoreGraphics|' lib/pkgconfig/harfbuzz.pc

@@ -6,10 +6,11 @@ src-sha: 9e64634fc4ce6797b204bcb8897ce14fdd0ab48ca57696f78767c59cae578095
 license: GPL-3.0-or-later
 dep-upp: texinfo
 dep-pkg: libintl
+dep-lib: libintl
 binbstd: 1
 
 dopatch: gsed -i 's|_XOPEN_SOURCE 500|_XOPEN_SOURCE 600|' src/args.c
 
-install: configure --program-prefix=g LIBS="'-lintl -liconv -framework CoreFoundation'"
+install: configure --program-prefix=g
 
 dotweak: run ln -s gindent bin/indent

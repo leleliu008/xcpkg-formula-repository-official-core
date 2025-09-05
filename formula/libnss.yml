@@ -1,14 +1,16 @@
 summary: Libraries for security-enabled client and server applications
 web-url: https://firefox-source-docs.mozilla.org/security/nss/index.html
-src-url: https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_111_RTM/src/nss-3.111.tar.gz
-src-sha: 5a4d5a44e91ef03cdc0c4897cf616e3c92f4e590ea835d3e0ccad8b005bd73c6
+src-url: https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_115_1_RTM/src/nss-3.115.1.tar.gz
+src-sha: b8189c030b528e57dc5290023c07eea429ce242912a51a0388c184c75a257bcf
 license: MPL-2.0
 dep-pkg: libnspr libsqlite3 libz
 bscript: nss
 parallel: 0
 
-# nss aes-armv8.c:14:2: error: "Compiler option is invalid"
-dopatch: gsed -i 's|-march=armv8-a |-march=armv8-a+crypto |' lib/freebl/Makefile
+dopatch: |
+    # nss aes-armv8.c:14:2: error: "Compiler option is invalid"
+    gsed -i 's|-march=armv8-a |-march=armv8-a+crypto |' lib/freebl/Makefile
+    gsed -i 's|@executable_path|@rpath|g' coreconf/Darwin.mk lib/freebl/config.mk
 
 install: |
     gmakew clean USE_64=1
