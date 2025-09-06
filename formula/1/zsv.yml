@@ -7,5 +7,4 @@ dep-upp: perl
 install: |
     export CFLAGS="$CFLAGS $CPPFLAGS"
     run ./configure --disable-termcap --prefix="$PACKAGE_INSTALL_DIR"
-    gmakew -C app
     gmakew -C app install
