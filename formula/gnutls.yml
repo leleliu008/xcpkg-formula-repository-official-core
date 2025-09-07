@@ -2,8 +2,8 @@ pkgtype: lib
 summary: GNU Transport Layer Security (TLS) Library
 web-url: https://gnutls.org
 git-url: https://github.com/gnutls/gnutls
-src-url: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.4.tar.xz
-src-sha: 2bea4e154794f3f00180fa2a5c51fe8b005ac7a31cd58bd44cdfa7f36ebc3a9b
+src-url: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.10.tar.xz
+src-sha: db7fab7cce791e7727ebbef2334301c821d79a550ec55c9ef096b610b03eb6b7
 dep-pkg: libgmp libunistring libnettle libtasn1 libidn2
 
 # thread-local storage is not supported for the current target
@@ -11,7 +11,7 @@ dep-pkg: libgmp libunistring libnettle libtasn1 libidn2
 prepare2:
     inject_stub_system src/libopts/pgusage.c tests/pkcs11/pkcs11-mock2.c
 
-dopatch: |
+dopatch2: |
     # https://gitlab.com/gnutls/gnutls/-/issues/1537
     gsed -i '/gmp-glue\.h/a \#define nettle_rsa_compute_root_tr _gnutls_nettle_backport_rsa_compute_root_tr' lib/nettle/backport/rsa-sign-tr.c
 

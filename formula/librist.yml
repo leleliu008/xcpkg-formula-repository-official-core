@@ -1,12 +1,10 @@
 summary: Reliable Internet Stream Transport (RIST)
 web-url: https://code.videolan.org/rist/
 git-url: https://code.videolan.org/rist/librist
-src-url: https://code.videolan.org/rist/librist/-/archive/v0.2.10/librist-v0.2.10.tar.gz
-src-sha: 797e486961cd09bc220c5f6561ca5a08e7747b313ec84029704d39cbd73c598c
+src-url: https://code.videolan.org/rist/librist/-/archive/v0.2.11/librist-v0.2.11.tar.gz
+src-sha: 84e413fa9a1bc4e2607ecc0e51add363e1bc5ad42f7cc5baec7b253e8f685ad3
 license: BSD-2-Clause
 dep-pkg: cjson cmocka mbedtls
-
-dopatch: gsed -i 's|st_mtim|st_mtimespec|g' tools/srp_shared.c
 
 install: |
     mesonw \
@@ -16,3 +14,24 @@ install: |
         -Duse_gnutls=false \
         -Duse_mbedtls=true \
         -Dfallback_builtin=true
+
+dep-upp: patch
+dopatch: |
+    patch -p1 <<EOF
+    diff --git a/meson.build b/meson.build
+    index 05d00b3..254d0ab 100755
+    --- a/meson.build
+    +++ b/meson.build
+    @@ -39,11 +39,6 @@ deps = []
+     platform_files = []
+     inc = []
+     inc += include_directories('.', 'src', 'include/librist', 'include', 'contrib')
+    -if (host_machine.system() == 'darwin')
+    -	r = run_command('brew', '--prefix', check: true)
+    -	brewoutput = r.stdout().strip()
+    -	inc += include_directories(brewoutput + '/include')
+    -endif
+
+     #builtin_lz4 = get_option('builtin_lz4')
+     builtin_cjson = get_option('builtin_cjson')
+    EOF
