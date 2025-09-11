@@ -12,7 +12,6 @@ dopatch: |
     gsed -i 's/test "x$cf_have_ncuconfig" = "xno"/false/g' configure
     gsed -i 's/#define socklen_t int/#define XXXXXXX/' WWW/Library/Implementation/www_tcp.h
     gsed -i 's/vasprintf(&temp/vsprintf(temp/'         WWW/Library/Implementation/HTString.c
-    #inject_stub_system src/LYUtils.c
     gsed -i "1i char* mkdtemp(char*);" src/LYUtils.c
 
 prepare: |

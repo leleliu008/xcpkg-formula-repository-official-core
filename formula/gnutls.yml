@@ -6,15 +6,6 @@ src-url: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.10.tar.xz
 src-sha: db7fab7cce791e7727ebbef2334301c821d79a550ec55c9ef096b610b03eb6b7
 dep-pkg: libgmp libunistring libnettle libtasn1 libidn2
 
-# thread-local storage is not supported for the current target
-
-prepare2:
-    inject_stub_system src/libopts/pgusage.c tests/pkcs11/pkcs11-mock2.c
-
-dopatch2: |
-    # https://gitlab.com/gnutls/gnutls/-/issues/1537
-    gsed -i '/gmp-glue\.h/a \#define nettle_rsa_compute_root_tr _gnutls_nettle_backport_rsa_compute_root_tr' lib/nettle/backport/rsa-sign-tr.c
-
 install: |
     configure \
         --without-gcov \

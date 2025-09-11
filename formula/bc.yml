@@ -15,7 +15,6 @@ do12345: |
     fi
 
 dopatch: |
-    #inject_stub_system dc/misc.c
     gsed -i 's/#include "libmath.h"/{"#include \\"libmath.h\\""}/' bc/global.c
 
 install: |

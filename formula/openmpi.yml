@@ -7,17 +7,6 @@ license: BSD-3-Clause
 dep-pkg: libevent hwloc
 dep-upp: perl
 
-dopatch2: |
-    inject_stub_system \
-        opal/tools/opal-restart/opal-restart.c \
-        opal/mca/hwloc/hwloc201/hwloc/hwloc/dolib.c \
-        opal/mca/pmix/pmix3x/pmix/examples/server.c \
-        orte/tools/orte-clean/orte-clean.c \
-        orte/test/mpi/ziatest.c \
-        orte/mca/filem/raw/filem_raw_module.c \
-        orte/mca/sstore/stage/sstore_stage_global.c \
-        orte/mca/sstore/stage/sstore_stage_local.c
-
 prepare: |
     CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
 
