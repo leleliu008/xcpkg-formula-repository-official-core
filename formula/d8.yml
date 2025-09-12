@@ -37,7 +37,7 @@ prepare: |
         v8_enable_fuzztest=false \
         v8_enable_i18n_support=false \
         v8_use_external_startup_data=false \
-        use_lld=true \
+        use_lld=false \
         use_custom_libcxx=false \
         treat_warnings_as_errors=false \
         clang_use_chrome_plugins=false
