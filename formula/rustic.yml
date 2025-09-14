@@ -1,5 +1,5 @@
 summary: A backup tool that provides fast, encrypted, deduplicated backups
-src-url: https://github.com/rustic-rs/rustic/archive/refs/tags/v0.9.5.tar.gz
-src-sha: cb26f48325897946e7e6995d7617741586dfee0229ada1dfecb01e8ac90c4967
+src-url: https://github.com/rustic-rs/rustic/archive/refs/tags/v0.10.0.tar.gz
+src-sha: d67cc86a0e589788c74bee8ab86fd9637b64253751c03fb35a16455457a4684b
 license: MIT | Apache-2.0
 bsystem: cargo

@@ -1,15 +1,9 @@
 summary: Unified display of technical and tag data for audio/video
 git-url: https://github.com/MediaArea/MediaInfoLib
 web-url: https://mediaarea.net/
-src-url: https://mediaarea.net/download/source/libmediainfo/24.05/libmediainfo_24.05.tar.xz
-src-sha: b14f79104b1d0d78de9fb42805f29d54fdf01c3e4291cc3638e04d09d145b8d6
+src-url: https://mediaarea.net/download/source/libmediainfo/25.07/libmediainfo_25.07.tar.xz
+src-sha: 58ece66eaebd9c2fa9b01143c594bce5d21489b8c1dde0dfd2bd13aa7f6266cc
 license: BSD-2-Clause
 dep-pkg: libcurl libzen libz
 bscript: Project/CMake
-
-dopatch: gsed -i 's|find_package(CURL)|find_package(CURL CONFIG)|' CMakeLists.txt
-
-install: |
-    CURL_LIBRARIES="$(pkg-config --libs-only-l libcurl | tr ' ' ';')"
-    cmakew -DBUILD_SHARED_LIBS=OFF -DCURL_INCLUDE_DIRS="$libcurl_INCLUDE_DIR" -DCURL_LIBRARIES="'$CURL_LIBRARIES'"
-    cmakew -DBUILD_SHARED_LIBS=ON  -DCURL_INCLUDE_DIRS="$libcurl_INCLUDE_DIR" -DCURL_LIBRARIES="'$CURL_LIBRARIES'"
+install: cmakew 2
