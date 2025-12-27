@@ -1,10 +1,10 @@
 summary: A command-line tool for transferring data from/to an HTTP, HTTPS or FTP server
 git-url: https://github.com/curl/curl
 web-url: https://curl.haxx.se/
-src-url: https://curl.haxx.se/download/curl-8.13.0.tar.bz2
-src-sha: e0d20499260760f9865cb6308928223f4e5128910310c025112f592a168e1473
+src-url: https://curl.haxx.se/download/curl-8.17.0.tar.bz2
+src-sha: 230032528ce5f85594d4f3eace63364c4244ccc3c801b7f8db1982722f2761f4
 license: curl
-dep-pkg: libnghttp2 libbrotli libzstd libz openssl-dev
+dep-pkg: libngtcp2 libnghttp2 libnghttp3 libbrotli libzstd libz
 dep-upp: perl
 
 dopatch: gsed -i 's|-lbrotlidec|-lbrotlidec -lbrotlicommon|' configure
@@ -17,9 +17,9 @@ install: |
         --enable-pthreads \
         --with-default-ssl-backend=openssl \
         --with-ssl="$openssl_dev_INSTALL_DIR" \
+        --with-ngtcp2 \
         --with-nghttp2 \
-        --without-nghttp3 \
-        --without-ngtcp2 \
+        --with-nghttp3 \
         --without-quiche \
         --without-libpsl \
         --without-librtmp \

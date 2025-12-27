@@ -1,6 +1,6 @@
 summary: A helper program to build and install C-ABI compatible dynamic and static libraries
-src-url: https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.0.tar.gz
-src-sha: 85230801f57c1f2b85d99fae3fc43f93080ecc0e3763a6af178fc5e6c218004b
+src-url: https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.19.tar.gz
+src-sha: 4136fbb1c25b1afdf1aaf473d00e532b73bbe02c7c53cb44965aff41ed328d20
 license: MIT
 dep-pkg: libz
 dep-upp: git perl gmake

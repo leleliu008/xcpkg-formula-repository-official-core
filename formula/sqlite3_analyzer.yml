@@ -1,0 +1,12 @@
+summary: A command-line tool to analyze how space is allocated inside an SQLite file
+web-url: https://www.sqlite.org/
+src-url: https://www.sqlite.org/2025/sqlite-src-3500400.zip
+src-sha: b7b4dc060f36053902fb65b344bbbed592e64b2291a26ac06fe77eec097850e9
+version: 3.50.4
+license: blessing
+dep-pkg: tcl
+
+install: |
+    configure only --with-tcl="$tcl_LIBRARY_DIR"
+    gmakew sqlite3_analyzer
+    install_bins sqlite3_analyzer
