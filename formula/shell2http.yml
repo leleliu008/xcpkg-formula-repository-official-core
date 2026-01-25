@@ -1,4 +1,5 @@
-summary: HTTP-server to execute shell commands
-git-url: https://github.com/msoap/shell2http
+summary: Executing shell commands via HTTP server
+src-url: https://github.com/msoap/shell2http/archive/refs/tags/v1.17.0.tar.gz
+src-sha: 17fab67e34e767accfbc59ab504971c704f54d79b57a023e6b5efa5556994624
 license: MIT
-install: gow && run install_mans shell2http.1
+install: gow -X main.version=$PACKAGE_VERSION && run install_mans shell2http.1

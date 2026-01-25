@@ -1,6 +1,6 @@
 summary: Library for encoding and decoding .avif files
-src-url: https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.0.4.tar.gz
-src-sha: dc56708c83a4b934a8af2b78f67f866ba2fb568605c7cf94312acf51ee57d146
+src-url: https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.3.0.tar.gz
+src-sha: 0a545e953cc049bf5bcf4ee467306a2f113a75110edf59e61248873101cd26c1
 license: BSD-2-Clause
 dep-pkg: libaom
 dep-upp: nasm
@@ -8,6 +8,7 @@ dep-upp: nasm
 install: |
     cmakew 2 \
         -DAVIF_ENABLE_WERROR=ON \
+        -DAVIF_LIBYUV=OFF \
         -DAVIF_CODEC_AOM=ON \
         -DAVIF_CODEC_AOM_DECODE=ON \
         -DAVIF_CODEC_AOM_ENCODE=ON \

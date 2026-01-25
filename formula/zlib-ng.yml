@@ -1,8 +1,8 @@
-pkgtype: lib
 summary: Zlib replacement with optimizations for next generation systems
-src-url: https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.1.6.tar.gz
-src-sha: a5d504c0d52e2e2721e7e7d86988dec2e290d723ced2307145dedd06aeb6fef2
+src-url: https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.3.2.tar.gz
+src-sha: 6a0561b50b8f5f6434a6a9e667a67026f2b2064a1ffa959c6b2dae320161c2a8
 license: Zlib
 install: |
-    cmakew -DZLIB_COMPAT=ON -DZLIB_ENABLE_TESTS=OFF -DBUILD_SHARED_LIBS=OFF
-    cmakew -DZLIB_COMPAT=ON -DZLIB_ENABLE_TESTS=OFF -DBUILD_SHARED_LIBS=ON
+    cmakew \
+        -DZLIB_COMPAT=ON \
+        -DZLIB_ENABLE_TESTS=OFF

@@ -1,13 +1,13 @@
 summary: Compiler infrastructure and toolchain library for WebAssembly
 web-url: https://webassembly.org/
-src-url: https://github.com/WebAssembly/binaryen/archive/version_123.tar.gz
-src-sha: a1e1caf250cab3a83938713594e55b6762591208e82087e3337f793e8c8eb7ab
+src-url: https://github.com/WebAssembly/binaryen/archive/version_125.tar.gz
+src-sha: 36177034ef0f0d826fd7dc9ab9d92ef20190a79d69856f764151ffe9c11d7350
 license: Apache-2.0
 install: cmakew -DBUILD_TESTS=OFF -DBUILD_STATIC_LIB=ON
 
 # https://github.com/WebAssembly/binaryen/pull/7699
-dep-upp: patch
-dopatch: |
+dep-upp2: patch
+dopatch2: |
     patch -p1 <<EOF
     diff --git a/src/wasm/wasm-debug.cpp b/src/wasm/wasm-debug.cpp
     index abe1cd05c1f..bb065cc3cbd 100644

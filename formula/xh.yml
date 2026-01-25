@@ -1,5 +1,5 @@
 summary: A friendly and fast tool for sending HTTP requests
-src-url: https://github.com/ducaale/xh/archive/refs/tags/v0.22.0.tar.gz
-src-sha: 72f4d5e24165d8749433167e3ad3df8f26faafb250f1232acbe5192843e4157c
+src-url: https://github.com/ducaale/xh/archive/refs/tags/v0.25.3.tar.gz
+src-sha: ba331c33dc5d222f43cc6ad9f602002817772fd52ae28541976db49f34935ae3
 license: MIT
 bsystem: cargo

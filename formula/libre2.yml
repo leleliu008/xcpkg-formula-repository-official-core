@@ -1,7 +1,6 @@
-pkgtype: lib
 summary: Alternative to backtracking PCRE-style regular expression engines
-src-url: https://github.com/google/re2/archive/refs/tags/2025-08-12.tar.gz
-src-sha: 2f3bec634c3e51ea1faf0d441e0a8718b73ef758d7020175ed7e352df3f6ae12
+src-url: https://github.com/google/re2/archive/refs/tags/2025-11-05.tar.gz
+src-sha: 87f6029d2f6de8aa023654240a03ada90e876ce9a4676e258dd01ea4c26ffd67
 license: BSD-3-Clause
 dep-pkg: abseil
 install: cmakew 2 -DRE2_BUILD_TESTING=OFF

@@ -5,8 +5,6 @@ src-sha: 47fe8c99461250d42f89e6e8fdaeba9da057855d06eb7fc08d9ca03fd08d7bc7
 license: BSD-3-Clause
 dep-pkg: libz libbz2 libreadline
 
-dopatch: gsed -i -e 's|man/man1|share/man/man1|' -e 's|man/man3|share/man/man3|' -e 's|DESTINATION cmake|DESTINATION lib/cmake|' CMakeLists.txt
-
 install: |
     cmakew \
         -DCMAKE_C_STANDARD=99 \

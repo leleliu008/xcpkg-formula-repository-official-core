@@ -1,0 +1,7 @@
+summary: Reference codec for the Ultra HDR format
+web-url: https://developer.android.com/media/platform/hdr-image-format
+src-url: https://github.com/google/libultrahdr/archive/refs/tags/v1.4.0.tar.gz
+src-sha: e7e1252e2c44d8ed6b99ee0f67a3caf2d8a61c43834b13b1c3cd485574c03ab9
+license: Apache-2.0
+dep-pkg: libjpeg-turbo
+bsystem: cmake

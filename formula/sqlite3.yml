@@ -1,15 +1,13 @@
-summary: A small, fast, self-contained, high-reliability, full-featured, SQL database engine written in C
+summary: A command-line tool for interacting with SQLite databases
 git-url: https://github.com/sqlite/sqlite
-web-url: https://www.sqlite.org/
-src-url: https://www.sqlite.org/2025/sqlite-autoconf-3490200.tar.gz
-src-sha: 5c6d8697e8a32a1512a9be5ad2b2e7a891241c334f56f8b0fb4fc6051e1652e8
-version: 3.49.2
+web-url: https://sqlite.org/
+src-url: https://sqlite.org/2026/sqlite-amalgamation-3510200.zip
+src-sha: 6e2a845a493026bdbad0618b2b5a0cf48584faab47384480ed9f592d912f23ec
+version: 3.51.2
 license: blessing
 dep-pkg: libreadline libz
+
+# https://sqlite.org/cli.html#_do_it_yourself_builds_
 install: |
-    configure \
-        --disable-editline \
-        --enable-readline \
-        --enable-session \
-        --with-readline-cflags="'-I$libreadline_INCLUDE_DIR'" \
-        --with-readline-ldflags="'-I$libreadline_LIBRARY_DIR -lreadline -lncurses'"
+    run "$CC" "$CFLAGS" "$CPPFLAGS" -DHAVE_READLINE -DSQLITE_HAVE_ZLIB "$LDFLAGS" -o sqlite3 ../shell.c ../sqlite3.c -lreadline -lncurses -lz -lm -ldl -lpthread
+    install_bins sqlite3

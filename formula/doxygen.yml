@@ -1,8 +1,8 @@
 summary: A command-line tool for generating documentation from annotated programming language source files
 git-url: https://github.com/doxygen/doxygen
 web-url: https://www.doxygen.nl/
-src-url: https://www.doxygen.nl/files/doxygen-1.14.0.src.tar.gz
-src-sha: d4536d11ab13037327d8d026b75f5a86b7ccb2093e2f546235faf61fd86e6b5d
+src-url: https://www.doxygen.nl/files/doxygen-1.16.1.src.tar.gz
+src-sha: 201ce33b514ea87cc1697c0dcf829692c2695c1812683a9cc622194b05e263a8
 license: GPL-2.0-only
 dep-upp: gm4 flex bison
 dep-pkg: libiconv

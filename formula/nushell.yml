@@ -1,7 +1,7 @@
 summary: A new type of shell
 web-url: https://www.nushell.sh
-src-url: https://github.com/nushell/nushell/archive/refs/tags/0.106.1.tar.gz
-src-sha: 3e24044c354d050a850b69dc77c99cc503542c3d9d75fed0aef1c12fefdf380b
+src-url: https://github.com/nushell/nushell/archive/refs/tags/0.110.0.tar.gz
+src-sha: e4c95f743cea3d985ab90e03fd35707a46eef926d407ed363f994155c1ca5055
 dep-pkg: libz openssl-dev
 license: MIT
 bsystem: cargo

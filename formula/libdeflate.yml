@@ -1,5 +1,5 @@
 summary: Heavily optimized DEFLATE/zlib/gzip compression and decompression
-src-url: https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.20.tar.gz
-src-sha: ed1454166ced78913ff3809870a4005b7170a6fd30767dc478a09b96847b9c2a
+src-url: https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.25.tar.gz
+src-sha: d11473c1ad4c57d874695e8026865e38b47116bbcb872bfc622ec8f37a86017d
 license: MIT
 bsystem: cmake

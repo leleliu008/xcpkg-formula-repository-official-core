@@ -1,6 +1,6 @@
 summary: Clone of cat(1) with syntax highlighting and Git integration
-src-url: https://github.com/sharkdp/bat/archive/v0.24.0.tar.gz
-src-sha: 907554a9eff239f256ee8fe05a922aad84febe4fe10a499def72a4557e9eedfb
+src-url: https://github.com/sharkdp/bat/archive/v0.26.1.tar.gz
+src-sha: 4474de87e084953eefc1120cf905a79f72bbbf85091e30cf37c9214eafcaa9c9
 license: Apache-2.0
 
 install: |

@@ -1,6 +1,6 @@
 summary: A fast static site generator in a single binary with everything built-in
 web-url: https://www.getzola.org/
-src-url: https://github.com/getzola/zola/archive/refs/tags/v0.20.0.tar.gz
-src-sha: ed0274b4139e5ebae1bfac045a635d952e50dc238fdc39cb730b032167f8bb4a
+src-url: https://github.com/getzola/zola/archive/refs/tags/v0.22.1.tar.gz
+src-sha: 0f59479e05bce79e8d5860dc7e807ea818986094469ed8bf0bb46588ade95982
 license: MIT
 bsystem: cargo

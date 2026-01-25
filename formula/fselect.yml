@@ -1,5 +1,5 @@
 summary: Find files with SQL-like queries
-src-url: https://github.com/jhspetersson/fselect/archive/refs/tags/0.8.6.tar.gz
-src-sha: 4b7a6dc5f6f3da39c3242856a1c78734c7b14bd801dc4d7e32bc6f5a1809bc63
+src-url: https://github.com/jhspetersson/fselect/archive/refs/tags/0.9.2.tar.gz
+src-sha: 5263963ef5f02c74e968206221095722557a764ff92b7f343a92a37d718d87a6
 license: MIT
 install: cargow install --locked

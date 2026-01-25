@@ -1,8 +1,8 @@
 summary: Create, run, and share large language models (LLMs)
 web-url: https://ollama.com/
 git-url: https://github.com/ollama/ollama
-git-sha: a420a453b4783841e3e79c248ef0fe9548df6914
-version: 0.5.7
+git-sha: 7325791599409de52534429897481918717a9e85
+version: 0.13.5
 license: MIT
 bsystem: go cmake-gmake
 

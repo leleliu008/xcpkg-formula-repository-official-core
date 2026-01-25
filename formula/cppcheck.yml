@@ -1,7 +1,7 @@
 summary: A static analysis tool for C/C++ code
 web-url: https://sourceforge.net/projects/cppcheck
-src-url: https://github.com/danmar/cppcheck/archive/refs/tags/2.14.1.tar.gz
-src-sha: 22d1403fbc3158f35b5216d7b0a50bbaf0c80bf6663933a71f65cc4fc307ff3d
+src-url: https://github.com/danmar/cppcheck/archive/refs/tags/2.19.0.tar.gz
+src-sha: c6cff9d3bbcb3da941bf7f525ae974b6c7af3d610c4c5519fcd1be3f21f5ae09
 license: GPL-3.0-or-later
 dep-pkg: libpcre libxml2
 dep-upp: python3

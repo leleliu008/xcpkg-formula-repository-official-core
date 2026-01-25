@@ -1,8 +1,8 @@
 summary: A general-purpose, portable utility library which provides many useful data types, macros, type conversions, string utilities, file utilities, a mainloop abstraction, and so on
 web-url: https://developer.gnome.org/glib
 git-url: https://github.com/GNOME/glib
-src-url: https://download.gnome.org/sources/glib/2.84/glib-2.84.4.tar.xz
-src-sha: 8a9ea10943c36fc117e253f80c91e477b673525ae45762942858aef57631bb90
+src-url: https://download.gnome.org/sources/glib/2.86/glib-2.86.3.tar.xz
+src-sha: b3211d8d34b9df5dca05787ef0ad5d7ca75dec998b970e1aab0001d229977c65
 license: LGPL-2.1-or-later
 dep-pkg: libpcre2 libintl libffi libz
 dep-upp: gettext-tools
