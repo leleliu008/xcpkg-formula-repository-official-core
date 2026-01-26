@@ -1,6 +1,10 @@
 summary: HTTP load generator, inspired by rakyll/hey with tui animation
-src-url: https://github.com/hatoo/oha/archive/refs/tags/v1.5.0.tar.gz
-src-sha: 2e8d42df346486d3ed5be5016361f40a12989aeffd1c239e307e3bcb414d84c9
+src-url: https://github.com/hatoo/oha/archive/refs/tags/v1.12.1.tar.gz
+src-sha: d97cd744f17eaad77e4fc51ebc0dd3f29530cbbb293b348088e2eca81f49570d
 license: MIT
 dep-pkg: openssl-dev
 bsystem: cargo cmake gmake
+
+dopatch: |
+    export CFLAGS="$(printf '%s\n' "$CFLAGS" | sed 's|-Os|-O0|g')"
+    export CFLAGS_FOR_BUILD="$(printf '%s\n' "$CFLAGS_FOR_BUILD" | sed 's|-Os|-O0|g')"

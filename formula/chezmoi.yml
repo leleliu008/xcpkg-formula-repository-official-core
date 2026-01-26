@@ -1,7 +1,7 @@
 summary: Manage your dotfiles across multiple diverse machines, securely
 web-url: https://chezmoi.io/
-src-url: https://github.com/twpayne/chezmoi/releases/download/v2.69.1/chezmoi-2.69.1.tar.gz
-src-sha: 69e6570b034ebe877a691b19bd3b0d581e32034f9163d6553ebdab5ae5fc12b1
+src-url: https://github.com/twpayne/chezmoi/releases/download/v2.69.3/chezmoi-2.69.3.tar.gz
+src-sha: 3066456892be569d41a2186200b03e59d85a44424cb99d5b9f70aeb2337b6ea1
 license: MIT
 install: |
     gow -X main.version=$PACKAGE_VERSION \

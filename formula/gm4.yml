@@ -1,8 +1,8 @@
 summary: Macro processing language
 git-url: https://git.savannah.gnu.org/git/m4.git
 web-url: https://www.gnu.org/software/m4
-src-url: https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz
-src-sha: 63aede5c6d33b6d9b13511cd0be2cac046f2e70fd0a07aa9573a04a82783af96
+src-url: https://ftp.gnu.org/gnu/m4/m4-1.4.20.tar.xz
+src-sha: e236ea3a1ccf5f6c270b1c4bb60726f371fa49459a8eaaebc90b216b328daf2b
 license: GPL-3.0-or-later
 
 install: |

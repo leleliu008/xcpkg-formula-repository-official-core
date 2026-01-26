@@ -1,6 +1,6 @@
 summary: Classic UNIX line editor
 web-url: https://www.gnu.org/software/ed/ed.html
-src-url: https://ftp.gnu.org/gnu/ed/ed-1.20.2.tar.lz
-src-sha: 65fec7318f48c2ca17f334ac0f4703defe62037bb13cc23920de077b5fa24523
+src-url: https://ftp.gnu.org/gnu/ed/ed-1.22.4.tar.lz
+src-sha: 987a1ebbbad3fcf63a1ffa9e29b3fa7de065150d16319d0a49dd8b57f81d3e9c
 license: GPL-3.0-or-later
 install: configure CC="'$CC'" CPPFLAGS="'$CPPFLAGS'" CFLAGS="'$CFLAGS'" LDFLAGS="'$LDFLAGS'"

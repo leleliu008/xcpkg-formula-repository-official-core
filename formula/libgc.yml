@@ -1,0 +1,12 @@
+summary: Garbage collector for C and C++
+web-url: https://www.hboehm.info/gc/
+src-url: https://github.com/ivmai/bdwgc/releases/download/v8.2.10/gc-8.2.10.tar.gz
+src-sha: 832cf4f7cf676b59582ed3b1bbd90a8d0e0ddbc3b11cb3b2096c5177ce39cc47
+license: MIT
+
+install: |
+    cmakew 2 \
+        -Denable_cplusplus=ON \
+        -Denable_large_config=ON \
+        -Dwithout_libatomic_ops=OFF \
+        -Dwith_libatomic_ops=OFF

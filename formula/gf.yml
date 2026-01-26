@@ -1,7 +1,7 @@
 summary: App development framework of Golang
 web-url: https://goframe.org
-src-url: https://github.com/gogf/gf/archive/refs/tags/v2.7.2.tar.gz
-src-sha: 1620df4e094a049edec788cd917bb8d117a6ec97800ce814eadddad30ef25245
+src-url: https://github.com/gogf/gf/archive/refs/tags/v2.9.8.tar.gz
+src-sha: 1b3d28dd8bff2821d87d66ffa84fd3c8c4970148f53e9bc3c9c04899f8cba88a
 license: MIT
 bsystem: go
 bscript: cmd/gf
