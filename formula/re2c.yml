@@ -1,7 +1,7 @@
 summary: Generate C-based recognizers from regular expressions
 web-url: https://re2c.org/
-src-url: https://github.com/skvadrik/re2c/releases/download/3.1/re2c-3.1.tar.xz
-src-sha: 0ac299ad359e3f512b06a99397d025cfff81d3be34464ded0656f8a96676c029
+src-url: https://github.com/skvadrik/re2c/releases/download/4.4/re2c-4.4.tar.xz
+src-sha: 6b6b865924447ef992d5db4e52fb9307e5f65f26edd43efa91395da810f4280a
 
 install: |
     cmakew \
@@ -10,10 +10,3 @@ install: |
         -DRE2C_BUILD_RE2GO=ON \
         -DRE2C_BUILD_RE2RUST=ON \
         -DRE2C_REBUILD_DOCS=OFF
-
-dopatch: |
-    # macos-14.5
-    # fatal error: 'src/parse/lex.h' file not found
-    # I have no idea why this happened, but it works
-    install -d _/src/parse/
-    cp -v bootstrap/src/parse/lex.h _/src/parse/lex.h

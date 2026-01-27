@@ -1,8 +1,8 @@
 summary: A command-line tool designed for rapidly unarchiving Xcode XIP files and writing them to disk with good compression
-src-url: https://github.com/saagarjha/unxip/archive/refs/tags/v3.0.tar.gz
-src-sha: 3e2b841eb06462110a83f90584d7e0c4bcac90de23ccd45d2eba6a29066a7e2d
+src-url: https://github.com/saagarjha/unxip/archive/refs/tags/v3.3.tar.gz
+src-sha: 490c27aeabad33a8c811ada09008d24835f0f701ad40092b450c4788cdf99198
 license: LGPL-3.0-only
 binbstd: 1
 install: |
-    run swift build --disable-sandbox -c release
+    run swift build --configuration release --disable-sandbox
     install_bins .build/release/unxip

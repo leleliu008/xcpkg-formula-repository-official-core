@@ -2,8 +2,8 @@ pkgtype: exe+lib
 summary: Tools and libraries to manipulate images in many formats
 git-url: https://github.com/ImageMagick/ImageMagick
 web-url: https://imagemagick.org/
-src-url: https://imagemagick.org/archive/releases/ImageMagick-7.1.2-12.tar.xz
-src-sha: e22c5dc6cd3f8e708a2809483fd10f8e37438ef7831ec8d3a07951ccd70eceba
+src-url: https://imagemagick.org/archive/releases/ImageMagick-7.1.2-13.tar.xz
+src-sha: 968e022c8c7ee620680bac658628ef0f582be7b8aa71b386a9a9d068ec17dbd2
 license: ImageMagick
 dep-pkg: ghostscript-dev libheif liblqr libltdl
 
@@ -30,5 +30,5 @@ caveats: |
     The following environment variables should be set if you move/copy this software to other location
 
     export MAGICK_HOME=/somewhere
-    export MAGICK_CODER_MODULE_PATH="$MAGICK_HOME/lib/ImageMagick-7.1.1/modules-Q16HDRI/coders"
+    export MAGICK_CODER_MODULE_PATH="$MAGICK_HOME/lib/ImageMagick-7.1.2/modules-Q16/coders"
     export MAGICK_CONFIGURE_PATH="$MAGICK_HOME/etc/ImageMagick-7"

@@ -1,9 +1,10 @@
 summary: Swiss army knife for Debian repository management
 web-url: https://www.aptly.info/
-src-url: https://github.com/aptly-dev/aptly/archive/v1.5.0.tar.gz
-src-sha: 07e18ce606feb8c86a1f79f7f5dd724079ac27196faa61a2cefa5b599bbb5bb1
+src-url: https://github.com/aptly-dev/aptly/archive/refs/tags/v1.6.2.tar.gz
+src-sha: cadfabda2a59f397adfe6f9ce3c9ddc6fe4c6052f0e03a300ba1f22d7cf0e09a
 license: MIT
 
 install: |
-    gow -X main.Version=$PACKAGE_VERSION &&
+    run go generate
+    gow -X main.Version=$PACKAGE_VERSION
     run install_mans $PACKAGE_BSCRIPT_DIR/man/aptly.1

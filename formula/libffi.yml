@@ -1,7 +1,7 @@
 summary: A portable Foreign Function Interface library
 web-url: https://sourceware.org/libffi
-src-url: https://github.com/libffi/libffi/releases/download/v3.4.8/libffi-3.4.8.tar.gz
-src-sha: bc9842a18898bfacb0ed1252c4febcc7e78fa139fd27fdc7a3e30d9d9356119b
+src-url: https://github.com/libffi/libffi/releases/download/v3.5.2/libffi-3.5.2.tar.gz
+src-sha: f3a3082a23b37c293a4fcd1053147b371f2ff91fa7ea1b2a52e335676bac82dc
 license: MIT
 install: |
     configure \

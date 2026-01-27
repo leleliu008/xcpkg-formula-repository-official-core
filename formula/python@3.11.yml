@@ -1,8 +1,8 @@
 summary: Interpreted, interactive, object-oriented programming language
 git-url: https://github.com/python/cpython
 web-url: https://www.python.org/
-src-url: https://www.python.org/ftp/python/3.11.11/Python-3.11.11.tgz
-src-sha: 883bddee3c92fcb91cf9c09c5343196953cbb9ced826213545849693970868ed
+src-url: https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tgz
+src-sha: 563d2a1b2a5ba5d5409b5ecd05a0e1bf9b028cf3e6a6f0c87a5dc8dc3f2d9182
 license: Python-2.0
 dep-pkg: openssl-dev libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
 ltoable: 0
@@ -11,7 +11,7 @@ ltoable: 0
 # configure: error: cross build not supported for x86_64-apple-darwin
 # https://bugs.python.org/issue46749
 
-install: |
+prepare: |
     unset PYTHONHOME
     unset PYTHONPATH
 
@@ -32,6 +32,7 @@ install: |
 
     export LIBS='-lm'
 
+install: |
     configure \
         --build=$($PACKAGE_BSCRIPT_DIR/config.guess) \
         --with-system-expat \

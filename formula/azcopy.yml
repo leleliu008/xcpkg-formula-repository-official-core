@@ -1,6 +1,6 @@
 summary: Azure Storage data transfer utility
-src-url: https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.28.0.tar.gz
-src-sha: 5c2ef0d11193df1ef86e8f0478d3ea1155fec5d82130c9f43a169d9ee4f55369
+src-url: https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.31.1.tar.gz
+src-sha: 22f875a6deebf344799ebf99b28e1a0b1d7315b025b0d5d5f17ed99b1bcdf408
 license: MIT
 bsystem: go
 prepare: export CGO_ENABLED=1

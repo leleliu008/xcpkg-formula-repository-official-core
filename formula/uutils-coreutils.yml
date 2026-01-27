@@ -1,7 +1,7 @@
 summary: rust implementation of the GNU coreutils
 web-url: https://uutils.github.io/coreutils/
-src-url: https://github.com/uutils/coreutils/archive/refs/tags/0.0.30.tar.gz
-src-sha: 732c0ac646be7cc59a51cdfdb2d0ff1a4d2501c28f900a2d447c77729fdfca22
+src-url: https://github.com/uutils/coreutils/archive/refs/tags/0.5.0.tar.gz
+src-sha: 83535e10c3273c31baa2f553dfa0ceb4148914e9c1a9c5b00d19fbda5b2d4d7d
 license: MIT
 bsystem: gmake cargo
 install: |

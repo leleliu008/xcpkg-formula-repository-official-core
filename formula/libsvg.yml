@@ -6,4 +6,9 @@ license: LGPL-2.1-or-later
 dep-pkg: libjpeg-turbo libpng libxml2
 bsystem: configure
 ppflags: -include stdlib.h
-dopatch: gsed -i 's|png_set_gray_1_2_4_to_8|png_set_expand_gray_1_2_4_to_8|' src/svg_image.c
+
+dopatch: |
+    gsed -i 's|png_set_gray_1_2_4_to_8|png_set_expand_gray_1_2_4_to_8|' src/svg_image.c
+
+    # src/svgint.h:40:9: error: unknown type name 'xmlParserCtxtPtr'
+    gsed -i '/SAX\.h/a \#include <libxml/tree.h>' src/svgint.h

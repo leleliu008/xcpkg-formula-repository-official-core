@@ -9,6 +9,112 @@ COLOR_BLUE='\033[0;94m'         # Blue
 COLOR_PURPLE='\033[0;35m'       # Purple
 COLOR_OFF='\033[0m'             # Reset
 
+get_homebrew_package_name() {
+case $1 in
+    gm4)      printf '%s\n' 'm4'        ;;
+    gmake)    printf '%s\n' 'make'      ;;
+
+    xxd)      printf '%s\n' 'vim'       ;;
+    tcl)      printf '%s\n' 'tcl-tk'    ;;
+    dua)      printf '%s\n' 'dua-cli'   ;;
+    file)     printf '%s\n' 'file-formula' ;;
+    gtar)     printf '%s\n' 'gnu-tar'   ;;
+    gindent)  printf '%s\n' 'gnu-indent';;
+    xattr)    printf '%s\n' 'attr'      ;;
+    patch)    printf '%s\n' 'gpatch'    ;;
+    delta)    printf '%s\n' 'git-delta' ;;
+    xmlwf)    printf '%s\n' 'expat'     ;;
+    typos)    printf '%s\n' 'typos-cli' ;;
+    proj7)    printf '%s\n' 'proj@7'    ;;
+    bsdtar)   printf '%s\n' 'libarchive';;
+    eigen3)   printf '%s\n' 'eigen'     ;;
+    utfcpp)   printf '%s\n' 'utf8cpp'   ;;
+    openpmix) printf '%s\n' 'pmix'      ;;
+    xsltproc) printf '%s\n' 'libxslt'   ;;
+    msgpack-c)printf '%s\n' 'msgpack'   ;;
+    freetype2-with-harfbuzz)
+              printf '%s\n' 'freetype'  ;;
+    zlog-chk-conf)
+              printf '%s\n' 'zlog'      ;;
+    golang@1.21)
+              printf '%s\n' 'go@1.21'   ;;
+    golang)   printf '%s\n' 'go'        ;;
+    trietool) printf '%s\n' 'libdatrie' ;;
+    tensorflow-lite)
+              printf '%s\n' 'libtensorflow' ;;
+    dot_static)
+              printf '%s\n' 'graphviz'  ;;
+    grpc-plugins)
+              printf '%s\n' 'grpc'      ;;
+    glib-tools)
+              printf '%s\n' 'glib'      ;;
+    gif)      printf '%s\n' 'giflib'    ;;
+    png)      printf '%s\n' 'libpng'    ;;
+    tiff)     printf '%s\n' 'libtiff'   ;;
+    adig)     printf '%s\n' 'c-ares'    ;;
+    orcc)     printf '%s\n' 'orc'       ;;
+    sndfile)  printf '%s\n' 'libsndfile' ;;
+
+    libtwolame|stwolame)
+              printf '%s\n' 'two-lame'  ;;
+
+    getopt)   printf '%s\n' 'util-linux';;
+    toml++)   printf '%s\n' 'tomlplusplus'  ;;
+
+    xorg-*)   printf '%s\n' "$1" | cut -c6- ;;
+
+    liblcms2) printf '%s\n' 'little-cms2' ;;
+    librtmp)  printf '%s\n' 'rtmpdump'  ;;
+    liblzma)  printf '%s\n' 'xz'        ;;
+    libuuid)  printf '%s\n' 'util-linux';;
+    libargp)  printf '%s\n' 'argp-standalone';;
+    libgif)   printf '%s\n' 'giflib'    ;;
+    libbz2)   printf '%s\n' 'bzip2'     ;;
+    libzmq)   printf '%s\n' 'zeromq'    ;;
+    libjxl)   printf '%s\n' 'jpeg-xl'   ;;
+    libhwy)   printf '%s\n' 'highway'   ;;
+    libelf)   printf '%s\n' 'elfutils'  ;;
+    libdb)    printf '%s\n' 'berkeley-db' ;;
+    libfl)    printf '%s\n' 'flex'      ;;
+    libz)     printf '%s\n' 'zlib'      ;;
+    libltdl)  printf '%s\n' 'libtool'   ;;
+    libtextstyle)
+              printf '%s\n' 'gettext'   ;;
+    libasprintf)
+              printf '%s\n' 'gettext'   ;;
+    libintl)  printf '%s\n' 'gettext'   ;;
+    gettext-tools)
+              printf '%s\n' 'gettext'   ;;
+    gettext-dev)
+              printf '%s\n' 'gettext'   ;;
+    openssl-dev)
+              printf '%s\n' 'openssl'   ;;
+    libasync++)
+              printf '%s\n' 'asyncplusplus' ;;
+    mediainfo)
+              printf '%s\n' 'media-info';;
+    libxml2-python3|xmlutils)
+              printf '%s\n' 'libxml2'   ;;
+    libflatbuffers|flatc)
+              printf '%s\n' 'flatbuffers' ;;
+    libprotobuf.a)
+              printf '%s\n' 'protobuf'  ;;
+    libsqlite3)
+              printf '%s\n' 'sqlite'    ;;
+    libmp3lame)
+              printf '%s\n' 'lame'      ;;
+    libblake3)
+              printf '%s\n' 'b3sum'     ;;
+    libSvtAv1)
+              printf '%s\n' 'svt-av1'   ;;
+    libfftw3) printf '%s\n' 'fftw'      ;;
+    libcares) printf '%s\n' 'c-ares'    ;;
+    libgumbo) printf '%s\n' 'gumbo-parser' ;;
+    libImath) printf '%s\n' 'imath'     ;;
+    libglfw3) printf '%s\n' 'glfw'      ;;
+    libicu)   printf '%s\n' 'icu4c'     ;;
+esac
+}
 
 version_sort() {
     # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sort.html
@@ -135,21 +241,34 @@ do
 
     PACKAGE_NAME="${FORMULA_FILENAME%.yml}"
 
-    BREW_PACKAGE_NMAE="$(./package-name-to-homebrew.sh "$PACKAGE_NAME")"
+    S1="$(get_homebrew_package_name "$PACKAGE_NAME")"
+    S2=
 
-    if brew info "$BREW_PACKAGE_NMAE" > /dev/null 2>&1 ; then
-        BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NMAE" --json | yq '.[0].versions.stable')
+    case $PACKAGE_NMAE in
+        lib*) S2="${PACKAGE_NMAE#lib}"
+    esac
 
-        if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
-            case $BREW_PACKAGE_NMAE in
-                lib*) X=lib ;;
-                   *) X="$(printf '%.1s' "$BREW_PACKAGE_NMAE")"
-            esac
+    for BREW_PACKAGE_NMAE in $S1 "$PACKAGE_NMAE" $2
+    do
+        if brew info "$BREW_PACKAGE_NMAE" > /dev/null 2>&1 ; then
+            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NMAE" --json | yq '.[0].versions.stable')
 
-            printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$URL"
-            printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n\n" "$BREW_PACKAGE_NMAE" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/master/Formula/$X/$BREW_PACKAGE_NMAE.rb"
+            if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
+                case $BREW_PACKAGE_NMAE in
+                    lib*) X=lib ;;
+                       *) X="$(printf '%.1s' "$BREW_PACKAGE_NMAE")"
+                esac
+
+                printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$URL"
+                printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n\n" "$BREW_PACKAGE_NMAE" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/master/Formula/$X/$BREW_PACKAGE_NMAE.rb"
+            fi
+
+            BREW_PACKAGE_NMAE=
+            break
         fi
-    else
+    done
+
+    if [ -n "$BREW_PACKAGE_NMAE" ] ; then
         printf "${COLOR_BLUE}%-20s %-15s %s${COLOR_OFF}\n\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$URL"
     fi
 done

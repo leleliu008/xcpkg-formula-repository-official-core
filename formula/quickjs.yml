@@ -1,18 +1,19 @@
 summary: A small and embeddable JavaScript engine
 git-url: https://github.com/bellard/quickjs
 web-url: https://bellard.org/quickjs
-src-url: https://bellard.org/quickjs/quickjs-2024-01-13.tar.xz
-src-sha: 3c4bf8f895bfa54beb486c8d1218112771ecfc5ac3be1036851ef41568212e03
+src-url: https://bellard.org/quickjs/quickjs-2025-09-13-2.tar.xz
+src-sha: 996c6b5018fc955ad4d06426d0e9cb713685a00c825aa5c0418bd53f7df8b0b4
 license: MIT
 
 dopatch: |
-    gsed -i 's|-g||' Makefile
-    gsed -i 's|lib/quickjs|lib|g'         Makefile
-    gsed -i 's|include/quickjs|include|g' Makefile
-    gsed -i 's|$(HOST_CC) $(LDFLAGS)|$(HOST_CC) -B/usr/bin $(LDFLAGS)|' Makefile
+    gsed -i \
+         -e's|-g||' \
+         -e 's|lib/quickjs|lib|g' \
+         -e 's|include/quickjs|include|g' Makefile \
+         -e 's|$(HOST_CC) $(LDFLAGS)|$(HOST_CC) -B/usr/bin $(LDFLAGS)|' Makefile
     # https://newbedev.com/how-to-specify-alternate-linker-command-when-linking-with-cc
 
-install: |
+prepare: |
     export HOST_CC="$CC_FOR_BUILD"
     export CC="$CC $CPPFLAGS $CFLAGS $LDFLAGS"
 
@@ -20,5 +21,6 @@ install: |
     unset CPPFLAGS
     unset LDFLAGS
 
+install: |
     gmakew clean
-    gmakew install HOST_CC="'$HOST_CC'" CC="'$CC'" "AR=$AR" "STRIP=$STRIP" LDFLAGS=-Wl,-v CROSS_PREFIX=xxx PREFIX="$PACKAGE_INSTALL_DIR"
+    gmakew install CONFIG_M32= HOST_CC="'$HOST_CC'" CC="'$CC'" "AR=$AR" "STRIP=$STRIP" LDFLAGS=-Wl,-v CROSS_PREFIX=xxx PREFIX="$PACKAGE_INSTALL_DIR"
