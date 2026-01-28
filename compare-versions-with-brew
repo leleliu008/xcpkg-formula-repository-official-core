@@ -10,11 +10,11 @@ COLOR_PURPLE='\033[0;35m'       # Purple
 COLOR_OFF='\033[0m'             # Reset
 
 printf_package_info_red() {
-    printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n\n" "$1" "$2" "$3"
+    printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 printf_package_info_blue() {
-    printf "${COLOR_BLUE}%-20s %-15s %s${COLOR_OFF}\n\n" "$1" "$2" "$3"
+    printf "${COLOR_BLUE}%-20s %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 get_homebrew_package_name() {
@@ -97,6 +97,7 @@ case $1 in
             libbz2)   printf '%s\n' 'bzip2'     ;;
             libzmq)   printf '%s\n' 'zeromq'    ;;
             libjxl)   printf '%s\n' 'jpeg-xl'   ;;
+            libicu)   printf '%s\n' 'icu4c'     ;;
             libhwy)   printf '%s\n' 'highway'   ;;
             librtmp)  printf '%s\n' 'rtmpdump'  ;;
             liblzma)  printf '%s\n' 'xz'        ;;
@@ -104,6 +105,9 @@ case $1 in
             libuuid)  printf '%s\n' 'util-linux';;
             libargp)  printf '%s\n' 'argp-standalone';;
             liblcms2) printf '%s\n' 'little-cms2' ;;
+            libfftw3) printf '%s\n' 'fftw'      ;;
+            libgumbo) printf '%s\n' 'gumbo-parser' ;;
+
             libasync++)
                       printf '%s\n' 'asyncplusplus' ;;
             libsqlite3)
@@ -209,6 +213,8 @@ do
         lib*)  S2="${PACKAGE_NAME#lib}"  ;;
         *-dev) S2="${PACKAGE_NAME%-dev}" ;;
     esac
+
+    printf '\n'
 
     for BREW_PACKAGE_NAME in $S1 "$PACKAGE_NAME" $S2
     do
