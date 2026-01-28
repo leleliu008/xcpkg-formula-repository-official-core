@@ -1,14 +1,12 @@
 summary: A command-line tools for diff & patch
-    #src-url: https://github.com/sisong/HDiffPatch/archive/refs/tags/v4.8.0.tar.gz
-    #src-sha: 01c526132a183e31b62b435cf80e769e44be6ac1e827e0ee405786e6cf48f013
-
-git-url: https://github.com/sisong/HDiffPatch
-git-ref: refs/heads/master
-
+src-url: https://github.com/sisong/HDiffPatch/archive/refs/tags/v4.12.1.tar.gz
+src-sha: 99794fc2d4cbd60e454516fce908e1792cae0077a6f3298a28580a8d100d6767
 license: MIT
+dep-upp: git
 
 prepare: |
     run git clone https://github.com/sisong/libmd5.git ../libmd5
+    run git clone https://github.com/sisong/xxHash.git ../xxHash
     run git clone https://github.com/sisong/bzip2.git ../bzip2
     run git clone https://github.com/sisong/lzma.git ../lzma
     run git clone https://github.com/sisong/zstd.git ../zstd
@@ -17,5 +15,5 @@ prepare: |
 
 install: |
     gmakew clean
-    gmakew ZSTD=1 LZMA=1 ZLIB=0 BZIP2=1 LDEF=1 MD5=1 CC="$CC" PATCH_LINK="'$LDFLAGS'" DIFF_LINK="'$LDFLAGS'"
+    gmakew ZSTD=1 LZMA=1 ZLIB=0 BZIP2=1 LDEF=1 MD5=1 XXH=1 CC="$CC" PATCH_LINK="'$LDFLAGS'" DIFF_LINK="'$LDFLAGS'"
     install_bins hdiffz hpatchz

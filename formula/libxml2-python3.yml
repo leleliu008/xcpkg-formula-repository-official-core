@@ -1,11 +1,11 @@
 summary: GNOME XML library
 web-url: http://xmlsoft.org
 git-url: https://gitlab.gnome.org/GNOME/libxml2
-src-url: https://download.gnome.org/sources/libxml2/2.12/libxml2-2.12.7.tar.xz
-src-uri: https://distfiles.macports.org/libxml2/libxml2-2.12.7.tar.xz
-src-sha: 24ae78ff1363a973e6d8beba941a7945da2ac056e19b53956aeb6927fd6cfb56
+src-url: https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz
+src-sha: c008bac08fd5c7b4a87f7b8a71f283fa581d80d80ff8d2efd3b26224c39bc54c
 license: MIT
 dep-pkg: libiconv libz python3
+dep-upp: doxygen
 
 install: |
     export PYTHON="$(command -v python3)"

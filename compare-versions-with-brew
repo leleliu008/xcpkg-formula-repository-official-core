@@ -73,7 +73,6 @@ case $1 in
     libzmq)   printf '%s\n' 'zeromq'    ;;
     libjxl)   printf '%s\n' 'jpeg-xl'   ;;
     libhwy)   printf '%s\n' 'highway'   ;;
-    libelf)   printf '%s\n' 'elfutils'  ;;
     libdb)    printf '%s\n' 'berkeley-db' ;;
     libfl)    printf '%s\n' 'flex'      ;;
     libz)     printf '%s\n' 'zlib'      ;;
@@ -244,31 +243,31 @@ do
     S1="$(get_homebrew_package_name "$PACKAGE_NAME")"
     S2=
 
-    case $PACKAGE_NMAE in
-        lib*) S2="${PACKAGE_NMAE#lib}"
+    case $PACKAGE_NAME in
+        lib*) S2="${PACKAGE_NAME#lib}"
     esac
 
-    for BREW_PACKAGE_NMAE in $S1 "$PACKAGE_NMAE" $2
+    for BREW_PACKAGE_NAME in $S1 "$PACKAGE_NAME" $S2
     do
-        if brew info "$BREW_PACKAGE_NMAE" > /dev/null 2>&1 ; then
-            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NMAE" --json | yq '.[0].versions.stable')
+        if brew info "$BREW_PACKAGE_NAME" > /dev/null 2>&1 ; then
+            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].versions.stable')
 
             if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
-                case $BREW_PACKAGE_NMAE in
+                case $BREW_PACKAGE_NAME in
                     lib*) X=lib ;;
-                       *) X="$(printf '%.1s' "$BREW_PACKAGE_NMAE")"
+                       *) X="$(printf '%.1s' "$BREW_PACKAGE_NAME")"
                 esac
 
                 printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$URL"
-                printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n\n" "$BREW_PACKAGE_NMAE" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/master/Formula/$X/$BREW_PACKAGE_NMAE.rb"
+                printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n\n" "$BREW_PACKAGE_NAME" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/master/Formula/$X/$BREW_PACKAGE_NAME.rb"
             fi
 
-            BREW_PACKAGE_NMAE=
+            BREW_PACKAGE_NAME=
             break
         fi
     done
 
-    if [ -n "$BREW_PACKAGE_NMAE" ] ; then
+    if [ -n "$BREW_PACKAGE_NAME" ] ; then
         printf "${COLOR_BLUE}%-20s %-15s %s${COLOR_OFF}\n\n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$URL"
     fi
 done

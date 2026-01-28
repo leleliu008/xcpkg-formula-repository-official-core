@@ -1,9 +1,9 @@
 summary: A small, fast, self-contained, high-reliability, full-featured, SQL database engine written in C
 git-url: https://github.com/sqlite/sqlite
 web-url: https://sqlite.org/
-src-url: https://sqlite.org/2025/sqlite-amalgamation-3500400.zip
-src-sha: 1d3049dd0f830a025a53105fc79fd2ab9431aea99e137809d064d8ee8356b032
-version: 3.50.4
+src-url: https://sqlite.org/2026/sqlite-amalgamation-3510200.zip
+src-sha: 6e2a845a493026bdbad0618b2b5a0cf48584faab47384480ed9f592d912f23ec
+version: 3.51.2
 license: blessing
 
 # https://www.sqlite.org/compile.html
