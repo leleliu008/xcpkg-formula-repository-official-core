@@ -106,6 +106,7 @@ case $1 in
             libargp)  printf '%s\n' 'argp-standalone';;
             liblcms2) printf '%s\n' 'little-cms2' ;;
             libfftw3) printf '%s\n' 'fftw'      ;;
+            libcares) printf '%s\n' 'c-ares'    ;;
             libgumbo) printf '%s\n' 'gumbo-parser' ;;
 
             libasync++)
