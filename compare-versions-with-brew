@@ -214,8 +214,6 @@ do
         *-dev) S2="${PACKAGE_NAME%-dev}" ;;
     esac
 
-    printf '\n'
-
     for BREW_PACKAGE_NAME in $S1 "$PACKAGE_NAME" $S2
     do
         if brew info "$BREW_PACKAGE_NAME" > /dev/null 2>&1 ; then
@@ -229,6 +227,7 @@ do
 
                 printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
                 printf_package_info_red "$BREW_PACKAGE_NAME" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/master/Formula/$X/$BREW_PACKAGE_NAME.rb"
+                printf '\n'
             fi
 
             BREW_PACKAGE_NAME=
@@ -238,5 +237,6 @@ do
 
     if [ -n "$BREW_PACKAGE_NAME" ] ; then
         printf_package_info_blue "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
+        printf '\n'
     fi
 done

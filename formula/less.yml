@@ -1,8 +1,8 @@
 summary: Pager program similar to more
 git-url: https://github.com/gwsw/less
 web-url: http://www.greenwoodsoftware.com/less/index.html
-src-url: http://www.greenwoodsoftware.com/less/less-633.tar.gz
-src-sha: 2f201d64b828b88af36dfe6cfdba3e0819ece2e446ebe6224813209aaefed04f
+src-url: http://www.greenwoodsoftware.com/less/less-691.tar.gz
+src-sha: 88b480eda1bb4f92009f7968b23189eaf1329211f5a3515869e133d286154d25
 license: GPL-3.0-or-later
 dep-pkg: libncurses libpcre2
 install: configure --with-regex=pcre2 --with-secure
