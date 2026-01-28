@@ -1,8 +1,8 @@
 summary: Common error values for all GnuPG components
 web-url: https://www.gnupg.org/related_software/libgpg-error
 git-url: https://dev.gnupg.org/source/libgpg-error
-src-url: https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.49.tar.bz2
-src-sha: 8b79d54639dbf4abc08b5406fb2f37e669a2dec091dd024fb87dd367131c63a9
+src-url: https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.58.tar.bz2
+src-sha: f943aea9a830a8bd938e5124b579efaece24a3225ff4c3d27611a80ce1260c27
 license: LGPL-2.1-or-later
 
 dopatch: |
