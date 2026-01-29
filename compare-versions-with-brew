@@ -101,6 +101,7 @@ case $1 in
             libhwy)   printf '%s\n' 'highway'   ;;
             librtmp)  printf '%s\n' 'rtmpdump'  ;;
             liblzma)  printf '%s\n' 'xz'        ;;
+            libjpeg)  printf '%s\n' 'jpeg'      ;;
             libltdl)  printf '%s\n' 'libtool'   ;;
             libuuid)  printf '%s\n' 'util-linux';;
             libargp)  printf '%s\n' 'argp-standalone';;

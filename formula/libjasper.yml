@@ -1,9 +1,11 @@
 summary: Library for manipulating JPEG-2000 images
 web-url: https://ece.engr.uvic.ca/~frodo/jasper/
-src-url: https://github.com/jasper-software/jasper/releases/download/version-4.2.4/jasper-4.2.4.tar.gz
-src-sha: 6a597613d8d84c500b5b83bf0eec06cd3707c23d19957f70354ac2394c9914e7
+src-url: https://github.com/jasper-software/jasper/releases/download/version-4.2.8/jasper-4.2.8.tar.gz
+src-sha: 98058a94fbff57ec6e31dcaec37290589de0ba6f47c966f92654681a56c71fae
 license: JasPer-2.0
 dep-pkg: libjpeg-turbo
+
+prepare: STDC_VERSION=$("$CC" -E -dM - < /dev/null | sed -n '/__STDC_VERSION__/p' | cut -d ' ' -f3)
 
 install: |
     cmakew \
@@ -11,10 +13,10 @@ install: |
         -DJAS_ENABLE_DOC=OFF \
         -DJAS_ENABLE_SHARED=OFF \
         -DJAS_ENABLE_PROGRAMS=OFF \
-        -DJAS_STDC_VERSION=$("$CC" -E -dM - < /dev/null | sed -n '/__STDC_VERSION__/p' | cut -d ' ' -f3)
+        -DJAS_STDC_VERSION="$STDC_VERSION"
     cmakew \
         -DALLOW_IN_SOURCE_BUILD=ON \
         -DJAS_ENABLE_DOC=OFF \
         -DJAS_ENABLE_SHARED=ON \
         -DJAS_ENABLE_PROGRAMS=OFF \
-        -DJAS_STDC_VERSION=$("$CC" -E -dM - < /dev/null | sed -n '/__STDC_VERSION__/p' | cut -d ' ' -f3)
+        -DJAS_STDC_VERSION="$STDC_VERSION"
