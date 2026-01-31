@@ -3,13 +3,20 @@ web-url: https://fontforge.github.io
 src-url: https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz
 src-sha: 69046500185a5581b58139dfad30c0b3d8128f00ebbfddc31f2fcf877e329e52
 license: GPL-3.0-or-later
-dep-pkg: libuninameslist libpango libspiro libjpeg-turbo libtiff.a libgif libwoff2 libxml2 python3
-dep-lib: libtiff-4 gobject-2.0 gio-2.0 freetype2
+dep-pkg: libuninameslist libreadline libpango libspiro libjpeg-turbo libtiff.a libgif libwoff2 libxml2 python3
+dep-lib: libtiff-4 gobject-2.0 gio-2.0 freetype2 -lncurses
 dep-upp: gettext-tools
 
 install: |
     cmakew \
         -DENABLE_GUI=OFF \
         -DENABLE_DOCS=OFF \
+        -DENABLE_WOFF2=ON \
+        -DENABLE_LIBGIF=ON \
+        -DENABLE_LIBPNG=ON \
+        -DENABLE_LIBJPEG=ON \
+        -DENABLE_LIBTIFF=ON \
+        -DENABLE_LIBSPIRO=ON \
+        -DENABLE_LIBREADLINE=ON \
         -DENABLE_FONTFORGE_EXTRAS=ON \
         -DBUILD_SHARED_LIBS=OFF

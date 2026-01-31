@@ -1,4 +1,3 @@
-pkgtype: lib
 summary: A glib-like multi-platform c library
 web-url: https://tboox.org/
 src-url: https://github.com/tboox/tbox/archive/refs/tags/v1.7.9.tar.gz
