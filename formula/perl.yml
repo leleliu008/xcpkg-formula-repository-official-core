@@ -1,9 +1,9 @@
 summary: Highly capable, feature-rich programming language
 git-url: https://github.com/perl/perl5
 web-url: https://www.perl.org/
-src-url: https://www.cpan.org/src/5.0/perl-5.38.2.tar.xz
-src-uri: https://cpan.metacpan.org/authors/id/P/PE/PEVANS/perl-5.38.2.tar.xz
-src-sha: d91115e90b896520e83d4de6b52f8254ef2b70a8d545ffab33200ea9f1cf29e8
+src-url: https://www.cpan.org/src/5.0/perl-5.42.0.tar.xz
+src-uri: https://cpan.metacpan.org/authors/id/P/PE/PEVANS/perl-5.42.0.tar.xz
+src-sha: 73cf6cc1ea2b2b1c110a18c14bbbc73a362073003893ffcedc26d22ebdbdd0c3
 license: GPL-1.0-or-later
 bsystem: gmake
 

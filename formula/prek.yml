@@ -1,0 +1,5 @@
+summary: Pre-commit re-implemented in Rust
+src-url: https://github.com/j178/prek/archive/refs/tags/v0.3.1.tar.gz
+src-sha: 5fd6cff1e717385d2836ecdcb4e2f7faf01df846e3256c46aacd79e1dfd883f5
+license: MIT
+install: cargow install --path crates/prek

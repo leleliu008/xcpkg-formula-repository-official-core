@@ -1,0 +1,9 @@
+summary: A collection of command-line tools for interacting with high-throughput sequencing data
+web-url: https://www.htslib.org/
+src-url: https://github.com/samtools/samtools/releases/download/1.23/samtools-1.23.tar.bz2
+src-sha: f228db57d25b724ea26fe55c1c91529f084ef564888865fb190dd87bd04ee74c
+license: MIT
+dep-pkg: libz libncurses htslib
+dep-lib: libcurl
+bsystem: configure
+binbstd: 1

@@ -1,0 +1,9 @@
+summary: A collection of high-performance CLI tools for document processing and semantic search
+src-url: https://github.com/run-llama/semtools/archive/refs/tags/v2.0.0.tar.gz
+src-sha: 4fd03e2a6edc5c4d5ca8aae084cc519b6649f9518dad6aa1d6d018efea0db92b
+license: MIT
+dep-upp: protobuf
+bsystem: cargo
+
+# https://github.com/aws/aws-lc-rs/issues/899
+prepare: export AWS_LC_SYS_NO_JITTER_ENTROPY=1

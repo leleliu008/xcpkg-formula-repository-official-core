@@ -1,0 +1,6 @@
+summary: Find security issues in GitHub Actions setups
+web-url: https://docs.zizmor.sh/
+src-url: https://github.com/zizmorcore/zizmor/archive/refs/tags/v1.22.0.tar.gz
+src-sha: 32fd4ef7b42366234e837c67985de0a09e46a0feab4ac0036ed0dc2b9044cbff
+license: MIT
+install: cargow install --path crates/zizmor

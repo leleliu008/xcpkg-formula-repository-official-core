@@ -4,4 +4,6 @@ src-sha: d97cd744f17eaad77e4fc51ebc0dd3f29530cbbb293b348088e2eca81f49570d
 license: MIT
 dep-pkg: openssl-dev
 bsystem: cargo cmake+gmake
-ccflags: -O0
+
+# https://github.com/aws/aws-lc-rs/issues/899
+prepare: export AWS_LC_SYS_NO_JITTER_ENTROPY=1
