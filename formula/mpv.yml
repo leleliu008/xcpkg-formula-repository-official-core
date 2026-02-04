@@ -2,7 +2,7 @@ summary: A free, open source, and cross-platform media player based on MPlayer a
 web-url: https://mpv.io
 src-url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.41.0.tar.gz
 src-sha: ee21092a5ee427353392360929dc64645c54479aefdb5babc5cfbb5fad626209
-dep-pkg: libplacebo libbluray libluajit libmujs libass libuchardet librubberband
+dep-pkg: libplacebo libbluray libluajit libmujs libass libuchardet librubberband ffmpeg
 mslable: 0
 
 dopatch: |

@@ -1,9 +1,9 @@
 summary: Library for large linear classification
 git-url: https://github.com/cjlin1/liblinear
 web-url: https://www.csie.ntu.edu.tw/~cjlin/liblinear/
-src-url: https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.48.tar.gz
-src-uri: https://distfiles.macports.org/liblinear/liblinear-2.48.tar.gz
-src-sha: 72ea3853a9fb430b49c3196177d8acdffd2dadb5901832ee323465792087e8cc
+src-url: https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.50.tar.gz
+src-uri: https://distfiles.macports.org/liblinear/liblinear-2.50.tar.gz
+src-sha: e5eeafe2159c41148b59304da2ba0ed12648e3d491ce2b9625058e174e96ca29
 
 license: BSD-3-Clause
 

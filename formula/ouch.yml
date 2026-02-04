@@ -1,6 +1,6 @@
 summary: Painless compression and decompression for your terminal
-src-url: https://github.com/ouch-org/ouch/archive/refs/tags/0.5.1.tar.gz
-src-sha: 46cc2b14f53de2f706436df59300eb90c5a58f08ac8c738fd976fcb8ec0cd335
+src-url: https://github.com/ouch-org/ouch/archive/refs/tags/0.6.1.tar.gz
+src-sha: e6265071affab228ba7d3ca85f2206029445038b3a3d96036e9bf02b795ad651
 license: MIT
 dep-pkg: libz libbz2 liblzma
 bsystem: cargo

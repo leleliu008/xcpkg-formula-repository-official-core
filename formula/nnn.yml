@@ -1,6 +1,6 @@
 summary: Tiny, lightning fast, feature-packed file manager
-src-url: https://github.com/jarun/nnn/archive/v4.9.tar.gz
-src-sha: 9e25465a856d3ba626d6163046669c0d4010d520f2fb848b0d611e1ec6af1b22
+src-url: https://github.com/jarun/nnn/archive/refs/tags/v5.1.tar.gz
+src-sha: 9faaff1e3f5a2fd3ed570a83f6fb3baf0bfc6ebd6a9abac16203d057ac3fffe3
 license: BSD-2-Clause
 dep-pkg: libreadline
 

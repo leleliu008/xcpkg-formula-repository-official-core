@@ -1,6 +1,6 @@
 summary: Portable OpenBSD ksh, based on the public domain Korn shell (pdksh)
-src-url: https://github.com/ibara/oksh/releases/download/oksh-7.6/oksh-7.6.tar.gz
-src-sha: 26b45fc3dcaab786db6b87dcd741ac572a7ef539dbb88ea22c43ed8b54405c74
+src-url: https://github.com/ibara/oksh/releases/download/oksh-7.8/oksh-7.8.tar.gz
+src-sha: 3b30d5a1183b829590cc020d8ab87f22d288e98dc3fdf12feb7159536beaa950
 license: BSD-3-Clause ISC
 install: configure --disable-static
 binbstd: 1

@@ -1,18 +1,13 @@
 summary: Nanomsg-next-generation -- light-weight brokerless messaging
 web-url: https://nng.nanomsg.org
-src-url: https://github.com/nanomsg/nng/archive/refs/tags/v1.8.0.tar.gz
-src-sha: cfacfdfa35c1618a28bb940e71f774a513dcb91292999696b4346ad8bfb5baff
+src-url: https://github.com/nanomsg/nng/archive/refs/tags/v1.11.tar.gz
+src-sha: 12aaff6f8f183ba0fec378af8620c47cf4be6da975d016ec6cdec2fbac0d3534
 license: MIT
-dep-pkg: mbedtls
 
 install: |
-    cmakew \
+    cmakew 2 \
         -DNNG_TESTS=OFF \
-        -DNNG_ENABLE_TLS=ON \
+        -DNNG_TOOLS=OFF \
+        -DNNG_ENABLE_TLS=OFF \
         -DNNG_ENABLE_HTTP=ON \
-        -DBUILD_SHARED_LIBS=ON
-    cmakew \
-        -DNNG_TESTS=OFF \
-        -DNNG_ENABLE_TLS=ON \
-        -DNNG_ENABLE_HTTP=ON \
-        -DBUILD_SHARED_LIBS=OFF
+        -DNNG_ENABLE_IPV6=ON

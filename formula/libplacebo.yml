@@ -3,7 +3,7 @@ git-url: https://code.videolan.org/videolan/libplacebo
 src-url: https://code.videolan.org/videolan/libplacebo/-/archive/v7.351.0/libplacebo-v7.351.0.tar.bz2
 src-sha: d68159280842a7f0482dcea44a440f4c9a8e9403b82eccf185e46394dfc77e6a
 license: LGPL-2.1-or-later
-dep-pkg: ffmpeg vulkan-loader shaderc liblcms2 fastfloat
+dep-pkg: vulkan-loader shaderc liblcms2 fastfloat
 dep-pip: MarkupSafe Jinja2 glad2
 
 install: |

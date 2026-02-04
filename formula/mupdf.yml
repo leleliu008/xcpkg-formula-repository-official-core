@@ -1,10 +1,13 @@
 summary: Lightweight PDF and XPS viewer
 git-url: git://git.ghostscript.com/mupdf.git
 web-url: https://mupdf.com/
-src-url: https://mupdf.com/downloads/archive/mupdf-1.25.4-source.tar.gz
-src-sha: 74b943038fe81594bf7fc5621c60bca588b2847f0d46fb2e99652a21fa0d9491
+src-url: https://mupdf.com/downloads/archive/mupdf-1.27.0-source.tar.gz
+src-sha: ae2442416de499182d37a526c6fa2bacc7a3bed5a888d113ca04844484dfe7c6
 license: AGPL-3.0-or-later
 dep-pkg: openssl-dev libtesseract libjbig2dec libharfbuzz libgumbo libmujs
+
+res-url: https://mujs.com/downloads/mujs-1.3.8.tar.gz
+res-sha: 506d34882f2620a2fdeb6db63dbb7a8ffd98f417689d8f3c84f2feac275e39a9
 
 dopatch: |
     for item in $(find thirdparty -maxdepth 1 -mindepth 1 -type d)
@@ -13,6 +16,8 @@ dopatch: |
         [ "$item" = thirdparty/lcms2 ]   && continue
         run rm -rf "$item"
     done
+
+    run ln -s ../../res thirdparty/mujs
 
 prepare: |
     unset GMAKE_EXTRA_ARGS
@@ -25,7 +30,7 @@ prepare: |
         A="$(pkg-config --cflags "$V")"
         B="$(pkg-config --libs   "$V")"
 
-        GMAKE_EXTRA_ARGS="$GMAKE_EXTRA_ARGS SYS_${K}_CFLAGS='$A' SYS_${K}_LIBS='$B'"
+        GMAKE_EXTRA_ARGS="$GMAKE_EXTRA_ARGS HAVE_SYS_${K}=yes SYS_${K}_CFLAGS='$A' SYS_${K}_LIBS='$B'"
     done
 
 install: |
@@ -41,8 +46,7 @@ install: |
         RANLIB=$RANLIB \
         XCFLAGS="'$CFLAGS $CPPFLAGS'" \
         USE_SYSTEM_LIBS=yes \
-        USE_SYSTEM_MUJS=yes \
+        USE_SYSTEM_MUJS=no \
         USE_SYSTEM_LEPTONICA=yes \
         USE_SYSTEM_TESSERACT=yes \
-        HAVE_SYS_LEPTONICA=yes \
         $GMAKE_EXTRA_ARGS

@@ -1,7 +1,7 @@
 summary: Fake keyboard/mouse input and window management for X
 web-url: https://www.semicomplete.com/projects/xdotool/
-src-url: https://github.com/jordansissel/xdotool/releases/download/v3.20211022.1/xdotool-3.20211022.1.tar.gz
-src-sha: 96f0facfde6d78eacad35b91b0f46fecd0b35e474c03e00e30da3fdd345f9ada
+src-url: https://github.com/jordansissel/xdotool/releases/download/v4.20251130.1/xdotool-4.20251130.1.tar.gz
+src-sha: eee789b00d6a13d47b31bbc139727e6408c21b5f6ba5e804fdf6ecfb8c781356
 license: BSD-3-Clause
 dep-pkg: libxkbcommon xorg-libxtst xorg-libxinerama
 

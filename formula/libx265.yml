@@ -1,9 +1,9 @@
 summary: An open-source H.265/HEVC encoder
 web-url: http://x265.org
 git-url: https://bitbucket.org/multicoreware/x265_git
-src-url: https://bitbucket.org/multicoreware/x265_git/get/3.6.tar.gz
-src-sha: 206329b9599c78d06969a1b7b7bb939f7c99a459ab283b2e93f76854bd34ca7b
-license: GPL-2.0-only
+src-url: https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz
+src-sha: a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29
+license: GPL-2.0-or-later
 dep-upp: nasm
 bscript: source
 
