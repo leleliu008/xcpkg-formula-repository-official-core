@@ -238,7 +238,37 @@ do
     done
 
     if [ -n "$BREW_PACKAGE_NAME" ] ; then
-        printf_package_info_blue "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
-        printf '\n'
+        case $PACKAGE_WEB_URL in
+            https://github.com/*)
+                X="${PACKAGE_WEB_URL#'https://github.com/'}"
+                Y="${X%/*}"
+                Z="${X#*/}"
+
+                cat > QUERY <<EOF
+                {
+                    repository(owner: "$Y", name: "$Z") {
+                        latestRelease {
+                          name
+                        }
+                    }
+                }
+EOF
+
+                LATEST_RELEASE_NAME="$(gh api graphql -f "query=$(cat QUERY)" --jq .data.repository.latestRelease.name)"
+
+                LATEST_RELEASE_VERSION="${LATEST_RELEASE_NAME#v}"
+
+                if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
+                    printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
+                    printf_package_info_red "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_WEB_URL/releases/tag/$LATEST_RELEASE_NAME"
+
+                    BREW_PACKAGE_NAME=
+                fi
+        esac
+
+        if [ -n "$BREW_PACKAGE_NAME" ] ; then
+            printf_package_info_blue "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
+            printf '\n'
+        fi
     fi
 done

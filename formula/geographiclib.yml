@@ -1,7 +1,7 @@
 summary: C++ geography library
 web-url: https://geographiclib.sourceforge.io/
-src-url: https://github.com/geographiclib/geographiclib/archive/refs/tags/r2.5.tar.gz
-src-sha: 4b646358189799491e669f0de5072e94e3988d4a7486823344d182d57665ed35
+src-url: https://github.com/geographiclib/geographiclib/archive/refs/tags/r2.7.tar.gz
+src-sha: 5aaca14cd75f13aa2690273d76e88e8ddf4aeb267d6be2c3e0ba948deb9ceea5
 license: MIT
 
 install: |

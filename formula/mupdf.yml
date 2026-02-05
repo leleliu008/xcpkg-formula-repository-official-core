@@ -19,6 +19,8 @@ dopatch: |
 
     run ln -s ../../res thirdparty/mujs
 
+    gsed -i 's|USE_ARGUMENT_FILE=yes|USE_ARGUMENT_FILE=no|' Makefile
+
 prepare: |
     unset GMAKE_EXTRA_ARGS
 

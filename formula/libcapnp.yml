@@ -1,0 +1,7 @@
+summary: Data interchange format and capability-based RPC system
+web-url: https://capnproto.org/
+src-url: https://github.com/capnproto/capnproto/archive/refs/tags/v1.3.0.tar.gz
+src-sha: 01ab2ba7f52fcc3c51a10e22935aae56f3bc5e99b726b7e507fe6700cb12147d
+license: MIT
+dep-pkg: libz
+install: cmakew 2 -DCMAKE_CXX_STANDARD=20

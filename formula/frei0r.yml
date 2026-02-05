@@ -1,7 +1,8 @@
+pkgtype: lib
 summary: A large collection of free and portable video plugins
 web-url: https://frei0r.dyne.org/
-src-url: https://github.com/dyne/frei0r/archive/refs/tags/v2.3.2.tar.gz
-src-sha: 304291e0ecb456a8b054fe04e14adc50ace54d0223b7b29165ff5343e820ef9d
+src-url: https://github.com/dyne/frei0r/archive/refs/tags/v2.5.1.tar.gz
+src-sha: 318ec4a3042c94a00a58fccdc1eb0d911f36a22beb3504d27aefcca4598f40b0
 license: GPL-2.0-or-later
 
 dopatch: gsed -i '/find_package (Cairo)/d' CMakeLists.txt
