@@ -13,6 +13,9 @@ jobs:
 
     runs-on: macos-15
 
+    env:
+      GH_TOKEN: ${{ github.token }}
+
     steps:
       - run: brew update
 
