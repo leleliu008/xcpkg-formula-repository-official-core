@@ -21,6 +21,10 @@ printf_package_info_blue() {
     printf "${COLOR_BLUE}%-20s %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
+printf_package_info_green() {
+    printf "${COLOR_GREEN}%-20s %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+}
+
 get_homebrew_package_name() {
 case $1 in
     gm4)      printf '%s\n' 'm4'        ;;
@@ -222,8 +226,12 @@ do
 
     for BREW_PACKAGE_NAME in $S1 "$PACKAGE_NAME" $S2
     do
-        if brew info "$BREW_PACKAGE_NAME" > /dev/null 2>&1 ; then
+        if brew info "$BREW_PACKAGE_NAME" --json > /dev/null 2>&1 ; then
             BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].versions.stable')
+
+            if [ "$BREW_PACKAGE_VERS" = "$PACKAGE_VERSION" ] ; then
+                continue 2
+            fi
 
             if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
                 case $BREW_PACKAGE_NAME in
@@ -233,48 +241,47 @@ do
 
                 printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
                 printf_package_info_red "$BREW_PACKAGE_NAME" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/master/Formula/$X/$BREW_PACKAGE_NAME.rb"
-                printf '\n'
-            fi
 
-            BREW_PACKAGE_NAME=
-            break
+                printf '\n'
+                continue 2
+            fi
         fi
     done
 
-    if [ -n "$BREW_PACKAGE_NAME" ] ; then
-        case $PACKAGE_WEB_URL in
-            https://github.com/*)
-                X="${PACKAGE_WEB_URL#'https://github.com/'}"
-                X="${X%/}"
-                Y="${X%/*}"
-                Z="${X#*/}"
+    case $PACKAGE_WEB_URL in
+        https://github.com/*)
+            X="${PACKAGE_WEB_URL#'https://github.com/'}"
+            X="${X%/}"
+            Y="${X%/*}"
+            Z="${X#*/}"
 
-                cat > QUERY <<EOF
-                {
-                    repository(owner: "$Y", name: "$Z") {
-                        latestRelease {
-                          tagName
-                        }
+            cat > QUERY <<EOF
+            {
+                repository(owner: "$Y", name: "$Z") {
+                    latestRelease {
+                      tagName
                     }
                 }
+            }
 EOF
 
-                LATEST_RELEASE_TAGNAME="$(gh api graphql -f "query=$(cat QUERY)" --jq .data.repository.latestRelease.tagName)"
+            LATEST_RELEASE_TAGNAME="$(gh api graphql -f "query=$(cat QUERY)" --jq .data.repository.latestRelease.tagName)"
 
-                LATEST_RELEASE_VERSION="${LATEST_RELEASE_TAGNAME#v}"
+            LATEST_RELEASE_VERSION="${LATEST_RELEASE_TAGNAME#v}"
+            LATEST_RELEASE_VERSION="${LATEST_RELEASE_VERSION%-stable}"
 
-                if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
-                    printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
-                    printf_package_info_purple "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_WEB_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
-                    printf '\n'
+            if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
+                printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
+                printf_package_info_purple "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_WEB_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
+            else
+                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
+            fi
 
-                    BREW_PACKAGE_NAME=
-                fi
-        esac
-
-        if [ -n "$BREW_PACKAGE_NAME" ] ; then
-            printf_package_info_blue "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
             printf '\n'
-        fi
-    fi
+
+            continue
+    esac
+
+    printf_package_info_blue "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
+    printf '\n'
 done

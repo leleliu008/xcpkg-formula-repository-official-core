@@ -1,5 +1,5 @@
 summary: A Rust implementation of Minisign
-src-url: https://github.com/jedisct1/rsign2/archive/refs/tags/0.6.4.tar.gz
-src-sha: 5ea6634299e1444879197627a15e5bbeac0497dac2f773ad965b1cc6fdb13716
+src-url: https://github.com/jedisct1/rsign2/archive/refs/tags/0.6.5.tar.gz
+src-sha: 55276179a1f4223217e2621f1bfe6ee5473e8ed686375cc8e5808f8d996de05e
 license: MIT
 bsystem: cargo

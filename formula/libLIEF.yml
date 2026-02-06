@@ -1,9 +1,9 @@
 summary: Library to Instrument Executable Formats
-git-url: https://github.com/lief-project/LIEF
+src-url: https://github.com/lief-project/LIEF/archive/refs/tags/0.17.3.tar.gz
+src-sha: 00158beac9432b350fb528d571457a0bea8de154633a31735524a74fa69ea196
 license: Apache-2.0
 install: |
     cmakew \
-        -DANDROID_USE_LEGACY_TOOLCHAIN_FILE=OFF \
         -DLIEF_DOC=OFF \
         -DLIEF_TESTS=OFF \
         -DLIEF_EXAMPLES=OFF \
