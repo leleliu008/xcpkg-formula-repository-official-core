@@ -13,6 +13,10 @@ printf_package_info_red() {
     printf "${COLOR_RED}%-20s %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
+printf_package_info_purple() {
+    printf "${COLOR_PURPLE}%-20s %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+}
+
 printf_package_info_blue() {
     printf "${COLOR_BLUE}%-20s %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
@@ -249,19 +253,20 @@ do
                 {
                     repository(owner: "$Y", name: "$Z") {
                         latestRelease {
-                          name
+                          tagName
                         }
                     }
                 }
 EOF
 
-                LATEST_RELEASE_NAME="$(gh api graphql -f "query=$(cat QUERY)" --jq .data.repository.latestRelease.name)"
+                LATEST_RELEASE_TAGNAME="$(gh api graphql -f "query=$(cat QUERY)" --jq .data.repository.latestRelease.tagName)"
 
-                LATEST_RELEASE_VERSION="${LATEST_RELEASE_NAME#v}"
+                LATEST_RELEASE_VERSION="${LATEST_RELEASE_TAGNAME#v}"
 
                 if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
-                    printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
-                    printf_package_info_red "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_WEB_URL/releases/tag/$LATEST_RELEASE_NAME"
+                    printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
+                    printf_package_info_purple "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_WEB_URL/releases/tag/$LATEST_RELEASE_NAME"
+                    printf '\n'
 
                     BREW_PACKAGE_NAME=
                 fi
