@@ -265,7 +265,7 @@ EOF
 
                 if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
                     printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
-                    printf_package_info_purple "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_WEB_URL/releases/tag/$LATEST_RELEASE_NAME"
+                    printf_package_info_purple "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_WEB_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
                     printf '\n'
 
                     BREW_PACKAGE_NAME=
