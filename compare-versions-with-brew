@@ -255,7 +255,7 @@ do
 
     case $PACKAGE_GIT_URL in
         https://github.com/*)
-            X="${PACKAGE_WEB_URL#'https://github.com/'}"
+            X="${PACKAGE_GIT_URL#'https://github.com/'}"
             X="${X%/}"
             Y="${X%/*}"
             Z="${X#*/}"
