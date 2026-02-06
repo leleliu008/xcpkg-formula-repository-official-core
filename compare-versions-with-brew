@@ -241,6 +241,7 @@ do
         case $PACKAGE_WEB_URL in
             https://github.com/*)
                 X="${PACKAGE_WEB_URL#'https://github.com/'}"
+                X="${X%/}"
                 Y="${X%/*}"
                 Z="${X#*/}"
 
