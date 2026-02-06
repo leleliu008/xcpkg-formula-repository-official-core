@@ -27,6 +27,8 @@ printf_package_info_green() {
 
 get_homebrew_package_name() {
 case $1 in
+    g)        printf '%s\n' 'g-ls'      ;;
+
     gm4)      printf '%s\n' 'm4'        ;;
     gmake)    printf '%s\n' 'make'      ;;
 
@@ -54,6 +56,7 @@ case $1 in
     flatc)    printf '%s\n' 'flatbuffers' ;;
     getopt)   printf '%s\n' 'util-linux';;
     bsdtar)   printf '%s\n' 'libarchive';;
+    choose)   printf '%s\n' 'choose-rust';;
     eigen3)   printf '%s\n' 'eigen'     ;;
     utfcpp)   printf '%s\n' 'utf8cpp'   ;;
     toml++)   printf '%s\n' 'tomlplusplus'  ;;
@@ -248,7 +251,9 @@ do
         fi
     done
 
-    case $PACKAGE_WEB_URL in
+    PACKAGE_GIT_URL="$(./xcpkg formula-parse "$FORMULA_FILEPATH" git-url)"
+
+    case $PACKAGE_GIT_URL in
         https://github.com/*)
             X="${PACKAGE_WEB_URL#'https://github.com/'}"
             X="${X%/}"
@@ -271,10 +276,10 @@ EOF
             LATEST_RELEASE_VERSION="${LATEST_RELEASE_VERSION%-stable}"
 
             if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
-                printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
-                printf_package_info_purple "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_WEB_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
+                printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
+                printf_package_info_purple "$PACKAGE_NAME" "$LATEST_RELEASE_VERSION" "$PACKAGE_GIT_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
             else
-                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
+                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
             fi
 
             printf '\n'
