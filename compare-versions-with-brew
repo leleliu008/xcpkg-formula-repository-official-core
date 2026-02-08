@@ -37,6 +37,7 @@ case $1 in
     gindent)  printf '%s\n' 'gnu-indent';;
 
     d8)       printf '%s\n' 'v8'        ;;
+    bit)      printf '%s\n' 'bit-git'   ;;
     xxd)      printf '%s\n' 'vim'       ;;
     tcl)      printf '%s\n' 'tcl-tk'    ;;
     dua)      printf '%s\n' 'dua-cli'   ;;
@@ -96,6 +97,10 @@ case $1 in
     nghttp3)  printf '%s\n' 'libnghttp3' ;;
     ngtcp2)   printf '%s\n' 'libngtcp2'  ;;
 
+    llvm+*@18)printf '%s\n' 'llvm@18'    ;;
+    llvm+*@19)printf '%s\n' 'llvm@19'    ;;
+    llvm+*@20)printf '%s\n' 'llvm@20'    ;;
+
     xorg-*)   printf '%s\n' "$1" | cut -c6- ;;
 
     lib*)
@@ -116,6 +121,7 @@ case $1 in
             libltdl)  printf '%s\n' 'libtool'   ;;
             libuuid)  printf '%s\n' 'util-linux';;
             libargp)  printf '%s\n' 'argp-standalone';;
+            liburcu)  printf '%s\n' 'userspace-rcu' ;;
             liblcms2) printf '%s\n' 'little-cms2' ;;
             libfftw3) printf '%s\n' 'fftw'      ;;
             libcares) printf '%s\n' 'c-ares'    ;;

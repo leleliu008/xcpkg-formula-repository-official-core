@@ -1,0 +1,6 @@
+summary: Library for userspace RCU (read-copy-update)
+web-url: https://liburcu.org
+src-url: https://lttng.org/files/urcu/userspace-rcu-0.15.6.tar.bz2
+src-sha: 850b192096eb11ebf2c70e8f97bc7da7479ee41da1bebeb44e3986908bac414f
+license: LGPL-2.1-or-later MIT
+bsystem: configure

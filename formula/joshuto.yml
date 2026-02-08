@@ -3,4 +3,3 @@ src-url: https://github.com/kamiyaa/joshuto/archive/refs/tags/v0.9.9.tar.gz
 src-sha: 85a230183f7478dee7c29229d78313ee07b759e596e19292acf024d2e5735efa
 license: LGPL-3.0-or-later
 install: cargow install --locked
-    #prepare: export RUSTUP_TOOLCHAIN=1.76

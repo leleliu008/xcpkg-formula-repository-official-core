@@ -1,6 +1,6 @@
 summary: Rainbows and unicorns in your console
-src-url: https://github.com/jaseg/lolcat/archive/refs/tags/v1.4.tar.gz
-src-sha: 6ea43ee2b2bb2f15fc91812b72ebcdaa883052853ed8f055b6f8b38637bda909
+src-url: https://github.com/jaseg/lolcat/archive/refs/tags/v1.5.tar.gz
+src-sha: 2af79bed90e0bda52ae500d16e7e7022037fad10c487c317e7f0ff17ec4b14f5
 
 install: |
     run $CC $CFLAGS $CPPFLAGS $LDFLAGS -o lolcat ../lolcat.c -lm

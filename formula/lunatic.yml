@@ -1,6 +1,7 @@
 summary: An Erlang-inspired runtime for WebAssembly
 web-url: https://lunatic.solutions
-src-url: https://github.com/lunatic-solutions/lunatic/archive/refs/tags/v0.12.0.tar.gz
-src-sha: fa4671b5bf6513a434b926f87d86378be56659dad6a5e367fa28cc6238df2137
+src-url: https://github.com/lunatic-solutions/lunatic/archive/refs/tags/v0.13.2.tar.gz
+src-sha: 0b43d95935be9781ac24f53e095d53fdb34b7dbfe2ff67bb94cad28e4145f869
 license: MIT
 bsystem: cargo
+prepare: export RUSTUP_TOOLCHAIN=1.88
