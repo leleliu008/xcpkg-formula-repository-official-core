@@ -1,0 +1,8 @@
+summary: A small beautifier tool for xcodebuild
+src-url: https://github.com/cpisciotta/xcbeautify/archive/refs/tags/3.1.4.tar.gz
+src-sha: 7d4332563e43335c9ecad819ff1d8033b052020cb73729cdeb7f25165f6cf9f4
+license: MIT
+binbstd: 1
+install: |
+    run swift build --configuration release --disable-sandbox
+    install_bins .build/release/xcbeautify

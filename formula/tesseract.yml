@@ -28,6 +28,8 @@ dopatch: |
     echo "$PANGOCAIRO_LIBRARIES=$PANGOCAIRO_LIBRARIES"
     gsed -i "s|PkgConfig::PANGO|$PANGOCAIRO_LIBRARIES|" src/training/CMakeLists.txt
 
+    unset HOMEBREW_PREFIX
+
 install: |
     cmakew \
         -DENABLE_LTO=ON \
