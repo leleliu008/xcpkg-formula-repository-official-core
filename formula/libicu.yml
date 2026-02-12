@@ -5,6 +5,8 @@ src-sha: 588e431f77327c39031ffbb8843c0e3bc122c211374485fa87dc5f3faff24061
 license: ICU
 bscript: source
 
+ldflags: -Wl,-headerpad_max_install_names
+
 # https://www.talkwithdevices.com/archives/260
 do12345: |
     if isCrossBuild ; then

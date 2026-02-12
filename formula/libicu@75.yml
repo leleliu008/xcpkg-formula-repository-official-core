@@ -3,7 +3,8 @@ web-url: http://site.icu-project.org/home
 src-url: https://github.com/unicode-org/icu/releases/download/release-75-1/icu4c-75_1-src.tgz
 src-sha: cb968df3e4d2e87e8b11c49a5d01c787bd13b9545280fc6642f826527618caef
 license: ICU
-version: 75.1
+
+ldflags: -Wl,-headerpad_max_install_names
 
 bscript: source
 install: |
@@ -13,28 +14,3 @@ install: |
         --disable-tests \
         --disable-fuzzer \
         --disable-samples
-
-dep-upp: patch
-dopatch: |
-    [ "$TARGET_PLATFORM_NAME" = netbsd ] || return 0
-
-    LIST='
-    patch-common_putil.cpp
-    patch-common_putilimp.h
-    patch-common_ubidiimp.h
-    patch-common_umutex.h
-    patch-common_unicode_platform.h
-    patch-common_unicode_ptypes.h
-    patch-common_uposixdefs.h
-    patch-i18n_double-conversion-utils.h
-    patch-tools-toolutil-pkg_genc.cpp'
-
-    for f in $LIST
-    do
-        wfetch "https://raw.githubusercontent.com/NetBSD/pkgsrc/trunk/textproc/icu/patches/$f"
-    done
-
-    for f in $LIST
-    do
-        patch -p0 < "$f"
-    done
