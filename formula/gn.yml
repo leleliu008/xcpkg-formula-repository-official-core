@@ -5,4 +5,4 @@ dep-upp: python3 git
 
 prepare: run python3 build/gen.py --platform=darwin --out-path=_
 
-install: ninjaw && install_bins gn
+install: run ninja && install_bins gn
