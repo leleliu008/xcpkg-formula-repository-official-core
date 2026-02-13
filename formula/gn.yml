@@ -1,6 +1,6 @@
 summary: A meta-build system for generating build files for ninja
 git-url: https://gn.googlesource.com/gn
-dep-upp: python3
+dep-upp: python3 git
 
 prepare: run python3 build/gen.py --platform=darwin --out-path=_
 
