@@ -7,7 +7,6 @@ license: MIT
 dep-pkg: libsqlite3 libevent libcapnp libzmq boost
 
 # error: Cannot compile without assertions!
-prepare2: |
-    export CPPFLAGS="$(printf '%s\n' "$CPPFLAGS" | sed 's|-DNDEBUG||g')"
+ppflags: -UNDEBUG
 
 install: cmakew -DWITH_ZMQ=ON
