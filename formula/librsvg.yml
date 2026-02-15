@@ -7,4 +7,4 @@ license: LGPL-2.1-or-later
 dep-pkg: gdk-pixbuf libpango
 dep-upp: cargo-c
 bsystem: meson cargo
-install: mesonw -Dintrospection=disabled -Dpixbuf=disabled -Dpixbuf-loader=disabled
+install: mesonw -Drsvg-convert=disabled -Dintrospection=disabled -Dpixbuf=disabled -Dpixbuf-loader=disabled
