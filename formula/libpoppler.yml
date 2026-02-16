@@ -4,7 +4,7 @@ web-url: https://poppler.freedesktop.org/
 src-url: https://poppler.freedesktop.org/poppler-25.09.1.tar.xz
 src-sha: 0c1091d01d3dd1664a13816861e812d02b29201e96665454b81b52d261fad658
 license: GPL-2.0-only
-dep-pkg: libcairo liblcms2 libtiff libjpeg-turbo libopenjpeg libcurl libgpgme libnss
+dep-pkg: libcairo liblcms2 libtiff libjpeg-turbo libopenjpeg libcurl libgpgmepp libnss
 dep-upp: gperf python3
 
 install: |
