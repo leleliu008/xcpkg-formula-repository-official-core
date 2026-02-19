@@ -14,16 +14,15 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - run: curl -LO https://raw.githubusercontent.com/leleliu008/xcpkg/master/xcpkg
-      - run: chmod a+x xcpkg
+      - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
+      - run: /usr/bin/bsdtar xf xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz --strip-components=1
 
-      - run: ./xcpkg setup
-      - run: ./xcpkg about
-      - run: ./xcpkg sysinfo
-      - run: ./xcpkg update
+      - run: bin/xcpkg about
+      - run: bin/xcpkg sysinfo
+      - run: bin/xcpkg update
 
       - run: |
-          for item in $(./xcpkg ls-available)
+          for item in $(bin/xcpkg ls-available)
           do
-            ./xcpkg fetch "$item"
+            bin/xcpkg fetch "$item"
           done
