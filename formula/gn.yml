@@ -1,8 +1,11 @@
 summary: A meta-build system for generating build files for ninja
 git-url: https://gn.googlesource.com/gn
+git-uri: https://github.com/cglogic/gn
 git-nth: 0
 dep-upp: python3 git
 
+# This package need fetch all commits and run git describe HEAD --abbrev=12 --match initial-commit in build/gen.py
+#
 prepare: run python3 build/gen.py --platform=darwin --out-path=_
 
 install: run ninja && install_bins gn
