@@ -9,5 +9,6 @@ bsystem: autotools
 prepare: |
     export XCPKG_TARGET_CXXFLAGS="$XCPKG_TARGET_CXXFLAGS -std=gnu++20"
     export ANDROID_SDK="$UPPM_PACKAGE_INSTALLED_ROOT/android-sdk"
+    run "yes | $ANDROID_SDK/cmdline-tools/latest/bin/sdkmanager 'build-tools;29.0.2'"
 
 install: configure --with-boost="$boost_INSTALL_DIR" --with-googletest="$googletest_INSTALL_DIR" --disable-tests --disable-kotlin-tests
