@@ -3,4 +3,4 @@ summary: C++ Testing and Mocking Framework by Google
 src-url: https://github.com/google/googletest/archive/refs/tags/v1.17.0.tar.gz
 src-sha: 65fab701d9829d38cb77c14acdc431d2108bfdbf8979e40eb8ae567edf10b27c
 license: BSD-3-Clause
-install: cmakew -DBUILD_GMOCK=ON -DINSTALL_GTEST=ON
+install: cmakew -DCMAKE_CXX_STANDARD=17 -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DBUILD_GMOCK=ON -DINSTALL_GTEST=ON

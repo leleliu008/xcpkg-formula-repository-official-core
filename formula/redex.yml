@@ -1,0 +1,13 @@
+summary: A bytecode optimizer for Android apps
+src-url: https://github.com/facebook/redex/archive/refs/tags/v2025.09.18.tar.gz
+src-sha: 49be286761fb89a223a9609d58faa141e584a0c6866bf083d8408357302ee2f8
+license: MIT
+dep-pkg: libjsoncpp boost googletest
+dep-upp: libtool python3 android-sdk
+bsystem: autotools
+
+prepare: |
+    export XCPKG_TARGET_CXXFLAGS="$XCPKG_TARGET_CXXFLAGS -std=gnu++20"
+    export ANDROID_SDK="$UPPM_PACKAGE_INSTALLED_ROOT/android-sdk"
+
+install: configure --with-boost="$boost_INSTALL_DIR" --with-googletest="$googletest_INSTALL_DIR" --disable-tests --disable-kotlin-tests
