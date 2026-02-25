@@ -1,6 +1,11 @@
 summary: A collection of reusable C++ library artifacts developed at Facebook
-src-url: https://github.com/facebook/folly/archive/refs/tags/v2025.05.19.00.tar.gz
-src-sha: c60daf2e709e0a3fd428d09a1e3439c1836189d4248189a1a45f33500de90eac
+src-url: https://github.com/facebook/folly/archive/refs/tags/v2026.01.12.00.tar.gz
+src-sha: 4b694698c773a3236d6379316f67872db77070d56ea256bec5759964712f9c34
 license: Apache-2.0
 dep-pkg: boost fastfloat libfmt libglog libevent liblz4 libsnappy libsodium libdouble-conversion
 install: cmakew 2
+
+dopatch: |
+    gsed -i '/^find_dependency(/a find_dependency(glog CONFIG)' CMake/folly-config.cmake.in
+    gsed -i '/Glog MODULE/c find_package(GLOG NAMES glog CONFIG REQUIRED)' CMake/folly-deps.cmake
+    gsed -i '/GLOG NAMES glog CONFIG REQUIRED/a set(GLOG_LIBRARY glog::glog)' CMake/folly-deps.cmake

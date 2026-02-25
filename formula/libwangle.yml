@@ -1,6 +1,6 @@
 summary: Modular, composable client/server abstractions framework
-src-url: https://github.com/facebook/wangle/archive/refs/tags/v2025.05.19.00.tar.gz
-src-sha: 770cbec72dc27e9ada048afbd14d29976e569bbc70fefa197d1315898b555916
+src-url: https://github.com/facebook/wangle/archive/refs/tags/v2026.01.12.00.tar.gz
+src-sha: 49b8e318a44e6bcdce37d79644ffd4efc7084621d08b6822cc357047819634ec
 license: Apache-2.0
 dep-pkg: libfizz
 bscript: wangle

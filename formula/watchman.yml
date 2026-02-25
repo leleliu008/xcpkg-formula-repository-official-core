@@ -1,7 +1,7 @@
 pkgtype: exe+lib
 summary: Watch files and take action when they change
-src-url: https://github.com/facebook/watchman/archive/refs/tags/v2025.05.19.00.tar.gz
-src-sha: 2098af2abbf0c45bc0b5378c282458f06975a412fc2ec3252e2c62bf5aed8126
+src-url: https://github.com/facebook/watchman/archive/refs/tags/v2026.01.12.00.tar.gz
+src-sha: 5b6be267c159356a77511545b0608b0dcbd1dfa4c6277b0a5385fc221e85392a
 license: MIT
 dep-pkg: python3 libpcre2 libedencommon cpptoml
 bsystem: cmake cargo
