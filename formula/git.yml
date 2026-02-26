@@ -1,8 +1,8 @@
 summary: A free and open source distributed version control system with speed and efficiency
 web-url: https://git-scm.com/
 git-url: https://github.com/git/git
-src-url: https://www.kernel.org/pub/software/scm/git/git-2.52.0.tar.xz
-src-sha: 3cd8fee86f69a949cb610fee8cd9264e6873d07fa58411f6060b3d62729ed7c5
+src-url: https://www.kernel.org/pub/software/scm/git/git-2.53.0.tar.xz
+src-sha: 5818bd7d80b061bbbdfec8a433d609dc8818a05991f731ffc4a561e2ca18c653
 license: GPL-2.0-only
 dep-pkg: libpcre2 libexpat libcurl libintl libz
 dep-lib: libcurl
@@ -14,13 +14,13 @@ prepare: |
     export NO_DARWIN_PORTS=1
     export NO_INSTALL_HARDLINKS=1
 
-    if isCrossBuild ; then
-        # to bypass git error: cannot run test program while cross compiling
-        export ac_cv_fread_reads_directories=yes
-        export ac_cv_header_libintl_h=yes
-        export ac_cv_iconv_omits_bom=no
-        export ac_cv_snprintf_returns_bogus=no
-    fi
+    isCrossBuild || return 0
+
+    # to bypass git error: cannot run test program while cross compiling
+    export ac_cv_fread_reads_directories=yes
+    export ac_cv_header_libintl_h=yes
+    export ac_cv_iconv_omits_bom=no
+    export ac_cv_snprintf_returns_bogus=no
 
 install: |
     configure \

@@ -1,4 +1,5 @@
 summary: A bytecode optimizer for Android apps
+web-url: https://fbredex.com/
 src-url: https://github.com/facebook/redex/archive/refs/tags/v2025.09.18.tar.gz
 src-sha: 49be286761fb89a223a9609d58faa141e584a0c6866bf083d8408357302ee2f8
 license: MIT

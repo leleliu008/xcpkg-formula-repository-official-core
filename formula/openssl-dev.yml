@@ -1,11 +1,10 @@
 pkgtype: lib
-summary: Cryptography and SSL/TLS Toolkit
-web-url: https://www.openssl.org/
-src-url: https://github.com/openssl/openssl/releases/download/openssl-3.6.0/openssl-3.6.0.tar.gz
-src-sha: b6a5f44b7eb69e3fa35dbf15524405b44837a481d43d81daddde3ff21fcbb8e9
+summary: Cryptography and SSL/TLS library
+web-url: https://openssl-library.org/
+src-url: https://github.com/openssl/openssl/releases/download/openssl-3.6.1/openssl-3.6.1.tar.gz
+src-sha: b1bfedcd5b289ff22aee87c9d600f515767ebf45f77168cb6d64f231f518a82e
 license: Apache-2.0
 dep-upp: perl
-bsystem: gmake
 
 prepare: |
     case $TARGET_PLATFORM_NAME in
@@ -25,8 +24,7 @@ prepare: |
             esac
     esac
 
-# https://github.com/openssl/openssl/blob/master/INSTALL.md
-install: |
+    # https://github.com/openssl/openssl/blob/master/INSTALL.md
     run ./Configure \
         no-tests \
         no-ssl2 \
@@ -37,6 +35,8 @@ install: |
         --libdir=lib \
         --openssldir=etc/ssl \
         "$os_compiler"
+
+install: |
     gmakew clean
     gmakew build_libs
     gmakew install_dev
