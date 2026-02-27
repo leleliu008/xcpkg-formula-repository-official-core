@@ -8,5 +8,5 @@ src-sha: 920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae
 license: MIT
 dep-pkg: glib
 dep-upp: gm4 flex bison
-dep-pip: Mako MarkupSafe
+dep-pip: Mako MarkupSafe setuptools
 bsystem: meson

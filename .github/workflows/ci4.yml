@@ -1,0 +1,59 @@
+name: ci4 
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [ 'macos-26', 'macos-15' ]
+        pkg: [libsvm,libtalloc,libtbox,libtextstyle,libthai,libtinyxml2,libtool,libtorrent-rasterbar,libtre,libtwolame,libultrahdr,libunbound,libupnp,libusrsctp,libuuid,libvips,libwasmtime,libwavpack,libwebm,libwmf,libwolfssh,libxml2-python3,libyajl,libyaml-cpp,libyuv,libyyjson,libzim,libzlog,lighttpd,links,livego,llhttp,llvm+clang+lld@18,llvm+clang+lld@20,llvm+clang@18,llvm@16,llvm@17,llvm@18,llvm@19,llvm@20,lmdb,lodepng,log4cplus,lolcat,lrzip,lsd,lsof,lua,luajit,luau,lunatic,lunzip,lychee,lynx,lz4,lzip,lzo,lzop,magic_enum,mandoc,mawk,mbedtls@4,mcfly,md4c,mdbook,mdcat,mediainfo,mesa,minisign,mist-cli,mksh,mold,mosh,mozjpeg,mozjpeg2,mpdecimal,mpg123,mpv,msgpack-c,mujs,mupdf,nano,nanomsg,nap,nasm,navi,ncdu,neofetch,netcat,nethogs,netpbm,nghttp2,nghttp3,nginx,ngtcp2,nim,ninja,nnn,nodejs@22,nodejs@23,nodejs@24,nsh,ntbtls,nuclei,nushell,oat++,obfs4proxy,oggz,oha,oksh,ollama,onefetch,openal-soft,opencolorio,opencv,openjpeg,openlibm,openmpi,openslide,openssh,openssl,ops,opus-tools,orbiton,orcc,osx-cpu-temp,ouch,oxlint]
+
+    runs-on:  ${{ matrix.runs-on }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
+      - run: /usr/bin/bsdtar xf xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz --strip-components=1
+
+      - run: bin/xcpkg about
+      - run: bin/xcpkg sysinfo
+      - run: bin/xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+      - run: mv formula ~/.xcpkg/repos.d/test/
+
+      - run: bin/xcpkg install ${{ matrix.pkg }}
+
+  target:
+    if: false
+
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [ 'macos-26', 'macos-15' ]
+        #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
+        target: [ 'MacOSX-26.0-arm64' ]
+        pkg: [libsvm,libtalloc,libtbox,libtextstyle,libthai,libtinyxml2,libtool,libtorrent-rasterbar,libtre,libtwolame,libultrahdr,libunbound,libupnp,libusrsctp,libuuid,libvips,libwasmtime,libwavpack,libwebm,libwmf,libwolfssh,libxml2-python3,libyajl,libyaml-cpp,libyuv,libyyjson,libzim,libzlog,lighttpd,links,livego,llhttp,llvm+clang+lld@18,llvm+clang+lld@20,llvm+clang@18,llvm@16,llvm@17,llvm@18,llvm@19,llvm@20,lmdb,lodepng,log4cplus,lolcat,lrzip,lsd,lsof,lua,luajit,luau,lunatic,lunzip,lychee,lynx,lz4,lzip,lzo,lzop,magic_enum,mandoc,mawk,mbedtls@4,mcfly,md4c,mdbook,mdcat,mediainfo,mesa,minisign,mist-cli,mksh,mold,mosh,mozjpeg,mozjpeg2,mpdecimal,mpg123,mpv,msgpack-c,mujs,mupdf,nano,nanomsg,nap,nasm,navi,ncdu,neofetch,netcat,nethogs,netpbm,nghttp2,nghttp3,nginx,ngtcp2,nim,ninja,nnn,nodejs@22,nodejs@23,nodejs@24,nsh,ntbtls,nuclei,nushell,oat++,obfs4proxy,oggz,oha,oksh,ollama,onefetch,openal-soft,opencolorio,opencv,openjpeg,openlibm,openmpi,openslide,openssh,openssl,ops,opus-tools,orbiton,orcc,osx-cpu-temp,ouch,oxlint]
+
+    runs-on:  ${{ matrix.runs-on }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
+      - run: /usr/bin/bsdtar xf xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz --strip-components=1
+
+      - run: bin/xcpkg about
+      - run: bin/xcpkg sysinfo
+      - run: bin/xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+      - run: mv formula ~/.xcpkg/repos.d/test/
+
+      - run: bin/xcpkg install ${{ matrix.pkg }}

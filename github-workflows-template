@@ -8,15 +8,41 @@ on:
 
 jobs:
 
-  build:
-    runs-on: macos-26
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [ 'macos-26', 'macos-15' ]
+        pkg: [PKGLIST]
+
+    runs-on:  ${{ matrix.runs-on }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
+      - run: /usr/bin/bsdtar xf xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz --strip-components=1
+
+      - run: bin/xcpkg about
+      - run: bin/xcpkg sysinfo
+      - run: bin/xcpkg formula-repo-init test https://github.com/leleliu008/xcpkg-formula-repository-offical-core
+
+      - run: mv formula ~/.xcpkg/repos.d/test/
+
+      - run: bin/xcpkg install ${{ matrix.pkg }}
+
+  target:
+    if: false
 
     strategy:
       fail-fast: false
       matrix:
+        runs-on: [ 'macos-26', 'macos-15' ]
         #target: [ 'MacOSX-10.15-x86_64', 'MacOSX-11.0-x86_64', 'MacOSX-12.0-x86_64', 'MacOSX-13.0-x86_64', 'MacOSX-11.0-arm64', 'MacOSX-12.0-arm64', 'MacOSX-13.0-arm64', 'iPhoneOS-11.0-arm64e', 'iPhoneOS-11.0-arm64' ]
         target: [ 'MacOSX-26.0-arm64' ]
         pkg: [PKGLIST]
+
+    runs-on:  ${{ matrix.runs-on }}
 
     steps:
       - uses: actions/checkout@v4
