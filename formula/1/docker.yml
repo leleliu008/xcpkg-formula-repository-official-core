@@ -6,8 +6,8 @@ version: 26.1.4
 license: Apache-2.0
 install: |
     gow \
-        -X github.com/docker/cli/cli/version.BuildTime="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
-        -X github.com/docker/cli/cli/version.GitCommit=$PACKAGE_GIT_SHA \
-        -X github.com/docker/cli/cli/version.Version=$PACKAGE_VERSION \
+        -X github.com/docker/cli/cli/version.BuildTime="$TIMESTAMP_ISO8601" \
+        -X github.com/docker/cli/cli/version.GitCommit="$PACKAGE_GIT_SHA" \
+        -X github.com/docker/cli/cli/version.Version="$PACKAGE_VERSION" \
         -X "\"github.com/docker/cli/cli/version.PlatformName=Docker Engine - Community\"" \
         ./cmd/docker/docker.go

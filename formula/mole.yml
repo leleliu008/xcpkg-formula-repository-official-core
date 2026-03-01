@@ -1,0 +1,9 @@
+summary: A command-line tool to do a deep clean and optimize your macOS
+src-url: https://github.com/tw93/Mole/archive/refs/tags/V1.28.1.tar.gz
+src-sha: 21a753d3cbd79a4e9804be3f7e5ab039d6496c4433c77fac4e8412c0015b5c83
+license: MIT
+
+install: |
+    gow -X main.Version=$PACKAGE_VERSION -X main.BuildTime=$TIMESTAMP_ISO8601 ./cmd/analyze
+    gow -X main.Version=$PACKAGE_VERSION -X main.BuildTime=$TIMESTAMP_ISO8601 ./cmd/status
+    install_bins mole

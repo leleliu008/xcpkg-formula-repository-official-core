@@ -1,6 +1,6 @@
 summary: A command-line interface that brings github.com functionality to your terminal
-src-url: https://github.com/cli/cli/archive/refs/tags/v2.86.0.tar.gz
-src-sha: cd2998310e81727af5c2056e9936e6541a20f968d6e3a4891f7fedbc0b336008
+src-url: https://github.com/cli/cli/archive/refs/tags/v2.87.3.tar.gz
+src-sha: 8aa3458df7204c8b788e3d05c1363fefd899f8a53de22b067d924f24a8ae75ea
 license: MIT
 install: |
     gow -X github.com/cli/cli/internal/build.Date=$(date +%Y-%m-%d) \

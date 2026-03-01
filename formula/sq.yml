@@ -1,13 +1,13 @@
 summary: Data wrangler with jq-like query language
 web-url: https://sq.io
-src-url: https://github.com/neilotoole/sq/archive/refs/tags/v0.48.11.tar.gz
-src-sha: dab57e0f3e6f98fcea390be721e1cdc2d26a894fdc89a2821ada04fa14df3eb5
+src-url: https://github.com/neilotoole/sq/archive/refs/tags/v0.50.0.tar.gz
+src-sha: 36e20553b05aa10069ea3a422bbd98df936f5ca505eae9d61b98ff7ee0b7a279
 license: MIT
 
 prepare: export CGO_ENABLED=1
 
 install: |
     gow \
-        -X github.com/neilotoole/sq/cli/buildinfo.Version=v$PACKAGE_VERSION \
+        -X github.com/neilotoole/sq/cli/buildinfo.Version="v$PACKAGE_VERSION" \
         -X github.com/neilotoole/sq/cli/buildinfo.Commit=RELEASE \
-        -X github.com/neilotoole/sq/cli/buildinfo.Timestamp="$(date +%Y-%m-%dT%H:%M:%SZ)"
+        -X github.com/neilotoole/sq/cli/buildinfo.Timestamp="$TIMESTAMP_ISO8601"

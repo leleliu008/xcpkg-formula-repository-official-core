@@ -1,8 +1,9 @@
 summary: Terminal based graphical activity monitor inspired by gtop and vtop
-src-url: https://github.com/xxxserxxx/gotop/archive/v4.2.0.tar.gz
+src-url: https://github.com/xxxserxxx/gotop/archive/refs/tags/v4.2.0.tar.gz
 src-sha: e9d9041903acb6bd3ffe94e0a02e69eea53f1128274da1bfe00fe44331ccceb1
 license: BSD-3-Clause
-install: |
-    # https://github.com/anatol/smart.go need cgo enabled on macOS.
-    export CGO_ENABLED=1
-    gow -X main.Version=v$PACKAGE_VERSION -X main.BuildDate=$(date +%Y%m%dT%H%M%S) ./cmd/gotop
+
+# https://github.com/anatol/smart.go need cgo enabled on macOS.
+prepare: export CGO_ENABLED=1
+
+install: gow -X main.Version="v$PACKAGE_VERSION" -X main.BuildDate="$(date +%Y%m%dT%H%M%S)" ./cmd/gotop

@@ -1,10 +1,10 @@
 summary: A command-line DNS client for humans
 web-url: https://doggo.mrkaran.dev/
-src-url: https://github.com/mr-karan/doggo/archive/refs/tags/v1.1.4.tar.gz
-src-sha: 697d21704aba1425d09730d3aa811e51c53ef3e912fef1da1d9f5f8005dea5f8
+src-url: https://github.com/mr-karan/doggo/archive/refs/tags/v1.1.5.tar.gz
+src-sha: 0266fe51cd7c6001011c3424380ff0f48809dcaf631fa65f51bfcbe66e59face
 license: GPL-3.0-or-later
 install: |
     gow \
         -X main.buildVersion="$PACKAGE_VERSION" \
-        -X main.buildDate="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
+        -X main.buildDate="$TIMESTAMP_ISO8601" \
         ./cmd/doggo
