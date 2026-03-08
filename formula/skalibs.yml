@@ -1,11 +1,10 @@
+pkgtype: lib
 summary: A set of general-purpose C programming libraries for skarnet.org softwares
 web-url: https://skarnet.org/software/skalibs/
-src-url: https://skarnet.org/software/skalibs/skalibs-2.14.3.0.tar.gz
-src-sha: a14aa558c9b09b062fa16acec623b2c8f93d69f5cba4d07f6d0c58913066c427
+src-url: https://github.com/skarnet/skalibs/archive/refs/tags/v2.14.5.1.tar.gz
+src-sha: 479b125117078be62e3d5b77dd01d6ee9599f40bce5437adc3e4675cebf5facc
 license: ISC
 binbstd: 1
-
-dopatch: gsed -i 's|-soname|-install_name|' Makefile
 
 install: |
     configure \
