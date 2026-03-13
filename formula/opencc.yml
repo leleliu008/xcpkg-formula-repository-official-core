@@ -1,0 +1,8 @@
+summary: Simplified-traditional Chinese conversion tool
+src-url: https://github.com/BYVoid/OpenCC/archive/refs/tags/ver.1.2.0.tar.gz
+src-sha: f4f86eb25e239450d075081e08594801aa063c298d21d9f6c6aa85cd55241962
+version: 1.2.0
+license: Apache-2.0
+dep-pkg: libmarisa
+dep-upp: python3
+install: cmakew -DBUILD_PYTHON=OFF -DBUILD_SHARED_LIBS=OFF -DUSE_SYSTEM_MARISA=ON
