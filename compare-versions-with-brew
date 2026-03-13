@@ -54,6 +54,7 @@ case $1 in
     xmlwf)    printf '%s\n' 'expat'     ;;
     typos)    printf '%s\n' 'typos-cli' ;;
     proj7)    printf '%s\n' 'proj@7'    ;;
+    stack)    printf '%s\n' 'haskell-stack';;
     flatc)    printf '%s\n' 'flatbuffers' ;;
     getopt)   printf '%s\n' 'util-linux';;
     bsdtar)   printf '%s\n' 'libarchive';;
@@ -77,6 +78,10 @@ case $1 in
               printf '%s\n' 'go@1.21'   ;;
     dot_static)
               printf '%s\n' 'graphviz'  ;;
+
+    rustup-init)
+              printf '%s\n' 'rustup'    ;;
+
     grpc-plugins)
               printf '%s\n' 'grpc'      ;;
     zlog-chk-conf)
