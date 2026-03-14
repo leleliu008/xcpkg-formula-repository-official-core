@@ -4,7 +4,4 @@ src-sha: d7cda5addff703dfa523f4b5a45f1948f20548cec49f50723597cc75b7a5c96b
 license: ISC
 dep-pkg: skalibs
 binbstd: 1
-
-    #dopatch: gsed -i 's|-soname|-install_name|' Makefile
-
-install: configure --enable-multicall --with-sysdeps="$skalibs_INSTALL_DIR/lib/skalibs/sysdeps"
+install: configure --enable-multicall --enable-pkgconfig --with-pkgconfig="$PKG_CONFIG" --with-sysdeps="$skalibs_INSTALL_DIR/lib/skalibs/sysdeps"

@@ -28,6 +28,10 @@ install: |
     gsed -i 's|-lxvidcore|-lxvidcore -lm|' configure
     gsed -i "/SDL2_CONFIG=/c SDL2_CONFIG='$libsdl2_INSTALL_DIR/bin/sdl2-config'" configure
 
+    if [ "$GITHUB_ACTIONS" = true ] && [ "${NATIVE_OS_VERS%%.*}" = 26 ] ; then
+        gsed -i '1i set -x' configure
+    fi
+
     if run ./configure \
         --prefix="$PACKAGE_INSTALL_DIR" \
         --sysroot="$SYSROOT" \
