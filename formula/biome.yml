@@ -4,4 +4,4 @@ src-url: https://github.com/biomejs/biome/archive/refs/tags/@biomejs/biome@2.4.7
 src-sha: 076fcc3eb38c82e85db6f0a238e09d840d559ecd2ddd196bd7851a51438ab7e5
 license: Apache-2.0 MIT
 prepare: export BIOME_VERSION="$PACKAGE_VERSION"
-install: cargow install --path crates/biome_cli
+install: cargow install --locked --path crates/biome_cli
