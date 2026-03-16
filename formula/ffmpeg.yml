@@ -12,7 +12,7 @@ install: |
     CLANG_VERSION_MAJOR="$("$CC" -E -dM - < /dev/null | grep __clang_major__ | cut -d ' ' -f3)"
 
     # https://github.com/spack/spack/issues/40159
-    if [ "$CLANG_VERSION_MAJOR" -ge 15 ] ; then
+    if [ "$CLANG_VERSION_MAJOR" -eq 15 ] ; then
         export LDFLAGS="$LDFLAGS -Wl,-ld_classic"
     fi
 
@@ -28,9 +28,9 @@ install: |
     gsed -i 's|-lxvidcore|-lxvidcore -lm|' configure
     gsed -i "/SDL2_CONFIG=/c SDL2_CONFIG='$libsdl2_INSTALL_DIR/bin/sdl2-config'" configure
 
-    if [ "$GITHUB_ACTIONS" = true ] && [ "${NATIVE_PLATFORM_VERS%%.*}" = 26 ] ; then
-        gsed -i '1i set -x' configure
-    fi
+    #if [ "$GITHUB_ACTIONS" = true ] && [ "${NATIVE_PLATFORM_VERS%%.*}" = 26 ] ; then
+    #    gsed -i '1i set -x' configure
+    #fi
 
     if run ./configure \
         --prefix="$PACKAGE_INSTALL_DIR" \
