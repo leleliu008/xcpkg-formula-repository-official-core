@@ -2,7 +2,4 @@ summary: A command-line tool designed for rapidly unarchiving Xcode XIP files an
 src-url: https://github.com/saagarjha/unxip/archive/refs/tags/v3.3.tar.gz
 src-sha: 490c27aeabad33a8c811ada09008d24835f0f701ad40092b450c4788cdf99198
 license: LGPL-3.0-only
-binbstd: 1
-install: |
-    run swift build --configuration release --disable-sandbox
-    install_bins .build/release/unxip
+bsystem: swift

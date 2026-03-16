@@ -1,8 +1,5 @@
 summary: A command-line tool that automatically downloads macOS Firmwares / Installers
-src-url: https://github.com/ninxsoft/mist-cli/archive/refs/tags/v2.1.tar.gz
-src-sha: ed2d07cf4e7f23aecb17ccdff8bdffdcf0d8ab20bbc799c78fed4a354a85de11
+src-url: https://github.com/ninxsoft/mist-cli/archive/refs/tags/v2.2.tar.gz
+src-sha: 556b0680ea8aec5be5b111a0858c3434765efe6efe3526432ba13d33232d7706
 license: MIT
-binbstd: 1
-install: |
-    run swift build --disable-sandbox --configuration release
-    install_bins .build/release/mist
+bsystem: swift
