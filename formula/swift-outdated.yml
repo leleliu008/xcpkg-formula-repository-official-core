@@ -1,0 +1,5 @@
+summary: Check for outdated Swift package manager dependencies
+src-url: https://github.com/kiliankoe/swift-outdated/archive/refs/tags/0.11.0.tar.gz
+src-sha: 60a82a00446151359962754d34ab0d1dc41cbfa71ac6e41ef9e38f45bad66ccb
+license: MIT
+bsystem: swift

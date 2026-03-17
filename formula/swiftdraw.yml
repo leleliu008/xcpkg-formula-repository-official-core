@@ -1,0 +1,5 @@
+summary: Convert SVG into PDF, PNG, JPEG or SF Symbol
+src-url: https://github.com/swhitty/SwiftDraw/archive/refs/tags/0.27.0.tar.gz
+src-sha: f8cd76a17e9d630e60639ab4a1d2f5bf90e8404a7e3a1f15a79ce8919c76134d
+license: Zlib
+bsystem: swift

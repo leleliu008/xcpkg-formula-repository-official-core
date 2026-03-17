@@ -1,0 +1,5 @@
+summary: Formatting technology for Swift source code
+src-url: https://github.com/swiftlang/swift-format/archive/refs/tags/602.0.0.tar.gz
+src-sha: d72b8ca81face822b7ef9c5d9db87e2479c9851345406e0ea237dcaa047f5e0a
+license: Apache-2.0
+install: swiftw --product swift-format

@@ -1,0 +1,5 @@
+summary: CLI tool for parsing mach-o files to obtain Swift information
+src-url: https://github.com/MxIris-Reverse-Engineering/MachOSwiftSection/archive/refs/tags/0.7.1.tar.gz
+src-sha: b71bc0211cc3819b8e3c320b34a8f8fb17580ebbfcefbd0b61bdb57b915bab85
+license: MIT
+bsystem: swift
