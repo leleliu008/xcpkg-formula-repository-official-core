@@ -11,6 +11,4 @@ prepare: |
         export CFLAGS="$CFLAGS -Wno-implicit-function-declaration"
     fi
 
-    export PROXIED_CC_ARGS="$PROXIED_CC_ARGS $CFLAGS $CPPFLAGS $LDFLAGS"
-
 install: configure --enable-libxml2-backend

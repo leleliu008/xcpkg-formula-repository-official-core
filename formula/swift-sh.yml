@@ -1,0 +1,5 @@
+summary: Scripting with easy zero-conf dependency imports
+src-url: https://github.com/mxcl/swift-sh/archive/refs/tags/2.5.0.tar.gz
+src-sha: 07f3c2d1215b82eb56ebfeb676b5e3860c23a828c14fd482c7c1935817f3220f
+license: Unlicense
+bsystem: swift
