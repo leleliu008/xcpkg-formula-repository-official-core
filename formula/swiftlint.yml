@@ -1,0 +1,5 @@
+summary: A tool to enforce Swift style and conventions
+src-url: https://github.com/realm/SwiftLint/archive/refs/tags/0.63.2.tar.gz
+src-sha: e32149f1b325f84da442180e3e2083dfaf97b692623ba8656db7fee88842ce0b
+license: MIT
+install: swiftw --product swiftlint
