@@ -3,6 +3,8 @@ web-url: https://xmake.io/
 src-url: https://github.com/xmake-io/xmake/releases/download/v3.0.7/xmake-v3.0.7.tar.gz
 src-sha: c9052e4550b8925268540603363d68fa90e4c1b407d0e6e00b735055afbea27f
 license: Apache-2.0
-dep-pkg: libreadline
+dep-pkg: libz libreadline
 bscript: core
 bsystem: xmake
+
+prepare: run ln -s libncurses.a ../../lib/libcurses.a
