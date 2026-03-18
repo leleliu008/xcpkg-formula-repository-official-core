@@ -8,4 +8,10 @@ xxflags: -std=c++11
 bsystem: configure
 binbstd: 1
 
-prepare: export LD="$CC"
+prepare: |
+    export LD="$CC"
+
+    case $TARGET_PLATFORM_ARCH in
+        x86_64) export MACHINE='x64' ;;
+        arm64)  export MACHINE='uint128' ;;
+    esac
