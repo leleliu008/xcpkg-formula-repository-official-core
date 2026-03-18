@@ -4,7 +4,7 @@ web-url: https://www.python.org/
 src-url: https://www.python.org/ftp/python/3.14.2/Python-3.14.2.tgz
 src-sha: c609e078adab90e2c6bacb6afafacd5eaf60cd94cf670f1e159565725fcd448d
 license: Python-2.0
-dep-pkg: libncurses openssl-dev libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
+dep-pkg: libncurses openssl-dev libsqlite3 libmpdec libexpat libgdbm libffi libzstd liblzma libbz2 libz
 ltoable: 0
 
 # CPython do not support cross-compiling on macOS
@@ -24,6 +24,15 @@ prepare: |
     export LIBLZMA_CFLAGS="-I$liblzma_INCLUDE_DIR"
     export LIBLZMA_LIBS="-L$liblzma_LIBRARY_DIR -llzma"
 
+    export LIBZSTD_CFLAGS="-I$libzstd_INCLUDE_DIR"
+    export LIBZSTD_LIBS="-L$libzstd_LIBRARY_DIR -lzstd"
+
+    export LIBFFI_CFLAGS="-I$libffi_INCLUDE_DIR"
+    export LIBFFI_LIBS="-L$libffi_LIBRARY_DIR -lffi"
+
+    export LIBMPDEC_CFLAGS="-I$libmpdec_INCLUDE_DIR"
+    export LIBMPDEC_LIBS="-L$libmpdec_LIBRARY_DIR -lmpdec"
+
     export LIBSQLITE3_CFLAGS="-I$libsqlite3_INCLUDE_DIR"
     export LIBSQLITE3_LIBS="-L$libsqlite3_LIBRARY_DIR -lsqlite3"
 
@@ -35,8 +44,9 @@ prepare: |
 install: |
     configure \
         --build=$($PACKAGE_BSCRIPT_DIR/config.guess) \
-        --with-system-expat \
         --with-system-ffi \
+        --with-system-expat \
+        --with-system-libmpdec \
         --with-openssl="$openssl_dev_INSTALL_DIR" \
         --with-ensurepip=yes \
         --with-lto \

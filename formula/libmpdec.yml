@@ -1,4 +1,3 @@
-pkgtype: lib
 summary: Library for decimal floating point arithmetic
 web-url: https://www.bytereef.org/mpdecimal/
 src-url: https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.1.tar.gz
