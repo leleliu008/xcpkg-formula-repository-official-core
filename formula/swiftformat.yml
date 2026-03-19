@@ -1,4 +1,4 @@
-summary: Formatting tool for reformatting Swift code
+summary: A command-line tool for formatting Swift code
 src-url: https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.60.1.tar.gz
 src-sha: efac3144a443791871bff9d065a8b7dd1f563fe79881df0164f47b387ae31f21
 license: MIT
