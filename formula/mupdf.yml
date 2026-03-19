@@ -1,9 +1,9 @@
 summary: Lightweight PDF and XPS viewer
 git-url: git://git.ghostscript.com/mupdf.git
-got-uri: https://github.com/ArtifexSoftware/mupdf
+git-uri: https://github.com/ArtifexSoftware/mupdf
 web-url: https://mupdf.com/
-src-url: https://mupdf.com/downloads/archive/mupdf-1.27.0-source.tar.gz
-src-sha: ae2442416de499182d37a526c6fa2bacc7a3bed5a888d113ca04844484dfe7c6
+src-url: https://mupdf.com/downloads/archive/mupdf-1.27.2-source.tar.gz
+src-sha: 553867b135303dc4c25ab67c5f234d8e900a0e36e66e8484d99adc05fe1e8737
 license: AGPL-3.0-or-later
 dep-pkg: openssl-dev libtesseract libjbig2dec libharfbuzz libgumbo libmujs
 

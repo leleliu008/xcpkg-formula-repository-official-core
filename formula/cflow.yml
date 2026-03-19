@@ -1,5 +1,4 @@
 summary: A command-line tool to generate call graphs from C code
-web-url: https://www.gnu.org/software/cflow/
 src-url: https://ftp.gnu.org/gnu/cflow/cflow-1.8.tar.bz2
 src-sha: 8321627b55b6c7877f6a43fcc6f9f846a94b1476a081a035465f7a78d3499ab8
 license: GPL-3.0-or-later

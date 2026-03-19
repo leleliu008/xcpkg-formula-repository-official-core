@@ -1,6 +1,4 @@
 summary: C library for manipulating Unicode strings
-git-url: https://git.savannah.gnu.org/git/libunistring.git
-web-url: https://www.gnu.org/software/libunistring
 src-url: https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.1.tar.gz
 src-sha: 12542ad7619470efd95a623174dcd4b364f2483caf708c6bee837cb53a54cb9d
 license: GPL-2.0-only

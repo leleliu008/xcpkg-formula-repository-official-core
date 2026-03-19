@@ -1,6 +1,4 @@
 summary: Apply a diff file to an original
-web-url: https://savannah.gnu.org/projects/patch
-git-url: https://git.savannah.gnu.org/cgit/patch.git
 src-url: https://ftp.gnu.org/gnu/patch/patch-2.8.tar.xz
 src-sha: f87cee69eec2b4fcbf60a396b030ad6aa3415f192aa5f7ee84cad5e11f7f5ae3
 license: GPL-3.0-or-later
