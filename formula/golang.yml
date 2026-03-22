@@ -2,7 +2,6 @@ summary: Open source programming language to build simple/reliable/efficient sof
 git-url: https://github.com/golang/go
 web-url: https://go.dev/
 src-url: https://go.dev/dl/go1.25.6.src.tar.gz
-src-uri: https://fossies.org/linux/misc/go1.25.6.src.tar.gz
 src-sha: 58cbf771e44d76de6f56d19e33b77d745a1e489340922875e46585b975c2b059
 license: BSD-3-Clause
 version: 1.25.6

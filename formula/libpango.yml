@@ -1,6 +1,5 @@
 summary: library for laying out and rendering of text, with an emphasis on internationalization
 web-url: https://www.pango.org/
-git-url: https://gitlab.gnome.org/GNOME/pango
 src-url: https://download.gnome.org/sources/pango/1.57/pango-1.57.0.tar.xz
 src-sha: 890640c841dae77d3ae3d8fe8953784b930fa241b17423e6120c7bfdf8b891e7
 license: LGPL-2.0-or-later

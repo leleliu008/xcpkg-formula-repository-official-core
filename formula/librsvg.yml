@@ -1,6 +1,5 @@
 summary: A library to render SVG files using Cairo
 web-url: https://wiki.gnome.org/Projects/LibRsvg
-git-url: https://gitlab.gnome.org/GNOME/librsvg
 src-url: https://download.gnome.org/sources/librsvg/2.61/librsvg-2.61.3.tar.xz
 src-sha: a56d2c80d744ad2f2718f85df466fe71d24ff1f9bc3e5ef588bde4d7e87815f2
 license: LGPL-2.1-or-later
