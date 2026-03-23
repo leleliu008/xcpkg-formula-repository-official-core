@@ -1,0 +1,5 @@
+summary: Read binary Excel files from C/C++
+src-url: https://github.com/libxls/libxls/releases/download/v1.6.3/libxls-1.6.3.tar.gz
+src-sha: b2fb836ea0b5253a352fb5ca55742e29f06f94f9421c5b8eeccef2e5d43f622c
+license: BSD-2-Clause
+bsystem: configure

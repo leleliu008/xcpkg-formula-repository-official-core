@@ -1,8 +1,8 @@
 summary: A convenient unified display of the most relevant technical and tag data for video and audio files
 git-url: https://github.com/MediaArea/MediaInfo
 web-url: https://mediaarea.net/
-src-url: https://mediaarea.net/download/source/mediainfo/25.10/mediainfo_25.10.tar.bz2
-src-sha: 9355dd4e2c308c5fbb29c37e56d463c1746d6e8bc8fffbb93c0cc11b7a3ff70b
+src-url: https://mediaarea.net/download/source/mediainfo/26.01/mediainfo_26.01.tar.bz2
+src-sha: 61f948f8ae40ee4fb2f1cee4bee5ed193d5937603bf4e9f833862d3695fba7a9
 license: BSD-2-Clause
 dep-pkg: libmediainfo
 dep-upp: libtool
