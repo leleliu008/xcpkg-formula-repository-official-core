@@ -1,0 +1,14 @@
+summary: Library for weighted finite-state transducers
+web-url: https://www.openfst.org/twiki/bin/view/FST/WebHome
+src-url: https://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.4.tar.gz
+src-sha: a8ebbb6f3d92d07e671500587472518cfc87cb79b9a654a5a8abb2d0eb298016
+license: Apache-2.0
+
+install: |
+    configure \
+        --enable-far \
+        --enable-ngram-fsts \
+        --enable-grm \
+        --enable-fsts \
+        --enable-special \
+        --enable-compress
