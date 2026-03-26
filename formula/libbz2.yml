@@ -7,4 +7,6 @@ license: bzip2-1.0.8
 
 install: cmakew --targets=bz2-shared,bz2-static --components=lib,dev
 
+dotweak: ln -s libbz2.pc lib/pkgconfig/bzip2.pc
+
 developer: Julian Seward <jseward@acm.org>
