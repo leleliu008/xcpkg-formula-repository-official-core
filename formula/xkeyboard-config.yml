@@ -1,8 +1,8 @@
 summary: Keyboard configuration database for the X Window System
 git-url: https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config
 web-url: https://www.freedesktop.org/wiki/Software/XKeyboardConfig/
-src-url: https://xorg.freedesktop.org/archive/individual/data/xkeyboard-config/xkeyboard-config-2.46.tar.xz
-src-sha: 10c58218fb60d08fb1f7b30304deb3ba47613195aa8a08a81f1972775ccc3640
+src-url: https://xorg.freedesktop.org/archive/individual/data/xkeyboard-config/xkeyboard-config-2.47.tar.xz
+src-sha: e59984416a72d58b46a52bfec1b1361aa7d84354628227ee2783626c7a6db6b6
 license: MIT
 dep-pkg: libxslt libintl
 bsystem: meson
