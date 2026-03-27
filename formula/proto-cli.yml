@@ -4,4 +4,4 @@ src-url: https://github.com/moonrepo/proto/archive/refs/tags/v0.55.4.tar.gz
 src-sha: 229ab227f6cbf41863ef95ccb16939e783a37a684135aeab1fe882f38aed1fa6
 license: MIT
 prepare: export AWS_LC_SYS_NO_JITTER_ENTROPY=1
-install: cargow install --path crates/cli
+install: cargow install --locked --path crates/cli
