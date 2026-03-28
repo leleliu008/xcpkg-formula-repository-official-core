@@ -10,6 +10,8 @@ dep-pkg: openssl-dev libtesseract libjbig2dec libharfbuzz libgumbo libmujs
 res-url: https://mujs.com/downloads/mujs-1.3.8.tar.gz
 res-sha: 506d34882f2620a2fdeb6db63dbb7a8ffd98f417689d8f3c84f2feac275e39a9
 
+xxflags: -std=c++14
+
 dopatch: |
     for item in $(find thirdparty -maxdepth 1 -mindepth 1 -type d)
     do
