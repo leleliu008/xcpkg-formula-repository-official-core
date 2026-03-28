@@ -1,8 +1,8 @@
 summary: A JavaScript runtime built on top of V8 JavaScript engine
 git-url: https://github.com/nodejs/node
 web-url: https://nodejs.org/
-src-url: https://nodejs.org/dist/v24.7.0/node-v24.7.0.tar.xz
-src-sha: cf74a77753b629ffebd2e38fb153a21001b2b7a3c365c0ec7332b120b98c7251
+src-url: https://nodejs.org/dist/v24.14.1/node-v24.14.1.tar.xz
+src-sha: 7822507713f202cf2a551899d250259643f477b671706db421a6fb55c4aa0991
 license: MIT
 dep-upp: python3
 
