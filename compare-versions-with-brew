@@ -105,8 +105,7 @@ case $1 in
     llvm+*@18)printf '%s\n' 'llvm@18'    ;;
     llvm+*@19)printf '%s\n' 'llvm@19'    ;;
     llvm+*@20)printf '%s\n' 'llvm@20'    ;;
-
-    xorg-*)   printf '%s\n' "$1" | cut -c6- ;;
+    llvm+*@21)printf '%s\n' 'llvm@21'    ;;
 
     lib*)
         case $1 in

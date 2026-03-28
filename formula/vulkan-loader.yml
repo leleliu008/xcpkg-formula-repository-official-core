@@ -4,5 +4,5 @@ src-url: https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.4.32
 src-sha: 86772b60eeef6f510586636b7cf7a0e0eabd9e9920bcabf6e8f3b1c2a634a4cc
 license: Apache-2.0
 dep-upp: python3
-dep-pkg: vulkan-headers xorg-libxrandr
+dep-pkg: vulkan-headers libxrandr
 bsystem: cmake
