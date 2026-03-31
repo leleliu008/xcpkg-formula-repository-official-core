@@ -2,7 +2,7 @@ summary: A free, open-source, command-line tool that is used to download files f
 src-url: https://ftp.gnu.org/gnu/wget/wget-1.25.0.tar.gz
 src-sha: 766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784
 license: GPL-3.0-or-later
-dep-pkg: openssl-dev libz libidn2
+dep-pkg: libopenssl libz libidn2
 
 install: |
     configure \

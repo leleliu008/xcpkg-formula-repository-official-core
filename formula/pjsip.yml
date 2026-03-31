@@ -4,7 +4,7 @@ web-url: https://www.pjsip.org/
 src-url: https://github.com/pjsip/pjproject/archive/refs/tags/2.15.1.tar.gz
 src-sha: 8f3bd99caf003f96ed8038b8a36031eb9d8cd9eaea1eaff7e01c2eef6bd55706
 license: GPL-2.0-or-later
-dep-pkg: openssl-dev
+dep-pkg: libopenssl
 binbstd: 1
 parallel: 0
 

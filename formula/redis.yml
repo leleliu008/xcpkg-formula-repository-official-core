@@ -4,11 +4,11 @@ git-url: https://github.com/redis/redis
 src-url: https://download.redis.io/releases/redis-8.4.0.tar.gz
 src-sha: ca909aa15252f2ecb3a048cd086469827d636bf8334f50bb94d03fba4bfc56e8
 license: BSD-3-Clause
-dep-pkg: openssl-dev
+dep-pkg: libopenssl
 
 dopatch: |
-    gsed -i "s|OPENSSL_PREFIX?=.*|OPENSSL_PREFIX?=$openssl_dev_INSTALL_DIR|" src/Makefile
-    gsed -i -e "s|SEARCH_PATH1=.*|SEARCH_PATH1=$openssl_dev_INSTALL_DIR|" -e "s|SEARCH_PATH2=.*|SEARCH_PATH2=$openssl_dev_INSTALL_DIR|" deps/hiredis/Makefile
+    gsed -i "s|OPENSSL_PREFIX?=.*|OPENSSL_PREFIX?=$libopenssl_INSTALL_DIR|" src/Makefile
+    gsed -i -e "s|SEARCH_PATH1=.*|SEARCH_PATH1=$libopenssl_INSTALL_DIR|" -e "s|SEARCH_PATH2=.*|SEARCH_PATH2=$libopenssl_INSTALL_DIR|" deps/hiredis/Makefile
 
 install: |
     export LD="$CC"

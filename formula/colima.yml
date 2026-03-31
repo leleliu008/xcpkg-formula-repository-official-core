@@ -1,0 +1,10 @@
+summary: container runtimes on macOS (and Linux) with minimal setup
+src-url: https://github.com/abiosoft/colima/archive/refs/tags/v0.10.1.tar.gz
+src-sha: 9f115c628132bb73b3809a8037111f231863426fd2eeed782b61899823bd4783
+license: MIT
+runtime: lima
+install: |
+    gow \
+        -X github.com/abiosoft/colima/config.appVersion=$PACKAGE_VERSION \
+        -X github.com/abiosoft/colima/config.revision=ed905203afdbc6fd4eae6cc301918099ff31e86e \
+        ./cmd/colima

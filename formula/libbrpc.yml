@@ -4,11 +4,11 @@ web-url: https://brpc.apache.org/
 src-url: https://dlcdn.apache.org/brpc/1.16.0/apache-brpc-1.16.0-src.tar.gz
 src-sha: 4d5e84048e12512c008d24e52c9e0baa876b5f3f9b06f0aead38b55ea248fdc3
 license: Apache-2.0
-dep-pkg: libgflags gperftools libleveldb openssl-dev libprotobuf
+dep-pkg: libgflags gperftools libleveldb libopenssl libprotobuf
 
 dopatch: |
     gsed -i \
-         -e "s|/usr/local/opt/openssl|$openssl_dev_INSTALL_DIR|" \
+         -e "s|/usr/local/opt/openssl|$libopenssl_INSTALL_DIR|" \
          -e "s|set(CMAKE_C_FLAGS \"|set(CMAKE_C_FLAGS \"\${CMAKE_C_FLAGS} |" \
          -e "s|set(CMAKE_CXX_FLAGS \"|set(CMAKE_CXX_FLAGS \"\${CMAKE_CXX_FLAGS} |" CMakeLists.txt
 

@@ -4,7 +4,7 @@ git-url: https://gitlab.isc.org/isc-projects/bind9
 src-url: https://downloads.isc.org/isc/bind9/9.20.18/bind-9.20.18.tar.xz
 src-sha: dfc546c990ac4515529cd45c4dd995862b18ae8a2d0cb29208e8896a5d325331
 license: MPL-2.0
-dep-pkg: libnghttp2 openssl-dev liburcu libjson-c libxml2 libidn2 libuv
+dep-pkg: libnghttp2 libopenssl liburcu libjson-c libxml2 libidn2 libuv
 
 install: |
     configure \
@@ -18,5 +18,5 @@ install: |
         --with-json-c \
         --with-libxml2 \
         --with-libidn2="$libidn2_INSTALL_DIR" \
-        --with-openssl="$openssl_dev_INSTALL_DIR" \
+        --with-openssl="$libopenssl_INSTALL_DIR" \
         ac_cv_search_idn2_to_ascii_lz="'-lidn2 -lunistring -liconv'"

@@ -1,0 +1,19 @@
+summary: A command-line utility for parsing CSV
+src-url: https://github.com/liquidaty/zsv/archive/refs/tags/v1.4.0.tar.gz
+src-sha: 939fb66d4885260ebe52cc280d131a3973886a37b9ac5db0fe8be18e27c4c31c
+dep-pkg: libncurses libpcre2 libjq
+dep-upp: perl
+ldflags: -lonig
+
+install: |
+    export CFLAGS="$CFLAGS $CPPFLAGS -I$PWD/include"
+
+    run ./configure \
+        --disable-termcap \
+        --prefix="$PACKAGE_INSTALL_DIR" \
+        --jq-prefix="$libjq_INSTALL_DIR" \
+        --pcre2-8-prefix="$libpcre2_INSTALL_DIR"
+
+    gmakew -C src build
+    gmakew -C app build
+    gmakew -C app install

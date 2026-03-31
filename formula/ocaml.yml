@@ -1,0 +1,12 @@
+summary: An industrial-strength functional programming language with an emphasis on expressiveness and safety
+web-url: https://ocaml.org/
+git-url: https://github.com/ocaml/ocaml
+src-url: https://caml.inria.fr/pub/distrib/ocaml-5.4/ocaml-5.4.1.tar.xz
+src-sha: b1e297adc186635540758eb064c7fab025598ae4436f3b9767e5025188b4e0ab
+license: LGPL-2.1-only with OCaml-LGPL-linking-exception
+parallel: 0
+binbstd: 1
+install: |
+    configure only --enable-debug-runtime
+    gmakew world.opt
+    gmakew install

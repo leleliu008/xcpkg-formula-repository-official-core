@@ -16,7 +16,7 @@ install: |
         --enable-optimize \
         --enable-pthreads \
         --with-default-ssl-backend=openssl \
-        --with-ssl="$openssl_dev_INSTALL_DIR" \
+        --with-ssl="$libopenssl_INSTALL_DIR" \
         --with-ngtcp2 \
         --with-nghttp2 \
         --with-nghttp3 \

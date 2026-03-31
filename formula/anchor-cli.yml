@@ -2,5 +2,5 @@ summary: Anchor developer tools
 src-url: https://github.com/solana-foundation/anchor/archive/refs/tags/v0.32.1.tar.gz
 src-sha: e45fec416a1a13dd20112f3f52855b91180448b3298808d7e42c6cd57ad4ae48
 license: Apache-2.0
-dep-pkg: openssl-dev
+dep-pkg: libopenssl
 install: cargow install --path cli

@@ -2,5 +2,5 @@ summary: A command-line tool to convert books written in Markdown to HTML, LaTeX
 src-url: https://github.com/crowdagger/crowbook/archive/refs/tags/v0.17.0.tar.gz
 src-sha: 13c628722fedf1bfebc0fd334e9ffa41a62888e3195d2ad1e5ea851694dc4a4c
 license: LGPL-2.1-or-later
-dep-pkg: openssl-dev
+dep-pkg: libopenssl
 bsystem: cargo

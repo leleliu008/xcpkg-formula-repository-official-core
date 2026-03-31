@@ -8,7 +8,7 @@ dep-pkg: libpcap
 
 install: |
     configure \
-        --with-ssl=$openssl_dev_INSTALL_DIR \
+        --with-ssl=$libopenssl_INSTALL_DIR \
         --without-examples \
         --without-drill \
         --without-pyldns \

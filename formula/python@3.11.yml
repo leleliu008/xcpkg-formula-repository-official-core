@@ -4,7 +4,7 @@ web-url: https://www.python.org/
 src-url: https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tgz
 src-sha: 563d2a1b2a5ba5d5409b5ecd05a0e1bf9b028cf3e6a6f0c87a5dc8dc3f2d9182
 license: Python-2.0
-dep-pkg: openssl-dev libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
+dep-pkg: libopenssl libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
 ltoable: 0
 
 # CPython do not support cross-compiling on macOS
@@ -37,7 +37,7 @@ install: |
         --build=$($PACKAGE_BSCRIPT_DIR/config.guess) \
         --with-system-expat \
         --with-system-ffi \
-        --with-openssl="$openssl_dev_INSTALL_DIR" \
+        --with-openssl="$libopenssl_INSTALL_DIR" \
         --with-ensurepip=yes \
         --with-lto \
         --enable-ipv6 \

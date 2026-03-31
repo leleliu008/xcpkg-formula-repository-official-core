@@ -1,6 +1,6 @@
 summary: Library to Instrument Executable Formats
-src-url: https://github.com/lief-project/LIEF/archive/refs/tags/0.17.3.tar.gz
-src-sha: 00158beac9432b350fb528d571457a0bea8de154633a31735524a74fa69ea196
+src-url: https://github.com/lief-project/LIEF/archive/refs/tags/0.17.6.tar.gz
+src-sha: 5fbbd19c85912d417eabbaef2b98e70144496356964685b82e0792d708b9be87
 license: Apache-2.0
 install: |
     cmakew \

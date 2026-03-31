@@ -3,7 +3,7 @@ web-url: https://developers.yubico.com/libfido2/
 src-url: https://github.com/Yubico/libfido2/archive/refs/tags/1.16.0.tar.gz
 src-sha: 7d86088ef4a48f9faad4ff6f41343328157849153a8dc94d88f4b5461cb29474
 license: BSD-2-Clause
-dep-pkg: libcbor libz openssl-dev
+dep-pkg: libcbor libz libopenssl
 
 install: |
     cmakew \

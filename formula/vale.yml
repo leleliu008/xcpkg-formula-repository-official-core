@@ -1,0 +1,7 @@
+summary: Syntax-aware linter for prose
+web-url: https://vale.sh/
+src-url: https://github.com/errata-ai/vale/archive/refs/tags/v3.14.1.tar.gz
+src-sha: 2b56cb18274a881c8d18d4751cd8c05283529ca8e4934fc0ff8f059113131c86
+license: MIT
+prepare: export CGO_ENABLED=1
+install: gow -X main.version=$PACKAGE_VERSION ./cmd/vale

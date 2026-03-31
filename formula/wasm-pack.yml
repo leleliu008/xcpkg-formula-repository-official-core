@@ -1,0 +1,6 @@
+summary: Your favorite rust -> wasm workflow tool
+web-url: https://rustwasm.github.io/wasm-pack/
+src-url: https://github.com/rustwasm/wasm-pack/archive/refs/tags/v0.14.0.tar.gz
+src-sha: 60e866ce851219b18b7e16b2dbcd8323d5af0eac7d3a8a616bec3bd62fc051c4
+license: Apache-2.0 MIT
+bsystem: cargo

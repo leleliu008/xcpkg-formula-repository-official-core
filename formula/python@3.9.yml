@@ -4,7 +4,7 @@ web-url: https://www.python.org/
 src-url: https://www.python.org/ftp/python/3.9.25/Python-3.9.25.tar.xz
 src-sha: 00e07d7c0f2f0cc002432d1ee84d2a40dae404a99303e3f97701c10966c91834
 license: Python-2.0
-dep-pkg: openssl-dev libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
+dep-pkg: libopenssl libsqlite3 libexpat libgdbm libffi liblzma libbz2 libz
 ltoable: 0
 
 # CPython do not support cross-compiling on macOS
@@ -36,7 +36,7 @@ install: |
         --build=$($PACKAGE_BSCRIPT_DIR/config.guess) \
         --with-system-expat \
         --with-system-ffi \
-        --with-openssl="$openssl_dev_INSTALL_DIR" \
+        --with-openssl="$libopenssl_INSTALL_DIR" \
         --with-ensurepip=yes \
         --with-lto \
         --enable-ipv6 \

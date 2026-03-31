@@ -1,0 +1,10 @@
+summary: Linux virtual machines
+src-url: https://github.com/lima-vm/lima/archive/refs/tags/v2.1.0.tar.gz
+src-sha: 9358f4629ba01a5998327017be0470fff914b5f1bf902bbd2616ec520074ec78
+license: Apache-2.0
+bsystem: gmake go
+install: |
+    export CGO_ENABLED=1
+    gmakew clean native VERSION="$PACKAGE_VERSION"
+    install_bins _output/bin/*
+    run cp -r _output/libexec _output/share "$PACKAGE_INSTALL_DIR"

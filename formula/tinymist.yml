@@ -1,0 +1,6 @@
+summary: Services for Typst
+web-url: https://myriad-dreamin.github.io/tinymist/
+src-url: https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.14.14.tar.gz
+src-sha: 36d28b09cddc126e2b91c48a9c3b07e1c38f951f2e8a5546de8530b6e973c4bf
+license: Apache-2.0
+install: cargow install --path crates/tinymist-cli

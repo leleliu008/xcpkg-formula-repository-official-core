@@ -2,6 +2,6 @@ summary: Web Assembly Binary Toolkit
 src-url: https://github.com/WebAssembly/wabt/releases/download/1.0.39/wabt-1.0.39.tar.xz
 src-sha: 97b986aafb12246b5c01c512d698d641dbff616485a72a94982487e3b0848f04
 license: Apache-2.0
-dep-pkg: openssl-dev
+dep-pkg: libopenssl
 dep-upp: git
 install: cmakew -DBUILD_TESTS=OFF -DWITH_WASI=ON

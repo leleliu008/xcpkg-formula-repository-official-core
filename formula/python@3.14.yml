@@ -4,7 +4,7 @@ web-url: https://www.python.org/
 src-url: https://www.python.org/ftp/python/3.14.3/Python-3.14.3.tgz
 src-sha: d7fe130d0501ae047ca318fa92aa642603ab6f217901015a1df6ce650d5470cd
 license: Python-2.0
-dep-pkg: libncurses openssl-dev libsqlite3 libmpdec libexpat libgdbm libffi libzstd liblzma libbz2 libz
+dep-pkg: libncurses libopenssl libsqlite3 libmpdec libexpat libgdbm libffi libzstd liblzma libbz2 libz
 ltoable: 0
 
 # CPython do not support cross-compiling on macOS
@@ -47,7 +47,7 @@ install: |
         --with-system-ffi \
         --with-system-expat \
         --with-system-libmpdec \
-        --with-openssl="$openssl_dev_INSTALL_DIR" \
+        --with-openssl="$libopenssl_INSTALL_DIR" \
         --with-ensurepip=yes \
         --with-lto \
         --enable-ipv6 \

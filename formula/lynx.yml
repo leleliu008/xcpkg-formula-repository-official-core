@@ -4,7 +4,7 @@ src-url: https://invisible-mirror.net/archives/lynx/tarballs/lynx2.9.2.tar.bz2
 src-sha: 7374b89936d991669e101f4e97f2c9592036e1e8cdaa7bafc259a77ab6fb07ce
 version: 2.9.2
 license: GPL-2.0-only
-dep-pkg: libncurses libz libbz2 openssl-dev
+dep-pkg: libncurses libz libbz2 libopenssl
 
 dopatch: |
     gsed -i 's/XOPEN_SOURCE=500/XOPEN_SOURCE=600/g'        configure

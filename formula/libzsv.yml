@@ -1,0 +1,7 @@
+summary: A command-line utility for parsing CSV
+src-url: https://github.com/liquidaty/zsv/archive/refs/tags/v1.4.0.tar.gz
+src-sha: 939fb66d4885260ebe52cc280d131a3973886a37b9ac5db0fe8be18e27c4c31c
+
+install: |
+    run ./configure --disable-termcap --prefix="$PACKAGE_INSTALL_DIR"
+    gmakew -C src install BUILD_SHAREDLIB=1

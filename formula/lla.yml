@@ -1,0 +1,13 @@
+summary: A high-performance, extensible alternative to ls
+src-url: https://github.com/chaqchase/lla/archive/refs/tags/v0.5.4.tar.gz
+src-sha: 332239095c6aa631570d0695ecb955997ffb6077a3c71be11031e47e97d59687
+license: MIT
+    #prepare: export RUSTUP_TOOLCHAIN=1.81
+install: |
+    cargow install --path lla
+
+    for item in plugins/*
+    do
+        cargow build --locked --lib --manifest-path="$item/Cargo.toml"
+        install_libs target/$RUST_TARGET/release/*$SHARED_LIBRARY_SUFFIX
+    done

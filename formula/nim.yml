@@ -4,7 +4,7 @@ web-url: https://nim-lang.org/
 src-url: https://nim-lang.org/download/nim-2.2.4.tar.xz
 src-sha: f82b419750fcce561f3f897a0486b180186845d76fb5d99f248ce166108189c7
 license: MIT
-dep-pkg: libpcre libsqlite3 openssl-dev
+dep-pkg: libpcre libsqlite3 libopenssl
 dep-upp: git
 bsystem: custom
 binbstd: 1

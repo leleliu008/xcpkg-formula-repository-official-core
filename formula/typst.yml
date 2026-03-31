@@ -1,0 +1,12 @@
+summary: Markup-based typesetting system
+web-url: https://typst.app/
+src-url: https://github.com/typst/typst/archive/refs/tags/v0.14.2.tar.gz
+src-sha: 70a56445020ca05efc571c7b07a1a9f52eb93842d420518693c077ae74e54142
+license: Apache-2.0
+dep-pkg: libopenssl
+
+prepare: |
+    export TYPST_VERSION="$PACKAGE_VERSION"
+    export GEN_ARTIFACTS=artifacts
+
+install: cargow install --path crates/typst-cli
