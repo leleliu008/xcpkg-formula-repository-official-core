@@ -3,3 +3,4 @@ src-url: https://github.com/lucasgelfond/zerobrew/archive/refs/tags/v0.1.1.tar.g
 src-sha: dbbddff4b22a264e993ab7b254e0eb87a958a559c8438671f4eac3fd5517868b
 license: Apache-2.0 MIT
 install: cargow install --path zb_cli
+prepare: export AWS_LC_SYS_NO_JITTER_ENTROPY=1
