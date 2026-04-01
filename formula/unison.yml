@@ -6,7 +6,7 @@ license: GPL-3.0-or-later
 dep-pkg: ocaml
 
 install: |
+    export LD="$CC"
     gmakew clean
-    gmakew src/unison
-    install_bins src/unison
-    install_mans man/unison.1
+    gmakew
+    gmakew install prefix="$PACKAGE_INSTALL_DIR"

@@ -1,0 +1,11 @@
+summary: Build system designed for scalability, portability, and concision
+web-url: http://projects.camlcity.org/projects/omake.html
+src-url: https://github.com/ocaml-omake/omake/archive/refs/tags/omake-0.10.7.tar.gz
+src-sha: ec098107429a419965feab5cee5dfa2996fc3fdc23842d910c314590941cafb8
+license: GPL-2.0-only
+dep-pkg: ocaml
+binbstd: 1
+install: |
+    run ./configure -prefix "$PACKAGE_INSTALL_DIR"
+    gmakew
+    gmakew install
