@@ -1,5 +1,6 @@
 summary: International domain name library (IDNA2008, Punycode and TR46)
 git-url: https://git.savannah.gnu.org/git/libidn/libidn2.git
+git-uri: https://gitlab.com/libidn/libidn2
 web-url: https://www.gnu.org/software/libidn/#libidn2
 src-url: https://ftp.gnu.org/gnu/libidn/libidn2-2.3.8.tar.gz
 src-sha: f557911bf6171621e1f72ff35f5b1825bb35b52ed45325dcdee931e5d3c0787a

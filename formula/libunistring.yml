@@ -1,6 +1,6 @@
 summary: C library for manipulating Unicode strings
-src-url: https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.1.tar.gz
-src-sha: 12542ad7619470efd95a623174dcd4b364f2483caf708c6bee837cb53a54cb9d
+src-url: https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.gz
+src-sha: e82664b170064e62331962126b259d452d53b227bb4a93ab20040d846fec01d8
 license: GPL-2.0-only
 dep-pkg: libiconv
 
