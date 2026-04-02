@@ -8,7 +8,7 @@ parallel: 0
 dopatch: gsed -i 's|-I$(WITH_LUAJIT)/include|-I$(WITH_LUAJIT)/include/luajit-2.1|' Makefile
 
 install: |
-    export LUA_PATH="$UPPM_PACKAGE_INSTALLED_ROOT/luajit/share/luajit-2.1/jit"
+    export LUA_PATH="$UPPM_PACKAGE_INSTALLED_ROOT/luajit/share/luajit-2.1/?.lua"
     gmakew clean
     gmakew VER="$PACKAGE_VERSION" WITH_LUAJIT="$libluajit_INSTALL_DIR" WITH_OPENSSL="$libopenssl_INSTALL_DIR"
     install_bins wrk
