@@ -1,14 +1,12 @@
 summary: C library SSHv1/SSHv2 client and server protocols
 git-url: https://git.libssh.org/projects/libssh
 web-url: https://www.libssh.org/
-src-url: https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz
-src-sha: 7d8a1361bb094ec3f511964e78a5a4dba689b5986e112afabe4f4d0d6c6125c3
+src-url: https://www.libssh.org/files/0.12/libssh-0.12.0.tar.xz
+src-sha: 1a6af424d8327e5eedef4e5fe7f5b924226dd617ac9f3de80f217d82a36a7121
 license: LGPL-2.1-or-later
 dep-pkg: libopenssl libz
 
 install: cmakew 2 -DWITH_SYMBOL_VERSIONING=OFF -DWITH_EXAMPLES=OFF
 
 dotweak: |
-    cd lib/pkgconfig
-    gsed -i 's|-lssh|-lssh -framework Kerberos|' libssh.pc
-    printf 'Requires: openssl libz\n' >>         libssh.pc
+    gsed -i -e 's|-lssh|-lssh -framework Kerberos|' -e '$i Requires: openssl libz' lib/pkgconfig/libssh.pc

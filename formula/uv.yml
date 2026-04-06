@@ -1,5 +1,5 @@
 summary: An extremely fast Python package and project manager, written in Rust
-src-url: https://github.com/astral-sh/uv/archive/refs/tags/0.9.26.tar.gz
-src-sha: a1cd05e944a6c73a19e8154b7d2c294748a593a3cefae67b35f6f0fe8c55dcb7
+src-url: https://github.com/astral-sh/uv/archive/refs/tags/0.11.3.tar.gz
+src-sha: 27cfb1bc7de94c7bb4079b1d14dc7a3afa4313653baa244107fc479729502383
 license: Apache-2.0 MIT
 install: cargow install --locked --path crates/uv
