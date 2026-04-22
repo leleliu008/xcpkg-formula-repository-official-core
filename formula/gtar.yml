@@ -5,6 +5,7 @@ license: GPL-3.0-or-later
 
 install: |
     configure \
+        --program-prefix=g \
         --with-included-regex \
         --with-xattrs \
         --without-posix-acls \
@@ -12,3 +13,5 @@ install: |
         --disable-acl \
         --disable-gcc-warnings \
         LIBS=-liconv
+
+dotweak: run ln -s gtar bin/tar
