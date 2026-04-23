@@ -5,6 +5,7 @@ src-sha: 554a44a6a098c246349f8a14704fe801b82a286d615bdc1768ba5b53ae6bf737
 license: EPL-1.0
 dep-pkg: libgd libpango
 dep-upp: gm4 flex bison gawk git python3 libtool
+bsystem: autogen
 
 install: |
     configure only \
