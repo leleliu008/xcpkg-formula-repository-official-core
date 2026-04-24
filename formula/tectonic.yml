@@ -4,9 +4,4 @@ src-url: https://github.com/tectonic-typesetting/tectonic/archive/refs/tags/tect
 src-sha: 9861d4d4230b987d8560f1b84fe6c8a550738401be65b9425b0c7d0466178f2b
 license: MIT
 dep-pkg: libicu libfontconfig libharfbuzz libopenssl
-
-    #dopatch: gsed -i 's|-std=c++14|-std=c++17|' crates/xetex_layout/build.rs
-
-    #prepare: export RUSTUP_TOOLCHAIN=1.88
-
 install: cargow install --locked --features external-harfbuzz
