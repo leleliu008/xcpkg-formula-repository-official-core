@@ -4,6 +4,6 @@ src-sha: 51f74eb0f51cfa9873b85264dfdd5d46e8957ec95b88f0fb762f63d9e164c72e
 license: GPL-3.0-or-later
 dep-pkg: perl
 
-dopatch: gsed -i '/libintl/d' tp/Texinfo/XS/parsetexi/api.c
+    #dopatch: gsed -i '/libintl/d' tp/Texinfo/XS/parsetexi/api.c
 
 install: configure --with-included-regex --enable-threads=posix --disable-nls
