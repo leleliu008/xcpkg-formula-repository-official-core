@@ -2,4 +2,6 @@ summary: A popular data compression program developed by GNU
 src-url: https://ftp.gnu.org/gnu/gzip/gzip-1.14.tar.gz
 src-sha: 613d6ea44f1248d7370c7ccdeee0dd0017a09e6c39de894b3c6f03f981191c6b
 license: GPL-3.0-or-later
-install: configure
+bsystem: configure
+
+dopatch: gsed -i 's|@GREP@|grep|' zgrep.in
