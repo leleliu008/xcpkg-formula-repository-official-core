@@ -1,4 +1,4 @@
-summary: A C library for manipulating Netpbm images
+summary: C library for manipulating Netpbm images
 web-url: http://netpbm.sourceforge.net/
 src-url: https://downloads.sourceforge.net/project/netpbm/super_stable/10.86.47/netpbm-10.86.47.tgz
 src-sha: 4c7575dc0f38521e75917438835f19c07651523fa87f6d63492fa2a97d1ab21f

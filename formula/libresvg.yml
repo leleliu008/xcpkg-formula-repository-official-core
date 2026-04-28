@@ -1,4 +1,4 @@
-summary: A C library to convert SVG to PNG
+summary: C library to convert SVG to PNG
 web-url: https://github.com/RazrFalcon/resvg
 src-url: https://github.com/RazrFalcon/resvg/archive/refs/tags/v0.46.0.tar.gz
 src-sha: 81a82a8de33da0fcf13fd18532d653bbd0b50b146d82c319dd0ce7294562c7c5
