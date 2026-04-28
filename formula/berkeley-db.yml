@@ -1,4 +1,4 @@
-summary: High performance key/value database
+summary: A high-performance key/value database
 web-url: https://www.oracle.com/database/technologies/related/berkeleydb.html
 src-url: https://download.oracle.com/berkeley-db/db-18.1.40.tar.gz
 src-uri: https://fossies.org/linux/misc/db-18.1.40.tar.gz
