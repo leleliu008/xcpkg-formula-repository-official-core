@@ -4,4 +4,5 @@ src-sha: 1bc020a9e133432df51911ac71cc34322f828934d9a2282ba2916d88c15976af
 license: Apache-2.0
 install: |
     gmakew clean
+    gmakew LDLIBS=
     gmakew install PREFIX="$PACKAGE_INSTALL_DIR"
