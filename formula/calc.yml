@@ -1,0 +1,20 @@
+summary: Arbitrary precision calculator
+web-url: http://www.isthe.com/chongo/tech/comp/calc/
+src-url: https://github.com/lcn2/calc/archive/refs/tags/v2.16.1.2.tar.gz
+src-sha: cb5b0576c3d206ed55b6929cc3a1ebc5afedbfdc70d528274cbac8e650c56d77
+license: LGPL-2.1-or-later
+dep-pkg: libreadline
+
+prepare: |
+    export EXTRA_CFLAGS="$CFLAGS $CPPFLAGS"
+    export EXTRA_LDFLAGS="$LDFLAGS"
+
+install: |
+    gmakew clean
+    gmakew install \
+            BINDIR="$PACKAGE_INSTALL_DIR/bin" \
+            LIBDIR="$PACKAGE_INSTALL_DIR/lib" \
+            MANDIR="$PACKAGE_INSTALL_DIR/man/man1" \
+            USE_READLINE=-DUSE_READLINE \
+            READLINE_LIB=-lreadline \
+            READLINE_EXTRAS="'-lhistory -lncurses'"
