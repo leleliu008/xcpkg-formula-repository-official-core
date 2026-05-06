@@ -15,6 +15,8 @@ install: |
             BINDIR="$PACKAGE_INSTALL_DIR/bin" \
             LIBDIR="$PACKAGE_INSTALL_DIR/lib" \
             MANDIR="$PACKAGE_INSTALL_DIR/man/man1" \
+            CALC_INCDIR="$PACKAGE_INSTALL_DIR/include/calc" \
+            CALC_SHAREDIR="$PACKAGE_INSTALL_DIR/share/calc" \
             USE_READLINE=-DUSE_READLINE \
             READLINE_LIB=-lreadline \
             READLINE_EXTRAS="'$LDFLAGS -lhistory -lncurses'"
