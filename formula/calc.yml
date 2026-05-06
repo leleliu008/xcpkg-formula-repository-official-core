@@ -16,4 +16,4 @@ install: |
             MANDIR="$PACKAGE_INSTALL_DIR/man/man1" \
             USE_READLINE=-DUSE_READLINE \
             READLINE_LIB=-lreadline \
-            READLINE_EXTRAS="'-lhistory -lncurses'"
+            READLINE_EXTRAS="'$LDFLAGS -lhistory -lncurses'"
