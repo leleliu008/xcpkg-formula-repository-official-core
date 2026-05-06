@@ -1,6 +1,7 @@
 summary: Use SOCKS-friendly applications with Tor
 git-url: https://gitlab.torproject.org/tpo/core/torsocks
 src-url: https://gitlab.torproject.org/tpo/core/torsocks/-/archive/v2.5.0/torsocks-v2.5.0.tar.bz2
+src-uri: https://deb.debian.org/debian/pool/main/t/torsocks/torsocks_2.5.0.orig.tar.bz2
 src-sha: 31a917328b221e955230b7663abfbc50d3a9b445a68cb0313c11cf884f8cb41f
 license: GPL-2.0-only
 dep-upp: libtool
