@@ -1,6 +1,6 @@
 summary: Audio codec
 web-url: https://www.opus-codec.org/
-src-url: https://github.com/xiph/opus/releases/download/v1.6.1/opus-1.6.1.tar.gz
-src-sha: 6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1
+src-url: https://github.com/xiph/opus/archive/refs/tags/v1.6.1.tar.gz
+src-sha: bf0b97ec7a65890b8db90ef94c4d6c18de12584c3085031953a10986f5917745
 license: BSD-3-Clause
-install: configure
+install: mesonw -Dtests=disabled
