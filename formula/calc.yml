@@ -8,6 +8,7 @@ dep-pkg: libreadline
 install: |
     gmakew clean
     gmakew install \
+            BLD_TYPE=calc-static-only \
             LCC="$CC" \
             EXTRA_CFLAGS="'$CFLAGS $CPPFLAGS'" \
             EXTRA_LDFLAGS="'$LDFLAGS'" \
