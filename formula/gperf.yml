@@ -2,4 +2,4 @@ summary: Perfect hash function generator
 src-url: https://ftp.gnu.org/gnu/gperf/gperf-3.3.tar.gz
 src-sha: fd87e0aba7e43ae054837afd6cd4db03a3f2693deb3619085e6ed9d8d9604ad8
 license: GPL-3.0-or-later
-install: configure
+bsystem: configure

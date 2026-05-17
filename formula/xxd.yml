@@ -4,6 +4,7 @@ src-url: https://github.com/vim/vim/archive/refs/tags/v9.2.0350.tar.gz
 src-sha: fd07df5cfd0a5e479c9320bef72d72e627923017ef20373979a4d04670db130d
 license: Vim
 bscript: src/xxd
+
 install: |
     gmakew clean
     gmakew
