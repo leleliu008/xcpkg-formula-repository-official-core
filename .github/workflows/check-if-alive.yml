@@ -24,5 +24,6 @@ jobs:
       - run: |
           for item in $(bin/xcpkg ls-available)
           do
+            printf '\n%b\n' "\033[0;31m==> $item\033[0m"
             bin/xcpkg fetch "$item"
           done
