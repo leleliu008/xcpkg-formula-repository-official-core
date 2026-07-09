@@ -1,10 +1,10 @@
 summary: Convert text between DOS, UNIX, and Mac formats
-web-url: https://waterlan.home.xs4all.nl/dos2unix.html
-src-url: https://waterlan.home.xs4all.nl/dos2unix/dos2unix-7.5.3.tar.gz
-src-sha: 28a4b0d9f9179da4e44c567b9c01f818b070a20827115fffd96f760dcfa0f3b2
+web-url: https://waterlander.net/dos2unix/
+src-url: https://waterlander.net/dos2unix/files/dos2unix-7.5.6.tar.gz
+src-sha: 63650acbd0c7fa8623429bcbf93a888e3351a1cad0f556cf41876f5673dd7d0b
 license: BSD-2-Clause
 
 install: |
     gmakew clean
     gmakew CC="$CC" CPP="'$CPP'" STRIP="$STRIP" CFLAGS_USER="'$CFLAGS'" LDFLAGS_USER="'$LDFLAGS'" ENABLE_NLS=
-    gmakew install prefix="$PACKAGE_INSTALL_DIR"
+    gmakew install prefix="$PACKAGE_INSTALL_DIR" ENABLE_NLS=
