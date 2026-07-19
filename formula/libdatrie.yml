@@ -6,4 +6,3 @@ license: LGPL-2.1-or-later
 bsystem: configure
 
 dopatch: gsed -i '/SUBDIRS = /c SUBDIRS = datrie' Makefile.in
-

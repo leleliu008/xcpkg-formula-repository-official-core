@@ -12,4 +12,3 @@ install: |
         -DENABLE_EXTRATESTS=OFF \
         -DENABLE_ASM=ON \
         -DENABLE_NC=OFF
-        
