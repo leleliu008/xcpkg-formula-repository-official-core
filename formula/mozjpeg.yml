@@ -28,7 +28,7 @@ dopatch: |
      else()
     @@ -754,54 +755,38 @@ else()
      endif()
-     
+
      if(ENABLE_STATIC)
     -  add_executable(cjpeg-static cjpeg.c cdjpeg.c rdgif.c rdppm.c rdjpeg.c rdswitch.c
     -    \${CJPEG_BMP_SOURCES})
@@ -44,7 +44,7 @@ dopatch: |
     +  set_property(TARGET cjpeg-static    PROPERTY COMPILE_FLAGS \${COMPILE_FLAGS})
     +  set_property(TARGET djpeg-static    PROPERTY COMPILE_FLAGS \${COMPILE_FLAGS})
     +  set_property(TARGET jpegtran-static PROPERTY COMPILE_FLAGS "\${USE_SETMODE}")
-     
+
        if(PNG_SUPPORTED)
     -    # to avoid finding shared library from CMake cache
     -    unset(PNG_LIBRARY CACHE)
@@ -67,7 +67,7 @@ dopatch: |
     -  endif()
     +      find_path(LIBZ_INCLUDE_DIR   zlib.h)
     +      find_path(LIBPNG_INCLUDE_DIR png.h)
-     
+
     -  add_executable(djpeg-static djpeg.c cdjpeg.c rdcolmap.c rdswitch.c wrgif.c
     -    wrppm.c \${DJPEG_BMP_SOURCES})
     -  set_property(TARGET djpeg-static PROPERTY COMPILE_FLAGS \${COMPILE_FLAGS})
@@ -80,7 +80,7 @@ dopatch: |
     +      target_include_directories(cjpeg-static PUBLIC \${LIBPNG_INCLUDE_DIR} \${LIBZ_INCLUDE_DIR})
     +      target_link_libraries(cjpeg-static \${LIBPNG_LIBRARY} \${LIBZ_LIBRARY})
        endif()
-     
+
     -  add_executable(jpegtran-static jpegtran.c cdjpeg.c rdswitch.c transupp.c)
     +  target_link_libraries(djpeg-static    jpeg-static)
     +  target_link_libraries(cjpeg-static    jpeg-static)
@@ -91,15 +91,15 @@ dopatch: |
     +    target_link_libraries(djpeg-static    m)
          target_link_libraries(jpegtran-static m)
        endif()
-     
+
     -  set_property(TARGET jpegtran-static PROPERTY COMPILE_FLAGS "\${USE_SETMODE}")
      endif()
-     
+
      add_executable(rdjpgcom rdjpgcom.c)
     -
      add_executable(wrjpgcom wrjpgcom.c)
-     
-     
+
+
     EOF
 
     patch -p1 <<EOF
@@ -109,7 +109,7 @@ dopatch: |
     +++ b/sharedlib/CMakeLists.txt
     @@ -91,15 +91,7 @@ set_property(TARGET cjpeg PROPERTY COMPILE_FLAGS \${COMPILE_FLAGS})
      target_link_libraries(cjpeg jpeg)
-     
+
      if(PNG_SUPPORTED)
     -  # to avoid finding static library from CMake cache
     -  unset(PNG_LIBRARY CACHE)

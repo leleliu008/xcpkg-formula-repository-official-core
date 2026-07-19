@@ -15,7 +15,7 @@ dopatch2: |
     +++ b/src/wasm/wasm-debug.cpp
     @@ -18,7 +18,18 @@
      #include "wasm.h"
-     
+
      #ifdef BUILD_LLVM_DWARF
     +
     +#ifdef __clang__
