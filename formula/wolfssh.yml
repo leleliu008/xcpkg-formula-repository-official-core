@@ -15,4 +15,4 @@ install: |
         --enable-sshd \
         LIBS="'-framework CoreFoundation -framework Security'"
 
-dotweak: run rm -rf include/ lib/ bin/wolfssh-config
+dotweak: rm -rf include/ lib/ bin/wolfssh-config

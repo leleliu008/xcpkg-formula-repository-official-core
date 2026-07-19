@@ -25,4 +25,4 @@ install: |
         --without-librtmp \
         --without-libidn2
 
-dotweak: run rm -rf bin/curl-config include/ lib/ share/aclocal/ share/man/man3/ share/man/man1/curl-config.1
+dotweak: rm -rf bin/curl-config include/ lib/ share/aclocal/ share/man/man3/ share/man/man1/curl-config.1

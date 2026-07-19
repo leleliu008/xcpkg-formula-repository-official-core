@@ -26,4 +26,4 @@ install: |
     run cp -r vlib cmd thirdparty v.mod v "$PACKAGE_INSTALL_DIR/libexec/vlang/"
     run cp -r examples                    "$PACKAGE_INSTALL_DIR/share/vlang/"
 
-dotweak: run install -d bin/ && run ln -s ../libexec/vlang/v bin/v
+dotweak: install -d bin/ && run ln -s ../libexec/vlang/v bin/v

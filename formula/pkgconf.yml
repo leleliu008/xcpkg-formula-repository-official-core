@@ -7,4 +7,4 @@ license: ISC
 
 install: configure --disable-shared
 
-dotweak: run ln -s pkgconf bin/pkg-config
+dotweak: ln -s pkgconf bin/pkg-config

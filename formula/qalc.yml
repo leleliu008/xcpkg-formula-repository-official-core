@@ -7,4 +7,4 @@ dep-upp: gettext-tools perl intltool
 dep-pkg: libicu@74 libxml2 libcurl libmpfr libintl libreadline
 install: configure --disable-shared --enable-static
 
-dotweak: run rm -rf include/ lib/
+dotweak: rm -rf include/ lib/

@@ -27,4 +27,4 @@ install: |
         --enable-nls \
         --enable-relocatable
 
-dotweak: run rm -rf lib/ include/
+dotweak: rm -rf lib/ include/

@@ -5,4 +5,4 @@ license: GPL-3.0-or-later
 
 install: configure --program-prefix=g --enable-xattr --disable-gcc-warnings
 
-dotweak: run ln -s gpatch bin/patch
+dotweak: ln -s gpatch bin/patch

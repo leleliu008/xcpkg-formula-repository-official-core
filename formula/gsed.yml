@@ -11,4 +11,4 @@ install: |
         --disable-acl \
         --disable-assert
 
-dotweak: run ln -s gsed bin/sed
+dotweak: ln -s gsed bin/sed

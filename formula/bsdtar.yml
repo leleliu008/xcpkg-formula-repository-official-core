@@ -31,4 +31,4 @@ install: |
         --with-zstd \
         --without-iconv
 
-dotweak: run rm -rf lib/ include/ share/man/man[35]
+dotweak: rm -rf lib/ include/ share/man/man[35]

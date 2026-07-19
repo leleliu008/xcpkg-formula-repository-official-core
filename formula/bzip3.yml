@@ -5,4 +5,4 @@ license: LGPL-3.0-only
 
 install: configure --disable-arch-native --disable-shared --enable-static
 
-dotweak: run rm -rf include/ lib/
+dotweak: rm -rf include/ lib/

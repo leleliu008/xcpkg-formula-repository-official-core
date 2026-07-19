@@ -5,4 +5,4 @@ license: GPL-3.0-or-later
 
 install: configure --program-prefix=g
 
-dotweak: run ln -s gwhich bin/which
+dotweak: ln -s gwhich bin/which
