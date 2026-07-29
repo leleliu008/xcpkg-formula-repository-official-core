@@ -22,9 +22,9 @@ install: |
         -Dldflags="'$LDFLAGS'" \
         -Dcppflags="'$CPPFLAGS'" \
         -Dlibs="'-lpthread -ldl -lm -lc -lutil'" \
+        -Dmake=gmake \
         -Dusenm=false \
         -Dusedl=true \
-        -Dmake=gmake \
         -Duselargefiles \
         -Duseshrplib \
         -Dusethreads

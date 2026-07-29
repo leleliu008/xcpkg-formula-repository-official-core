@@ -1,4 +1,3 @@
-pkgtype: lib
 summary: Cryptography and SSL/TLS library
 web-url: https://openssl-library.org/
 src-url: https://github.com/openssl/openssl/releases/download/openssl-3.6.1/openssl-3.6.1.tar.gz
@@ -33,7 +32,7 @@ prepare: |
         no-asm \
         --prefix="$PACKAGE_INSTALL_DIR" \
         --libdir=lib \
-        --openssldir=etc/ssl \
+        --openssldir=/etc/ssl \
         "$os_compiler"
 
 install: |
