@@ -7,7 +7,8 @@ license: GPL-2.0-only
 dep-upp: libtool
 bsystem: autogen
 
-fix-url: https://gitlab.torproject.org/legacy/trac/uploads/9efc1c0c47b3950aa91e886b01f7e87d/0001-Fix-macros-for-accept4-2.patch
+# https://gitlab.torproject.org/legacy/trac/uploads/9efc1c0c47b3950aa91e886b01f7e87d/0001-Fix-macros-for-accept4-2.patch
+fix-url: https://github.com/leleliu008/test/releases/download/2023.10.08/0001-Fix-macros-for-accept4-2.1.patch
 fix-sha: 97881f0b59b3512acc4acb58a0d6dfc840d7633ead2f400fad70dda9b2ba30b0
 
 prepare: |
