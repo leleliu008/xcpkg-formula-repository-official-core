@@ -2,7 +2,6 @@ summary: Color management engine supporting ICC profiles
 web-url: https://www.littlecms.com
 git-url: https://github.com/mm2/Little-CMS
 src-url: https://downloads.sourceforge.net/project/lcms/lcms/2.18/lcms2-2.18.tar.gz
-src-uri: https://distfiles.macports.org/lcms2/lcms2-2.18.tar.gz
 src-sha: ee67be3566f459362c1ee094fde2c159d33fa0390aa4ed5f5af676f9e5004347
 license: MIT
 install: mesonw -Dutils=false -Dtests=disabled
