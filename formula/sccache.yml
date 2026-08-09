@@ -1,5 +1,5 @@
 summary: Used as a compiler wrapper and avoids compilation when possible
-src-url: https://github.com/mozilla/sccache/archive/refs/tags/v0.8.1.tar.gz
-src-sha: 30b951b49246d5ca7d614e5712215cb5f39509d6f899641f511fb19036b5c4e5
+src-url: https://github.com/mozilla/sccache/archive/refs/tags/v0.17.0.tar.gz
+src-sha: 49949ad1cf175c49da126dbb0c2e6a56bd9d1f626e8cc0be17b9668b914145c6
 license: Apache-2.0
 install: cargow install --features all
