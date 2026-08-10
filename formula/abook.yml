@@ -6,6 +6,9 @@ license: GPL-2.0-only GPL-2.0-or-later GPL-3.0-or-later
 dep-upp: gettext-tools xz
 dep-pkg: libreadline
 bsystem: autotools
+
+ccflags: -std=gnu17
+
 dopatch: |
     #gsed -i 's|inline int|int|' database.c
     gsed -i '/string\.h/a \#include <ctype.h>' database.c
