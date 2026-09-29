@@ -1,0 +1,71 @@
+name: build changed packages
+
+on:
+  push:
+    branches: [ master,dev ]
+    paths:
+      - 'formula/*.yml'
+
+  pull_request:
+    branches: [ master,dev ]
+    paths:
+      - 'formula/*.yml'
+
+jobs:
+
+  find-changed-packages:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - id: changed-files
+        uses: tj-actions/changed-files@v47
+        with:
+          files: 'formula/*.yml'
+          json: true
+
+      - id: changed-packages
+        run: |
+          NAMES=$(printf '%s\n' ${{ steps.changed-files.outputs.all_changed_files }} | jq -c '
+            map(
+              sub("^formula/"; "")
+              | sub("\\.yml$"; "")
+            )
+          ')
+          printf 'names=%s\n' "$NAMES" >> $GITHUB_OUTPUT
+
+    outputs:
+      names: ${{ steps.changed-packages.outputs.names }}
+
+
+  build:
+
+    needs: find-changed-packages
+
+    strategy:
+
+      fail-fast: false
+
+      matrix:
+        runner: [macos-26, macos-15]
+        pkg: ${{ fromJson(needs.find-changed-packages.outputs.names) }}
+
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
+      - run: /usr/bin/bsdtar xf xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz --strip-components=1
+
+      - run: bin/xcpkg about
+      - run: bin/xcpkg sysinfo
+
+      - run: bin/xcpkg formula-repo-add my_repo https://github.com/leleliu008/xcpkg-formula-repository-my_repo
+      - run: mv formula ~/.xcpkg/repos.d/my_repo/
+
+      - run: bin/xcpkg install ${{ matrix.pkg }}
