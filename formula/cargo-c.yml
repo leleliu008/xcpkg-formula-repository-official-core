@@ -1,7 +1,6 @@
 summary: A helper program to build and install C-ABI compatible dynamic and static libraries
-src-url: https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.21.tar.gz
-src-sha: 819b62a61e5271924dffd122b7c713e446e5d65f3e630bbe9b90d4d46513d8fa
+src-url: https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.25.tar.gz
+src-sha: 8054b12ae8b64259e7b63e40368406dd6b6510d5d92b658152b361c5d816a5de
 license: MIT
-dep-pkg: libz
-dep-upp: git perl gmake
-install: cargow install --features=vendored-openssl
+dep-pkg: libz libopenssl
+bsystem: cargo
