@@ -12,6 +12,9 @@ install: |
         --with-libunistring-prefix="$libunistring_INSTALL_DIR" \
         --disable-valgrind-tests \
         --disable-code-coverage \
-        --disable-doc \
-        --enable-gcc-warnings \
-        LIBS=-liconv
+        --enable-doc \
+        --enable-gcc-warnings
+
+dotweak: |
+    gsed -i '/Libs\.private:/d'         lib/pkgconfig/libidn2.pc
+    gsed -i '$a Requires: libunistring' lib/pkgconfig/libidn2.pc
