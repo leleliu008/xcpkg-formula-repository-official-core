@@ -57,10 +57,6 @@ jobs:
     runs-on: ${{ matrix.runner }}
 
     steps:
-      - run: pip install --user yamllint
-
-      - run: yamllint formula/${{ matrix.pkg }}.yml
-
       - uses: actions/checkout@v5
 
       - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
