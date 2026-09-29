@@ -65,7 +65,7 @@ jobs:
       - run: bin/xcpkg about
       - run: bin/xcpkg sysinfo
 
-      - run: bin/xcpkg formula-repo-add my_repo https://github.com/leleliu008/xcpkg-formula-repository-my_repo
-      - run: mv formula ~/.xcpkg/repos.d/my_repo/
+      - run: bin/xcpkg formula-repo-init my_repo https://github.com/leleliu008/xcpkg-formula-repository-my_repo
+      - run: mv formula/*.yml ~/.xcpkg/repos.d/my_repo/formula/
 
       - run: bin/xcpkg install ${{ matrix.pkg }}
