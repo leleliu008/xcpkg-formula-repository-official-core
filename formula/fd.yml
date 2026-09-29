@@ -1,6 +1,6 @@
 summary: A simple, fast and user-friendly alternative to find(1)
-src-url: https://github.com/sharkdp/fd/archive/refs/tags/v10.3.0.tar.gz
-src-sha: 2edbc917a533053855d5b635dff368d65756ce6f82ddefd57b6c202622d791e9
+src-url: https://github.com/sharkdp/fd/archive/refs/tags/v10.5.0.tar.gz
+src-sha: e6d9e90730bf316101691e49d59cc02565278dc3779d33a77423801569484851
 license: Apache-2.0
 dep-upp: gmake
 bsystem: cargo
