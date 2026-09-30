@@ -36,7 +36,9 @@ addnew() {
 
     bat --language=diff --paging=never --color=always --theme=Dracula --style=plain "$1"
 
-    #return
+    if [ "$DRYRUN" = 1 ] ; then
+        return
+    fi
 
     echo
 
@@ -49,10 +51,10 @@ addnew() {
 update() {
     unset VERSION
 
-    if  git diff -U0 "$1" | grep '^-src-url: ' &&
-        git diff -U0 "$1" | grep '^+src-url: ' &&
-        git diff -U0 "$1" | grep '^-src-sha: ' &&
-        git diff -U0 "$1" | grep '^+src-sha: ' ; then
+    if  git diff -U0 "$1" | grep -q '^-src-url: ' &&
+        git diff -U0 "$1" | grep -q '^+src-url: ' &&
+        git diff -U0 "$1" | grep -q '^-src-sha: ' &&
+        git diff -U0 "$1" | grep -q '^+src-sha: ' ; then
 
         SRC_URL_OLD="$(git diff -U0 "$1" | grep '^-src-url: ' | cut -c11-)"
         SRC_URL_NEW="$(git diff -U0 "$1" | grep '^+src-url: ' | cut -c11-)"
@@ -71,7 +73,9 @@ update() {
 
     git diff -U0 "$1" | grep -E '^[+-]' | grep -vE '^(---|\+\+\+)' | bat --language=diff --paging=never --color=always --theme=Dracula --style=plain
 
-    #return
+    if [ "$DRYRUN" = 1 ] ; then
+        return
+    fi
 
     echo
 
@@ -80,6 +84,11 @@ update() {
     run git push origin master
 }
 
+###########################################################
+
+unset DRYRUN
+
+[ "$1" = '--dryrun' ] && DRYRUN=1
 
 cd formula
 
