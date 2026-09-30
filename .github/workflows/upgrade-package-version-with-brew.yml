@@ -1,4 +1,4 @@
-name: sync package version with brew
+name: update package version with brew
 
 on:
   workflow_dispatch:
