@@ -18,9 +18,11 @@ jobs:
 
       - run: curl -LO https://github.com/leleliu008/uppm-package-repository-macos-15.0-arm64/releases/download/2026.08.10.1/findutils-4.10.0-MacOSX-15.0-arm64.tar.xz
       - run: /usr/bin/bsdtar xf *.tar.xz --strip-components=1
+      - run: rm *.tar.xz
 
       - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
       - run: /usr/bin/bsdtar xf *.tar.xz --strip-components=1
+      - run: rm *.tar.xz
       - run: mv bin/xcpkg .
 
       - run: ./xcpkg about
