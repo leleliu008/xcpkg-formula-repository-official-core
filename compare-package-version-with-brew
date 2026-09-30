@@ -10,19 +10,19 @@ COLOR_PURPLE='\033[0;35m'
 COLOR_OFF='\033[0m'
 
 printf_package_info_red() {
-    printf "${COLOR_RED}%-20s %-20s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+    printf "${COLOR_RED}%-15s %-30s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 printf_package_info_purple() {
-    printf "${COLOR_PURPLE}%-20s %-20s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+    printf "${COLOR_PURPLE}%-15s %-30s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 printf_package_info_blue() {
-    printf "${COLOR_BLUE}%-20s %-20s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+    printf "${COLOR_BLUE}%-15s %-30s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 printf_package_info_green() {
-    printf "${COLOR_GREEN}%-20s %-20s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+    printf "${COLOR_GREEN}%-15s %-30s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 version_sort() {
@@ -139,7 +139,7 @@ do
                 SHA=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
 
                 if [ -n "$URL" ] && [ -n "$SHA" ] && [ "$SHA" != null ] ; then
-                    tee "upgrade/$PACKAGE_NAME.sh" <<EOF
+                    tee "upgrade/$PACKAGE_NAME" <<EOF
 VERSION_OLD='$PACKAGE_VERSION'
 VERSION_NEW='$BREW_PACKAGE_VERS'
 SRC_URL_NEW='$URL'

@@ -39,8 +39,8 @@ jobs:
 
       - id: upgradable-packages
         run: |
-          FILES="$(bin/find upgrade -name '*.sh' -printf '%P\n')"
-          NAMES=$(printf '%s\n' $FILES | jq -c 'map(sub("\\.sh$"; ""))')
+          set -ex
+          NAMES="$(cd upgrade && ls | jq -Rn '[inputs]')"
           printf 'names=%s\n' "$NAMES" >> $GITHUB_OUTPUT
 
     outputs:
@@ -86,7 +86,7 @@ jobs:
 
       - id: version
         run: |
-          source "upgrade/${{ matrix.pkg }}.sh"
+          source "upgrade/${{ matrix.pkg }}"
           printf '%s\n' '
           VERSION_OLD=$VERSION_OLD
           VERSION_NEW=$VERSION_NEW
