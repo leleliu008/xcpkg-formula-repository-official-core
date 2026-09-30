@@ -88,7 +88,8 @@ jobs:
           BREWPKGNAME=$BREWPKGNAME
           ' >> "$GITHUB_OUTPUT"
 
-      - run: bin/gsed -i -e '/^src-url: /c src-url: ${{ steps.version.outputs.SRC_URL_NEW }}' -e '/^src-sha: /c src-sha: ${{ steps.version.outputs.SRC_SHA_NEW }}' formula/${{ matrix.pkg }}.yml
+      - run: |
+          bin/gsed -i -e '/^src-url: /c src-url: ${{ steps.version.outputs.SRC_URL_NEW }}' -e '/^src-sha: /c src-sha: ${{ steps.version.outputs.SRC_SHA_NEW }}' formula/${{ matrix.pkg }}.yml
 
       - run: git diff
 
