@@ -69,7 +69,7 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: upgradable-packages-${{ github.sha }}
-          path: .
+          path: upgrade
 
       - run: ls
 
