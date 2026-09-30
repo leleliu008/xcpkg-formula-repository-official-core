@@ -92,6 +92,8 @@ version_match() {
 
 cd formula
 
+install update/
+
 for FORMULA_FILENAME in *.yml
 do
     PACKAGE_NAME="${FORMULA_FILENAME%.yml}"
@@ -123,7 +125,20 @@ do
                 esac
 
                 printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
-                printf_package_info_red "$BREW_PACKAGE_NAME" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/master/Formula/$X/$BREW_PACKAGE_NAME.rb"
+                printf_package_info_red "$BREW_PACKAGE_NAME" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
+
+                URL=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
+                SHA=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
+
+                if [ -n "$URL" ] && [ -n "$SHA" ] ; then
+                    tee "update/$PACKAGE_NAME.sh" <<EOF
+VERSION_OLD='$PACKAGE_VERSION'
+VERSION_NEW='$BREW_PACKAGE_VERS'
+SRC_URL_NEW='$URL'
+SRC_SHA_NEW='$SHA'
+BREWPKGNAME='$BREW_PACKAGE_NAME'
+EOF
+                fi
 
                 printf '\n'
                 continue 2
