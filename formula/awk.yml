@@ -5,7 +5,10 @@ src-sha: 7ae5b9fc6a8149bc45ea0ba3ba434a69a16d1460d19f6d01b6f04cc885b8e02b
 license: SMLNJ
 dep-upp: gm4 bison
 
-dopatch: gsed -i 's|$(HOSTCC) $(CFLAGS)|$(HOSTCC) $(HOSTCFLAGS)|' makefile
+dopatch: |
+    gsed -i \
+         -e 's|$(HOSTCC) $(CFLAGS)|$(HOSTCC) $(HOSTCFLAGS)|' \
+         -e 's|-lm|$(LDFLAGS) -lm|' makefile
 
 install: |
     gmakew clean
