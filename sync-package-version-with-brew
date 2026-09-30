@@ -86,8 +86,8 @@ for FORMULA_FILENAME in *.yml
 do
     PACKAGE_NAME="${FORMULA_FILENAME%.yml}"
 
-    PACKAGE_VERSION="$(./xcpkg formula-parse "$FORMULA_FILENAME" version)"
-    PACKAGE_WEB_URL="$(./xcpkg formula-parse "$FORMULA_FILENAME" web-url)"
+    PACKAGE_VERSION="$(../xcpkg formula-parse "$FORMULA_FILENAME" version)"
+    PACKAGE_WEB_URL="$(../xcpkg formula-parse "$FORMULA_FILENAME" web-url)"
 
     S1="$(../brew-package-name "$PACKAGE_NAME")"
     S2=
@@ -121,7 +121,7 @@ do
                 if [ -n "$URL" ] && [ -n "$SHA" ] ; then
                     gsed -i -e "/^src-url: /c src-url: $URL" -e "/^src-sha: /c src-sha: $SHA" "$FORMULA_FILENAME"
 
-                    if ./xcpkg install "$PACKAGE_NAME" ; then
+                    if ../xcpkg install "$PACKAGE_NAME" ; then
                         git add "$FORMULA_FILENAME"
                         git commit -m "github-actions : update package $PACKAGE_NAME $PACKAGE_VERSION -> $BREW_PACKAGE_VERS"
                         git push origin master
@@ -135,7 +135,7 @@ do
         fi
     done
 
-    PACKAGE_GIT_URL="$(./xcpkg formula-parse "$FORMULA_FILENAME" git-url)"
+    PACKAGE_GIT_URL="$(../xcpkg formula-parse "$FORMULA_FILENAME" git-url)"
 
     case $PACKAGE_GIT_URL in
         https://github.com/*)

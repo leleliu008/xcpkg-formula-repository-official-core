@@ -1,4 +1,4 @@
-name: sync versions with brew
+name: sync package version with brew
 
 on:
   workflow_dispatch:
@@ -26,4 +26,4 @@ jobs:
       - run: install -d ~/.xcpkg/repos.d/
       - run: ln -s . ~/.xcpkg/repos.d/official-core
 
-      - run: ./sync-with-brew
+      - run: ./sync-package-version-with-brew

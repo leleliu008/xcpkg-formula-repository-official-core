@@ -1,4 +1,4 @@
-name: compare version with brew
+name: compare package version with brew
 
 on:
   workflow_dispatch:
@@ -26,4 +26,4 @@ jobs:
       - run: ./xcpkg about
       - run: ./xcpkg sysinfo
 
-      - run: ./compare-versions-with-brew
+      - run: ./compare-package-version-with-brew
