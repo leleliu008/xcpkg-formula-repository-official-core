@@ -86,7 +86,7 @@ jobs:
 
       - id: version
         run: |
-          source "upgrade/${{ matrix.pkg }}"
+          source upgrade/${{ matrix.pkg }}
 
           case $SRC_URL_NEW in
               https://ftpmirror.gnu.org/*)
@@ -99,13 +99,13 @@ jobs:
                   exit 1
           esac
 
-          printf '%s\n' '
+          printf '%s\n' "
           VERSION_OLD=$VERSION_OLD
           VERSION_NEW=$VERSION_NEW
           SRC_URL_NEW=$SRC_URL_NEW
           SRC_SHA_NEW=$SRC_SHA_NEW
           BREWPKGNAME=$BREWPKGNAME
-          ' >> "$GITHUB_OUTPUT"
+          " >> "$GITHUB_OUTPUT"
 
       - run: |
           bin/gsed -i -e '/^src-url: /c src-url: ${{ steps.version.outputs.SRC_URL_NEW }}' -e '/^src-sha: /c src-sha: ${{ steps.version.outputs.SRC_SHA_NEW }}' formula/${{ matrix.pkg }}.yml
