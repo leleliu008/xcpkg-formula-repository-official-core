@@ -61,6 +61,7 @@ jobs:
 
       - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
       - run: /usr/bin/bsdtar xf xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz --strip-components=1
+      - run: rm xcpkg-*.tar.xz
 
       - run: bin/xcpkg about
       - run: bin/xcpkg sysinfo
@@ -69,3 +70,12 @@ jobs:
       - run: mv formula/*.yml ~/.xcpkg/repos.d/my_repo/formula/
 
       - run: bin/xcpkg install ${{ matrix.pkg }}
+      - run: bin/xcpkg bundle  ${{ matrix.pkg }} .tar.xz 
+
+      - id: filename
+        run: printf 'FILENAME=%s\n' "$(ls *.tar.xz)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: ${{ steps.filename.outputs.FILENAME }}
+          path: ${{ steps.filename.outputs.FILENAME }}
