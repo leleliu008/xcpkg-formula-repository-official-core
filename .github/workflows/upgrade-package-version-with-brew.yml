@@ -40,7 +40,7 @@ jobs:
       - id: upgradable-packages
         run: |
           set -ex
-          NAMES="$(cd upgrade && ls | jq -Rn '[inputs]')"
+          NAMES="$(cd upgrade && ls | jq -Rnc '[inputs]')"
           printf 'names=%s\n' "$NAMES" >> $GITHUB_OUTPUT
 
     outputs:
@@ -87,6 +87,18 @@ jobs:
       - id: version
         run: |
           source "upgrade/${{ matrix.pkg }}"
+
+          case $SRC_URL_NEW in
+              https://ftpmirror.gnu.org/*)
+                  SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_NEW" | sed 's|mirror||')"
+                  ;;
+              https://github.com/*)
+                  ;;
+              *)
+                  printf "unknown url: %s\n" "$SRC_URL_NEW" >&2
+                  exit 1
+          esac
+
           printf '%s\n' '
           VERSION_OLD=$VERSION_OLD
           VERSION_NEW=$VERSION_NEW

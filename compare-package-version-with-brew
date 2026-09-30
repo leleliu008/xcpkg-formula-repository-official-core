@@ -149,7 +149,9 @@ EOF
                     if [ "$UPGRADE" = 1 ] ; then
                         I="$(($I + 1))"
 
-                        if [ "$I" -eq 256 ] ; then
+                        echo "I=$I"
+
+                        if [ "$I" -eq 10 ] ; then
                             exit
                         fi
                     fi
