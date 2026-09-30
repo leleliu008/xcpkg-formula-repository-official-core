@@ -16,14 +16,19 @@ jobs:
 
       - uses: actions/checkout@v5
 
+      - run: curl -LO https://github.com/leleliu008/uppm-package-repository-macos-15.0-arm64/releases/download/2026.08.10.1/findutils-4.10.0-MacOSX-15.0-arm64.tar.xz
+      - run: /usr/bin/bsdtar xf *.tar.xz --strip-components=1
+
       - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
-      - run: /usr/bin/bsdtar xf xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz --strip-components=1
+      - run: /usr/bin/bsdtar xf *.tar.xz --strip-components=1
       - run: mv bin/xcpkg .
 
       - run: ./xcpkg about
       - run: ./xcpkg sysinfo
 
-      - run: ./compare-package-version-with-brew
+      - run: ./compare-package-version-with-brew --upgrade
+
+      - run: mv formula/upgrade ..
 
       - uses: actions/upload-artifact@v6
         with:
@@ -32,7 +37,7 @@ jobs:
 
       - id: upgradable-packages
         run: |
-          FILES="$(find upgrade -name '*.sh' -printf '%P\n')"
+          FILES="$(bin/find upgrade -name '*.sh' -printf '%P\n')"
           NAMES=$(printf '%s\n' $FILES | jq -c 'map(sub("\\.sh$"; ""))')
           printf 'names=%s\n' "$NAMES" >> $GITHUB_OUTPUT
 
