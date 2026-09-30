@@ -1,4 +1,4 @@
-name: compare-versions
+name: sync versions with brew
 
 on:
   workflow_dispatch:

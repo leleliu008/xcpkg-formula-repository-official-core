@@ -1,4 +1,4 @@
-name: check if formula urls alive
+name: check if urls are alive
 
 on:
   workflow_dispatch:
