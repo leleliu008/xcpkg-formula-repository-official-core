@@ -3,11 +3,8 @@ name: compare-versions
 on:
   workflow_dispatch:
 
-  schedule:
-    - cron: '0 2 * * *'
-
 jobs:
-  compare:
+  schedule:
 
     runs-on: macos-15
 
@@ -26,4 +23,7 @@ jobs:
       - run: ./xcpkg about
       - run: ./xcpkg sysinfo
 
-      - run: ./compare-versions-with-brew
+      - run: install -d ~/.xcpkg/repos.d/
+      - run: ln -s . ~/.xcpkg/repos.d/official-core
+
+      - run: ./sync-with-brew
