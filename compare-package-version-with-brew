@@ -92,7 +92,7 @@ version_match() {
 
 cd formula
 
-install update/
+install -d update/
 
 for FORMULA_FILENAME in *.yml
 do
