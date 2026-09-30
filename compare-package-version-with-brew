@@ -92,7 +92,7 @@ version_match() {
 
 cd formula
 
-install -d update/
+install -d upgrade/
 
 for FORMULA_FILENAME in *.yml
 do
@@ -131,7 +131,7 @@ do
                 SHA=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
 
                 if [ -n "$URL" ] && [ -n "$SHA" ] ; then
-                    tee "update/$PACKAGE_NAME.sh" <<EOF
+                    tee "upgrade/$PACKAGE_NAME.sh" <<EOF
 VERSION_OLD='$PACKAGE_VERSION'
 VERSION_NEW='$BREW_PACKAGE_VERS'
 SRC_URL_NEW='$URL'

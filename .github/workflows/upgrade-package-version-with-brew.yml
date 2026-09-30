@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  schedule:
+  find-upgradable-packages:
 
     runs-on: macos-15
 
@@ -23,7 +23,87 @@ jobs:
       - run: ./xcpkg about
       - run: ./xcpkg sysinfo
 
-      - run: install -d ~/.xcpkg/repos.d/
-      - run: ln -s . ~/.xcpkg/repos.d/official-core
+      - run: ./compare-package-version-with-brew
 
-      - run: ./sync-package-version-with-brew
+      - uses: actions/upload-artifact@v6
+        with:
+          name: upgradable-packages-${{ github.sha }}
+          path: upgrade/
+
+      - id: upgradable-packages
+        run: |
+          FILES="$(find upgrade -name '*.sh' -printf '%P\n')"
+          NAMES=$(printf '%s\n' $FILES | jq -c 'map(sub("\\.sh$"; ""))')
+          printf 'names=%s\n' "$NAMES" >> $GITHUB_OUTPUT
+
+    outputs:
+      names: ${{ steps.upgradable-packages.outputs.names }}
+
+
+  upgrade:
+
+    needs: find-upgradable-packages
+
+    strategy:
+
+      fail-fast: false
+
+      matrix:
+        pkg: ${{ fromJson(needs.find-upgradable-packages.outputs.names) }}
+
+    runs-on: macos-26
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: upgradable-packages-${{ github.sha }}
+          path: .
+
+      - run: ls
+
+      - run: curl -LO https://github.com/leleliu008/uppm-package-repository-macos-15.0-arm64/releases/download/2026.08.10.1/gsed-4.10-MacOSX-15.0-arm64.tar.xz
+      - run: /usr/bin/bsdtar xf *.tar.xz --strip-components=1
+      - run: rm *.tar.xz
+
+      - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
+      - run: /usr/bin/bsdtar xf *.tar.xz --strip-components=1
+      - run: rm *.tar.xz
+
+      - run: bin/xcpkg about
+      - run: bin/xcpkg sysinfo
+
+      - id: version
+        run: |
+          source "upgrade/${{ matrix.pkg }}.sh"
+          printf '%s\n' '
+          VERSION_OLD=$VERSION_OLD
+          VERSION_NEW=$VERSION_NEW
+          SRC_URL_NEW=$SRC_URL_NEW
+          SRC_SHA_NEW=$SRC_SHA_NEW
+          BREWPKGNAME=$BREWPKGNAME
+          ' >> "$GITHUB_OUTPUT"
+
+      - run: bin/gsed -i -e '/^src-url: /c src-url: ${{ steps.version.outputs.SRC_URL_NEW }}' -e '/^src-sha: /c src-sha: ${{ steps.version.outputs.SRC_SHA_NEW }}' formula/${{ matrix.pkg }}.yml
+
+      - run: git diff
+
+      - run: bin/xcpkg install ${{ matrix.pkg }} -I formula
+      - run: bin/xcpkg bundle  ${{ matrix.pkg }} .tar.xz 
+
+      - id: bundle-filename
+        run: printf 'BUNDLE_FILENAME=%s\n' "$(ls *.tar.xz)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: ${{ steps.bundle-filename.outputs.BUNDLE_FILENAME }}
+          path: ${{ steps.bundle-filename.outputs.BUNDLE_FILENAME }}
+
+      - run: git add formula/${{ matrix.pkg }}.yml
+      - run: git commit -m "github actions: update package ${{ matrix.pkg }} ${{ steps.version.outputs.VERSION_OLD }} -> ${{ steps.version.outputs.VERSION_NEW }}"
+      - run: git pull --rebase=true
+        #- run: git push origin master
