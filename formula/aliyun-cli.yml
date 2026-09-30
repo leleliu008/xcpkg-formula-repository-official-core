@@ -1,6 +1,5 @@
 summary: Universal Command-Line Interface for Alibaba Cloud
-git-url: https://github.com/aliyun/aliyun-cli
-git-sha: 48e1eb12dceb5e2d9606fa71973090c7d55b6a81
-version: 3.3.3
+src-url: https://github.com/aliyun/aliyun-cli/archive/refs/tags/v3.5.1.tar.gz
+src-sha: 9b4c9e5992c185af4b3260b4a805309e599efbcc74f406536c28f9beffa200e3
 license: Apache-2.0
 install: gow -X github.com/aliyun/aliyun-cli/v3/cli.Version="$PACKAGE_VERSION" -o aliyun main/main.go
