@@ -156,17 +156,7 @@ esac
 }
 
 version_sort() {
-    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sort.html
-    # https://man.netbsd.org/NetBSD-8.1/i386/sort.1
-    #
-    # sort: unrecognized option: V
-    # BusyBox v1.29.3 (2019-01-24 07:45:07 UTC) multi-call binary.
-    # Usage: sort [-nrugMcszbdfiokt] [-o FILE] [-k start[.offset][opts][,end[.offset][opts]] [-t CHAR] [FILE]...
-    if  printf '\n' | (sort -V > /dev/null 2>&1) ; then
-        printf '%s\n' "$@" | sort -V
-    else
-        printf '%s\n' "$@" | sort -t. -n -k1,1 -k2,2 -k3,3 -k4,4
-    fi
+    printf '%s\n' "$@" | sort -V
 }
 
 # check if match the condition
@@ -255,7 +245,21 @@ do
                 printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
                 printf_package_info_red "$BREW_PACKAGE_NAME" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/master/Formula/$X/$BREW_PACKAGE_NAME.rb"
 
-                printf '\n'
+                URL=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
+                SHA=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
+
+                if [ -n "$URL" ] && [ -n "$SHA" ] ; then
+                    gsed -i -e "/^src-url: /c src-url: $URL" -e "/^src-sha: /c src-sha: $SHA" "$FORMULA_FILEPATH"
+
+                    if ./xcpkg install "$PACKAGE_NAME" ; then
+                        git add "$FORMULA_FILEPATH"
+                        git commit -m "github-actions-auto-upgrade $FORMULA_FILEPATH $PACKAGE_NAME -> $BREW_PACKAGE_NAME"
+                        git push origin master
+                    else
+                        git checkout "$FORMULA_FILEPATH"
+                    fi
+                fi
+
                 continue 2
             fi
         fi
