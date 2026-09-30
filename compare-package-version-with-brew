@@ -10,19 +10,19 @@ COLOR_PURPLE='\033[0;35m'
 COLOR_OFF='\033[0m'
 
 printf_package_info_red() {
-    printf "${COLOR_RED}%-20s %-15s -> %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+    printf "${COLOR_RED}%-20s %-20s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 printf_package_info_purple() {
-    printf "${COLOR_PURPLE}%-20s %-15s -> %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+    printf "${COLOR_PURPLE}%-20s %-20s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 printf_package_info_blue() {
-    printf "${COLOR_BLUE}%-20s %-15s -> %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+    printf "${COLOR_BLUE}%-20s %-20s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 printf_package_info_green() {
-    printf "${COLOR_GREEN}%-20s %-15s -> %-15s %s${COLOR_OFF}\n" "$1" "$2" "$3"
+    printf "${COLOR_GREEN}%-20s %-20s %s${COLOR_OFF}\n" "$1" "$2" "$3"
 }
 
 version_sort() {
@@ -133,12 +133,12 @@ do
                        *) X="$(printf '%.1s' "$BREW_PACKAGE_NAME")"
                 esac
 
-                printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION" "$BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
+                printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
 
                 URL=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
                 SHA=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
 
-                if [ -n "$URL" ] && [ -n "$SHA" ] ; then
+                if [ -n "$URL" ] && [ -n "$SHA" ] && [ "$SHA" != null ] ; then
                     tee "upgrade/$PACKAGE_NAME.sh" <<EOF
 VERSION_OLD='$PACKAGE_VERSION'
 VERSION_NEW='$BREW_PACKAGE_VERS'
@@ -186,9 +186,9 @@ EOF
             LATEST_RELEASE_VERSION="${LATEST_RELEASE_VERSION%-stable}"
 
             if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
-                printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION" "$LATEST_RELEASE_VERSION" "$PACKAGE_GIT_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
+                printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION -> $LATEST_RELEASE_VERSION" "$PACKAGE_GIT_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
             else
-                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
+                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
             fi
 
             printf '\n'
@@ -196,6 +196,6 @@ EOF
             continue
     esac
 
-    printf_package_info_blue "$PACKAGE_NAME" "$PACKAGE_VERSION" "unknown" "$PACKAGE_WEB_URL"
+    printf_package_info_blue "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
     printf '\n'
 done

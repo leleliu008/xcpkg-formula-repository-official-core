@@ -30,7 +30,7 @@ jobs:
 
       - run: ./compare-package-version-with-brew --upgrade
 
-      - run: mv formula/upgrade ..
+      - run: mv formula/upgrade .
 
       - uses: actions/upload-artifact@v6
         with:
