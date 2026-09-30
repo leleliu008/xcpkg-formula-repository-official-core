@@ -71,6 +71,19 @@ jobs:
           name: upgradable-packages-${{ github.sha }}
           path: upgrade
 
+      - run: |
+          cat > .xcpkg-formula-repo.yml <<EOF
+          url: https://github.com/leleliu008/xcpkg-formula-repository-official-core
+          branch: master
+          pinned: 0
+          enabled: 1
+          created: 1715150656
+          updated: 1746707291
+          EOF
+
+      - run: install -d ~/.xcpkg/repos.d/
+      - run: ln -s "$PWD" ~/.xcpkg/repos.d/official-core
+
       - run: ls
 
       - run: curl -LO https://github.com/leleliu008/uppm-package-repository-macos-15.0-arm64/releases/download/2026.08.10.1/gsed-4.10-MacOSX-15.0-arm64.tar.xz
@@ -80,9 +93,6 @@ jobs:
       - run: curl -LO https://github.com/leleliu008/test/releases/download/2023.10.08/xcpkg-0.30.0-macos-15.0-arm64.release.tar.xz
       - run: /usr/bin/bsdtar xf *.tar.xz --strip-components=1
       - run: rm *.tar.xz
-
-      - run: bin/xcpkg about
-      - run: bin/xcpkg sysinfo
 
       - id: version
         run: |
@@ -112,18 +122,8 @@ jobs:
 
       - run: git diff
 
-      - run: |
-          cat > .xcpkg-formula-repo.yml <<EOF
-          url: https://github.com/leleliu008/xcpkg-formula-repository-official-core
-          branch: master
-          pinned: 0
-          enabled: 1
-          created: 1715150656
-          updated: 1746707291
-          EOF
-
-      - run: install -d ~/.xcpkg/repos.d/
-      - run: ln -s "$PWD" ~/.xcpkg/repos.d/official-core
+      - run: bin/xcpkg about
+      - run: bin/xcpkg sysinfo
 
       - run: bin/xcpkg install ${{ matrix.pkg }}
       - run: bin/xcpkg bundle  ${{ matrix.pkg }} .tar.xz 
