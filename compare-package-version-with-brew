@@ -147,7 +147,11 @@ do
 
             printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
 
-            if [ "$UPGRADE" != 1 ] ; then
+            if [ "$UPGRADE" = 1 ] ; then
+                case $PACKAGE_NAME in
+                    atuin|bear) continue
+                esac
+            else
                 continue
             fi
 
@@ -192,9 +196,9 @@ EOF
             if [ "$I" -eq 10 ] ; then
                 exit
             fi
+        else
+            printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
         fi
-
-        printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
 
         continue
     fi
