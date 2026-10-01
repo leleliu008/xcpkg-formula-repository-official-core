@@ -139,6 +139,10 @@ jobs:
           name: ${{ steps.bundle-filename.outputs.BUNDLE_FILENAME }}
           path: ${{ steps.bundle-filename.outputs.BUNDLE_FILENAME }}
 
+
+      - run: git config --global user.name  leleliu008
+      - run: git config --global user.email leleliu008@gmail.com
+
       - run: git add formula/${{ matrix.pkg }}.yml
       - run: git commit -m "github-actions update package ${{ matrix.pkg }} ${{ steps.version.outputs.VERSION_OLD }} -> ${{ steps.version.outputs.VERSION_NEW }}"
       - run: git pull --rebase=true
