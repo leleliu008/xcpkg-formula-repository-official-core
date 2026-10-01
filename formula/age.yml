@@ -1,7 +1,7 @@
 summary: A simple, modern and secure encryption tool with small explicit keys, no config options, and UNIX-style composability
 web-url: https://filippo.io/age
-src-url: https://github.com/FiloSottile/age/archive/refs/tags/v1.3.1.tar.gz
-src-sha: 396007bc0bc53de253391493bda1252757ba63af1a19db86cfb60a35cb9d290a
+src-url: https://github.com/FiloSottile/age/archive/refs/tags/v1.3.2.tar.gz
+src-sha: b07c28c6c4bdafa272073a310b75bc22c49da8904585a89c30e5ca4233e63843
 license: BSD-3-Clause
 bsystem: go
 install: |
