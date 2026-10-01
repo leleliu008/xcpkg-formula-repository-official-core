@@ -60,6 +60,9 @@ jobs:
 
     runs-on: macos-26
 
+    permissions:
+      contents: write
+
     env:
       GH_TOKEN: ${{ github.token }}
 
