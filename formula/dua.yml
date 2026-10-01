@@ -1,5 +1,5 @@
 summary: A fast disk usage analyzer
-src-url: https://github.com/Byron/dua-cli/archive/refs/tags/v2.33.0.tar.gz
-src-sha: 32ecebfd555f09cbcfae415499d68de6023cc4f8eb4f249e54761e521d1ee553
+src-url: https://github.com/Byron/dua-cli/archive/refs/tags/v2.45.1.tar.gz
+src-sha: d75fd6cb1c6a470b53d55051401a903f175a8a68d92d7d12d2c538fd8e70036e
 license: MIT
 bsystem: cargo
