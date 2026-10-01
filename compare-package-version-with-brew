@@ -149,7 +149,7 @@ do
 
             if [ "$UPGRADE" = 1 ] ; then
                 case $PACKAGE_NAME in
-                    atuin|bear|chisel) continue
+                    atuin|bear|chisel|chicken) continue
                 esac
             else
                 continue
@@ -165,17 +165,17 @@ do
                 continue
             fi
 
-            # may need to apply patches, don't handle this at the moment
-            if [ "$SRC_URL_OLD" = "$SRC_URL_NEW" ] && [ "$SRC_SHA_OLD" = "$SRC_SHA_NEW" ] ; then
-                continue
-            fi
-
             A="$(printf '%s\n' "$SRC_URL_OLD" | sed -E 's|^https?://([^/]+)/.*|\1|')"
             B="$(printf '%s\n' "$SRC_URL_NEW" | sed -E 's|^https?://([^/]+)/.*|\1|')"
 
             if [ "$B" = 'ftpmirror.gnu.org' ] ; then
                 B='ftp.gnu.org'
                 SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_NEW" | sed 's|ftpmirror\.gnu\.org|ftp.gnu.org/gnu|')"
+            fi
+
+            # may need to apply patches, don't handle this at the moment
+            if [ "$SRC_URL_OLD" = "$SRC_URL_NEW" ] && [ "$SRC_SHA_OLD" = "$SRC_SHA_NEW" ] ; then
+                continue
             fi
 
             cat <<EOF

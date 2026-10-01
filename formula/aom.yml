@@ -1,7 +1,7 @@
 summary: command-line tools for encoding and decoding AV1 video streams
 web-url: https://aomedia.googlesource.com/aom
 git-url: https://aomedia.googlesource.com/aom.git
-git-ref: refs/tags/v3.12.1
+git-ref: refs/tags/v3.13.1
 src-url: https://storage.googleapis.com/aom-releases/libaom-3.13.1.tar.gz
 src-sha: 19e45a5a7192d690565229983dad900e76b513a02306c12053fb9a262cbeca7d
 license: BSD-2-Clause
