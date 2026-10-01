@@ -135,18 +135,18 @@ do
 
                 printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
 
-                URL=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
-                SHA=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
+                if [ "$UPGRADE" = 1 ] ; then
+                    URL=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
+                    SHA=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
 
-                if [ -n "$URL" ] && [ -n "$SHA" ] && [ "$SHA" != null ] ; then
-                    tee "upgrade/$PACKAGE_NAME" <<EOF
+                    if [ -n "$URL" ] && [ -n "$SHA" ] && [ "$SHA" != null ] ; then
+                        tee "upgrade/$PACKAGE_NAME" <<EOF
 VERSION_OLD='$PACKAGE_VERSION'
 VERSION_NEW='$BREW_PACKAGE_VERS'
 SRC_URL_NEW='$URL'
 SRC_SHA_NEW='$SHA'
 BREWPKGNAME='$BREW_PACKAGE_NAME'
 EOF
-                    if [ "$UPGRADE" = 1 ] ; then
                         I="$(($I + 1))"
 
                         echo "I=$I"
