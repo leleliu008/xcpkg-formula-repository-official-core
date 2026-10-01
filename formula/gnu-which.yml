@@ -1,7 +1,9 @@
 summary: GNU implementation of which utility
-src-url: https://ftp.gnu.org/gnu/which/which-2.23.tar.gz
-src-sha: a2c558226fc4d9e4ce331bd2fd3c3f17f955115d2c00e447618a4ef9978a2a73
+src-url: https://ftp.gnu.org/gnu/which/which-2.25.tar.gz
+src-sha: 1cb83e4f702e60b8211ab5ec4c2afbab1b1dec80209456a7d2faf7584ed225ea
 license: GPL-3.0-or-later
+
+dopatch: gsed -i 's|ifdef __GNU_LIBRARY__|if 1|' getopt.h
 
 install: configure --program-prefix=g
 
