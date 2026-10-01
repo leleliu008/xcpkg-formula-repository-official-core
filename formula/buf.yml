@@ -1,6 +1,6 @@
 summary: New way of working with Protocol Buffers
-src-url: https://github.com/bufbuild/buf/archive/refs/tags/v1.64.0.tar.gz
-src-sha: e485494488ddae5fd0bdc8d7ee8e5b5cc6c266a50db1823d6e92d729dee05275
+src-url: https://github.com/bufbuild/buf/archive/refs/tags/v1.73.0.tar.gz
+src-sha: 5b74e94416114ccfcef2692592150a5c8459a9cb6f94088d42341ac06c389a22
 license: Apache-2.0
 install: |
     gow ./cmd/buf
