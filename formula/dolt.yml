@@ -1,6 +1,6 @@
 summary: Git for Data
-src-url: https://github.com/dolthub/dolt/archive/refs/tags/v1.81.2.tar.gz
-src-sha: 2ce83eae4631190a5b8f4dbabf072c05703db09618b72daa7a25c60b220353c9
+src-url: https://github.com/dolthub/dolt/archive/refs/tags/v2.4.0.tar.gz
+src-sha: 98d494a1e08664589bde0200cd1b30502f5367edc3752e9796f89f4b98fe6dcd
 license: Apache-2.0
 dep-pkg: libicu
 bscript: go
