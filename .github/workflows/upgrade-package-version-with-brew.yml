@@ -139,4 +139,4 @@ jobs:
       - run: git add formula/${{ matrix.pkg }}.yml
       - run: git commit -m "github-actions update package ${{ matrix.pkg }} ${{ steps.version.outputs.VERSION_OLD }} -> ${{ steps.version.outputs.VERSION_NEW }}"
       - run: git pull --rebase=true
-        #- run: git push origin master
+      - run: git push origin master
