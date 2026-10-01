@@ -110,6 +110,8 @@ do
     PACKAGE_VERSION="$(../xcpkg formula-parse "$FORMULA_FILENAME" version)"
     PACKAGE_WEB_URL="$(../xcpkg formula-parse "$FORMULA_FILENAME" web-url)"
 
+    ################################################
+
     S1="$(../brew-package-name "$PACKAGE_NAME")"
     S2=
 
@@ -118,50 +120,88 @@ do
         *-dev) S2="${PACKAGE_NAME%-dev}" ;;
     esac
 
-    for BREW_PACKAGE_NAME in $S1 "$PACKAGE_NAME" $S2
+    BREW_PACKAGE_NAME=
+    BREW_PACKAGE_VERS=
+
+    for item in $S1 "$PACKAGE_NAME" $S2
     do
-        if brew info "$BREW_PACKAGE_NAME" --json > /dev/null 2>&1 ; then
+        if brew info "$item" --json > /dev/null 2>&1 ; then
+            BREW_PACKAGE_NAME="$item"
             BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].versions.stable')
-
-            if [ "$BREW_PACKAGE_VERS" = "$PACKAGE_VERSION" ] ; then
-                continue 2
-            fi
-
-            if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
-                case $BREW_PACKAGE_NAME in
-                    lib*) X=lib ;;
-                       *) X="$(printf '%.1s' "$BREW_PACKAGE_NAME")"
-                esac
-
-                printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
-
-                if [ "$UPGRADE" = 1 ] ; then
-                    URL=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
-                    SHA=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
-
-                    if [ -n "$URL" ] && [ -n "$SHA" ] && [ "$SHA" != null ] ; then
-                        tee "upgrade/$PACKAGE_NAME" <<EOF
-VERSION_OLD='$PACKAGE_VERSION'
-VERSION_NEW='$BREW_PACKAGE_VERS'
-SRC_URL_NEW='$URL'
-SRC_SHA_NEW='$SHA'
-BREWPKGNAME='$BREW_PACKAGE_NAME'
-EOF
-                        I="$(($I + 1))"
-
-                        echo "I=$I"
-
-                        if [ "$I" -eq 10 ] ; then
-                            exit
-                        fi
-                    fi
-                fi
-
-                printf '\n'
-                continue 2
-            fi
+            break
         fi
     done
+
+    ################################################
+
+    if [ -n "$BREW_PACKAGE_NAME" ] ; then
+        if [ "$BREW_PACKAGE_VERS" = "$PACKAGE_VERSION" ] ; then
+            continue
+        fi
+
+        if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
+            case $BREW_PACKAGE_NAME in
+                lib*) X=lib ;;
+                   *) X="$(printf '%.1s' "$BREW_PACKAGE_NAME")"
+            esac
+
+            printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
+
+            if [ "$UPGRADE" != 1 ] ; then
+                continue
+            fi
+
+            SRC_URL_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-url)"
+            SRC_SHA_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-sha)"
+
+            SRC_URL_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
+            SRC_SHA_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
+
+            if [ -z "$SRC_URL_OLD" ] || [ -z "$SRC_SHA_OLD" ] || [ -z "$SRC_URL_NEW" ] || [ -z "$SRC_SHA_NEW" ] || [ "$SRC_SHA_NEW" = null ] ; then
+                continue
+            fi
+
+            A="$(printf '%s\n' "$SRC_URL_OLD" | sed -E 's|^https?://([^/]+)/.*|\1|')"
+            B="$(printf '%s\n' "$SRC_URL_NEW" | sed -E 's|^https?://([^/]+)/.*|\1|')"
+
+            if [ "$B" = 'ftpmirror.gnu.org' ] ; then
+                SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_NEW" | sed 's|ftpmirror\.gnu\.org|ftp.gnu.org/gnu|')"
+            fi
+
+            cat <<EOF
+-src-url: $SRC_URL_OLD
+-src-sha: $SRC_SHA_OLD
++src-url: $SRC_URL_NEW
++src-sha: $SRC_SHA_NEW
+EOF
+            if [ "$A" != "$B" ] ; then
+                continue
+            fi
+
+            tee "upgrade/$PACKAGE_NAME" <<EOF
+VERSION_OLD=$PACKAGE_VERSION
+VERSION_NEW=$BREW_PACKAGE_VERS
+SRC_URL_NEW=$SRC_URL_NEW
+SRC_SHA_NEW=$SRC_SHA_NEW
+BREWPKGNAME=$BREW_PACKAGE_NAME
+EOF
+            I="$(($I + 1))"
+
+            echo "I=$I"
+
+            if [ "$I" -eq 10 ] ; then
+                exit
+            fi
+        fi
+
+        printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
+
+        continue
+    fi
+
+    if [ "$UPGRADE" = 1 ] ; then
+        continue
+    fi
 
     PACKAGE_GIT_URL="$(../xcpkg formula-parse "$FORMULA_FILENAME" git-url)"
 
@@ -193,11 +233,8 @@ EOF
                 printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
             fi
 
-            printf '\n'
-
             continue
     esac
 
     printf_package_info_blue "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_WEB_URL"
-    printf '\n'
 done
