@@ -149,7 +149,7 @@ do
 
             if [ "$UPGRADE" = 1 ] ; then
                 case $PACKAGE_NAME in
-                    atuin|bear|chisel|chicken|d8|dot_static|bthrift) continue
+                    atuin|bear|chisel|chicken|d8|dot_static|fbthrift) continue
                 esac
             else
                 continue
