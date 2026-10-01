@@ -1,5 +1,5 @@
 summary: A user-friendly launcher for Bazel
-src-url: https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.28.1.tar.gz
-src-sha: e80f76b9d86f529e9d267ce0d333365ea14ec92b3269f81ab85cbd69edab2793
+src-url: https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.29.0.tar.gz
+src-sha: 7e4c7b8ade016052e63c1553cb4fbe0c4fe921e1e66913d49eef074ed894e933
 license: Apache-2.0
 install: gow -X github.com/bazelbuild/bazelisk/core.BazeliskVersion="$PACKAGE_VERSION"
