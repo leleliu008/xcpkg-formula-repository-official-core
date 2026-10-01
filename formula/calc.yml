@@ -1,7 +1,7 @@
 summary: Arbitrary precision calculator
 web-url: http://www.isthe.com/chongo/tech/comp/calc/
-src-url: https://github.com/lcn2/calc/archive/refs/tags/v2.16.1.2.tar.gz
-src-sha: cb5b0576c3d206ed55b6929cc3a1ebc5afedbfdc70d528274cbac8e650c56d77
+src-url: https://github.com/lcn2/calc/archive/refs/tags/v2.17.0.2.tar.gz
+src-sha: 12471c2c23ae6b8a010be7472ef58e877a94022bd2e8c172cb60bede98b6417f
 license: LGPL-2.1-or-later
 dep-pkg: libreadline
 
