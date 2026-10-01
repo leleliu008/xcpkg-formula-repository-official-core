@@ -1,6 +1,6 @@
 summary: Command-line interface built-in Visual Studio Code
-src-url: https://github.com/microsoft/vscode/archive/refs/tags/1.107.1.tar.gz
-src-sha: 695707e9a46ce79fc03faece47db443ff940df0e59c5094562a0b9e0610caea2
+src-url: https://github.com/microsoft/vscode/archive/refs/tags/1.140.0.tar.gz
+src-sha: 0daa0b2b2c2e83b57be7fa1c4b8163ad4846735063e3164f06b386176176707f
 license: MIT
 dep-pkg: libopenssl libz
 bscript: cli
