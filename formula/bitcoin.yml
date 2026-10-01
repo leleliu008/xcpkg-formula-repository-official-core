@@ -1,8 +1,8 @@
 summary: Decentralized, peer to peer payment network
 git-url: https://github.com/bitcoin/bitcoin
 web-url: https://bitcoincore.org/
-src-url: https://bitcoincore.org/bin/bitcoin-core-30.2/bitcoin-30.2.tar.gz
-src-sha: 6fd00b8c42883d5c963901ad4109a35be1e5ec5c2dc763018c166c21a06c84cb
+src-url: https://bitcoincore.org/bin/bitcoin-core-31.1/bitcoin-31.1.tar.gz
+src-sha: 50411d5b43c7e4c90099394759eb6c2add6e7c2dbe728840893d638b6fc6afc9
 license: MIT
 dep-pkg: libsqlite3 libevent libcapnp libzmq boost
 
