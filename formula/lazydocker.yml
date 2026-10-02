@@ -1,6 +1,6 @@
 summary: A simple terminal UI for both docker and docker-compose
-src-url: https://github.com/jesseduffield/lazydocker/archive/refs/tags/v0.24.4.tar.gz
-src-sha: f8299de3c1a86b81ff70e2ae46859fc83f2b69e324ec5a16dd599e8c49fb4451
+src-url: https://github.com/jesseduffield/lazydocker/archive/refs/tags/v0.25.2.tar.gz
+src-sha: 405071220e5be9aa061c65d290e0347143b73ae0a3cc01df164f0105de2b53c4
 license: MIT
 install: |
     gow \
