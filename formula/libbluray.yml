@@ -1,8 +1,8 @@
 summary: Blu-Ray disc playback library for media players like VLC
 web-url: https://www.videolan.org/developers/libbluray.html
 git-url: https://code.videolan.org/videolan/libbluray
-src-url: https://download.videolan.org/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz
-src-sha: 77937baf07eadda4b2b311cf3af4c50269d2ea3165041f5843d96476c4c92777
+src-url: https://download.videolan.org/videolan/libbluray/1.5.0/libbluray-1.5.0.tar.xz
+src-sha: f676408e91a5d321abf8b8d4dfdae36205c297dab5c54c3ec519639025f474a2
 license: LGPL-2.1-or-later
 dep-pkg: libfontconfig libudfread libxml2
 install: |
