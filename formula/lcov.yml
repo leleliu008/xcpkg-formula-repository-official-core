@@ -1,8 +1,10 @@
 summary: Graphical front-end for GCC coverage testing tool - gcov
 web-url: http://ltp.sourceforge.net/coverage/lcov.php
-src-url: https://github.com/linux-test-project/lcov/releases/download/v2.4/lcov-2.4.tar.gz
-src-sha: 3457825c6b2fe4ef77c782b82a23875c84a3c955243823f05d8f2dec0d455820
+src-url: https://github.com/linux-test-project/lcov/releases/download/v2.5/lcov-2.5.tar.gz
+src-sha: 7e5e5a154bd5f3557659c328cab376764e7abd238bb403c424472c296b175126
 license: GPL-2.0-or-later
+dep-upp: perl
+dep-pip: sphinx sphinx-rtd-theme
 
 install: |
     gmakew clean
