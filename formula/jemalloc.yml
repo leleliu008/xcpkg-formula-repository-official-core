@@ -1,7 +1,7 @@
 summary: Implementation of malloc emphasizing fragmentation avoidance
 web-url: https://jemalloc.net
-src-url: https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2
-src-sha: 2db82d1e7119df3e71b7640219b6dfe84789bc0537983c3b7ac4f7189aecfeaa
+src-url: https://github.com/jemalloc/jemalloc/releases/download/5.4.0/jemalloc-5.4.0.tar.bz2
+src-sha: 200776fac271093e7c2f21edd6d62657ecd2be578d9328633f2a86bfa6ef4f1d
 license: BSD-2-Clause
 
 binbstd: 1
