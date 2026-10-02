@@ -1,5 +1,5 @@
 summary: JQ clone focussed on correctness, speed, and simplicity
-src-url: https://github.com/01mf02/jaq/archive/refs/tags/v2.3.0.tar.gz
-src-sha: 80fae7c5bbbc244580ca77d3e5a4fc6e9c3ea08a5526d562e3c5300edd44fe8b
+src-url: https://github.com/01mf02/jaq/archive/refs/tags/v3.1.1.tar.gz
+src-sha: 9b8587436be48b5791c8276573321a3d4f404e0dc77ea6503d05725a55edd266
 license: MIT
 install: cargow install --path jaq
