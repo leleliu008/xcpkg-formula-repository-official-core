@@ -1,6 +1,6 @@
 summary: A collection of reusable C++ library artifacts developed at Facebook
-src-url: https://github.com/facebook/folly/archive/refs/tags/v2026.01.12.00.tar.gz
-src-sha: 4b694698c773a3236d6379316f67872db77070d56ea256bec5759964712f9c34
+src-url: https://github.com/facebook/folly/archive/refs/tags/v2026.09.21.00.tar.gz
+src-sha: a8d82032b316d4f69b3f20ac3645c4bb12744a25f7cb53b99a9e05e8f3675fb6
 license: Apache-2.0
 dep-pkg: boost fastfloat libfmt libglog libevent liblz4 libsnappy libsodium libdouble-conversion
 install: cmakew 2
