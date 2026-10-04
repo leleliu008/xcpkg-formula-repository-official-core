@@ -1,7 +1,7 @@
 summary: A command-line tool for spelling checking and morphological analysing
 web-url: https://hunspell.github.io
-src-url: https://github.com/hunspell/hunspell/releases/download/v1.7.4/hunspell-1.7.4.tar.gz
-src-sha: 66ec82a577395fe9d471504267e6dd04615c76517c61af7c6b9c19e5e34e73c8
+src-url: https://github.com/hunspell/hunspell/releases/download/v1.7.5/hunspell-1.7.5.tar.gz
+src-sha: 2e559f0c2a592ba48e421477f58e9bf7e01062277a4a7821afb52fc9401010ae
 license: GPL-2.0-or-later
 dep-pkg: libintl libreadline
 dep-upp: libtool xz gettext-tools
