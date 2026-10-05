@@ -1,7 +1,7 @@
 summary: Libraries for security-enabled client and server applications
 web-url: https://firefox-source-docs.mozilla.org/security/nss/index.html
-src-url: https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_125_RTM/src/nss-3.125.tar.gz
-src-sha: 1ad541f10da7c58dec01f540ecc44d28cbbc033f741a57473de5a0893d91606d
+src-url: https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_130_RTM/src/nss-3.130.tar.gz
+src-sha: afab9f82c78bfa3e7e8b4a61ac31922675c58203f67ff385a2714df7fe9bd5c5
 license: MPL-2.0
 dep-pkg: libnspr libsqlite3 libz
 bscript: nss
