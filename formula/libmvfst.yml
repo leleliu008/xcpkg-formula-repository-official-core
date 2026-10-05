@@ -1,6 +1,6 @@
 summary: QUIC transport protocol implementation
-src-url: https://github.com/facebook/mvfst/archive/refs/tags/v2026.01.12.00.tar.gz
-src-sha: 5c000c1ad7886a25d434224f85f9b5147acb9d0058497ec7666d843de129fd8a
+src-url: https://github.com/facebook/mvfst/archive/refs/tags/v2026.09.28.00.tar.gz
+src-sha: 62ebce844a5cda05b679dc7af2ca7d8091a0e9917ddbafc74d46e10298c5ff19
 license: MIT
 dep-pkg: libfizz
 install: cmakew -DBUILD_TESTS=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON
