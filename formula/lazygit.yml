@@ -1,6 +1,6 @@
 summary: A simple terminal UI for git commands
-src-url: https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.65.1.tar.gz
-src-sha: df30ec1a5032b3c5672a30090fe787fb32d4122fd996d6d85e1d10135acfbc89
+src-url: https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.66.0.tar.gz
+src-sha: 704b14509dae4c0212754d60d1c00181aea79c0734aafa2c83c89301dba1aefd
 license: MIT
 install: |
     gow \
