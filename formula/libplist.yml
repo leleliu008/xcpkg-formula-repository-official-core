@@ -1,6 +1,6 @@
 summary: A library to handle Apple Property List format in binary or XML
 web-url: https://libimobiledevice.org/
-src-url: https://github.com/libimobiledevice/libplist/releases/download/2.7.0/libplist-2.7.0.tar.bz2
-src-sha: 7ac42301e896b1ebe3c654634780c82baa7cb70df8554e683ff89f7c2643eb8b
+src-url: https://github.com/libimobiledevice/libplist/releases/download/2.8.0/libplist-2.8.0.tar.bz2
+src-sha: b1f59f7634c58b2481325a23ff4e3bf51574a42d868cbe466d2b39b04550752a
 license: LGPL-2.1-or-later
 install: configure --without-cython
