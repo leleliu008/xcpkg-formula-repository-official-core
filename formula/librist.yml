@@ -9,7 +9,6 @@ dep-pkg: cjson cmocka mbedtls
 install: |
     mesonw \
         -Dtest=false \
-        -Duse_tun=false \
         -Duse_nettle=false \
         -Duse_gnutls=false \
         -Duse_mbedtls=true \
