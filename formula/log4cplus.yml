@@ -2,8 +2,8 @@ pkgtype: lib
 summary: A simple-to-use, log4j-like logging framework for C++
 web-url: https://sourceforge.net/p/log4cplus/wiki/Home/
 git-url: https://github.com/log4cplus/log4cplus
-src-url: https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.1.1/log4cplus-2.1.1.tar.xz
-src-sha: a1d8e67a207f90a9dd4f82b28a1f3ac6dead5a80c2bed071277a9e865698a82b
+src-url: https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.2.0/log4cplus-2.2.0.1.tar.xz
+src-sha: 6fc6b1b392921b048dcb0a71b5a1b46e9956bff710d288bdc9c4fc689f1a5f0b
 license: Apache-2.0
 install: |
     cmakew \
