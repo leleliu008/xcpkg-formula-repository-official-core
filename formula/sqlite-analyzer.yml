@@ -1,7 +1,7 @@
 summary: A command-line tool to analyze how space is allocated inside an SQLite file
 web-url: https://www.sqlite.org/
-src-url: https://www.sqlite.org/2026/sqlite-src-3510200.zip
-src-sha: 85110f762d5079414d99dd5d7917bc3ff7e05876e6ccbd13d8496a3817f20829
+src-url: https://www.sqlite.org/2026/sqlite-src-3530400.zip
+src-sha: d18fa15aec74d8c17e1463f861095adc01b5ad190256acb4f91d22f0368d232b
 version: 3.51.2
 license: blessing
 dep-pkg: tcl libtommath
