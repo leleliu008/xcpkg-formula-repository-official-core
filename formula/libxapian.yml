@@ -1,8 +1,8 @@
 summary: C++ search engine library
 web-url: https://xapian.org/
-src-url: https://oligarchy.co.uk/xapian/1.4.31/xapian-core-1.4.31.tar.xz
+src-url: https://oligarchy.co.uk/xapian/2.1.0/xapian-core-2.1.0.tar.xz
 src-uri: https://raven.cs.vt.edu/pub/slackware/slackware-current/source/l/xapian-core/xapian-core-1.4.31.tar.xz
-src-sha: fecf609ea2efdc8a64be369715aac733336a11f7480a6545244964ae6bc80811
+src-sha: 8e1259586d342e3d12b5e1f772e9185a10f2ba16e541566b5c3c239f71b8aacc
 license: GPL-2.0-or-later
 dep-pkg: libz
 bsystem: configure
