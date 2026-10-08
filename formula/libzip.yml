@@ -1,8 +1,8 @@
 summary: C library for reading, creating, and modifying zip archives
 git-url: https://github.com/nih-at/libzip
 web-url: https://libzip.org/
-src-url: https://libzip.org/download/libzip-1.11.4.tar.xz
-src-sha: 8a247f57d1e3e6f6d11413b12a6f28a9d388de110adc0ec608d893180ed7097b
+src-url: https://libzip.org/download/libzip-1.12.tar.xz
+src-sha: 376908d0f0fda13180a19fdc4f7062a1abfb59e09ca07a392d361253b8e60c2b
 license: BSD-3-Clause
 dep-pkg: libzstd liblzma libbz2 libz
 
