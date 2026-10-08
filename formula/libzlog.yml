@@ -1,6 +1,6 @@
 summary: A reliable, high-performance, thread-safe, flexible, clear-model logging library written in pure C
-src-url: https://github.com/HardySimpson/zlog/archive/refs/tags/1.2.19.tar.gz
-src-sha: 475df1b30be64190fd692de834ad4c45510f996188b5ecd4b6e3da2527c74a32
+src-url: https://github.com/HardySimpson/zlog/archive/refs/tags/1.2.20.tar.gz
+src-sha: 432723ccd9a5b07ec1e4b8cc985d9011d768633b1e4c4facfc0e3e9a7ad5fcf7
 license: LGPL-2.1-or-later
 bscript: src
 
