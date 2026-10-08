@@ -1,8 +1,8 @@
 summary: Statically typed compiled systems programming language
 git-url: https://github.com/nim-lang/Nim
 web-url: https://nim-lang.org/
-src-url: https://nim-lang.org/download/nim-2.2.4.tar.xz
-src-sha: f82b419750fcce561f3f897a0486b180186845d76fb5d99f248ce166108189c7
+src-url: https://nim-lang.org/download/nim-2.2.12.tar.xz
+src-sha: 2639a06a5ea7a7fcf57df1e7e1ef4d1b2bee58c7ac9bd00dbd2aa5bea1e5a56a
 license: MIT
 dep-pkg: libpcre libsqlite3 libopenssl
 dep-upp: git
