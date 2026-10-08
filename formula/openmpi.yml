@@ -1,8 +1,8 @@
 summary: High performance message passing library
 web-url: https://www.open-mpi.org
 git-url: https://github.com/open-mpi/ompi
-src-url: https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.3.tar.bz2
-src-sha: 990582f206b3ab32e938aa31bbf07c639368e4405dca196fabe7f0f76eeda90b
+src-url: https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.11.tar.bz2
+src-sha: e668a3c4acd50c41dc204c8a6dd98a611e0f26af89cf677577fa9be8a2698003
 license: BSD-3-Clause
 dep-pkg: libevent hwloc
 dep-upp: perl
