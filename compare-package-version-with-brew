@@ -199,7 +199,7 @@ EOF
 
             echo "I=$I"
 
-            if [ "$I" -eq 20 ] ; then
+            if [ "$I" -eq 50 ] ; then
                 exit
             fi
         else
