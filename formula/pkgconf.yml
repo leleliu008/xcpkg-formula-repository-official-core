@@ -1,8 +1,8 @@
 summary: Reimplementation of pkg-config
 web-url: http://pkgconf.org
 git-url: https://github.com/pkgconf/pkgconf
-src-url: https://distfiles.ariadne.space/pkgconf/pkgconf-2.5.1.tar.xz
-src-sha: cd05c9589b9f86ecf044c10a2269822bc9eb001eced2582cfffd658b0a50c243
+src-url: https://distfiles.ariadne.space/pkgconf/pkgconf-3.0.7.tar.xz
+src-sha: c926ff491cbd9a331a589160811bd97ab1749b4d5198a519338f2cdfabe6940a
 license: ISC
 
 install: configure --disable-shared
