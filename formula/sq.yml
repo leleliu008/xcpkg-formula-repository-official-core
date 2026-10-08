@@ -1,7 +1,7 @@
 summary: Data wrangler with jq-like query language
 web-url: https://sq.io
-src-url: https://github.com/neilotoole/sq/archive/refs/tags/v0.50.0.tar.gz
-src-sha: 36e20553b05aa10069ea3a422bbd98df936f5ca505eae9d61b98ff7ee0b7a279
+src-url: https://github.com/neilotoole/sq/archive/refs/tags/v0.55.0.tar.gz
+src-sha: ab9f0595423269eacf43a531f1d101e296f100aabec95781dc8af6ab1c155739
 license: MIT
 
 prepare: export CGO_ENABLED=1
