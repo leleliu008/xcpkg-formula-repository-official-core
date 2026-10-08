@@ -1,7 +1,7 @@
 summary: A collection utilities for manipulating PostScript documents
 git-url: https://github.com/rrthomas/psutils
-src-url: https://files.pythonhosted.org/packages/45/ff/4af412351a21ee38835b7597555936c547830d9a8246a2b7d2aa41aabdd3/psutils-3.3.14.tar.gz
-src-sha: 6212167dd8c09f59c9535d5e416c4f8c01431b7a5beab0ee68f4ec416ca3980c
+src-url: https://files.pythonhosted.org/packages/a0/6b/735ab226ab8e2ee6b99182312c7346a2e4bd3e825cfdf127f22ce75e853f/psutils-3.3.17.tar.gz
+src-sha: 3ff76cc9f9fb535ec553d1591de56d6dbaa0d9f4df86778f6a49731ebd764cdf
 license: GPL-3.0-or-later
 dep-pkg: libpaper
 dep-pip: build pypdf puremagic
