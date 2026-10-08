@@ -1,7 +1,7 @@
 summary: A free and open-source lexer generator for C/C++, Go and Rust with a focus on generating fast code
 web-url: https://re2c.org/
-src-url: https://github.com/skvadrik/re2c/releases/download/4.4/re2c-4.4.tar.xz
-src-sha: 6b6b865924447ef992d5db4e52fb9307e5f65f26edd43efa91395da810f4280a
+src-url: https://github.com/skvadrik/re2c/releases/download/4.6/re2c-4.6.tar.xz
+src-sha: 75bf2696445e831d0d44e0d9f2909eeffc18c09757f222b2fb025f7e59fe130b
 
 install: |
     cmakew \
