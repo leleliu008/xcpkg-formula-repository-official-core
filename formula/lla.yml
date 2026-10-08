@@ -1,6 +1,6 @@
 summary: A high-performance, extensible alternative to ls
-src-url: https://github.com/chaqchase/lla/archive/refs/tags/v0.5.4.tar.gz
-src-sha: 332239095c6aa631570d0695ecb955997ffb6077a3c71be11031e47e97d59687
+src-url: https://github.com/chaqchase/lla/archive/refs/tags/v0.6.6.tar.gz
+src-sha: cfbb50f6e72d34485491743da1277b7095e0781efcb0bf4a3cf0b3665818fd5e
 license: MIT
 install: |
     cargow install --path lla
