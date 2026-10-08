@@ -1,7 +1,7 @@
 summary: A massively parallel (multi-threaded) implementation of lzip, fully compatible with lzip 1.4 or newer
 web-url: https://www.nongnu.org/lzip/plzip.html
-src-url: https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.12.tar.gz
-src-sha: 50d71aad6fa154ad8c824279e86eade4bcf3bb4932d757d8f281ac09cfadae30
+src-url: https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.13.tar.gz
+src-sha: 64d49dde20daa5fdff2b3ff28e3348082de10dd54eb10df6da7d1bc6c7a6db64
 license: GPL-2.0-or-later
 dep-pkg: lzlib
 install: configure CXX="'$CXX'" CXXFLAGS="'$CXXFLAGS'" CPPFLAGS="'$CPPFLAGS'" LDFLAGS="'$LDFLAGS'"
