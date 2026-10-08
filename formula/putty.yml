@@ -1,8 +1,8 @@
 summary: Implementation of Telnet and SSH
 web-url: https://www.chiark.greenend.org.uk/~sgtatham/putty/
 git-url: https://git.tartarus.org/simon/putty
-src-url: https://the.earth.li/~sgtatham/putty/0.83/putty-0.83.tar.gz
-src-sha: 718777c13d63d0dff91fe03162bc2a05b4dfc8b0827634cd60b51cefdff631c6
+src-url: https://the.earth.li/~sgtatham/putty/0.85/putty-0.85.tar.gz
+src-sha: 13fd4db2936d03b73812a7bcc2a658e4dd29cc776a56c3670a7fc6f1a0ee8af8
 license: MIT
 dep-upp: perl
 ppflags: -UNDEBUG
