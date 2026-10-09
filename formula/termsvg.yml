@@ -1,5 +1,5 @@
 summary: A command-line tool to rcord, share and export your terminal as a animated SVG image
-src-url: https://github.com/MrMarble/termsvg/archive/refs/tags/v0.10.0.tar.gz
-src-sha: 7b9c7aae3f58c9dce7930fe2868e39d59817e143d13e5771c268f9c7f0cbdf31
+src-url: https://github.com/MrMarble/termsvg/archive/refs/tags/v0.11.0.tar.gz
+src-sha: 035334dce273efe3ff4fcf6eecf0b9facdcb2988403eb9e473659c0c7d0d1c52
 license: GPL-3.0-only
 install: gow -X main.version="$PACKAGE_VERSION" -X main.date="$TIMESTAMP_ISO8601" ./cmd/termsvg
