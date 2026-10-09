@@ -1,6 +1,6 @@
 summary: A command-line utility for parsing CSV
-src-url: https://github.com/liquidaty/zsv/archive/refs/tags/v1.4.0.tar.gz
-src-sha: 939fb66d4885260ebe52cc280d131a3973886a37b9ac5db0fe8be18e27c4c31c
+src-url: https://github.com/liquidaty/zsv/archive/refs/tags/v1.4.3.tar.gz
+src-sha: 8372ec277b0cf56d02e3407e355208875fdfa174a3ed01e6ffb9a00fe440fc43
 dep-pkg: libncurses libpcre2 libjq
 dep-upp: perl
 ldflags: -lonig
