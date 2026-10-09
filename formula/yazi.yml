@@ -1,6 +1,6 @@
 summary: Blazing fast terminal file manager written in Rust, based on async I/O
-src-url: https://github.com/sxyazi/yazi/archive/refs/tags/v26.1.22.tar.gz
-src-sha: 83b8a1bf166bfcb54b44b966fa3f34afa7c55584bf81d29275a1cdd99d1c9c4c
+src-url: https://github.com/sxyazi/yazi/archive/refs/tags/v26.9.1.tar.gz
+src-sha: 66857f1b670469daf258edd0bb2ea51d9ad3e2cab4eea9684028c80059fd6862
 license: MIT
 dep-upp: gmake
 install: |
