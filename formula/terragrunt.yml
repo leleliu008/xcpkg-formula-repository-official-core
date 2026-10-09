@@ -1,6 +1,6 @@
 summary: Thin wrapper for Terraform e.g. for locking state
 web-url: https://terragrunt.gruntwork.io/
-src-url: https://github.com/gruntwork-io/terragrunt/archive/refs/tags/v0.58.12.tar.gz
-src-sha: 0d1ae09a01548c3a92590b2490a9f7f833dafdcd7ad17230ec5b57e08805a709
+src-url: https://github.com/gruntwork-io/terragrunt/archive/refs/tags/v1.1.6.tar.gz
+src-sha: 13d96feff7d0cbd47d3bb875ff4ca4f27f871dee98bf7ac32acb8d766cd33dc3
 license: MIT
 install: gow -X github.com/gruntwork-io/go-commons/version.Version=$PACKAGE_VERSION
