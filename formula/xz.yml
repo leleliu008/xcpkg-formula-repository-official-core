@@ -1,7 +1,7 @@
 summary: A free, general-purpose data compression with a high compression ratio
 web-url: https://tukaani.org/xz
-src-url: https://github.com/tukaani-project/xz/releases/download/v5.8.2/xz-5.8.2.tar.gz
-src-sha: ce09c50a5962786b83e5da389c90dd2c15ecd0980a258dd01f70f9e7ce58a8f1
+src-url: https://github.com/tukaani-project/xz/releases/download/v5.8.4/xz-5.8.4.tar.gz
+src-sha: 0014c7886930454fe8bd4228665b51af55eeae560ea135c9c4cd33f55b2591d9
 license: LGPL-2.1-or-later
 
 install: |
