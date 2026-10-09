@@ -1,6 +1,6 @@
 summary: A universal document converter
 web-url: https://pandoc.org/
-src-url: https://github.com/jgm/pandoc/archive/refs/tags/3.12.tar.gz
-src-sha: b19c416525f00e2c35a75dc377c767a57084ac22a9f1f4f9c5f6448dabe9819e
+src-url: https://github.com/jgm/pandoc/archive/refs/tags/3.12.1.tar.gz
+src-sha: cf9b3725b90e471aa70c99ac3b351adcb6e40cd904d36fcbb0f70d712e135686
 license: GPL-2.0-or-later
 install: cabal_v2_install pandoc-cli
