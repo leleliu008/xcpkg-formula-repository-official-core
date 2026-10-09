@@ -1,5 +1,5 @@
 summary: A small beautifier tool for xcodebuild
-src-url: https://github.com/cpisciotta/xcbeautify/archive/refs/tags/3.1.4.tar.gz
-src-sha: 7d4332563e43335c9ecad819ff1d8033b052020cb73729cdeb7f25165f6cf9f4
+src-url: https://github.com/cpisciotta/xcbeautify/archive/refs/tags/3.2.1.tar.gz
+src-sha: 7575dcb90e4650f8d8f66b92ca2f3eaa5ad9feddda7bf3c63aeb0edca199aa80
 license: MIT
 bsystem: swift
