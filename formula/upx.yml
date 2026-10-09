@@ -1,7 +1,7 @@
 summary: A free, secure, portable, extendable, high-performance executable packer for several executable formats
 web-url: https://upx.github.io/
-src-url: https://github.com/upx/upx/releases/download/v5.1.0/upx-5.1.0-src.tar.xz
-src-sha: 9f7a810b8a810b1ca2c5cb01ffcf23066e3fb8a51ddc406ea05bdd5d37d0b8bd
+src-url: https://github.com/upx/upx/releases/download/v5.2.1/upx-5.2.1-src.tar.xz
+src-sha: a7d457be4ef942e46844ee8f301206b111394cbcbde3599747a6904c54ff116b
 license: GPL-2.0-or-later
 dep-pkg: libz
 install: |
