@@ -12,4 +12,4 @@ prepare: |
         release) ZIG_BUILD_EXTRA_ARGS='-Dmode=ReleaseSafe -Dstrip=true'  ;;
     esac
 
-install: zig -Dtag=$PACKAGE_VERSION $ZIG_BUILD_EXTRA_ARGS
+install: zig -Dtag=r$PACKAGE_VERSION $ZIG_BUILD_EXTRA_ARGS
