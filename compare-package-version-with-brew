@@ -161,21 +161,31 @@ do
             SRC_URL_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
             SRC_SHA_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
 
-            if [ -z "$SRC_URL_OLD" ] || [ -z "$SRC_SHA_OLD" ] || [ -z "$SRC_URL_NEW" ] || [ -z "$SRC_SHA_NEW" ] || [ "$SRC_SHA_NEW" = null ] ; then
+            if [ -z "$SRC_URL_OLD" ] || [ -z "$SRC_SHA_OLD" ] || [ -z "$SRC_URL_NEW" ] || [ -z "$SRC_SHA_NEW" ] ; then
                 continue
             fi
 
-            A="$(printf '%s\n' "$SRC_URL_OLD" | sed -E 's|^https?://([^/]+)/.*|\1|')"
-            B="$(printf '%s\n' "$SRC_URL_NEW" | sed -E 's|^https?://([^/]+)/.*|\1|')"
+            if [ "$SRC_SHA_NEW" = null ] ; then
+                SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|")"
 
-            if [ "$B" = 'ftpmirror.gnu.org' ] ; then
-                B='ftp.gnu.org'
-                SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_NEW" | sed 's|ftpmirror\.gnu\.org|ftp.gnu.org/gnu|')"
-            fi
+                curl -L -o src.zip "$SRC_URL_NEW" || continue
 
-            # may need to apply patches, don't handle this at the moment
-            if [ "$SRC_URL_OLD" = "$SRC_URL_NEW" ] && [ "$SRC_SHA_OLD" = "$SRC_SHA_NEW" ] ; then
-                continue
+                SRC_SHA_NEW="$(sha256sum src.zip)"
+            else
+                A="$(printf '%s\n' "$SRC_URL_OLD" | sed -E 's|^https?://([^/]+)/.*|\1|')"
+                B="$(printf '%s\n' "$SRC_URL_NEW" | sed -E 's|^https?://([^/]+)/.*|\1|')"
+
+                if [ "$B" = 'ftpmirror.gnu.org' ] ; then
+                    B='ftp.gnu.org'
+                    SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_NEW" | sed 's|ftpmirror\.gnu\.org|ftp.gnu.org/gnu|')"
+                fi
+
+                # may need to apply patches, don't handle this at the moment
+                if [ "$SRC_URL_OLD" = "$SRC_URL_NEW" ] && [ "$SRC_SHA_OLD" = "$SRC_SHA_NEW" ] ; then
+                    continue
+                fi
+
+                [ "$A" = "$B" ] || continue
             fi
 
             cat <<EOF
@@ -184,10 +194,6 @@ do
 +src-url: $SRC_URL_NEW
 +src-sha: $SRC_SHA_NEW
 EOF
-            if [ "$A" != "$B" ] ; then
-                continue
-            fi
-
             tee "upgrade/$PACKAGE_NAME" <<EOF
 VERSION_OLD=$PACKAGE_VERSION
 VERSION_NEW=$BREW_PACKAGE_VERS
