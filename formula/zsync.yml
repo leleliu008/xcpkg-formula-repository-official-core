@@ -1,9 +1,10 @@
 summary: A file transfer program
 git-url: https://github.com/cph6/zsync
 web-url: https://zsync.moria.org.uk/
-src-url: https://zsync.moria.org.uk/download/zsync-0.6.3.tar.bz2
-src-sha: 293b6191821641d3ed6248206f8f9df0bf46e6ee2cf8b4dd97cfd1d5909edb9a
+src-url: https://zsync.moria.org.uk/download/zsync-0.8.0.tar.gz
+src-sha: 58b02f27e14326b62b7fdd6ed431a3e243b1c5a3ea9e3c1678e136dbf00c238d
 license: Artistic-2.0
-bsystem: configure
-binbstd: 1
-ppflags: -D_DARWIN_C_SOURCE
+install: |
+    gow ./cmd/zsync
+    gow ./cmd/zsyncmake
+    install_mans man/*.1
