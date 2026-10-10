@@ -1,11 +1,10 @@
 summary: Terminal multiplexer
 web-url: https://tmux.github.io
-src-url: https://github.com/tmux/tmux/releases/download/3.6a/tmux-3.6a.tar.gz
-src-sha: b6d8d9c76585db8ef5fa00d4931902fa4b8cbe8166f528f44fc403961a3f3759
-version: 3.6a
+src-url: https://github.com/tmux/tmux/releases/download/3.8/tmux-3.8.tar.gz
+src-sha: e79c699c7e949dccd0a4a125e17b8d1261e311b16979dbc8eb34542f3966d82e
 license: ISC
 dep-upp: bison
-dep-pkg: libevent libncurses libutf8proc
+dep-pkg: libevent libncurses libutf8proc jemalloc
 
 install: |
     configure \
