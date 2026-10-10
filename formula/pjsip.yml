@@ -1,12 +1,15 @@
 pkgtype: lib
 summary: C library for multimedia protocols such as SIP, SDP, RTP and more
 web-url: https://www.pjsip.org/
-src-url: https://github.com/pjsip/pjproject/archive/refs/tags/2.15.1.tar.gz
-src-sha: 8f3bd99caf003f96ed8038b8a36031eb9d8cd9eaea1eaff7e01c2eef6bd55706
+src-url: https://github.com/pjsip/pjproject/archive/refs/tags/2.17.tar.gz
+src-sha: 065fe06c06788d97c35f563796d59f00ce52fe9558a52d7b490a042a966facce
 license: GPL-2.0-or-later
 dep-pkg: libopenssl
 binbstd: 1
 parallel: 0
+
+fix-url: https://github.com/pjsip/pjproject/commit/3923fad2e4f6f3403c3d6f1176b113c1c1b91066.patch?full_index=1
+fix-sha: 6958040fc0b0502381aa1514cacf1d947ea1a6104b2da388e1c99870f67bc998
 
 prepare: |
     export LD="$CC"
