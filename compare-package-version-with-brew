@@ -170,7 +170,7 @@ do
 
                 curl -L -o src.zip "$SRC_URL_NEW" || continue
 
-                SRC_SHA_NEW="$(sha256sum src.zip)"
+                SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
             else
                 A="$(printf '%s\n' "$SRC_URL_OLD" | sed -E 's|^https?://([^/]+)/.*|\1|')"
                 B="$(printf '%s\n' "$SRC_URL_NEW" | sed -E 's|^https?://([^/]+)/.*|\1|')"
