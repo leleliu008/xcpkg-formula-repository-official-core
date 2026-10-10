@@ -1,23 +1,13 @@
-pkgtype: lib
 summary: High dynamic-range image file format
 web-url: https://www.openexr.com/
-src-url: https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.2.4.tar.gz
-src-sha: 81e6518f2c4656fdeaf18a018f135e96a96e7f66dbe1c1f05860dd94772176cc
+src-url: https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.5.2.tar.gz
+src-sha: 85a291b9b8563fabef1aa3f6e912d744ce1d4b9fd5a8f978eda194cd51b15ae9
 license: BSD-3-Clause
-dep-pkg: libImath libz libdeflate
-
-dopatch: gsed -i '/find_library(OPENEXR_EXTRA_MATH_LIB m)/c set(OPENEXR_EXTRA_MATH_LIB -lm)' cmake/CMakeLists.txt
+dep-pkg: libImath libzstd libz libdeflate
 
 install: |
     cmakew \
         -DDOCS=OFF \
         -DOPENEXR_INSTALL=ON \
         -DOPENEXR_INSTALL_TOOLS=OFF \
-        -DOPENEXR_INSTALL_EXAMPLES=OFF \
-        -DBUILD_SHARED_LIBS=ON
-    cmakew \
-        -DDOCS=OFF \
-        -DOPENEXR_INSTALL=ON \
-        -DOPENEXR_INSTALL_TOOLS=ON \
-        -DOPENEXR_INSTALL_EXAMPLES=ON \
-        -DBUILD_SHARED_LIBS=OFF
+        -DOPENEXR_INSTALL_EXAMPLES=OFF
