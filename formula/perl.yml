@@ -2,14 +2,14 @@ summary: Highly capable, feature-rich programming language
 git-url: https://github.com/perl/perl5
 web-url: https://www.perl.org/
 src-url: https://www.cpan.org/src/5.0/perl-5.44.0.tar.xz
-src-uri: https://cpan.metacpan.org/authors/id/P/PE/PEVANS/perl-5.42.2.tar.xz
+src-uri: https://cpan.metacpan.org/authors/id/P/PE/PEVANS/perl-5.44.0.tar.xz
 src-sha: 505cf43912e9480495c344c70260452e32aa2a73c546a026b3f100053b23ce91
 license: GPL-1.0-or-later
 bsystem: gmake
 
+# https://perldoc.perl.org/Config
+#-Duserelocatableinc \
 install: |
-    # https://perldoc.perl.org/Config
-    #-Duserelocatableinc \
     run ./Configure \
         -des \
         -Dprefix=$PACKAGE_INSTALL_DIR \
