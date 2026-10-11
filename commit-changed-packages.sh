@@ -65,6 +65,17 @@ update() {
         if [ "$VOLD" != "$VNEW" ] ; then
             VERSION=" $VOLD -> $VNEW"
         fi
+    elif git diff -U0 "$1" | grep -q '^-git-ref: ' &&
+         git diff -U0 "$1" | grep -q '^+git-ref: ' ; then
+        GIT_REF_OLD="$(git diff -U0 "$1" | grep '^-git-ref: ' | cut -c11-)"
+        GIT_REF_NEW="$(git diff -U0 "$1" | grep '^+git-ref: ' | cut -c11-)"
+
+        VOLD="$(extract-version "$GIT_REF_OLD")"
+        VNEW="$(extract-version "$GIT_REF_NEW")"
+
+        if [ "$VOLD" != "$VNEW" ] ; then
+            VERSION=" $VOLD -> $VNEW"
+        fi
     fi
 
     echo '\n=====================================================>\n'
