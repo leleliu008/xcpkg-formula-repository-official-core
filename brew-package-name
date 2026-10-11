@@ -131,4 +131,7 @@ case $1 in
             libtiff.a)
                       printf '%s\n' 'libtiff'   ;;
         esac
+        ;;
+    base64|tre|locat)
+        printf '%s\n' 'null' ;;
 esac

@@ -112,25 +112,36 @@ do
 
     ################################################
 
-    S1="$(../brew-package-name "$PACKAGE_NAME")"
-    S2=
-
-    case $PACKAGE_NAME in
-        lib*)  S2="${PACKAGE_NAME#lib}"  ;;
-        *-dev) S2="${PACKAGE_NAME%-dev}" ;;
-    esac
-
     BREW_PACKAGE_NAME=
     BREW_PACKAGE_VERS=
 
-    for item in $S1 "$PACKAGE_NAME" $S2
-    do
-        if brew info "$item" --json > /dev/null 2>&1 ; then
-            BREW_PACKAGE_NAME="$item"
-            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].versions.stable')
-            break
+    BREW_PACKAGE_NAME="$(../brew-package-name "$PACKAGE_NAME")"
+
+    if [ "$BREW_PACKAGE_NAME" = null ] ; then
+        BREW_PACKAGE_NAME=
+    else
+        if [ -z "$BREW_PACKAGE_NAME" ] ; then
+            BREW_PACKAGE_NAME="$PACKAGE_NAME"
         fi
-    done
+
+        if brew info "$BREW_PACKAGE_NAME" --json > /dev/null 2>&1 ; then
+            BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].versions.stable')
+        else
+            case $PACKAGE_NAME in
+                lib*)  BREW_PACKAGE_NAME="${PACKAGE_NAME#lib}"  ;;
+                *-dev) BREW_PACKAGE_NAME="${PACKAGE_NAME%-dev}" ;;
+                *)     BREW_PACKAGE_NAME=
+            esac
+
+            if [ -n "$BREW_PACKAGE_NAME" ] ; then
+                if brew info "$BREW_PACKAGE_NAME" --json > /dev/null 2>&1 ; then
+                    BREW_PACKAGE_VERS=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].versions.stable')
+                else
+                    BREW_PACKAGE_NAME=
+                fi
+            fi
+        fi
+    fi
 
     ################################################
 
