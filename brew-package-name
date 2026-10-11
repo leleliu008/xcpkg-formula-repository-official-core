@@ -80,6 +80,7 @@ case $1 in
     sndfile)  printf '%s\n' 'libsndfile' ;;
     nghttp3)  printf '%s\n' 'libnghttp3' ;;
     ngtcp2)   printf '%s\n' 'libngtcp2'  ;;
+    pcre2grep)printf '%s\n' 'pcre2'     ;;
 
     llvm+*@18)printf '%s\n' 'llvm@18'    ;;
     llvm+*@19)printf '%s\n' 'llvm@19'    ;;
@@ -132,6 +133,6 @@ case $1 in
                       printf '%s\n' 'libtiff'   ;;
         esac
         ;;
-    base64|tre|locat)
+    base64|tre|locat|pkg-config)
         printf '%s\n' 'null' ;;
 esac
