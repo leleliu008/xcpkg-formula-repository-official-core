@@ -1,6 +1,6 @@
 summary: X.Org X-Video Motion Compensation API
-src-url: https://xorg.freedesktop.org/archive/individual/lib/libXvMC-1.0.13.tar.xz
-src-sha: 0a9ebe6dea7888a747e5aca1b891d53cd7d3a5f141a9645f77d9b6a12cee657c
+src-url: https://xorg.freedesktop.org/archive/individual/lib/libXvMC-1.0.15.tar.xz
+src-sha: 4f518afde3d7fd435346af7b368d2f73517f3d5f82647c962caf3f7bb8ff7078
 license: MIT
 dep-pkg: libxv
 bsystem: configure
