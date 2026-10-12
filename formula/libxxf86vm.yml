@@ -1,6 +1,6 @@
 summary: X.Org XFree86-VidMode X extension
-src-url: https://xorg.freedesktop.org/archive/individual/lib/libXxf86vm-1.1.5.tar.gz
-src-sha: f3f1c29fef8accb0adbd854900c03c6c42f1804f2bc1e4f3ad7b2e1f3b878128
+src-url: https://xorg.freedesktop.org/archive/individual/lib/libXxf86vm-1.1.7.tar.gz
+src-sha: 9a983e3cbb7a57905262291a17da962293c0645f99efd475e3c85264bfddc337
 license: MIT
 dep-pkg: libx11 libxext
 bsystem: configure
