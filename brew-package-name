@@ -41,7 +41,6 @@ case $1 in
     eigen3)   printf '%s\n' 'eigen'     ;;
     utfcpp)   printf '%s\n' 'utf8cpp'   ;;
     toml++)   printf '%s\n' 'tomlplusplus'  ;;
-    pngsplit) printf '%s\n' 'pngcheck'  ;;
     xmlutils) printf '%s\n' 'libxml2'   ;;
     stwolame) printf '%s\n' 'two-lame'  ;;
     openpmix) printf '%s\n' 'pmix'      ;;
