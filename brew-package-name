@@ -132,6 +132,6 @@ case $1 in
                       printf '%s\n' 'libtiff'   ;;
         esac
         ;;
-    base64|fortune|tre|lolcat|pkg-config)
+    base64|fortune|tre|lolcat|mill|pkg-config)
         printf '%s\n' 'null' ;;
 esac
