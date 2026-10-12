@@ -196,7 +196,13 @@ do
                     continue
                 fi
 
-                [ "$A" = "$B" ] || continue
+                if [ "$A" != "$B" ] ; then
+                    cat <<EOF
+-src-url: $SRC_URL_OLD
++src-url: $SRC_URL_NEW
+EOF
+                    continue
+                fi
             fi
 
             cat <<EOF
