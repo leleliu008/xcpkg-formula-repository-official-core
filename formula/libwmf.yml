@@ -1,8 +1,8 @@
 summary: Library for converting WMF (Window Metafile Format) files
 web-url: https://wvware.sourceforge.net/libwmf.html
-src-url: https://downloads.sourceforge.net/project/wvware/libwmf/0.2.8.4/libwmf-0.2.8.4.tar.gz
-src-sha: 5b345c69220545d003ad52bfd035d5d6f4f075e65204114a9e875e84895a7cf8
-license: LGPL-2.1-only
+src-url: https://github.com/caolanm/libwmf/releases/download/v0.2.16/libwmf-0.2.16.tar.gz
+src-sha: e20a0bfc2550e779f5f2f13e1afd34cb3b3692954b7e2b73a25ac94c86cb484a
+license: LGPL-2.1-or-later
 dep-pkg: libgd
 
 prepare: |
