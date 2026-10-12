@@ -1,6 +1,6 @@
 summary: X.Org Toolkit Intrinsics library
-src-url: https://xorg.freedesktop.org/archive/individual/lib/libXt-1.3.0.tar.xz
-src-sha: 52820b3cdb827d08dc90bdfd1b0022a3ad8919b57a39808b12591973b331bf91
+src-url: https://xorg.freedesktop.org/archive/individual/lib/libXt-1.3.1.tar.xz
+src-sha: e0a774b33324f4d4c05b199ea45050f87206586d81655f8bef4dba434d931288
 license: MIT
 dep-pkg: libx11 libsm
 install: configure --enable-specs=no
