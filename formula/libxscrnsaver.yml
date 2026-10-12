@@ -1,6 +1,6 @@
 summary: X.Org X11 Screen Saver extension client library
-src-url: https://xorg.freedesktop.org/archive/individual/lib/libXScrnSaver-1.2.4.tar.xz
-src-sha: 75cd2859f38e207a090cac980d76bc71e9da99d48d09703584e00585abc920fe
+src-url: https://xorg.freedesktop.org/archive/individual/lib/libXScrnSaver-1.2.5.tar.xz
+src-sha: 5057365f847253e0e275871441e10ff7846c8322a5d88e1e187d326de1cd8d00
 license: MIT
 dep-pkg: libxext
 bsystem: configure
