@@ -10,10 +10,9 @@ prepare: |
 
 install: |
     configure \
+        --enable-ipv6 \
         --enable-tcp-transport \
         --enable-unix-transport \
-        --enable-local-transport \
-        --enable-ipv6 \
         --enable-loadable-i18n \
         --enable-xthreads \
         --enable-specs=no
