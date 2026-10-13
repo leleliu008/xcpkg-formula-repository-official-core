@@ -86,6 +86,10 @@ case $1 in
     llvm+*@20)printf '%s\n' 'llvm@20'    ;;
     llvm+*@21)printf '%s\n' 'llvm@21'    ;;
 
+    nodejs@20)printf '%s\n' 'node@20'    ;;
+    nodejs@22)printf '%s\n' 'node@22'    ;;
+    nodejs@24)printf '%s\n' 'node@24'    ;;
+
     lib*)
         case $1 in
             libz)     printf '%s\n' 'zlib'      ;;
@@ -103,6 +107,7 @@ case $1 in
             libjpeg)  printf '%s\n' 'jpeg'      ;;
             libltdl)  printf '%s\n' 'libtool'   ;;
             libuuid)  printf '%s\n' 'util-linux';;
+            libonig)  printf '%s\n' 'oniguruma' ;;
             libargp)  printf '%s\n' 'argp-standalone';;
             liburcu)  printf '%s\n' 'userspace-rcu' ;;
             liblcms2) printf '%s\n' 'little-cms2' ;;
@@ -110,6 +115,8 @@ case $1 in
             libcares) printf '%s\n' 'c-ares'    ;;
             libgumbo) printf '%s\n' 'gumbo-parser' ;;
 
+            libquiche)
+                      printf '%s\n' 'cloudflare-quiche' ;;
             libasync++)
                       printf '%s\n' 'asyncplusplus' ;;
             libsqlite3)
@@ -130,8 +137,9 @@ case $1 in
                       printf '%s\n' 'protobuf'  ;;
             libtiff.a)
                       printf '%s\n' 'libtiff'   ;;
+            libmill)  printf '%s\n' 'null' ;;
         esac
         ;;
-    base64|fortune|tre|lolcat|mill|pkg-config)
+    base64|fortune|tre|lolcat|pkg-config)
         printf '%s\n' 'null' ;;
 esac
