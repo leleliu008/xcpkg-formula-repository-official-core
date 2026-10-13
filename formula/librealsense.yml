@@ -1,6 +1,14 @@
 summary: Intel RealSense D400 series and SR300 capture
-src-url: https://github.com/realsenseai/librealsense/archive/refs/tags/v2.58.4.tar.gz
-src-sha: 3d07cafd0fc5c1b1803e1f6418cf7375a387593e873d3897015b8ec94be20e74
+src-url: https://github.com/realsenseai/librealsense/archive/refs/tags/v2.59.1.tar.gz
+src-sha: 8de92d31412c272b62fc14b830bb17e5c16d6adda6d1c156009ebdfb4aa02f20
 license: Apache-2.0
 dep-pkg: libusb libglfw3
-install: cmakew -DCMAKE_CXX_STANDARD=17 -DENABLE_CCACHE=OFF -DBUILD_WITH_OPENMP=OFF
+
+install: |
+    cmakew \
+        -DCMAKE_CXX_STANDARD=17 \
+        -DENABLE_CCACHE=OFF \
+        -DBUILD_WITH_OPENMP=OFF \
+        -DCHECK_FOR_UPDATES=OFF \
+        -DENABLE_AI_ASSISTANT=OFF \
+        -DENABLE_STATS=OFF
