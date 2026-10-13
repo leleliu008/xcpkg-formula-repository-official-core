@@ -186,10 +186,16 @@ do
                 A="$(printf '%s\n' "$SRC_URL_OLD" | sed -E 's|^https?://([^/]+)/.*|\1|')"
                 B="$(printf '%s\n' "$SRC_URL_NEW" | sed -E 's|^https?://([^/]+)/.*|\1|')"
 
-                if [ "$B" = 'ftpmirror.gnu.org' ] ; then
-                    B='ftp.gnu.org'
-                    SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_NEW" | sed 's|ftpmirror\.gnu\.org|ftp.gnu.org/gnu|')"
-                fi
+                case $B in
+                    ftpmirror.gnu.org)
+                        B='ftp.gnu.org'
+                        SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_NEW" | sed 's|ftpmirror\.gnu\.org|ftp.gnu.org/gnu|')"
+                        ;;
+                    gnupg.org)
+                        B='www.gnupg.org'
+                        SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_NEW" | sed 's|gnupg\.org|www.gnupg.org|')"
+                        ;;
+                esac
 
                 # may need to apply patches, don't handle this at the moment
                 if [ "$SRC_URL_OLD" = "$SRC_URL_NEW" ] && [ "$SRC_SHA_OLD" = "$SRC_SHA_NEW" ] ; then
