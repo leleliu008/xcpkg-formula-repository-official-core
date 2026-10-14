@@ -141,6 +141,6 @@ case $1 in
             libmill)  printf '%s\n' 'null' ;;
         esac
         ;;
-    base64|fortune|tre|lolcat|pkg-config)
+    base64|fortune|tre|lolcat|pkg-config|supervisord)
         printf '%s\n' 'null' ;;
 esac
