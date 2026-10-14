@@ -23,6 +23,7 @@ case $1 in
     tic)      printf '%s\n' 'ncurses'   ;;
     gif)      printf '%s\n' 'giflib'    ;;
     file)     printf '%s\n' 'file-formula' ;;
+    dash)     printf '%s\n' 'dash-shell';;
     adig)     printf '%s\n' 'c-ares'    ;;
     orcc)     printf '%s\n' 'orc'       ;;
     qalc)     printf '%s\n' 'libqalculate' ;;
