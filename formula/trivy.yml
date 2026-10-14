@@ -1,7 +1,7 @@
 summary: Vulnerability scanner for container images, file systems, and Git repos
 web-url: https://trivy.dev/
-src-url: https://github.com/aquasecurity/trivy/archive/refs/tags/v0.75.0.tar.gz
-src-sha: 4ee2010384f90bf23d4059ae49c11129e5041816a3754d890a90ae80f678d765
+src-url: https://github.com/aquasecurity/trivy/archive/refs/tags/v0.76.0.tar.gz
+src-sha: 38899439182f18f03f1a70b133d3541b809f77647a0b95fcf194674aa34952f0
 license: Apache-2.0
 prepare: export GOEXPERIMENT=jsonv2
 install: gow -X github.com/aquasecurity/trivy/pkg/version/app.ver=$PACKAGE_VERSION ./cmd/trivy
