@@ -207,7 +207,12 @@ do
 -src-url: $SRC_URL_OLD
 +src-url: $SRC_URL_NEW
 EOF
-                    continue
+
+                    SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|")"
+
+                    curl -L -o src.zip "$SRC_URL_NEW" || continue
+
+                    SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
                 fi
             fi
 
