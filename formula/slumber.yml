@@ -1,7 +1,7 @@
 summary: Terminal-based HTTP/REST client
 web-url: https://slumber.lucaspickering.me/
-src-url: https://github.com/LucasPickering/slumber/archive/refs/tags/v5.3.0.tar.gz
-src-sha: f32b4bbcb624ac6d8b05feef5326a19797c8fce62f92e1b6f5185b8f01bc381d
+src-url: https://github.com/LucasPickering/slumber/archive/refs/tags/v5.4.0.tar.gz
+src-sha: f781bf8f0a369641d0b6c8e19336be3cb26ddd44c06a008edc0aad6d7b927442
 license: MIT
 bsystem: cargo
 prepare: export AWS_LC_SYS_NO_JITTER_ENTROPY=1
