@@ -177,7 +177,7 @@ do
             fi
 
             if [ "$SRC_SHA_NEW" = null ] ; then
-                SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|")"
+                SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|g")"
 
                 curl -L -o src.zip "$SRC_URL_NEW" || continue
 
@@ -208,7 +208,7 @@ do
 +src-url: $SRC_URL_NEW
 EOF
 
-                    SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|")"
+                    SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|g")"
 
                     curl -L -o src.zip "$SRC_URL_NEW" || continue
 
