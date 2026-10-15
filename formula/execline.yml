@@ -1,6 +1,6 @@
 summary: A non-interactive scripting language interpreter like sh, but its syntax is quite different from a traditional shell syntax
-src-url: https://github.com/skarnet/execline/archive/refs/tags/v2.9.8.1.tar.gz
-src-sha: d7cda5addff703dfa523f4b5a45f1948f20548cec49f50723597cc75b7a5c96b
+src-url: https://github.com/skarnet/execline/archive/refs/tags/v2.9.9.2.tar.gz
+src-sha: b856e1a0bc8113d7110627720b7ddab3b539bcd63d4bb901a6d88470ecbb2281
 license: ISC
 dep-pkg: skalibs
 binbstd: 1
