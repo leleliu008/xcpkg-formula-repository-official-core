@@ -243,9 +243,9 @@ EOF
         continue
     fi
 
-    if [ "$UPGRADE" = 1 ] ; then
-        continue
-    fi
+    #if [ "$UPGRADE" = 1 ] ; then
+    #    continue
+    #fi
 
     PACKAGE_GIT_URL="$(../xcpkg formula-parse "$FORMULA_FILENAME" git-url)"
 
@@ -273,6 +273,48 @@ EOF
 
             if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
                 printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION -> $LATEST_RELEASE_VERSION" "$PACKAGE_GIT_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
+
+                if [ "$UPGRADE" = 1 ] ; then
+                    M="${PACKAGE_VERSION%%.*}"
+                    N="${LATEST_RELEASE_VERSION%%.*}"
+
+                    if [ "$M" != "$N" ] ; then
+                        continue
+                    fi
+
+                    SRC_URL_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-url)"
+                    SRC_SHA_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-sha)"
+
+                    if [ -z "$SRC_URL_OLD" ] || [ -z "$SRC_SHA_OLD" ] ; then
+                        continue
+                    fi
+
+                    SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$LATEST_RELEASE_VERSION|g")"
+
+                    curl -L -o src.zip "$SRC_URL_NEW" || continue
+
+                    SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
+
+                    cat <<EOF
+-src-url: $SRC_URL_OLD
+-src-sha: $SRC_SHA_OLD
++src-url: $SRC_URL_NEW
++src-sha: $SRC_SHA_NEW
+EOF
+                    tee "upgrade/$PACKAGE_NAME" <<EOF
+VERSION_OLD=$PACKAGE_VERSION
+VERSION_NEW=$LATEST_RELEASE_VERSION
+SRC_URL_NEW=$SRC_URL_NEW
+SRC_SHA_NEW=$SRC_SHA_NEW
+EOF
+                    I="$(($I + 1))"
+
+                    echo "I=$I"
+
+                    if [ "$I" -eq 100 ] ; then
+                        exit
+                    fi
+                fi
             else
                 printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
             fi
