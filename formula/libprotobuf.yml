@@ -23,7 +23,7 @@ install: |
         -Dprotobuf_BUILD_EXAMPLES=OFF \
         -Dprotobuf_BUILD_PROTOC_BINARIES=ON \
         -Dprotobuf_BUILD_LIBPROTOC=ON \
-        -Dprotobuf_BUILD_SHARED_LIBS=OFF
+        -Dprotobuf_BUILD_SHARED_LIBS=OFF \
         -Dprotobuf_LOCAL_DEPENDENCIES_ONLY=ON \
         -Dprotobuf_FORCE_FETCH_DEPENDENCIES=OFF
     cmakew \
@@ -33,6 +33,6 @@ install: |
         -Dprotobuf_BUILD_EXAMPLES=OFF \
         -Dprotobuf_BUILD_PROTOC_BINARIES=OFF \
         -Dprotobuf_BUILD_LIBPROTOC=ON \
-        -Dprotobuf_BUILD_SHARED_LIBS=ON
+        -Dprotobuf_BUILD_SHARED_LIBS=ON \
         -Dprotobuf_LOCAL_DEPENDENCIES_ONLY=ON \
         -Dprotobuf_FORCE_FETCH_DEPENDENCIES=OFF
