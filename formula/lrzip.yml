@@ -1,13 +1,7 @@
 summary: Compression program with a very high compression ratio
-web-url: http://lrzip.kolivas.org
-git-url: https://github.com/ckolivas/lrzip
-src-url: http://ck.kolivas.org/apps/lrzip/lrzip-0.651.tar.xz
-src-sha: 48bd8decb097c1596c9b3777959cd3e332819434ed77a2823e65aa436f1602f9
+src-url: https://github.com/ckolivas/lrzip/releases/download/v0.7.3/lrzip-0.7.3.tar.xz
+src-sha: 6928862de7c4bbb3cfbcd12fae9fd0a7d230d5bbf27486e52c4de60717ebfdbb
 license: GPL-2.0-or-later
 dep-pkg: liblz4 liblzo libbz2 libz
 dep-upp: libtool
 bsystem: autotools
-
-dopatch: gsed -i 's|SUBDIRS = C ASM/x86|SUBDIRS = C|' lzma/Makefile.am
-
-install: configure --disable-asm
