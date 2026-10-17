@@ -146,6 +146,8 @@ do
     ################################################
 
     if [ -n "$BREW_PACKAGE_NAME" ] ; then
+        BREW_PACKAGE_VERS="$(printf '%s\n' "$BREW_PACKAGE_VERS" | tr _- .)"
+
         if [ "$BREW_PACKAGE_VERS" = "$PACKAGE_VERSION" ] ; then
             continue
         fi
