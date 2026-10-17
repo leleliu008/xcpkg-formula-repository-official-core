@@ -1,6 +1,6 @@
 summary: A state-of-the-art linter for the Go programming language
-src-url: https://github.com/dominikh/go-tools/archive/refs/tags/2025.1.1.tar.gz
-src-sha: 259aaf528e4d98e7d3652e283e8551cfdb98cd033a7c01003cd377c2444dd6de
+src-url: https://github.com/dominikh/go-tools/archive/refs/tags/2026.2.2.tar.gz
+src-sha: f957eca5ee25bba46711433bfc320e0e900304ebb89641264bde256031926139
 license: MIT
 install: |
     gow ./cmd/staticcheck
