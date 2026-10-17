@@ -1,9 +1,10 @@
 summary: API and commands for processing SPIR-V modules
-src-url: https://github.com/KhronosGroup/SPIRV-Tools/archive/v2023.2.tar.gz
-src-sha: 7416cc8a98a10c32bacc36a39930b0c5b2a484963df5d68f388ed7ffee1faad3
+src-url: https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz
+src-sha: d31e7109b6ef3559067e53e520870eafed7c9534d00db9728814b6df03fa4a5e
 license: Apache-2.0
-dep-upp: python3 git
-prepare: python3 utils/git-sync-deps
+dep-upp: python3
+dep-pkg: spirv-headers
+
 install: |
     cmakew \
         -DENABLE_RTTI=OFF \
@@ -11,7 +12,8 @@ install: |
         -DSPIRV_BUILD_FUZZER=OFF \
         -DSPIRV_SKIP_TESTS=ON \
         -DSPIRV_SKIP_EXECUTABLES=OFF \
-        -DSPIRV_TOOLS_BUILD_STATIC=ON \
-        -DSKIP_SPIRV_TOOLS_INSTALL=OFF \
+        -DSPIRV_TOOLS_BUILD_STATIC=OFF \
         -DSPIRV_COLOR_TERMINAL=ON \
-        -DSPIRV_LOG_DEBUG=OFF
+        -DSPIRV_LOG_DEBUG=OFF \
+        -DSKIP_SPIRV_TOOLS_INSTALL=OFF \
+        -DSPIRV-Headers_SOURCE_DIR=$spirv_headers_INSTALL_DIR
