@@ -280,7 +280,7 @@ EOF
             LATEST_RELEASE_VERSION="${LATEST_RELEASE_VERSION%-stable}"
 
             version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" || {
-                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
+                #printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
                 continue
             }
 
@@ -344,7 +344,7 @@ EOF
             LATEST_RELEASE_VERSION="${LATEST_RELEASE_TAGNAME#v}"
 
             version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" || {
-                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
+                #printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
                 continue
             }
 
