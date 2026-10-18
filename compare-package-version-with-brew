@@ -187,7 +187,7 @@ do
             if [ "$SRC_SHA_NEW" = null ] ; then
                 SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|g")"
 
-                curl -L -o src.zip "$SRC_URL_NEW" || continue
+                curl -s -L -o src.zip "$SRC_URL_NEW" || continue
 
                 SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
             else
@@ -218,7 +218,7 @@ EOF
 
                     SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|g")"
 
-                    curl -L -o src.zip "$SRC_URL_NEW" || continue
+                    curl -s -L -o src.zip "$SRC_URL_NEW" || continue
 
                     SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
                 fi
@@ -304,7 +304,7 @@ EOF
 
             SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$LATEST_RELEASE_VERSION|g")"
 
-            curl -L -o src.zip "$SRC_URL_NEW" || continue
+            curl -s -L -o src.zip "$SRC_URL_NEW" || continue
 
             SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
 
@@ -337,7 +337,7 @@ EOF
             Y="${X%/*}"
             Z="${X#*/}"
 
-            curl -L -o gitlab.json "https://gitlab.com/api/v4/projects/$Y%2F$Z/releases/permalink/latest"
+            curl -s -L -o gitlab.json "https://gitlab.com/api/v4/projects/$Y%2F$Z/releases/permalink/latest"
 
             LATEST_RELEASE_TAGNAME="$(jq -r '.tag_name' gitlab.json)"
 
@@ -368,7 +368,7 @@ EOF
 
             SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$LATEST_RELEASE_VERSION|g")"
 
-            curl -L -o src.zip "$SRC_URL_NEW" || continue
+            curl -s -L -o src.zip "$SRC_URL_NEW" || continue
 
             SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
 
