@@ -279,52 +279,54 @@ EOF
             LATEST_RELEASE_VERSION="${LATEST_RELEASE_TAGNAME#v}"
             LATEST_RELEASE_VERSION="${LATEST_RELEASE_VERSION%-stable}"
 
-            if version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" ; then
-                printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION -> $LATEST_RELEASE_VERSION" "$PACKAGE_GIT_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
+            version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" || {
+                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
+                continue
+            }
 
-                if [ "$UPGRADE" = 1 ] ; then
-                    M="${PACKAGE_VERSION%%.*}"
-                    N="${LATEST_RELEASE_VERSION%%.*}"
+            printf_package_info_purple "$PACKAGE_NAME" "$PACKAGE_VERSION -> $LATEST_RELEASE_VERSION" "$PACKAGE_GIT_URL/releases/tag/$LATEST_RELEASE_TAGNAME"
 
-                    if [ "$M" != "$N" ] ; then
-                        continue
-                    fi
+            [ "$UPGRADE" = 1 ] || continue
 
-                    SRC_URL_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-url)"
-                    SRC_SHA_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-sha)"
+            M="${PACKAGE_VERSION%%.*}"
+            N="${LATEST_RELEASE_VERSION%%.*}"
 
-                    if [ -z "$SRC_URL_OLD" ] || [ -z "$SRC_SHA_OLD" ] ; then
-                        continue
-                    fi
+            if [ "$M" != "$N" ] ; then
+                continue
+            fi
 
-                    SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$LATEST_RELEASE_VERSION|g")"
+            SRC_URL_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-url)"
+            SRC_SHA_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-sha)"
 
-                    curl -L -o src.zip "$SRC_URL_NEW" || continue
+            if [ -z "$SRC_URL_OLD" ] || [ -z "$SRC_SHA_OLD" ] ; then
+                continue
+            fi
 
-                    SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
+            SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$LATEST_RELEASE_VERSION|g")"
 
-                    cat <<EOF
+            curl -L -o src.zip "$SRC_URL_NEW" || continue
+
+            SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
+
+            cat <<EOF
 -src-url: $SRC_URL_OLD
 -src-sha: $SRC_SHA_OLD
 +src-url: $SRC_URL_NEW
 +src-sha: $SRC_SHA_NEW
 EOF
-                    tee "upgrade/$PACKAGE_NAME" <<EOF
+
+            tee "upgrade/$PACKAGE_NAME" <<EOF
 VERSION_OLD=$PACKAGE_VERSION
 VERSION_NEW=$LATEST_RELEASE_VERSION
 SRC_URL_NEW=$SRC_URL_NEW
 SRC_SHA_NEW=$SRC_SHA_NEW
 EOF
-                    I="$(($I + 1))"
+            I="$(($I + 1))"
 
-                    echo "I=$I"
+            echo "I=$I"
 
-                    if [ "$I" -eq 100 ] ; then
-                        exit
-                    fi
-                fi
-            else
-                printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
+            if [ "$I" -eq 100 ] ; then
+                exit
             fi
 
             continue
@@ -334,10 +336,6 @@ EOF
             X="${X%/}"
             Y="${X%/*}"
             Z="${X#*/}"
-
-            echo "X=$X"
-            echo "Y=$Y"
-            echo "Z=$Z"
 
             curl -L -o gitlab.json "https://gitlab.com/api/v4/projects/$Y%2F$Z/releases/permalink/latest"
 
