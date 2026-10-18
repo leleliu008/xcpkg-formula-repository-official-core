@@ -1,4 +1,4 @@
 summary: Open source xHE-AAC encoder
-src-url: https://gitlab.com/ecodis/exhale/-/archive/v1.2.0/exhale-v1.2.0.tar.gz
-src-sha: 4b6d00e284bbcd447ce19d52c6069673d9b114a2adeba3c509af075639a400f2
+src-url: https://gitlab.com/ecodis/exhale/-/archive/v1.2.2/exhale-v1.2.2.tar.gz
+src-sha: a46a085e3f8049ece2cba5ab3dd80e85fd198e81277b5292ca198a25a80088f1
 bsystem: cmake
