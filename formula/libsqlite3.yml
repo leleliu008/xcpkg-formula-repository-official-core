@@ -3,7 +3,7 @@ git-url: https://github.com/sqlite/sqlite
 web-url: https://sqlite.org/
 src-url: https://sqlite.org/2026/sqlite-amalgamation-3540000.zip
 src-sha: 68e913b0fe8ec6b4e5f391c594a28872884e80d6cd042a1e50c957be46b5aa4d
-version: 3.54.0
+version: 3.54.1
 license: blessing
 
 # https://www.sqlite.org/compile.html
