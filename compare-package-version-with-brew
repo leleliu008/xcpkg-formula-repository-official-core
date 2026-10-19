@@ -279,6 +279,15 @@ EOF
             LATEST_RELEASE_VERSION="${LATEST_RELEASE_TAGNAME#v}"
             LATEST_RELEASE_VERSION="${LATEST_RELEASE_VERSION%-stable}"
 
+            case $PACKAGE_NAME in
+                fortune)
+                    LATEST_RELEASE_VERSION="${LATEST_RELEASE_VERSION#fortune-mod-}"
+                    ;;
+                libmpir)
+                    LATEST_RELEASE_VERSION="${LATEST_RELEASE_VERSION#mpir-}"
+                    ;;
+            esac
+
             version_match "$LATEST_RELEASE_VERSION" gt "$PACKAGE_VERSION" || {
                 #printf_package_info_green  "$PACKAGE_NAME" "$PACKAGE_VERSION" "$PACKAGE_GIT_URL"
                 continue
