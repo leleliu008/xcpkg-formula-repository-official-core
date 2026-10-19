@@ -174,23 +174,93 @@ do
                 continue
             fi
 
+            ###################################################################
+
             SRC_URL_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-url)"
-            SRC_SHA_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-sha)"
 
-            SRC_URL_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
-            SRC_SHA_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
+            if [ -z "$SRC_URL_OLD" ] ; then
+                GIT_URL_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" git-url)"
 
-            if [ -z "$SRC_URL_OLD" ] || [ -z "$SRC_SHA_OLD" ] || [ -z "$SRC_URL_NEW" ] || [ -z "$SRC_SHA_NEW" ] ; then
+                if [ -z "$GIT_URL_OLD" ] ; then
+                    continue
+                fi
+
+                GIT_TAG_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" git-tag)"
+                GIT_SHA_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" git-sha)"
+
+                if [ -z "$GIT_TAG_OLD" ] && [ -z "$GIT_SHA_OLD" ] ; then
+                    continue
+                fi
+
+                GIT_TAG_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.tag')
+                GIT_SHA_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.revision')
+
+                if [ -z "$GIT_TAG_NEW" ] && [ -z "$GIT_SHA_NEW" ] ; then
+                    continue
+                fi
+
+                if [ "$GIT_TAG_NEW" = null ] && [ "$GIT_SHA_NEW" = null ] ; then
+                    continue
+                fi
+
+                if [ -n "$GIT_TAG_OLD" ] && [ -n "$GIT_TAG_NEW" ] && [ "$GIT_TAG_NEW" != null ] ; then
+                    cat <<EOF
+-git-tag: $GIT_TAG_OLD
++git-tag: $GIT_TAG_NEW
+EOF
+                fi
+
+                if [ -n "$GIT_SHA_OLD" ] && [ -n "$GIT_SHA_NEW" ] && [ "$GIT_SHA_NEW" != null ] ; then
+                    cat <<EOF
+-git-sha: $GIT_SHA_OLD
++git-sha: $GIT_SHA_NEW
+EOF
+                fi
+
+                tee "upgrade/$PACKAGE_NAME" <<EOF
+BREWPKGNAME=$BREW_PACKAGE_NAME
+VERSION_OLD=$PACKAGE_VERSION
+VERSION_NEW=$BREW_PACKAGE_VERS
+GIT_TAG_NEW=$GIT_TAG_NEW
+GIT_SHA_NEW=$GIT_SHA_NEW
+EOF
+
+                I="$(($I + 1))"
+
+                echo "I=$I"
+
+                if [ "$I" -eq 100 ] ; then
+                    exit
+                fi
+
                 continue
             fi
 
-            if [ "$SRC_SHA_NEW" = null ] ; then
+            ###################################################################
+
+            SRC_SHA_OLD="$(../xcpkg formula-parse "$FORMULA_FILENAME" src-sha)"
+
+            if [ -z "$SRC_SHA_OLD" ] ; then
+                continue
+            fi
+
+            ###################################################################
+
+            SRC_SHA_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.checksum')
+
+            if [ -z "$SRC_SHA_NEW" ] || [ "$SRC_SHA_NEW" = null ] ; then
                 SRC_URL_NEW="$(printf '%s\n' "$SRC_URL_OLD" | sed "s|$PACKAGE_VERSION|$BREW_PACKAGE_VERS|g")"
 
                 curl -s -L -o src.zip "$SRC_URL_NEW" || continue
 
                 SRC_SHA_NEW="$(sha256sum src.zip | cut -d ' ' -f1)"
             else
+                SRC_URL_NEW=$(brew info "$BREW_PACKAGE_NAME" --json | yq '.[0].urls.stable.url')
+
+                if [ -z "$SRC_URL_NEW" ] ; then
+                    continue
+                fi
+
                 A="$(printf '%s\n' "$SRC_URL_OLD" | sed -E 's|^https?://([^/]+)/.*|\1|')"
                 B="$(printf '%s\n' "$SRC_URL_NEW" | sed -E 's|^https?://([^/]+)/.*|\1|')"
 
@@ -224,19 +294,23 @@ EOF
                 fi
             fi
 
+            ###################################################################
+
             cat <<EOF
 -src-url: $SRC_URL_OLD
 -src-sha: $SRC_SHA_OLD
 +src-url: $SRC_URL_NEW
 +src-sha: $SRC_SHA_NEW
 EOF
+
             tee "upgrade/$PACKAGE_NAME" <<EOF
+BREWPKGNAME=$BREW_PACKAGE_NAME
 VERSION_OLD=$PACKAGE_VERSION
 VERSION_NEW=$BREW_PACKAGE_VERS
 SRC_URL_NEW=$SRC_URL_NEW
 SRC_SHA_NEW=$SRC_SHA_NEW
-BREWPKGNAME=$BREW_PACKAGE_NAME
 EOF
+
             I="$(($I + 1))"
 
             echo "I=$I"
