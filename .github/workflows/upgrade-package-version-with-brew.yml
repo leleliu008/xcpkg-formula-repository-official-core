@@ -106,7 +106,14 @@ jobs:
         run: cat upgrade/${{ matrix.pkg }} >> "$GITHUB_OUTPUT"
 
       - run: |
-          bin/gsed -i -e '/^src-url: /c src-url: ${{ steps.upgrade-info.outputs.SRC_URL_NEW }}' -e '/^src-sha: /c src-sha: ${{ steps.upgrade-info.outputs.SRC_SHA_NEW }}' -e '/^version: /c version: ${{ steps.upgrade-info.outputs.VERSION_NEW }}' formula/${{ matrix.pkg }}.yml
+          bin/gsed \
+              -i \
+              -e '/^version: /c version: ${{ steps.upgrade-info.outputs.VERSION_NEW }}' \
+              -e '/^src-url: /c src-url: ${{ steps.upgrade-info.outputs.SRC_URL_NEW }}' \
+              -e '/^src-sha: /c src-sha: ${{ steps.upgrade-info.outputs.SRC_SHA_NEW }}' \
+              -e '/^git-sha: /c git-sha: ${{ steps.upgrade-info.outputs.GIT_SHA_NEW }}' \
+              -e '/^git-tag: /c git-tag: ${{ steps.upgrade-info.outputs.GIT_TAG_NEW }}' \
+              formula/${{ matrix.pkg }}.yml
 
       - run: git diff
 
