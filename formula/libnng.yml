@@ -1,7 +1,7 @@
 summary: Nanomsg-next-generation -- light-weight brokerless messaging
 web-url: https://nng.nanomsg.org
-src-url: https://github.com/nanomsg/nng/archive/refs/tags/v1.12.4.tar.gz
-src-sha: 93b177727ec5ea38af5c88ab297f732ef71ddc4700d2407c4f9c999b3a7310a0
+src-url: https://github.com/nanomsg/nng/archive/refs/tags/v2.0.0.tar.gz
+src-sha: 439241ca7afd059e2c5635491e430e37b591430c25aa57c0ba07995c3fbdffa6
 license: MIT
 
 install: |
