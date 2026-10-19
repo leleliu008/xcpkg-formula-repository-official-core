@@ -76,6 +76,14 @@ update() {
         if [ "$VOLD" != "$VNEW" ] ; then
             VERSION=" $VOLD -> $VNEW"
         fi
+    elif git diff -U0 "$1" | grep -q '^-version: ' &&
+         git diff -U0 "$1" | grep -q '^+version: ' ; then
+        VOLD="$(git diff -U0 "$1" | grep '^-version: ' | cut -c11-)"
+        VNEW="$(git diff -U0 "$1" | grep '^+version: ' | cut -c11-)"
+
+        if [ "$VOLD" != "$VNEW" ] ; then
+            VERSION=" $VOLD -> $VNEW"
+        fi
     fi
 
     echo '\n=====================================================>\n'
