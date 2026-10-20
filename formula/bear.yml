@@ -1,12 +1,8 @@
 summary: A command-line tool to generate compilation database for clang tooling
-src-url: https://github.com/rizsotto/Bear/archive/refs/tags/4.0.4.tar.gz
-src-sha: 373007f2d7b322d5e1d3dd4c4759b181f0e9b045151f2f5c629537341b9d2167
+src-url: https://github.com/rizsotto/Bear/archive/refs/tags/4.2.3.tar.gz
+src-sha: 7c3901786f01da60d606cc80afdda36e866259b78e1dd7f890fd42cee64d3574
 license: GPL-3.0-or-later
 
 install: |
-    cargow install --path bear
-    cargow install --path intercept-wrapper
-
-dotweak: |
-    run install -d libexec/
-    run mv bin/wrapper libexec/
+    cargow build
+    run DESTDIR= PREFIX=$PACKAGE_INSTALL_DIR SRCDIR=target/$RUST_TARGET/$PROFILE scripts/install.sh
