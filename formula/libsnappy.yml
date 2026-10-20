@@ -10,3 +10,6 @@ install: |
         -DSNAPPY_BUILD_TESTS=OFF \
         -DSNAPPY_FUZZING_BUILD=OFF \
         -DSNAPPY_INSTALL=ON
+
+fix-url: https://raw.githubusercontent.com/leleliu008/patches/refs/heads/master/snappy-1.3.1-disable-rtti.diff
+fix-sha: ad43745089793f521a1bf12929f4276df758517cf3dc71d261d408d83fa70c9f
