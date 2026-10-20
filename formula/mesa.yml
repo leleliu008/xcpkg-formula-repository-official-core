@@ -2,8 +2,8 @@ pkgtype: lib
 summary: An open source graphics library that implements OpenGL, OpenGL ES, Vulkan, OpenCL, and more
 web-url: https://www.mesa3d.org/
 git-url: https://gitlab.freedesktop.org/mesa/mesa
-src-url: https://mesa.freedesktop.org/archive/mesa-26.2.4.tar.xz
-src-sha: bce5f7fbebb934373b86c999a064d52fb5065878dc57f287f95346648ec832e9
+src-url: https://mesa.freedesktop.org/archive/mesa-26.2.5.tar.xz
+src-sha: 794b3d1729075dae7ebd47c7283b7ca0cdb5dec668f7f11cc0a5d82f6138a0a5
 license: MIT
 dep-pip: Mako MarkupSafe PyYAML packaging ply
 dep-upp: gm4 flex bison
