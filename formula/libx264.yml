@@ -2,7 +2,7 @@ summary: A free library for encoding video streams into the H.264/MPEG-4 AVC com
 web-url: https://www.videolan.org/developers/x264.html
 git-url: https://code.videolan.org/videolan/x264
 git-sha: b35605ace3ddf7c1a5d67a2eb553f034aef41d55
-version: r3222
+version: 3222
 license: GPL-2.0-or-later
 
 install: |
