@@ -1,8 +1,8 @@
 summary: netcat on steroids
 web-url: http://www.dest-unreach.org/socat/
-src-url: http://www.dest-unreach.org/socat/download/socat-1.8.0.0.tar.gz
-src-sha: 6010f4f311e5ebe0e63c77f78613d264253680006ac8979f52b0711a9a231e82
+src-url: http://www.dest-unreach.org/socat/download/socat-1.8.1.3.tar.gz
+src-sha: 06602ffd591e98c75b3dc1d66f0f19136cc666b0b2d95caad987d6ab2cb28097
 license: GPL-2.0-only
-dep-pkg: libopenssl libreadline
+dep-pkg: libopenssl@3 libreadline
 bsystem: configure
 binbstd: 1
