@@ -154,6 +154,9 @@ do
         # 2025.09.16 -> 2025_09_16
         BREW_PACKAGE_VERS="$(printf '%s\n' "$BREW_PACKAGE_VERS" | tr _- .)"
 
+        # zigmod  105 -> r105
+        BREW_PACKAGE_VERS="${BREW_PACKAGE_VERS#r}"
+
         if [ "$BREW_PACKAGE_VERS" = "$PACKAGE_VERSION" ] ; then
             continue
         fi
