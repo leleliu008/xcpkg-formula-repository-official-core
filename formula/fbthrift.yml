@@ -1,7 +1,7 @@
 pkgtype: lib
 summary: Facebook branch of Apache Thrift, including a new C++ server
-src-url: https://github.com/facebook/fbthrift/archive/refs/tags/v2026.01.12.00.tar.gz
-src-sha: 6601fd362b96160ac9c37c3184153f605e4b09fbc54f3d474cf5cc926a3d62de
+src-url: https://github.com/facebook/fbthrift/archive/refs/tags/v2026.10.19.00.tar.gz
+src-sha: 51fe01005b3c82294310a398086425262707b410cd8d2b0238de38cd426dc105
 license: Apache-2.0
 dep-upp: gm4 flex bison
 dep-pkg: libwangle libmvfst libxxhash
