@@ -1,11 +1,11 @@
 summary: GNU troff text-formatting system
-src-url: https://ftp.gnu.org/gnu/groff/groff-1.24.1.tar.gz
-src-sha: 74e2819795b6aff431aeac983d63a9c8968eeaba2a2eba7df8ba4c7b41e7cfd8
+src-url: https://ftp.gnu.org/gnu/groff/groff-1.24.2.tar.gz
+src-sha: f9c1efd5bebbe37fc6e1063db7473ce8df1e3e0be4ff0f43ce04fce57e9c5dd9
 license: GPL-3.0-or-later
 dep-upp: gawk gm4 bison texinfo
 dep-pkg: libuchardet
 
-install: configure --without-x --with-uchardet
+install: configure --without-x --with-uchardet ac_cv_prog_cc_c23=no
 
 dotweak: |
     LINKA="share/doc/groff-$PACKAGE_VERSION/pdf/mom-pdf.pdf"
