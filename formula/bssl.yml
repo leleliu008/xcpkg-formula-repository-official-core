@@ -1,7 +1,7 @@
 summary: BoringSSL CLI
 web-url: https://boringssl.googlesource.com/boringssl/
-src-url: https://github.com/google/boringssl/archive/refs/tags/0.20260929.0.tar.gz
-src-sha: 04da9ba0664e0a7f028e961c38d604f2cc6dac852a84ca0e51dc1fa051d4c8fe
+src-url: https://github.com/google/boringssl/archive/refs/tags/0.20261020.0.tar.gz
+src-sha: fb43aac7fbd323c9dfa1f45fe92a1c01142433c05b23fe34f61d6ba8b13b642e
 dep-upp: perl golang
 
 dopatch: gsed -i 's|TARGETS bssl|TARGETS bssl RUNTIME COMPONENT bin|' CMakeLists.txt
