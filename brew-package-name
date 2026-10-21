@@ -140,7 +140,8 @@ case $1 in
                       printf '%s\n' 'icu4c@75'  ;;
             libtiff.a)
                       printf '%s\n' 'libtiff'   ;;
-            libmill)  printf '%s\n' 'null' ;;
+            libmill|libsdl2)
+                      printf '%s\n' 'null' ;;
         esac
         ;;
     base64|fortune|tre|lolcat|pkg-config|supervisord)
