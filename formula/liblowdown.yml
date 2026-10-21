@@ -1,7 +1,8 @@
 summary: Simple markdown translator
+git-url: https://github.com/kristapsdz/lowdown
 web-url: https://kristaps.bsd.lv/lowdown/
-src-url: https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_2_0_2.tar.gz
-src-sha: 9718c0f6c99a2cef923357feced0e0f86d8047260238c5c37fd2b51ca620e373
+src-url: https://kristaps.bsd.lv/lowdown/snapshots/lowdown-3.2.1.tar.gz
+src-sha: 664afc7c00aadbaf16cdcf7dc464e64b529f432eba9dffc950acb0d55d1be90d
 license: ISC
 dep-upp: bmake
 binbstd: 1
