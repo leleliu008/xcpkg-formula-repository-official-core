@@ -1,15 +1,15 @@
 summary: A package manager for the Zig programming language
 web-url: https://nektro.github.io/zigmod/
-src-url: https://github.com/nektro/zigmod/archive/refs/tags/r105.tar.gz
-src-sha: b88a477602b63ce4f013701369ab4356ff91830915021443aa74380df474c1b3
+src-url: https://github.com/nektro/zigmod/archive/refs/tags/r106.tar.gz
+src-sha: faea9f58a0cf9f582d51ebd7252b624e062c1bb6e41ea98bddbe4592005999ae
 license: MIT
 dep-upp: git
-bsystem: zig@0.16
+bsystem: zig@0.17
 
 prepare: |
     case $PROFILE in
-        debug)   ZIG_BUILD_EXTRA_ARGS='-Dmode=Debug       -Dstrip=false' ;;
-        release) ZIG_BUILD_EXTRA_ARGS='-Dmode=ReleaseSafe -Dstrip=true'  ;;
+        debug)   ZIG_BUILD_EXTRA_ARGS='-Dstrip=false' ;;
+        release) ZIG_BUILD_EXTRA_ARGS='-Dstrip=true'  ;;
     esac
 
 install: zig -Dtag=r$PACKAGE_VERSION $ZIG_BUILD_EXTRA_ARGS
