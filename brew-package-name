@@ -51,6 +51,8 @@ case $1 in
     jackaudio)printf '%s\n' 'jack'      ;;
     proto-cli)printf '%s\n' 'proto'     ;;
     mediainfo)printf '%s\n' 'media-info';;
+    anchor-cli)
+              printf '%s\n' 'anchor'    ;;
 
     golang)   printf '%s\n' 'go'        ;;
     golang@1.21)
