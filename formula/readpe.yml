@@ -1,10 +1,10 @@
 pkgtype: exe+lib
 summary: A command-line tool to analyze Portable Executables
-src-url: https://github.com/mentebinaria/readpe/archive/refs/tags/v0.84.tar.gz
-src-sha: 2d0dc383735802db62234297ae1703ccbf4b6d2f2754e284eb90d6f0a57aa670
+src-url: https://github.com/mentebinaria/readpe/archive/refs/tags/v0.85.1.tar.gz
+src-sha: 3218099d94c81488a4b042d86f64a4076835e1f2f2aff8ed4d58f01c20567507
 license: GPL-2.0-or-later
 dep-pkg: libopenssl
 install: |
     gmakew clean
-    gmakew
+    gmakew         prefix="$PACKAGE_INSTALL_DIR"
     gmakew install prefix="$PACKAGE_INSTALL_DIR"
