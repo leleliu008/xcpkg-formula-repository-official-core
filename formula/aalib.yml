@@ -8,18 +8,7 @@ dep-pkg: libncurses@6.4
 dep-upp: libtool
 bsystem: autotools
 
-dopatch: |
-    run autoreconf -ivf
-    gsed -i '203c return 0;'         src/aalinuxkbd.c
-    gsed -i '1i #include <stdlib.h>' src/aalinuxkbd.c
-    gsed -i '1i #include <stdlib.h>' src/aainfo.c
-    gsed -i '1i #include <stdlib.h>' src/aafire.c
-    gsed -i '1i #include <malloc.h>' src/aatest.c
-    gsed -i '1i #include <string.h>' src/aamoureg.c
-    gsed -i 's|exit(1)|return 1|'    src/aasavefont.c
-    printf '%s\n' '#include <stdlib.h>' >  malloc.h
-    printf '%s\n' '#include <string.h>' >> malloc.h
+install: configure --without-x --with-ncurses="$libncurses_6_4_INSTALL_DIR"
 
-install: |
-    export CPPFLAGS="$CPPFLAGS -I$PACKAGE_WORKING_DIR/src"
-    configure --without-x --with-ncurses="$libncurses_6_4_INSTALL_DIR"
+fix-url: https://raw.githubusercontent.com/Homebrew/homebrew-core/refs/heads/main/Patches/aalib/1.4rc5.patch
+fix-sha: 9843e109d580e7112291871248140b8657108faac6d90ce5caf66cd25e8d0d1e
