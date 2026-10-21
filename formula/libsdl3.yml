@@ -1,0 +1,49 @@
+summary: A cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D
+web-url: https://www.libsdl.org/
+src-url: https://github.com/libsdl-org/SDL/releases/download/release-3.4.18/SDL3-3.4.18.tar.gz
+src-sha: 9c75cf16330322c217dedd2e0609f1124f1b54b8633e763467b4684d0f4334a3
+license: Zlib
+dep-pkg: libiconv
+
+prepare: |
+    case $TARGET_PLATFORM_ARCH in
+        arm*)
+            _3DNOW=OFF
+            ARMNEON=ON
+            ARMSIMD=ON
+            ;;
+        i386|x86_64)
+            _3DNOW=ON
+            ARMNEON=OFF
+            ARMSIMD=OFF
+            ;;
+        *)  _3DNOW=OFF
+            ARMNEON=OFF
+            ARMSIMD=OFF
+    esac
+
+install: |
+    cmakew \
+        -DSDL_SHARED=ON \
+        -DSDL_STATIC=ON \
+        -DSDL_TEST=OFF \
+        -DSDL_HAPTIC=OFF \
+        -DSDL_HIDAPI=ON \
+        -DSDL_FRAMEWORK_IOKIT=ON \
+        -DSDL_JOYSTICK=OFF \
+        -DSDL_POWER=OFF \
+        -DSDL_X11=OFF \
+        -DSDL_X11_XTEST=OFF \
+        -DSDL_COCOA=ON \
+        -DPTHREADS=ON \
+        -DPTHREADS_SEM=ON \
+        -DLIBSAMPLERATE=OFF \
+        -DPULSEAUDIO=OFF \
+        -DALSA=OFF \
+        -DASSEMBLY=ON \
+        -D3DNOW="$_3DNOW" \
+        -DARMNEON="$ARMNEON" \
+        -DARMSIMD="$ARMSIMD" \
+        -DVIDEO_OPENGL=ON \
+        -DVIDEO_OPENGLES=ON \
+        -DVIDEO_COCOA=ON
