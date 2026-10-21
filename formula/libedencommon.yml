@@ -1,6 +1,6 @@
 summary: A shared library for Watchman and Eden projects
-src-url: https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2026.01.12.00.tar.gz
-src-sha: 3b60d7dd939c5844b1758a843a37f42cfafda37536a4396eb3876cee70a844bd
+src-url: https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2026.10.19.00.tar.gz
+src-sha: 8f998ab2f535a9736e073dae16b55f76fcc65d142dab551f3919e96a019a5f3b
 license: MIT
 dep-pkg: libfb303 googletest
 bsystem: cmake
