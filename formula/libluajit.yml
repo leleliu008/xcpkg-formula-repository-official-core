@@ -1,16 +1,17 @@
 summary: Just-In-Time Compiler (JIT) for the Lua programming language
 web-url: https://luajit.org/
-git-url: https://github.com/LuaJIT/LuaJIT
-git-sha: 18b087cd2cd4ddc4a79782bf155383a689d5093d
-version: 2.1.1774896198
+src-url: https://github.com/LuaJIT/LuaJIT/archive/95f931cb1ee7ab14f249d61fb3734803429025f8.tar.gz
+src-sha: 284b59730849d399dfd6137c3d492e3d21ee6e32ee0f00d2dce7898ab54b270e
+version: 2.1.1792527110
 license: MIT
 
 dopatch: |
     gsed -i '/^INSTALL_DEP= /c INSTALL_DEP= src/libluajit.a src/libluajit.dylib' Makefile
     gsed -i '/cd src\/jit/d' Makefile
 
+prepare: export MACOSX_DEPLOYMENT_TARGET="$TARGET_PLATFORM_VERS"
+
 install: |
-    export MACOSX_DEPLOYMENT_TARGET="$TARGET_PLATFORM_VERS"
     gmakew -C src clean libluajit.a libluajit.so \
         CC="$CC" \
         LD="$CC" \
