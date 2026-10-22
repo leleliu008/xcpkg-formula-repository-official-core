@@ -1,8 +1,8 @@
 summary: The officical ruby interpreter/runtime
 git-url: https://github.com/ruby/ruby
 web-url: https://www.ruby-lang.org/
-src-url: https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.2.tar.gz
-src-sha: 41328ac21f2bfdd7de6b3565ef4f0dd7543354d37e96f157a1552a6bd0eb364b
+src-url: https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.11.tar.gz
+src-sha: 5c22be44524312b3d433d68739bcc530633b1da5ef8ba0afa0a37680da17d3de
 license: Ruby
 dep-pkg: libyaml libffi libz libopenssl libreadline
 
@@ -10,7 +10,7 @@ prepare: |
     cat > cc-wrapper <<EOF
     #!/bin/sh
     if [ "\$1" = -dynamic ] && [ "\$2" = -bundle ] ; then
-        exec "$CC" "\$@" "$PWD/_/libruby.3.4-static.a" -framework CoreFoundation
+        exec "$CC" "\$@" "$PWD/_/libruby.${PACKAGE_VERSION%.*}-static.a" -framework CoreFoundation
     else
         exec "$CC" "\$@"
     fi
