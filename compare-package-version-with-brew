@@ -105,6 +105,10 @@ I=0
 
 for FORMULA_FILENAME in *.yml
 do
+    if [ -L "$FORMULA_FILENAME" ] ; then
+        continue
+    fi
+
     PACKAGE_NAME="${FORMULA_FILENAME%.yml}"
 
     PACKAGE_VERSION="$(../xcpkg formula-parse "$FORMULA_FILENAME" version)"
