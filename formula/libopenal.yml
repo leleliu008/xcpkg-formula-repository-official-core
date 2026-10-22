@@ -1,0 +1,15 @@
+summary: Implementation of the OpenAL 3D audio API
+web-url: https://openal-soft.org/
+src-url: https://github.com/kcat/openal-soft/archive/refs/tags/1.25.2.tar.gz
+src-sha: fb27e5839aa11f0e5b9d33756965291fad5d6909ab928ea1f796f4a1a6877894
+license: LGPL-2.0-or-later
+
+install: |
+    cmakew \
+        -DALSOFT_UTILS=OFF \
+        -DALSOFT_TESTS=OFF \
+        -DALSOFT_EXAMPLES=OFF \
+        -DALSOFT_BACKEND_PORTAUDIO=OFF \
+        -DALSOFT_BACKEND_PULSEAUDIO=OFF \
+        -DALSOFT_MIDI_FLUIDSYNTH=OFF \
+        -DALSOFT_REQUIRE_COREAUDIO=ON
