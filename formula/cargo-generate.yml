@@ -1,5 +1,5 @@
 summary: Use pre-existing git repositories as templates
-src-url: https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.25.0.tar.gz
-src-sha: 972a7083b97e8a0e6fae8a0c2b2fbc15f15369acebb1902ddadc93dc0deb9c09
+src-url: https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.25.1.tar.gz
+src-sha: a36b52c52a8a1c62f8f53a7e9d6d88ea84dd917dc8b2e6523a423b1fc32d5c53
 license: Apache-2.0 MIT
 bsystem: cargo
