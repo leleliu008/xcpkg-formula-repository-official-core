@@ -1,5 +1,6 @@
 summary: Improved shell history for zsh, bash, fish, nushell
-src-url: https://github.com/atuinsh/atuin/archive/refs/tags/v18.24.1.tar.gz
-src-sha: 26fc480aa6bbf4b626daf06a1382c28a3ccb31323b4e303bc6ba2bfb79afedde
+src-url: https://github.com/atuinsh/atuin/releases/download/v18.24.2/source.tar.gz
+src-sha: 1b52539da5d55962dc284fa10a78cf5dccc2961fd32af6812bf3d5969f632d9e
+version: 18.24.2
 license: MIT
 install: cargow install --locked --path crates/atuin
