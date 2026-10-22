@@ -1,7 +1,7 @@
 summary: A super-fast Rust-based JavaScript/TypeScript compiler
 web-url: https://swc.rs
-src-url: https://github.com/swc-project/swc/archive/refs/tags/v1.16.18.tar.gz
-src-sha: 70d900ec369808097018193d18a3888d37266740edf720da79688623560c81d1
+src-url: https://github.com/swc-project/swc/archive/refs/tags/v1.16.20.tar.gz
+src-sha: 26d8ca8a93c2ee15606340cfa794d97bcbb8b26bb668edd8ccdeff8a0202a649
 license: Apache-2.0
 prepare: run rm .cargo/config.toml
 install: cargow install --path crates/swc_cli_impl
