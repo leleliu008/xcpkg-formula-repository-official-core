@@ -1,7 +1,7 @@
 summary: Toolchain of the web
 web-url: https://biomejs.dev/
-src-url: https://github.com/biomejs/biome/archive/refs/tags/@biomejs/biome@2.5.15.tar.gz
-src-sha: 0212a8f9e351e2d47580cf8371948dd477ceb01e0fef1a65f81061a2a4a39039
+src-url: https://github.com/biomejs/biome/archive/refs/tags/@biomejs/biome@2.6.2.tar.gz
+src-sha: 7325c9fef245c55e309bfbf220d0db85d5e9ab5e011f9d20dbd322929e330106
 license: Apache-2.0 MIT
 prepare: export BIOME_VERSION="$PACKAGE_VERSION"
 install: cargow install --locked --path crates/biome_cli
