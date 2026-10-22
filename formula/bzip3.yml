@@ -1,6 +1,6 @@
 summary: A better and stronger spiritual successor to BZip2
-src-url: https://github.com/iczelia/bzip3/releases/download/1.5.4/bzip3-1.5.4.tar.gz
-src-sha: 89a5e4bf29e4aae98b29bb1ef275addfa2d0806ba1ef60bf8a87263cdb21f581
+src-url: https://github.com/iczelia/bzip3/releases/download/1.5.5/bzip3-1.5.5.tar.gz
+src-sha: dc3bd8237178e1a2b99d8dcf1f4aeb3593c723788a9863606e121b40784e596d
 license: LGPL-3.0-only
 
 install: configure --disable-arch-native --disable-shared --enable-static
