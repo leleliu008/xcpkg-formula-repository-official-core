@@ -1,0 +1,21 @@
+summary: The officical ruby interpreter/runtime
+web-url: https://www.ruby-lang.org/
+src-url: https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.11.tar.gz
+src-sha: 5c22be44524312b3d433d68739bcc530633b1da5ef8ba0afa0a37680da17d3de
+license: Ruby
+dep-pkg: libyaml libffi libz libopenssl libreadline
+
+prepare: |
+    cat > cc-wrapper <<EOF
+    #!/bin/sh
+    if [ "\$1" = -dynamic ] && [ "\$2" = -bundle ] ; then
+        exec "$CC" "\$@" "$PWD/_/libruby.${PACKAGE_VERSION%.*}-static.a" -framework CoreFoundation
+    else
+        exec "$CC" "\$@"
+    fi
+    EOF
+
+    chmod +x cc-wrapper
+    export CC="$PWD/cc-wrapper"
+
+install: configure --disable-install-doc --disable-install-rdoc --disable-rpath --enable-load-relative --with-static-linked-ext --without-gmp
