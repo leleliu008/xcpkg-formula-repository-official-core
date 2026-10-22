@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 4 * * *'
 
 jobs:
   compare:
 
-    runs-on: macos-15
+    runs-on: macos-latest
 
     env:
       GH_TOKEN: ${{ github.token }}

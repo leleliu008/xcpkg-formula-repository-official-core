@@ -9,7 +9,7 @@ on:
 jobs:
   find-upgradable-packages:
 
-    runs-on: macos-15
+    runs-on: macos-latest
 
     env:
       GH_TOKEN: ${{ github.token }}
@@ -61,7 +61,7 @@ jobs:
       matrix:
         pkg: ${{ fromJson(needs.find-upgradable-packages.outputs.names) }}
 
-    runs-on: macos-26
+    runs-on: macos-latest
 
     permissions:
       contents: write
