@@ -1,15 +1,9 @@
 summary: A bytecode optimizer for Android apps
 web-url: https://fbredex.com/
-src-url: https://github.com/facebook/redex/archive/refs/tags/v2025.09.18.tar.gz
-src-sha: 49be286761fb89a223a9609d58faa141e584a0c6866bf083d8408357302ee2f8
+src-url: https://github.com/facebook/redex/archive/refs/tags/v2026.09.09.tar.gz
+src-sha: 9bea5953cd1e06f6c32ec913c79c11893624caf621a62f3b4d065a6c77e0988e
 license: MIT
-dep-pkg: libjsoncpp boost googletest
-dep-upp: libtool python3 android-sdk
-bsystem: autotools
+dep-pkg: libevent libjsoncpp boost
+dep-upp: libtool python3
 
-prepare: |
-    export XCPKG_TARGET_CXXFLAGS="$XCPKG_TARGET_CXXFLAGS -std=gnu++20"
-    export ANDROID_SDK="$UPPM_PACKAGE_INSTALLED_ROOT/android-sdk"
-    run "yes | $ANDROID_SDK/cmdline-tools/latest/bin/sdkmanager 'build-tools;29.0.2'"
-
-install: configure --with-boost="$boost_INSTALL_DIR" --with-googletest="$googletest_INSTALL_DIR" --disable-tests --disable-kotlin-tests
+install: cmakew -DBUILD_TYPE=Shared -DENABLE_STATIC=OFF -DBUILD_SHARED_LIBS=ON
