@@ -6,7 +6,9 @@ license: BSD-3-Clause
 dep-pkg: libhwy libbrotli liblcms2 libwebp libgif libpng libjpeg-turbo libopenexr
 dep-upp: git
 
-prepare: git_checkout https://github.com/webmproject/sjpeg --ref-from=94e0df6d0f8b44228de5be0ff35efb9f946a13c9 -C third_party/sjpeg
+res-url: https://github.com/webmproject/sjpeg/archive/94e0df6d0f8b44228de5be0ff35efb9f946a13c9.tar.gz
+res-sha: ac94917fe745a674eabf1e044f23ec55cd5a548c9869c06ec4b19da14ee0227d
+res-dir: src/third_party/sjpeg
 
 install: |
     cmakew 2 \
