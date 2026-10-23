@@ -165,12 +165,12 @@ do
             continue
         fi
 
-        if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
-            case $BREW_PACKAGE_NAME in
-                lib*) X=lib ;;
-                   *) X="$(printf '%.1s' "$BREW_PACKAGE_NAME")"
-            esac
+        case $BREW_PACKAGE_NAME in
+            lib*) X=lib ;;
+               *) X="$(printf '%.1s' "$BREW_PACKAGE_NAME")"
+        esac
 
+        if version_match "$BREW_PACKAGE_VERS" gt "$PACKAGE_VERSION" ; then
             printf_package_info_red "$PACKAGE_NAME" "$PACKAGE_VERSION -> $BREW_PACKAGE_VERS" "https://github.com/Homebrew/homebrew-core/blob/main/Formula/$X/$BREW_PACKAGE_NAME.rb"
 
             if [ "$UPGRADE" = 1 ] ; then
