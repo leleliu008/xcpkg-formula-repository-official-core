@@ -150,6 +150,9 @@ do
     ################################################
 
     if [ -n "$BREW_PACKAGE_NAME" ] ; then
+        # zigmod  105 -> r105
+        BREW_PACKAGE_VERS="${BREW_PACKAGE_VERS#r}"
+
         # 2.1.3 -> 2.1-3
         # 7.1.2.29 -> 7.1.2-34
         # 1.3.4.20260302 -> 1.3.4-20260302
@@ -158,8 +161,17 @@ do
         # 2025.09.16 -> 2025_09_16
         BREW_PACKAGE_VERS="$(printf '%s\n' "$BREW_PACKAGE_VERS" | tr _- .)"
 
-        # zigmod  105 -> r105
-        BREW_PACKAGE_VERS="${BREW_PACKAGE_VERS#r}"
+        case $BREW_PACKAGE_NAME in
+            aalib)
+                BREW_PACKAGE_VERS="$(printf '%s\n' "$BREW_PACKAGE_VERS" | sed 's|rc|.|')"
+                ;;
+            libftgl)
+                BREW_PACKAGE_VERS="$(printf '%s\n' "$BREW_PACKAGE_VERS" | sed 's|rc||')"
+                ;;
+            libcaca|librasterlite2)
+                BREW_PACKAGE_VERS="$(printf '%s\n' "$BREW_PACKAGE_VERS" | sed 's|beta||')"
+                ;;
+        esac
 
         if [ "$BREW_PACKAGE_VERS" = "$PACKAGE_VERSION" ] ; then
             continue
