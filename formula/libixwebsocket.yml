@@ -1,11 +1,15 @@
 summary: WebSocket client and server, and HTTP client command-line tool
-src-url: https://github.com/machinezone/IXWebSocket/archive/refs/tags/v11.4.6.tar.gz
-src-sha: c024334f8e45980836c67008979a884d6dcc5ef067dd2eb1fa7241f4c17ddc32
+src-url: https://github.com/machinezone/IXWebSocket/archive/refs/tags/v12.1.0.tar.gz
+src-sha: 55f3a5d3a1a2c5f19d737c24e6aced28d1200f8f5deb45ecd8e5d46f765b5288
 license: BSD-3-Clause
 dep-pkg: libopenssl libz
 
 install: |
-    cmakew \
+    cmakew 2 \
         -DUSE_TLS=ON \
         -DUSE_OPEN_SSL=ON \
+        -DUSE_NETWORK_FRAMEWORK=OFF \
+        -DUSE_ZLIB=ON \
+        -DUSE_WS=OFF \
+        -DBUILD_DEMO=OFF \
         -DIXWEBSOCKET_INSTALL=ON
