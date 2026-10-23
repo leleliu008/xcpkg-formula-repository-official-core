@@ -3,7 +3,7 @@ src-url: https://github.com/google/highway/archive/refs/tags/1.4.0.tar.gz
 src-sha: e72241ac9524bb653ae52ced768b508045d4438726a303f10181a38f764a453c
 license: Apache-2.0
 install: |
-    cmakew \
+    cmakew 2 \
         -DHWY_ENABLE_TESTS=OFF \
         -DHWY_ENABLE_EXAMPLES=OFF \
         -DHWY_ENABLE_CONTRIB=ON \
