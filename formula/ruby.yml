@@ -1,8 +1,8 @@
 summary: The officical ruby interpreter/runtime
 git-url: https://github.com/ruby/ruby
 web-url: https://www.ruby-lang.org/
-src-url: https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.8.tar.gz
-src-sha: 0968e2ac4cbd6f1fd85d3092aed66cd3c2d8ba4a5e2493d6e6c6cb0c431897d2
+src-url: https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.9.tar.gz
+src-sha: c35350682ff050b79702d57ade4516e7336063f510155d19fb2fb5b3f3909511
 license: Ruby
 dep-pkg: libyaml libffi libz libopenssl libreadline
 
