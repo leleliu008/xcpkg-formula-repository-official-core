@@ -1,5 +1,4 @@
 summary: A command-line tool to analyze how space is allocated inside an SQLite file
-web-url: https://www.sqlite.org/
 src-url: https://www.sqlite.org/2026/sqlite-src-3540100.zip
 src-sha: 387e7f6cad4797b17848c07d453dc6606917bb356a6cfe5a3abafd38c240c71b
 version: 3.54.1

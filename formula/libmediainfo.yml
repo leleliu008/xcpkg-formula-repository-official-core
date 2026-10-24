@@ -1,6 +1,5 @@
 summary: Unified display of technical and tag data for audio/video
 git-url: https://github.com/MediaArea/MediaInfoLib
-web-url: https://mediaarea.net/
 src-url: https://mediaarea.net/download/source/libmediainfo/26.10/libmediainfo_26.10.tar.xz
 src-sha: a806fd36592549a03e810486f415a6858d4d8f14066bfbe97b32a447cd5eb590
 license: BSD-2-Clause

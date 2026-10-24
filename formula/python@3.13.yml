@@ -1,6 +1,5 @@
 summary: Interpreted, interactive, object-oriented programming language
 git-url: https://github.com/python/cpython
-web-url: https://www.python.org/
 src-url: https://www.python.org/ftp/python/3.13.17/Python-3.13.17.tgz
 src-sha: 9cb057caa588f122577a5054a22531cd9c23ab6706f1a19bc95a55380a895177
 license: Python-2.0

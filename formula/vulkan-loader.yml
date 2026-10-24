@@ -1,5 +1,4 @@
 summary: Vulkan ICD Loader
-web-url: https://github.com/KhronosGroup/Vulkan-Loader
 src-url: https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/vulkan-sdk-1.4.363.0.tar.gz
 src-sha: 941eff558fc74f248745fb7df367640cf89a8457f216dae498a74ae14b6ba6f7
 license: Apache-2.0

@@ -1,6 +1,5 @@
 summary: C library SSHv1/SSHv2 client and server protocols
 git-url: https://git.libssh.org/projects/libssh
-web-url: https://www.libssh.org/
 src-url: https://www.libssh.org/files/0.12/libssh-0.12.2.tar.xz
 src-sha: 49560f677d96e3706a904ac2de1116e25f3680937d51e5c92198fcba4a1c1e9f
 license: LGPL-2.1-or-later
