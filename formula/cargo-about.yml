@@ -1,5 +1,5 @@
 summary: Cargo plugin to generate list of all licenses for a crate
-src-url: https://github.com/EmbarkStudios/cargo-about/archive/refs/tags/0.9.2.tar.gz
-src-sha: bc82b1c4ec112780652f8b8fee043b5826e580a946f8dda68c25eb39bc168a05
+src-url: https://github.com/EmbarkStudios/cargo-about/archive/refs/tags/0.9.3.tar.gz
+src-sha: b0045ab03510136e2c1678576eba56b25e4539f925693fc9443e384cdd654e8e
 license: Apache-2.0 MIT
 install: cargow install --features=cli
