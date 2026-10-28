@@ -1,6 +1,6 @@
 summary: Thrift functions for querying information from a service
-src-url: https://github.com/facebook/fb303/archive/refs/tags/v2026.10.19.00.tar.gz
-src-sha: 18577844e7d185b5330e88a484889e1fcd97b5527788a6afcda1d788759ee5d9
+src-url: https://github.com/facebook/fb303/archive/refs/tags/v2026.10.26.00.tar.gz
+src-sha: 1cd7202240e7cca34db5c57d20d8a3fffc13c99452b475fbf1d72bf5274dbaf9
 license: Apache-2.0
 dep-pkg: fbthrift
 install: cmakew -DPYTHON_EXTENSIONS=OFF
