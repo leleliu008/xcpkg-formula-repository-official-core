@@ -1,8 +1,8 @@
 summary: A command-line utility for producing 2D and 3D plots
 web-url: http://www.gnuplot.info/
 git-url: https://git.code.sf.net/p/gnuplot/gnuplot-main.git
-src-url: https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.5/gnuplot-6.0.5.tar.gz
-src-sha: 73237f37f03306d68bfae133a9a50d5e9341384e198d5ab37eeca9ab534deed8
+src-url: https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.6/gnuplot-6.0.6.tar.gz
+src-sha: 9d39d8499c9533550144092375aac45ba8bf0c18c9cee50897fe411b6d93004e
 license: gnuplot
 dep-pkg: libgd liblua libcerf libpango libreadline
 dep-upp: lua
