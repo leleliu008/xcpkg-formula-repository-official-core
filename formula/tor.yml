@@ -1,6 +1,6 @@
 summary: Anonymizing overlay network for TCP
-src-url: https://www.torproject.org/dist/tor-0.4.9.14.tar.gz
-src-sha: 182449ac1c8ff43278da27b69b02040e11d03d0327db6d9126e4190ec6235e4a
+src-url: https://www.torproject.org/dist/tor-0.4.9.15.tar.gz
+src-sha: 1911f5b216a6814ed143a08bbcff1c6dc96d2ca3b505df9a21876080a92963f3
 license: BSD-2-Clause BSD-3-Clause MIT NCSA
 dep-pkg: libevent libscrypt libzstd liblzma libz
 ppflags: -UNDEBUG
