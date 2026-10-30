@@ -1,5 +1,5 @@
 summary: Open video compression format
-web-url: https://www.theora.org
+web-url: https://www.theora.org/
 src-url: https://github.com/xiph/theora/archive/refs/tags/v1.2.0.tar.gz
 src-sha: e0c35771b425c32a052ffb358a2aed14219340ab850b48dc85b01939c0513a31
 license: BSD-3-Clause
@@ -9,7 +9,8 @@ bsystem: autotools
 
 install: |
     configure \
-        --with-ogg=$libogg_INSTALL_DIR \
+        --with-ogg \
         --disable-examples \
         --disable-vorbistes \
+        --disable-oggtest \
         --disable-sdltest
