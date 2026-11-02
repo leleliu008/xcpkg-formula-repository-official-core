@@ -1,9 +1,9 @@
 summary: grpc plugins
-web-url: https://grpc.io
-src-url: https://github.com/grpc/grpc/archive/refs/tags/v1.83.0.tar.gz
-src-sha: 90d453393a9d41215df546103b10b33b9566df79cdf6f49dc67f6c4d044d090d
+web-url: https://grpc.io/
+git-url: https://github.com/grpc/grpc
+git-tag: v1.85.1
 license: Apache-2.0
-dep-pkg: libopenssl libre2 libcares libprotobuf
+dep-pkg: libprotobuf libopenssl@3 libcares libre2
 dep-upp: grpc-plugins
 
 install: |
@@ -16,8 +16,6 @@ install: |
         -DgRPC_SSL_PROVIDER=package \
         -DgRPC_ZLIB_PROVIDER=package \
         -DgRPC_RE2_PROVIDER=package \
-        -DgRPC_INSTALL=ON \
-        -DgRPC_BUILD_TESTS=OFF \
         -DgRPC_BUILD_GRPC_CPP_PLUGIN=ON \
         -DgRPC_BUILD_GRPC_PHP_PLUGIN=ON \
         -DgRPC_BUILD_GRPC_NODE_PLUGIN=ON \
@@ -25,7 +23,7 @@ install: |
         -DgRPC_BUILD_GRPC_PYTHON_PLUGIN=ON \
         -DgRPC_BUILD_GRPC_CSHARP_PLUGIN=ON \
         -DgRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN=ON \
-        -DBUILD_SHARED_LIBS=OFF \
-        -DPROTOBUF_PROTOC_EXECUTABLE="$(command -v protoc)"
-
-dotweak: rm -rf include/ lib/
+        -DgRPC_BUILD_CODEGEN=OFF \
+        -DgRPC_BUILD_TESTS=OFF \
+        -DgRPC_INSTALL=ON \
+        -DBUILD_SHARED_LIBS=OFF
