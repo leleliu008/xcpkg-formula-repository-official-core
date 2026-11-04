@@ -1,6 +1,6 @@
 summary: A command-line tool for interacting with GitHub, GitLab, GitTea, Forgejo and Bugzilla
-src-url: https://github.com/herrhotzenplotz/gcli/archive/refs/tags/v2.13.0.tar.gz
-src-sha: 3dd25f636e439f7af6187248e46f2b4078dffdca4fe2d506d0edb275515d62b4
+src-url: https://github.com/herrhotzenplotz/gcli/archive/refs/tags/v2.14.0.tar.gz
+src-sha: ec9150b79af2a4a8333152a93085efa95bb1419a9e0c48b63f916974fc752bfd
 license: BSD-2-Clause
 dep-pkg: libcurl liblowdown libreadline
 deo-upp: gm4 flex bison
