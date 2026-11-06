@@ -1,5 +1,5 @@
 summary: A command-line tool for formatting Swift code
-src-url: https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.64.5.tar.gz
-src-sha: 6997744f02e79e8e913cc4adb3bf790d5a4c3dce1bcf186234ee9f3cddf09645
+src-url: https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.64.6.tar.gz
+src-sha: 66f4074a8a13eadee622635e4c38aa82e9b84db43c92939881892cda19dd50da
 license: MIT
 bsystem: swift
