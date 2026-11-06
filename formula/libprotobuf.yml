@@ -6,13 +6,13 @@ dep-pkg: libz libjsoncpp abseil
 
 # used by other package. make sure protoc and libprotoc have the same version
 do12345: |
-    isCrossBuild || return 0
     cmakew \
         -DCMAKE_CXX_STANDARD=17 \
         -Dprotobuf_WITH_ZLIB=ON \
         -Dprotobuf_BUILD_TESTS=OFF \
         -Dprotobuf_BUILD_EXAMPLES=OFF \
-        -Dprotobuf_BUILD_LIBPROTOC=ON \
+        -Dprotobuf_BUILD_LIBPROTOC=OFF \
+        -Dprotobuf_BUILD_PROTOC_BINARIES=ON \
         -Dprotobuf_BUILD_SHARED_LIBS=OFF
 
 install: |
