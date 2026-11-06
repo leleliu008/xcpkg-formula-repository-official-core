@@ -1,7 +1,7 @@
 summary: Media player based on MPlayer and mplayer2
 web-url: https://mpv.io
-src-url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.41.0.tar.gz
-src-sha: ee21092a5ee427353392360929dc64645c54479aefdb5babc5cfbb5fad626209
+src-url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.42.0.tar.gz
+src-sha: bcfebbfa2b65a6d88dc97ea18117831072373e38b5785a2afb874ed4df5070dd
 dep-pkg: libplacebo libbluray libluajit libmujs libass libuchardet librubberband ffmpeg
 
 dopatch: |
