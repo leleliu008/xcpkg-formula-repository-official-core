@@ -1,7 +1,7 @@
 summary: PDF rendering library (based on the xpdf-3.0 code base)
 git-url: https://gitlab.freedesktop.org/poppler/poppler.git
-src-url: https://poppler.freedesktop.org/poppler-26.10.0.tar.xz
-src-sha: 6792cb7c69205007ad87d2e936cecc5b3a31fac29ab54ffc3175fdb6b2a6ce35
+src-url: https://poppler.freedesktop.org/poppler-26.11.0.tar.xz
+src-sha: 41c32680160addf5a8dd7a830e4869c01e9f6bee1abb91e44fabd1ba9d7828fb
 license: GPL-2.0-only
 dep-pkg: libcairo libharfbuzz liblcms2 libtiff libjpeg-turbo libopenjpeg libcurl libgpgmepp libnss
 dep-upp: gperf python3
