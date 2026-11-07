@@ -1,5 +1,5 @@
 summary: A Swift toolchain installer and manager
-src-url: https://github.com/swiftlang/swiftly/archive/refs/tags/1.1.4.tar.gz
-src-sha: 7d7c6634bfb0852b80326297f7e952308ea25c754e71da2191afe86484e7d241
+src-url: https://github.com/swiftlang/swiftly/archive/refs/tags/1.2.0.tar.gz
+src-sha: b2b4027deae15b36830d34dce9e27a7a46ff4a9e42cc0d9b1c78a4f34fac5d91
 license: Apache-2.0
 install: swiftw --product swiftly
