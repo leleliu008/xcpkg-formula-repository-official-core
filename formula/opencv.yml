@@ -1,8 +1,8 @@
 pkgtype: lib
 summary: Open source computer vision library
 web-url: https://opencv.org/
-src-url: https://github.com/opencv/opencv/archive/refs/tags/5.0.0.tar.gz
-src-sha: b0528f5a1d379d59d4701cb28c36e22214cc51cf64594e5b56f2d3e6c0233095
+src-url: https://github.com/opencv/opencv/archive/refs/tags/5.1.0.tar.gz
+src-sha: 638c1dae7e37e45afea21aa217dc667ad7cf57acc66cdf652c074f1e0e5ad6d2
 license: Apache-2.0
 dep-pkg: libeigen libtbb libopenjpeg libopenexr libopenblas ffmpeg
 dep-upp: python3
