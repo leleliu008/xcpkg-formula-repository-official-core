@@ -1,5 +1,5 @@
 summary: The fastest macOS package manager, written in Zig
-src-url: https://github.com/justrach/nanobrew/archive/refs/tags/v0.1.215.tar.gz
-src-sha: e5611234eab5065c8bc5b0894579ef38b214351bc89c1c70dc2aa5704084d31f
+src-url: https://github.com/justrach/nanobrew/archive/refs/tags/v0.1.216.tar.gz
+src-sha: 867b2b3a0ec68367314b5f7e2ef088f82126b3203a4b364e9bb50781c7ebcf79
 license: Apache-2.0
 bsystem: zig@0.16
