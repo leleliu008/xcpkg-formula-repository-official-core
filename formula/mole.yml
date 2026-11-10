@@ -1,6 +1,6 @@
 summary: A command-line tool to do a deep clean and optimize your macOS
-src-url: https://github.com/tw93/Mole/archive/refs/tags/V1.69.0.tar.gz
-src-sha: a227fc928e5eda2ca283aee03fa7ef6162d6f13afefedea724185aa77e0ab08c
+src-url: https://github.com/tw93/Mole/archive/refs/tags/V1.70.0.tar.gz
+src-sha: 38e100862d8648c9afbe0ce78d328c1934c2774ced63ea7e6d8ecc35de377d60
 license: MIT
 
 install: |
