@@ -7,4 +7,6 @@ install: |
         -DENABLE_WERROR=OFF \
         -DENABLE_DEBUG=OFF \
         -DENABLE_ASAN=OFF \
-        -DENABLE_LIB_ONLY=OFF
+        -DENABLE_LIB_ONLY=OFF \
+        -DENABLE_SHARED_LIB=ON \
+        -DENABLE_STATIC_LIB=ON
