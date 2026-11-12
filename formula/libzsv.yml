@@ -1,4 +1,4 @@
-summary: A command-line utility for parsing CSV
+summary: The fastest CSV parser using SIMD
 src-url: https://github.com/liquidaty/zsv/archive/refs/tags/v1.4.4.tar.gz
 src-sha: 99486b6901d6b576bf15afceb0bcc888ceeb3f555a6d489547eefe67eff52079
 
