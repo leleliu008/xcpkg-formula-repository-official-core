@@ -4,7 +4,7 @@ git-url: https://code.videolan.org/rist/librist
 src-url: https://code.videolan.org/rist/librist/-/archive/v0.2.20/librist-v0.2.20.tar.gz
 src-sha: 9e40eeb87f014790531ad41326cc271b930a65962e4b15231b301fc59b29fe31
 license: BSD-2-Clause
-dep-pkg: cjson cmocka mbedtls
+dep-pkg: libcjson cmocka mbedtls
 
 install: |
     mesonw \
