@@ -1,7 +1,7 @@
 summary: A command-line tool to create a hex dump of a given file or standard input
 web-url: https://www.vim.org/
-src-url: https://github.com/vim/vim/archive/refs/tags/v9.2.1345.tar.gz
-src-sha: ddae84ef8d9e8fcca1ec6e501a41235a2466e935a27d6a95e3a84677f84b8fb4
+src-url: https://github.com/vim/vim/archive/refs/tags/v9.2.1351.tar.gz
+src-sha: f5e1c90b7d64ae3349015c514bbad89df3c92dc5115513b5b71269e7c36437da
 license: Vim
 bscript: src/xxd
 
