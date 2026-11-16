@@ -1,6 +1,6 @@
 summary: The Fast Lexical Analyzer, generates Scanners (tokenizers)
-src-url: https://github.com/westes/flex/releases/download/v2.6.13/flex-2.6.13.tar.gz
-src-sha: a54de3a79dc191d9d9a3acd07b8981be160d1be588261ef7687ccfdaeb1190ed
+src-url: https://github.com/westes/flex/releases/download/v2.6.15/flex-2.6.15.tar.gz
+src-sha: ba38801d12d38782e36f2ddd66c118aa9ed3cbed9849194c4e68d9894cd739d9
 license: BSD-2-Clause
 dep-upp: gm4
 install: configure --enable-warnings LIBS=-lm
