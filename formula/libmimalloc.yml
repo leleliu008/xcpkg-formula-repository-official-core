@@ -1,6 +1,6 @@
 summary: Compact general purpose allocator
-src-url: https://github.com/microsoft/mimalloc/archive/refs/tags/v3.7.0.tar.gz
-src-sha: 1b8653b9ff9b841a97f2c50fd996e89e1a0cb712c3c5b0980ef16a027eb7acf8
+src-url: https://github.com/microsoft/mimalloc/archive/refs/tags/v3.7.1.tar.gz
+src-sha: 8bc9f820eaf3dad3509d7930d80c40512bc51e04989641f892ee64c46b7ab0d8
 license: MIT
 
 install: |
